@@ -1,3 +1,4 @@
+//Test
 
 // ChildView.h : interface of the CChildView class
 //
