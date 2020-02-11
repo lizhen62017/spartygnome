@@ -1,4 +1,3 @@
-
 // ChildView.cpp : implementation of the CChildView class
 //
 
@@ -6,6 +5,7 @@
 #include "framework.h"
 #include "Project1.h"
 #include "ChildView.h"
+#include "DoubleBufferDC.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -46,10 +46,26 @@ BOOL CChildView::PreCreateWindow(CREATESTRUCT& cs)
 
 void CChildView::OnPaint() 
 {
-	CPaintDC dc(this); // device context for painting
+	CPaintDC paintDC(this);     ///< device context for painting
+	CDoubleBufferDC dc(&paintDC); ///< device context for painting
+	Graphics graphics(dc.m_hDC); ///< third device context for painting
+
+    /// generate a rect object to get the width and height and the current window to handle virtual pixels
+	CRect rect;
+	GetClientRect(&rect);
+
+    /// draw the GameSystem
+	mGameSystem.OnDraw(&graphics, rect.Width(), rect.Height());
+	Invalidate();
 	
-	// TODO: Add your message handler code here
-	
-	// Do not call CWnd::OnPaint() for painting messages
 }
+
+/** Function for preventing flickering while redrawing the image 
+ *
+ */
+BOOL CChildView::OnEraseBkgnd(CDC* pDC)
+{
+	return FALSE;
+}
+
 
