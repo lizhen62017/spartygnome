@@ -5,6 +5,7 @@ using namespace Gdiplus;
 
 CBackground::CBackground()
 {
+    // the image name still needs to be determined, haven't added as group consensus desired
     mImage = Bitmap::FromFile(L"../images/background.png");
     if (mImage->GetLastStatus() != Ok)
     {
