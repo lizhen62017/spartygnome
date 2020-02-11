@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "Game.h"
+#include "GameSystem.h"
 
 using namespace Gdiplus;
 using namespace std;
