@@ -31,6 +31,11 @@ public:
 	virtual ~CChildView();
 
 	// Generated message map functions
+
+// Member Variables	
+private:
+	CGameSystem mGameSystem; ///< The GameSystem class
+
 protected:
 	afx_msg void OnPaint();
 	DECLARE_MESSAGE_MAP()
