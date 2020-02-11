@@ -6,10 +6,10 @@ using namespace Gdiplus;
 CBackground::CBackground()
 {
     // the image name still needs to be determined, haven't added as group consensus desired
-    mImage = Bitmap::FromFile(L"../images/background.png");
+    mImage = Bitmap::FromFile(L"../data/images/backgroundColorDesert.png");
     if (mImage->GetLastStatus() != Ok)
     {
-        AfxMessageBox(L"Failed to open images/background.png");
+        AfxMessageBox(L"Failed to open data/images/backgroundColorDesert.png");
     }
 }
 
