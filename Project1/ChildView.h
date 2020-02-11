@@ -1,10 +1,4 @@
-//Test
-//Test -Jeremy Cowelchuk
-
-// ChildView.h : interface of the CChildView class
-//
-
-
+#include "GameSystem.h"
 #pragma once
 
 
@@ -39,5 +33,7 @@ private:
 protected:
 	afx_msg void OnPaint();
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 };
 
