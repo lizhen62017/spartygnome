@@ -8,6 +8,5 @@ public:
 
 private:
 	Gdiplus::Bitmap* mImage;
-	float mScale;
 };
 
