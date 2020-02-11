@@ -19,7 +19,7 @@ void CBackground::OnDraw(Gdiplus::Graphics* graphics,double scrollX)
     int hit = mImage->GetHeight();
 
     // draw the background tiled over a distance.  This needs to be figured out more
-    depending on the length of the level.
+   // depending on the length of the level.
     graphics->DrawImage(mImage, -wid/2 + scrollX, 0, wid, hit);
     graphics->DrawImage(mImage, wid/2-1 + scrollX, 0, wid, hit);
     graphics->DrawImage(mImage, 1.5 * wid - 2 + scrollX, 0, wid, hit);
