@@ -30,10 +30,17 @@ public:
 private:
 	CGameSystem mGameSystem; ///< The GameSystem class
 
+	/// True until the first time we draw
+	bool mFirstDraw = true;
+
+	long long mLastTime = 0;    ///< Last time we read the timer
+	double mTimeFreq = 0;       ///< Rate the timer updates
+
 protected:
 	afx_msg void OnPaint();
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 };
 
