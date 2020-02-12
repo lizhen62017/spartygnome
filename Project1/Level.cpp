@@ -43,7 +43,7 @@ void CLevel::Load(const std::wstring& filename)
         {
             if (node->GetType() == NODE_ELEMENT && node->GetName() == L"item")
             {
-                ///ADD GETTING ITEM HERE
+                ///ADD LOADING ITEM HERE
             }
         }
 

@@ -17,10 +17,14 @@ namespace Testing
 			::SetCurrentDirectory(g_dir);
 		}
 		
-		TEST_METHOD(TestNothing)
+		TEST_METHOD(TestCLevelConstruct)
 		{
-			
+			CLevel level0;
 		}
 
+		TEST_METHOD_INITIALIZE(TestCLevelLoading)
+		{
+
+		}
 	};
 }
