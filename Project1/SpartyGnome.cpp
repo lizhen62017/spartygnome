@@ -21,10 +21,9 @@ CSpartyGnome::CSpartyGnome()
 
 
 /**
- * 
  * \param graphics The graphic SpartyGnome is being drawn on
  */
-void CSpartyGnome::OnDraw(Gdiplus::Graphics* graphics)
+void CSpartyGnome::Draw(Gdiplus::Graphics* graphics)
 {
     if (mImage != nullptr)
     {
@@ -33,4 +32,16 @@ void CSpartyGnome::OnDraw(Gdiplus::Graphics* graphics)
 
         graphics->DrawImage(mImage, mX, mY, wid, hit);
     }
+}
+
+
+/**
+ * Sets SpartyGnome location
+ * \param x New X location
+ * \param y New Y location
+ */
+void CSpartyGnome::SetLocation(double x, double y)
+{
+    mX = x;
+    mY = y;
 }

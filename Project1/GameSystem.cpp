@@ -23,6 +23,6 @@ void CGameSystem::OnDraw(Gdiplus::Graphics* graphics,int width, int height)
     int xOffset = 0;
 
     mBackground.OnDraw(graphics,xOffset);
-    mGnome.OnDraw(graphics);
+    mGnome.Draw(graphics);
 
 }
