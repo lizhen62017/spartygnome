@@ -1,4 +1,5 @@
 #include "Background.h"
+#include "SpartyGnome.h"
 
 #pragma once
 class CGameSystem
@@ -9,6 +10,7 @@ public:
 
 private:
 	CBackground mBackground;
+	CSpartyGnome mGnome;
 	float mScale;
 };
 

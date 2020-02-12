@@ -3,6 +3,10 @@
 
 using namespace Gdiplus;
 
+
+/**
+ * Constructor for spartGnome
+ */
 CSpartyGnome::CSpartyGnome()
 {
     mImage = Bitmap::FromFile(L"../data/images/gnome.png");
@@ -13,4 +17,20 @@ CSpartyGnome::CSpartyGnome()
     // Will need to update to starting platform
     mX = 512;
     mY = 512;
+}
+
+
+/**
+ * 
+ * \param graphics The graphic SpartyGnome is being drawn on
+ */
+void CSpartyGnome::OnDraw(Gdiplus::Graphics* graphics)
+{
+    if (mImage != nullptr)
+    {
+        int wid = mImage->GetWidth();
+        int hit = mImage->GetHeight();
+
+        graphics->DrawImage(mImage, mX, mY, wid, hit);
+    }
 }
