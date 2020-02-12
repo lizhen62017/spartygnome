@@ -45,6 +45,9 @@
     <ClInclude Include="SpartyGnome.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="XmlNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Project1.cpp">
@@ -66,6 +69,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SpartyGnome.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
