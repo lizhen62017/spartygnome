@@ -14,6 +14,9 @@
 
 using namespace Gdiplus;
 
+/// Frame duration in milliseconds
+const int FrameDuration = 30;
+
 
 // CChildView
 
@@ -30,6 +33,7 @@ BEGIN_MESSAGE_MAP(CChildView, CWnd)
 	ON_WM_PAINT()
 	ON_WM_LBUTTONDOWN()
 	ON_WM_ERASEBKGND()
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
@@ -58,8 +62,32 @@ void CChildView::OnPaint()
 	CRect rect;
 	GetClientRect(&rect);
 
+	if (mFirstDraw)
+	{
+		mFirstDraw = false;
+		SetTimer(1, FrameDuration, nullptr);
+
+		/*
+		* Initialize the elapsed time system
+		*/
+		LARGE_INTEGER time, freq;
+		QueryPerformanceCounter(&time);
+		QueryPerformanceFrequency(&freq);
+
+		mLastTime = time.QuadPart;
+		mTimeFreq = double(freq.QuadPart);
+	}
+
+	/*
+	* Compute the elapsed time since the last draw
+	*/
+	LARGE_INTEGER time;
+	QueryPerformanceCounter(&time);
+	long long diff = time.QuadPart - mLastTime;
+	double elapsed = double(diff) / mTimeFreq;
+	mLastTime = time.QuadPart;
+
 	mGameSystem.OnDraw(&graphics, rect.Width(), rect.Height());
-	Invalidate();
 
 	// Do not call CWnd::OnPaint() for painting messages
 }
@@ -67,4 +95,16 @@ void CChildView::OnPaint()
 BOOL CChildView::OnEraseBkgnd(CDC* pDC)
 {
 	return FALSE;
+}
+
+
+
+/**
+ * Handle timer events
+ * \param nIDEvent The timer event ID
+ */
+void CChildView::OnTimer(UINT_PTR nIDEvent)
+{
+	Invalidate();
+	CWnd::OnTimer(nIDEvent);
 }
