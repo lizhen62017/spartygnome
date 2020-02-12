@@ -14,6 +14,11 @@ private:
 	boolean isJumping = false;
 	/// Image for gnome
 	Gdiplus::Bitmap* mImage;
+	/// X velocity
+	double mVx = 0;
+	/// Y velocity
+	double mVy = 0;
+
 
 
 public:
@@ -23,13 +28,25 @@ public:
 
 	void SetLocation(double x, double y);
 
-	/**  Finds gnomes x location
+	/**  Finds gnome's x location
 	* \reutrn x location */
 	double GetX() { return mX; }
 
-	/**  Finds gnomes y location
+	/**  Finds gnome's y location
 	* \reutrn y location */
 	double GetY() { return mY; }
+
+	void Update(double elapsed);
+
+	void SetVel(double x, double y);
+
+	/**  Finds gnome's x velocity
+	* \reutrn x velocity */
+	double GetX() { return mVx; }
+
+	/**  Finds gnome's y velocity
+	* \reutrn y velocity */
+	double GetY() { return mVy; }
 
 };
 
