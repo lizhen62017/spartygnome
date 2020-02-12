@@ -29,6 +29,17 @@ public:
     void Clear();
 
 private:
+    /// Level width in virtual pixels
+    double mWidth;
+
+    /// Level hieght in virtual pixels
+    double mHeight;
+
+    /// Initial starting point for SpartyGnome on X-axis
+    double mStartX;
+
+    /// Initial starting point for SpartyGnome on Y-axis
+    double mStartY;
 
     /// All of the items populating the level
     std::vector<std::shared_ptr<CItem>> mItems;
