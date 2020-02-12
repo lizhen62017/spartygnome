@@ -22,9 +22,5 @@ namespace Testing
 			CLevel level0;
 		}
 
-		TEST_METHOD_INITIALIZE(TestCLevelLoading)
-		{
-
-		}
 	};
 }
