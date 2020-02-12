@@ -52,34 +52,12 @@ void CSpartyGnome::Draw(Gdiplus::Graphics* graphics)
     }
 }
 
-
-/**
- * Sets SpartyGnome location
- * \param x New X location
- * \param y New Y location
- */
-void CSpartyGnome::SetLocation(double x, double y)
-{
-    mX = x;
-    mY = y;
-}
-
-/**
- * Sets SpartyGnome velocity
- * \param x New X velocity
- * \param y New Y velocity
- */
-void CSpartyGnome::SetVel(double x, double y)
-{
-    mVx = x;
-    mVy = y;
-}
-
 /**
 * Updates SpartyGnome's location
 * \param elapsed elapsed time since last update
 */
 void CSpartyGnome::Update(double elapsed)
 {
-
+    SetLocX(elapsed*GetVelX());
+    SetLocY(elapsed*GetVelY());
 }

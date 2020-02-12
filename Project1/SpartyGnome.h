@@ -26,7 +26,13 @@ public:
 
 	void Draw(Gdiplus::Graphics* graphics);
 
-	void SetLocation(double x, double y);
+	/**  Sets gnome's x location
+	* \param New x location */
+	void SetLocX(double x) { mX = x; }
+
+	/**  Sets gnome's y location
+	* \param New y location */
+	void SetLocY(double y) { mY = y; }
 
 	/**  Finds gnome's x location
 	* \reutrn x location */
@@ -36,17 +42,23 @@ public:
 	* \reutrn y location */
 	double GetY() { return mY; }
 
-	void Update(double elapsed);
+	/**  Sets gnome's x velocity
+	* \param New x velocity */
+	void SetVelX(double x) { mVx = x; }
 
-	void SetVel(double x, double y);
+	/**  Sets gnome's y velocity
+	* \param New y velocity */
+	void SetVelY(double y) { mVy = y; }
 
 	/**  Finds gnome's x velocity
 	* \reutrn x velocity */
-	double GetX() { return mVx; }
+	double GetVelX() { return mVx; }
 
 	/**  Finds gnome's y velocity
 	* \reutrn y velocity */
-	double GetY() { return mVy; }
+	double GetVelY() { return mVy; }
+
+	void Update(double elapsed);
 
 };
 

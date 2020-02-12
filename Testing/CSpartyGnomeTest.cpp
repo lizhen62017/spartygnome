@@ -23,9 +23,10 @@ namespace Testing
 
 			Assert::IsTrue(gnome.GetX() == 512, L"Correct Test");
 			Assert::IsTrue(gnome.GetY() == 512, L"Correct Test");
-			gnome.SetLocation(600,700);
-			Assert::IsFalse(gnome.GetX() == 512, L"Correct Test");
-			Assert::IsFalse(gnome.GetY() == 512, L"Correct Test");
+			gnome.SetLocX(600);
+			gnome.SetLocY(700);
+			Assert::IsFalse(gnome.GetX() == 512, L"Incorrect Test");
+			Assert::IsFalse(gnome.GetY() == 512, L"Incorrect Test");
 		}
 
 	};
