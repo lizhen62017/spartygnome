@@ -7,5 +7,8 @@ private:
 	boolean isJumping = false;
 	Gdiplus::Bitmap* mImage;
 
+public:
+	CSpartyGnome();
+
 };
 
