@@ -27,6 +27,8 @@ public:
 
     CLevel(const std::wstring& filename);
 
+    void CLevel::Add(std::shared_ptr<CItem> item);
+
     void Load(const std::wstring& filename);
 
     void Clear();

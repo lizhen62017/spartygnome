@@ -21,6 +21,14 @@ CLevel::CLevel(const std::wstring& filename)
     Load(filename);
 }
 
+/** Add an item to the level
+ * \param item New item to add
+ */
+void CLevel::Add(std::shared_ptr<CItem> item)
+{
+    mItems.push_back(item);
+}
+
 
 /**
  * Loads a level from an Xml file
@@ -101,9 +109,10 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
     // A pointer for the item we are loading
     shared_ptr<CItem> item;
 
+
     if (item != nullptr)
     {
-    ///    item->XmlLoad(node); FIX LATER
-    ///    Add(item); /// FIX LATER
+        ///item->XmlLoad(node);
+       /// Add(item); /// FIX LATER
     }
 }

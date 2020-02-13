@@ -28,7 +28,7 @@ namespace Testing
 			CLevel level0(path);
 		}
 
-		TEST_METHOD(TestCevelLoading)
+		TEST_METHOD(TestCLevelLoading)
 		{
 			std::wstring path = L"../Project1/data/levels/level0.xml";
 			CLevel level0(path);

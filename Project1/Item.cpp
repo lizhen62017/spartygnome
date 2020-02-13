@@ -20,7 +20,7 @@ using namespace std;
 CItem::CItem(CLevel* level, const std::wstring& filename) :
 	mLevel(level)
 {
-	mItemImage = unique_ptr<Bitmap>(Bitmap::FromFile(filename.c_str()));
+	mItemImage = unique_ptr<Bitmap>(Bitmap::FromFile(filename.c_str())); ///FIXME some items have multiple images at the same time (platform)
 	if (mItemImage->GetLastStatus() != Ok)
 	{
 		wstring msg(L"Failed to open ");
