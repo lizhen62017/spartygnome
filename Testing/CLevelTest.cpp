@@ -29,7 +29,19 @@ namespace Testing
 
 		TEST_METHOD(TestCevelLoading)
 		{
+			std::wstring path = L"../Project1/data/levels/level0.xml";
 			CLevel level0;
+			double width = 1024;
+			double height = 1024;
+			double startX = 468;
+			double startY = 572;
+
+			level0.Load(path);
+
+			Assert::IsTrue(level0.GetWidth() == 1024);
+			Assert::IsTrue(level0.GetHeight() == 1024);
+			Assert::IsTrue(level0.GetStartX() == 468);
+			Assert::IsTrue(level0.GetStartY() == 572);
 		}
 	};
 }
