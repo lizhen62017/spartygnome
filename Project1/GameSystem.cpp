@@ -4,25 +4,22 @@
 using namespace Gdiplus;
 using namespace std;
 
-void CGameSystem::OnDraw(Gdiplus::Graphics* graphics,int width, int height)
+void CGameSystem::Draw(Gdiplus::Graphics* graphics,int width, int height)
 {
     //
     // Automatic Scaling
     //
-    mScale = float(height) / float(mBackground.GetImageHeight());
+    mScale = float(height) / float(2000);
     graphics->ScaleTransform(mScale, mScale);
 
     // Determine the virtual width
     auto virtualWidth = (float)width / mScale;
 
+    auto xOffset = (float)-mGnome.GetX() + virtualWidth / 2.0f;
 
+    // all drawing needs to be below here to allow for virtual pixels
 
-    // Compute the amount to scroll in the X dimension
-  //  auto xOffset = (float)-gnome->GetX() + virtualWidth / 2.0f;
-
-    int xOffset = 0;
-
-    mBackground.OnDraw(graphics,xOffset);
     mGnome.Draw(graphics);
+
 
 }
