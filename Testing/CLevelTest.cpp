@@ -24,14 +24,14 @@ namespace Testing
 		
 		TEST_METHOD(TestCLevelConstruct)
 		{
-			CLevel level0;
+			std::wstring path = L"../Project1/data/levels/level0.xml";
+			CLevel level0(path);
 		}
 
 		TEST_METHOD(TestCevelLoading)
 		{
 			std::wstring path = L"../Project1/data/levels/level0.xml";
-			CLevel level0;
-			level0.Load(path);
+			CLevel level0(path);
 
 			double width = 1024;
 			double height = 1024;

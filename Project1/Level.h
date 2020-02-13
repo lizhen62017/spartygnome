@@ -22,7 +22,10 @@ class CItem;
 class CLevel
 {
 public:
-    CLevel();
+    
+    CLevel() = delete;
+
+    CLevel(const std::wstring& filename);
 
     void Load(const std::wstring& filename);
 

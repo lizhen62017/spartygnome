@@ -13,10 +13,11 @@ using namespace xmlnode;
 
 /**
  * Level Constructor
+ * \param flename The name of the file the level is loaded from
  */
-CLevel::CLevel()
+CLevel::CLevel(const std::wstring& filename)
 {
-    //Insert Level Constructor here, MAY DISABLE NORMAL CONSTRUCTOR TO REQUIRE FILENAME
+    Load(filename);
 }
 
 
@@ -66,7 +67,10 @@ void CLevel::Load(const std::wstring& filename)
 
             if (node->GetType() == NODE_ELEMENT && node->GetName() == L"items")
             {
+                for (auto item : node->GetChildren())
+                {
 
+                }
             }
         }
 
