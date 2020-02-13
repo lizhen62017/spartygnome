@@ -22,6 +22,7 @@ class CGameSystem
 public:
     /// Draws
 	void Draw(Gdiplus::Graphics* graphics, int width, int height);
+    CSpartyGnome* GetGnome() { return &mGnome; }
 
 private:
     CSpartyGnome mGnome;
