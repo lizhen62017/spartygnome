@@ -93,10 +93,14 @@ void CLevel::Load(const std::wstring& filename)
 
 
 /**
- * Clears level item vector
+ * Clears the level
  */
 void CLevel::Clear()
 {
+    mWidth = 0;
+    mHeight = 0;
+    mStartX = 0;
+    mStartY = 0;
     mItems.clear();
 }
 
@@ -109,6 +113,49 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
     // A pointer for the item we are loading
     shared_ptr<CItem> item;
 
+    std::wstring type = node->GetName();
+
+    if (type == L"background")
+    {
+        ///TODO
+    }
+
+    else if (type == L"platform")
+    {
+        ///TODO
+    }
+
+    else if (type == L"wall")
+    {
+        ///TODO
+    }
+
+    else if (type == L"money")
+    {
+        ///TODO
+    }
+
+    else if (type == L"tuition-up")
+    {
+        ///TODO
+    }
+
+    else if (type == L"door")
+    {
+        ///TODO
+    }
+
+    else if (type == L"villain")
+    {
+        ///TODO
+    }
+    
+    /**
+    else if (type == L"TEAMITEMHERE")
+    {
+        /// TODO when we add teamitem
+    }
+    */
 
     if (item != nullptr)
     {
