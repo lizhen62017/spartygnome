@@ -68,6 +68,8 @@ private:
     /// All of the items populating the level
     std::vector<std::shared_ptr<CItem>> mItems;
 
+    void XmlDeclaration(const std::shared_ptr<xmlnode::CXmlNode>& node);
+
     void XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node);
 
 };

@@ -70,7 +70,7 @@ void CLevel::Load(const std::wstring& filename)
             {
                 for (auto declaration : node->GetChildren())
                 {
-                    
+                    XmlDeclaration(declaration);
                 }
             }
 
@@ -102,6 +102,15 @@ void CLevel::Clear()
     mStartX = 0;
     mStartY = 0;
     mItems.clear();
+}
+
+/**
+* Handle a declaration node.
+* \param node Pointer to XML node we are handling
+*/
+void CLevel::XmlDeclaration(const std::shared_ptr<xmlnode::CXmlNode>& node)
+{
+
 }
 
 /**
