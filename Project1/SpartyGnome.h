@@ -1,4 +1,13 @@
+/**
+ * \file SpartyGnome.h
+ *
+ * \author Robert Gustke
+ *
+ * Class for the game's SpartyGnome
+ */
+
 #pragma once
+#include<memory>
 
 /**
  * SpartyGnome to play the game
@@ -15,9 +24,11 @@ private:
 	/// Image for gnome
 	Gdiplus::Bitmap* mImage;
 	/// X velocity
-	double mVx = 0;
+	double mVx = 200;
 	/// Y velocity
 	double mVy = 0;
+	/// The supported image states
+	enum class ImageStates { Base, Left1, Left2, Right1, Right2 };
 
 
 

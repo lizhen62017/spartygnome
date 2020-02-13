@@ -58,6 +58,6 @@ void CSpartyGnome::Draw(Gdiplus::Graphics* graphics)
 */
 void CSpartyGnome::Update(double elapsed)
 {
-    SetLocX(elapsed*GetVelX());
-    SetLocY(elapsed*GetVelY());
+    SetLocX(mX+elapsed*GetVelX());
+    SetLocY(mY+elapsed*GetVelY());
 }
