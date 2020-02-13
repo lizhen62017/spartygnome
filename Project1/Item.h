@@ -12,6 +12,8 @@
 #include <memory>
 #include <string>
 
+#include "XmlNode.h"
+
 class CLevel;
 
 /**
@@ -60,6 +62,8 @@ public:
 	/// Get the height of the item
 	/// \returns item height
 	int GetHeight() const { return mItemImage->GetHeight(); }
+
+	virtual void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node);
 
 protected:
 	CItem(CLevel* level, const std::wstring& filename);

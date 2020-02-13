@@ -53,3 +53,13 @@ void CItem::Draw(Gdiplus::Graphics* graphics)
 		(float)mItemImage->GetWidth(), (float)mItemImage->GetHeight());
 }
 
+/**
+ * Loads attributes for an item node
+ * \param node The Xml node we are loading from
+ */
+void CItem::XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node)
+{
+    mX = node->GetAttributeDoubleValue(L"x", 0);
+    mY = node->GetAttributeDoubleValue(L"y", 0);
+}
+

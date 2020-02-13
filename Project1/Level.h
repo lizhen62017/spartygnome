@@ -60,6 +60,9 @@ private:
     /// Initial starting point for SpartyGnome on Y-axis
     double mStartY;
 
+    /// All of the item declarations
+    
+
     /// All of the items populating the level
     std::vector<std::shared_ptr<CItem>> mItems;
 
