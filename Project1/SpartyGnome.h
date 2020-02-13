@@ -24,7 +24,7 @@ private:
 	/// Image for gnome
 	Gdiplus::Bitmap* mImage;
 	/// X velocity
-	double mVx = 200;
+	double mVx = 0;
 	/// Y velocity
 	double mVy = 0;
 	/// The supported image states

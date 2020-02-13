@@ -33,6 +33,8 @@ BEGIN_MESSAGE_MAP(CChildView, CWnd)
 	ON_WM_LBUTTONDOWN()
 	ON_WM_ERASEBKGND()
 	ON_WM_TIMER()
+	ON_WM_KEYDOWN()
+	ON_WM_KEYUP()
 END_MESSAGE_MAP()
 
 
@@ -108,4 +110,35 @@ void CChildView::OnTimer(UINT_PTR nIDEvent)
 {
 	Invalidate();
 	CWnd::OnTimer(nIDEvent);
+}
+
+
+void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
+{
+	switch (nChar)
+	{
+	case VK_RIGHT:
+		mGameSystem.GetGnome()->SetVelX(200);
+		break;
+
+	case VK_LEFT:
+		mGameSystem.GetGnome()->SetVelX(-200);
+		break;
+
+	case VK_SPACE:
+		// space bar pressed
+		break;
+	}
+}
+
+
+void CChildView::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
+{
+	switch (nChar)
+	{
+	case VK_RIGHT:
+	case VK_LEFT:
+		mGameSystem.GetGnome()->SetVelX(0);
+		break;
+	}
 }
