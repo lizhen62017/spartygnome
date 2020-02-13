@@ -47,6 +47,8 @@ public:
      * \return level start position y value */
     double GetStartY() { return mStartY; }
 
+    void XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node);
+
 private:
     /// Level width in virtual pixels
     double mWidth;

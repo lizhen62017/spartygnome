@@ -7,6 +7,7 @@
 #include "pch.h"
 #include "Level.h"
 
+
 using namespace std;
 using namespace xmlnode;
 
@@ -61,7 +62,7 @@ void CLevel::Load(const std::wstring& filename)
             {
                 for (auto declaration : node->GetChildren())
                 {
-
+                    
                 }
             }
 
@@ -69,7 +70,7 @@ void CLevel::Load(const std::wstring& filename)
             {
                 for (auto item : node->GetChildren())
                 {
-
+                    XmlItem(item);
                 }
             }
         }
@@ -89,4 +90,20 @@ void CLevel::Load(const std::wstring& filename)
 void CLevel::Clear()
 {
     mItems.clear();
+}
+
+/**
+* Handle an item node.
+* \param node Pointer to XML node we are handling
+*/
+void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
+{
+    // A pointer for the item we are loading
+    shared_ptr<CItem> item;
+
+    if (item != nullptr)
+    {
+    ///    item->XmlLoad(node); FIX LATER
+    ///    Add(item); /// FIX LATER
+    }
 }
