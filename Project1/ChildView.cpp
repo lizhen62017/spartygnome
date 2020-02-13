@@ -1,4 +1,3 @@
-
 // ChildView.cpp : implementation of the CChildView class
 //
 
@@ -87,7 +86,7 @@ void CChildView::OnPaint()
 	double elapsed = double(diff) / mTimeFreq;
 	mLastTime = time.QuadPart;
 
-	mGameSystem.OnDraw(&graphics, rect.Width(), rect.Height());
+	mGameSystem.Draw(&graphics, rect.Width(), rect.Height());
 
 	// Do not call CWnd::OnPaint() for painting messages
 }
