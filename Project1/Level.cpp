@@ -35,13 +35,16 @@ void CLevel::Load(const std::wstring& filename)
         // Once we know it is open, clear the existing data
         Clear();
 
+        // Load Level parameters
+        mWidth = root->GetAttributeDoubleValue(L"width", 0);
+
         //
         // Traverse the children of the root
         // node of the XML document in memory!!!!
         //
         for (auto node : root->GetChildren())
         {
-            if (node->GetType() == NODE_ELEMENT && node->GetName() == L"item")
+            if (node->GetType() == NODE_ELEMENT && node->GetName() == L"declarations")
             {
                 ///ADD LOADING ITEM HERE
             }

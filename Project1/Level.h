@@ -28,6 +28,22 @@ public:
 
     void Clear();
 
+    /**  Getter for level width
+     * \return level width */
+    double GetWidth() { return mWidth; }
+
+    /**  Getter for level height
+     * \return level height */
+    double GetHeight() { return mHeight; }
+
+    /**  Getter for level start position x value
+     * \return level start position x value */
+    double GetStartX() { return mStartX; }
+
+    /**  Getter for level start position y value
+     * \return level start position y value */
+    double GetStartY() { return mStartY; }
+
 private:
     /// Level width in virtual pixels
     double mWidth;

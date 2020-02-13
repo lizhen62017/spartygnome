@@ -3,6 +3,11 @@
 
 #include "Level.h"
 
+#include <regex>
+#include <string>
+#include <fstream>
+#include <streambuf>
+
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace Testing
@@ -22,5 +27,9 @@ namespace Testing
 			CLevel level0;
 		}
 
+		TEST_METHOD(TestCevelLoading)
+		{
+			CLevel level0;
+		}
 	};
 }
