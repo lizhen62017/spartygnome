@@ -43,13 +43,13 @@ CItem::~CItem()
  * Draw this item
  * \param graphics Graphics device to draw on
  */
-void CItem::Draw(Gdiplus::Graphics* graphics)
+void CItem::Draw(Gdiplus::Graphics* graphics, int scrollX)
 {
 	double wid = mItemImage->GetWidth();
 	double hit = mItemImage->GetHeight();
 
 	graphics->DrawImage(mItemImage.get(),
-		float(GetX() - wid / 2), float(GetY() - hit / 2),
+		float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
 		(float)mItemImage->GetWidth(), (float)mItemImage->GetHeight());
 }
 

@@ -49,7 +49,7 @@ public:
 
 	/// Draw this item
 	/// \param graphics Graphics device to draw on
-	void Draw(Gdiplus::Graphics* graphics);
+	void Draw(Gdiplus::Graphics* graphics, int scrollX);
 
 	/// Handle updates for animation
 	/// \param elapsed The time since the last update

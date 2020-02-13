@@ -24,7 +24,7 @@ public:
 	void Draw(Gdiplus::Graphics* graphics, int width, int height);
 
 private:
-	CSpartyGnome mGnome;
+    CSpartyGnome mGnome;
 	float mScale;
 	CLevel mLevel0 = CLevel(L"../Project1/data/levels/level0.xml");
 };
