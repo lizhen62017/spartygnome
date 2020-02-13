@@ -14,9 +14,9 @@ using namespace xmlnode;
 /**
  * Level Constructor
  */
-CLevel::CLevel() 
+CLevel::CLevel()
 {
-//Insert Level Constructor here, MAY DISABLE NORMAL CONSTRUCTOR TO REQUIRE FILENAME
+    //Insert Level Constructor here, MAY DISABLE NORMAL CONSTRUCTOR TO REQUIRE FILENAME
 }
 
 
@@ -24,7 +24,7 @@ CLevel::CLevel()
  * Loads a level from an Xml file
  * \param filename The name of the file the level is loaded from
  */
-void CLevel::Load(const std::wstring& filename) 
+void CLevel::Load(const std::wstring& filename)
 {
     // We surround with a try/catch to handle errors
     try
@@ -58,7 +58,15 @@ void CLevel::Load(const std::wstring& filename)
         {
             if (node->GetType() == NODE_ELEMENT && node->GetName() == L"declarations")
             {
-                ///ADD LOADING ITEM HERE
+                for (auto declaration : node->GetChildren())
+                {
+
+                }
+            }
+
+            if (node->GetType() == NODE_ELEMENT && node->GetName() == L"items")
+            {
+
             }
         }
 
