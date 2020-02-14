@@ -56,6 +56,9 @@ BOOL CChildView::PreCreateWindow(CREATESTRUCT& cs)
 	return TRUE;
 }
 
+/**
+ * The function for painting the window and setting up the Update function
+ */
 void CChildView::OnPaint()
 {
 	CPaintDC paintDC(this);     // device context for painting
@@ -97,6 +100,11 @@ void CChildView::OnPaint()
 	// Do not call CWnd::OnPaint() for painting messages
 }
 
+/**
+ * A function for preventing the screen flicker on invalidate() calls
+ * \param pDC the CDC object
+ * \returns FALSE
+ */
 BOOL CChildView::OnEraseBkgnd(CDC* pDC)
 {
 	return FALSE;
@@ -115,6 +123,12 @@ void CChildView::OnTimer(UINT_PTR nIDEvent)
 }
 
 
+/**
+ * The function for handling which key is pressed
+ * \param nChar The key pressed
+ * \param nRepCnt 
+ * \param nFlags 
+ */
 void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	switch (nChar)
@@ -134,6 +148,12 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 }
 
 
+/**
+ * The function for handling when a key is no longer pressed
+ * \param nChar the key being released
+ * \param nRepCnt 
+ * \param nFlags 
+ */
 void CChildView::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	switch (nChar)
