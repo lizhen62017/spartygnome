@@ -18,6 +18,7 @@
 class CSpartyGnome
 {
 private:
+	/// Dunno if mX mY are necessary any more
 	/// X location of gnome
 	double mX;
 	/// Y location of gnome
