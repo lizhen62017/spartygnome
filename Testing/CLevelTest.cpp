@@ -45,9 +45,9 @@ namespace Testing
 			Assert::IsTrue(level0.GetStartY() == 572);
 		}
 
-		void TestPlatformLoading()
+		void TestDeclarationLoading(CLevel* level0)
 		{
-
+			CDeclaration background = level0->GetDeclaration(L"i001");
 		}
 	};
 

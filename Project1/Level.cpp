@@ -168,6 +168,8 @@ void CLevel::XmlDeclaration(const std::shared_ptr<xmlnode::CXmlNode>& node)
             mDeclarations.insert({ id, declaration });
 
         }
+
+        // Item is basic
         else 
         {
             CDeclaration declaration;
