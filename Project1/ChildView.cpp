@@ -124,7 +124,7 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		break;
 
 	case VK_LEFT:
-		mGameSystem.GetGnome()->SetVelX(HorizontalSpeed);
+		mGameSystem.GetGnome()->SetVelX(-HorizontalSpeed);
 		break;
 
 	case VK_SPACE:
