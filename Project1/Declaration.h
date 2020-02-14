@@ -12,7 +12,9 @@
 class CDeclaration
 {
 public:
+    void AddImage(Gdiplus::Bitmap* image);
 
+    Gdiplus::Bitmap* GetImage(int index);
 
 private:
 	/// Images for declaration
