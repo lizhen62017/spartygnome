@@ -144,6 +144,7 @@ void CLevel::XmlDeclaration(const std::shared_ptr<xmlnode::CXmlNode>& node)
         Bitmap* rightImage = ImageLoad(rightFile);
 
         CDeclaration declaration;
+        declaration.SetType(type);
         declaration.AddImage(leftImage);
         declaration.AddImage(midImage);
         declaration.AddImage(rightImage);
@@ -162,6 +163,7 @@ void CLevel::XmlDeclaration(const std::shared_ptr<xmlnode::CXmlNode>& node)
         if (type == L"money") 
         {
             CMoneyDeclaration declaration;
+            declaration.SetType(type);
             double value = node->GetAttributeDoubleValue(L"value", 0);
             declaration.SetValue(value);
             declaration.AddImage(image);
@@ -173,6 +175,7 @@ void CLevel::XmlDeclaration(const std::shared_ptr<xmlnode::CXmlNode>& node)
         else 
         {
             CDeclaration declaration;
+            declaration.SetType(type);
             declaration.AddImage(image);
             mDeclarations.insert({ id, declaration });
         }
