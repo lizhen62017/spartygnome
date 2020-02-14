@@ -230,6 +230,12 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
     }
 }
 
+
+/**
+ * Loads an image for XmlDeclaration function
+ * \param filename The name  file name of the specific image
+ * \returns A pointer to the image we want
+ */
 Gdiplus::Bitmap* CLevel::ImageLoad(std::wstring filename)
 {
     // Get image file path

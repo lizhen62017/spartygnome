@@ -9,6 +9,10 @@
 #pragma once
 #include <vector>
 
+
+/**
+ * Class representing a declaration used for item loading
+ */
 class CDeclaration
 {
 public:
