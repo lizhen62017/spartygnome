@@ -24,13 +24,13 @@ namespace Testing
 		
 		TEST_METHOD(TestCLevelConstruct)
 		{
-			std::wstring path = L"../Project1/data/levels/level0.xml";
+			std::wstring path = L"data/levels/level0.xml";
 			CLevel level0(path);
 		}
 
 		TEST_METHOD(TestCLevelLoading)
 		{
-			std::wstring path = L"../Project1/data/levels/level0.xml";
+			std::wstring path = L"data/levels/level0.xml";
 			CLevel level0(path);
 
 			double width = 1024;
@@ -47,7 +47,7 @@ namespace Testing
 
 		TEST_METHOD(TestDeclarationLoading)
 		{
-			std::wstring path = L"../Project1/data/levels/level0.xml";
+			std::wstring path = L"data/levels/level0.xml";
 			CLevel level0(path);
 
 			CDeclaration background = level0.GetDeclaration(L"i001");

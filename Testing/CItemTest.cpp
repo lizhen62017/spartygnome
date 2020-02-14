@@ -19,7 +19,7 @@ namespace Testing
 		
 		TEST_METHOD(TestCItemConstruct)
 		{
-			std::wstring path = L"../Project1/data/levels/level0.xml";
+			std::wstring path = L"data/levels/level0.xml";
 			CLevel level0(path);
 
 			CItem item(&level0, path);
