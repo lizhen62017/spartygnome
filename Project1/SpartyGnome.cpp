@@ -4,11 +4,14 @@
  * \author Robert Gustke
  */
 
+#include <string>
 #include "pch.h"
 #include "SpartyGnome.h"
 
 using namespace Gdiplus;
+using namespace std;
 
+const wstring ImageName = L"data/images/gnome.png"; ///< please change this to several animation pictures in sprint 2
 
 /// Gravity in virtual pixels per second per second
 const double Gravity = 1000.0;
@@ -27,14 +30,11 @@ const double Epsilon = 0.01;
  */
 CSpartyGnome::CSpartyGnome()
 {
-    mImage = Bitmap::FromFile(L"data/images/gnome.png");
+    mImage = unique_ptr<Bitmap>(Bitmap::FromFile(ImageName.c_str()));
     if (mImage->GetLastStatus() != Ok)
     {
         AfxMessageBox(L"Failed to open data/images/gnome.png");
     }
-    // Will need to update to starting platform
-    mX = 512;
-    mY = 512;
 }
 
 
@@ -48,7 +48,9 @@ void CSpartyGnome::Draw(Gdiplus::Graphics* graphics)
         int wid = mImage->GetWidth();
         int hit = mImage->GetHeight();
 
-        graphics->DrawImage(mImage, mX, mY, wid, hit);
+        graphics->DrawImage(mImage.get(),
+            float(mP.X() - wid / 2), float(mP.Y() - hit / 2),
+            (float)mImage->GetWidth(), (float)mImage->GetHeight());
     }
 }
 
@@ -58,7 +60,66 @@ void CSpartyGnome::Draw(Gdiplus::Graphics* graphics)
 */
 void CSpartyGnome::Update(double elapsed)
 {
-    SetLocX(mX+elapsed*mVx);
-    SetLocY(mY+elapsed*mVy);
+    // Gravity
+    // Compute a new velocity with gravity added in.
+    CVector newV(mV.X(), mV.Y() + Gravity * elapsed);
 
+    // Update position
+    CVector newP = mP + newV * elapsed;
+
+    mV = newV;
+    mP = newP;
+
+    /*
+    auto collided = GetLevel()->CollisionTest(this);
+    if (collided != nullptr)
+    {
+        if (newV.Y() > 0)
+        {
+            // We are falling, stop at the collision point
+            newP.SetY(collided->GetY() - 32 - Epsilon);
+        }
+        else
+        {
+            // We are rising, stop at the collision point
+            newP.SetY(collided->GetY() + 32 + Epsilon);
+
+        }
+
+        // If we collide, we cancel any velocity
+        // in the Y direction
+        newV.SetY(0);
+        newV.SetX(500);
+    }
+
+    //
+    // Try updating the X location
+    //
+    mP.SetX(newP.X());
+    mP.SetY(mP.Y());
+
+    collided = GetLevel()->CollisionTest(this);
+    if (collided != nullptr)
+    {
+        if (newV.X() > 0)
+        {
+            // We are moving to the right, stop at the collision point
+            newP.SetX(collided->GetX() - 32 - Epsilon);
+        }
+        else
+        {
+            // We are moving to the left, stop at the collision point
+            newP.SetX(collided->GetX() + 32 + Epsilon);
+        }
+
+        // If we collide, we cancel any velocity
+        // in the X direction
+        newV.SetX(0);
+    }
+
+    mV = newV;
+    mP = newP;
+    mP.SetX(newP.X());
+    mP.SetY(newP.Y());
+    */
 }
