@@ -6,16 +6,21 @@
 
 #include "pch.h"
 #include "Level.h"
-
 #include "MoneyDeclaration.h"
-
+#include "SpartyGnome.h"
 #include "Platform.h"
+#include "Wall.h"
 
 
 using namespace std;
 using namespace xmlnode;
 using namespace Gdiplus;
 
+/// Small value to ensure we do not stay in collision
+const double Epsilon = 0.01;
+
+/// For manually pushing things to mItems
+const double initCoord = 500;
 
 /**
  * Level Constructor
@@ -24,6 +29,79 @@ using namespace Gdiplus;
 CLevel::CLevel(const std::wstring& filename)
 {
     Load(filename);
+    /*cannot push stuff into mItems yet...
+    const int NumRows = 5;
+    const int NumCols = 8;
+    for (int r = 0; r < NumRows; r++)
+    {
+        // There is a row every 64 pixels and
+        // we start 150 pixels from the top
+        int y = initCoord;
+
+        // The number of columns starts at 1 and increases as we
+        // go down in the Y direction until half way, then decreases.
+        // If we had 5 rows, the number of columns for each row
+        // will be:  1 2 3 4 1
+
+        // We center the columns on the screen
+        const int xStart = 372;
+
+        // Each column is 128 pixels to the right.
+        int x = r * 32 + xStart;
+
+        // Create a new fish.
+        // This creates a shared pointer pointing at this fish
+        shared_ptr<CPlatform> platform = make_shared<CPlatform>(this, dummy);
+
+        platform->SetMode(2);
+
+        if (r == 0)
+        {
+            platform->SetIsEdge(1);
+        }
+
+        if (r == NumRows - 1)
+        {
+            platform->SetIsEdge(2);
+        }
+
+        // Set the location
+        platform->SetLocation(x, y);
+
+        // Add to the list of fish.
+        mItems.push_back(platform);
+    }
+
+    for (int r = 0; r < NumCols; r++)
+    {
+        // There is a row every 64 pixels and
+        // we start 150 pixels from the top
+        int x = initCoord;
+
+        // The number of columns starts at 1 and increases as we
+        // go down in the Y direction until half way, then decreases.
+        // If we had 5 rows, the number of columns for each row
+        // will be:  1 2 3 4 1
+
+        // We center the columns on the screen
+        const int yStart = 180;
+
+        // Each column is 128 pixels to the right.
+        int y = r * 32 + yStart;
+
+        // Create a new fish.
+        // This creates a shared pointer pointing at this fish
+        shared_ptr<CWall> wall = make_shared<CWall>(this);
+
+        wall->SetMode(0);
+
+        // Set the location
+        wall->SetLocation(x, y);
+
+        // Add to the list of fish.
+        mItems.push_back(wall);
+
+    }*/
 }
 
 /** Add an item to the level
@@ -120,6 +198,27 @@ void CLevel::Load(const std::wstring& filename)
 
 }
 
+std::shared_ptr<CItem> CLevel::CollisionTest(CSpartyGnome* gnome)
+{
+    int i = -1;
+    for (int j = 0; j < mItems.size(); j++)
+    {
+        if (abs(mItems[j].get()->GetX() - gnome->GetX()) <=
+            mItems[j].get()->GetWidth() / 2 + gnome->GetWidth() / 2 - Epsilon &&
+            abs(mItems[j].get()->GetY() - gnome->GetY()) <=
+            mItems[j].get()->GetHeight() / 2 + gnome->GetHeight() / 2 - Epsilon)
+        {
+            i = j;
+            break;
+        }
+    }
+    if (i >= 0)
+    {
+        return mItems[i];
+    }
+    else
+        return nullptr;
+}
 
 /**
 * Handle a declaration node.
