@@ -27,5 +27,5 @@ public:
 private:
     CSpartyGnome mGnome;
 	float mScale;
-	CLevel mLevel0 = CLevel(L"../Project1/data/levels/level0.xml");
+	CLevel mLevel0 = CLevel(L"data/levels/level0.xml");
 };
