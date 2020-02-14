@@ -53,6 +53,10 @@ namespace Testing
 			CDeclaration background = level0.GetDeclaration(L"i001");
 			Assert::IsTrue(background.GetType() == L"background");
 			Assert::IsFalse(background.GetType() == L"platform");
+
+			CDeclaration platform = level0.GetDeclaration(L"i005");
+			Assert::IsTrue(platform.GetType() == L"platform");
+			Assert::IsFalse(platform.GetType() == L"background");
 		}
 	};
 
