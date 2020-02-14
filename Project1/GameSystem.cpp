@@ -8,6 +8,12 @@ using namespace std;
 // that is going to be what it is scaled to at all times.
 const int BACKGROUND_SIZE = 1024;
 
+/**
+ * Draws the Game and scales everything accordingly
+ * \param graphics The graphics which are being drawn
+ * \param width The width of the current game window 
+ * \param height The height of the current game window
+ */
 void CGameSystem::Draw(Gdiplus::Graphics* graphics,int width, int height)
 {
     //
