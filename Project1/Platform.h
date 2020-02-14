@@ -23,7 +23,7 @@ public:
     /// Copy constructor (disabled)
     CPlatform(const CPlatform&) = delete;
 
-    CPlatform(CLevel* level, const std::wstring& filename);
+    CPlatform::CPlatform(CLevel* level, const std::wstring& filename);
 
 private:
     /// Width of platform

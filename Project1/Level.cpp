@@ -9,6 +9,8 @@
 
 #include "MoneyDeclaration.h"
 
+#include "Platform.h"
+
 
 using namespace std;
 using namespace xmlnode;
@@ -174,11 +176,14 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
     // A pointer for the item we are loading
     shared_ptr<CItem> item;
 
+    std::wstring id = node->GetAttributeValue(L"id", L"");
+    CDeclaration declaration = mDeclarations[id];
     std::wstring type = node->GetName();
+
 
     if (type == L"background")
     {
-        ///TODO
+        item = make_shared<CPlatform>(this);
     }
 
     else if (type == L"platform")
@@ -220,8 +225,8 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
 
     if (item != nullptr)
     {
-        ///item->XmlLoad(node);
-       /// Add(item); /// FIX LATER
+        item->XmlLoad(node);
+        Add(item); /// FIX LATER
     }
 }
 
