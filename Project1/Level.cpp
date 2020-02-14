@@ -10,6 +10,7 @@
 
 using namespace std;
 using namespace xmlnode;
+using namespace Gdiplus;
 
 
 /**
@@ -111,7 +112,35 @@ void CLevel::Load(const std::wstring& filename)
 */
 void CLevel::XmlDeclaration(const std::shared_ptr<xmlnode::CXmlNode>& node)
 {
+ /**
+    std::wstring type = node->GetName();
+    std::wstring id = node->GetAttributeValue(L"id", L"");
 
+    if (type == L"platform")
+    {
+        std::wstring leftFile = node->GetAttributeValue(L"left-image", L"");
+        std::wstring midFile = node->GetAttributeValue(L"mid-image", L"");
+        std::wstring rightFile = node->GetAttributeValue(L"right-image", L"");
+    }
+
+    else 
+    {
+        // Get image file
+        std::wstring file = node->GetAttributeValue(L"image", L"");
+        
+        Bitmap* image = ImageLoad(file);
+
+        if (type == L"money") 
+        {
+
+        }
+        else 
+        {
+            CDeclaration declaration;
+            declaration.AddImage(image);
+        }
+
+    }*/
 }
 
 /**
@@ -172,4 +201,17 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
         ///item->XmlLoad(node);
        /// Add(item); /// FIX LATER
     }
+}
+
+Gdiplus::Bitmap* CLevel::ImageLoad(std::wstring filename)
+{
+    // Get image file path
+    std::wstring path = L"data/images/" + filename;
+    Bitmap* image = Bitmap::FromFile(path.c_str());
+    if (image->GetLastStatus() != Ok)
+    {
+        std::wstring message = L"Failed to open" + path;
+        AfxMessageBox(message.c_str()); //////FIX THIS LATER
+    }
+    return image;
 }

@@ -17,6 +17,7 @@
 #include "Declaration.h"
 
 class CItem;
+class CMoneyDeclaration; //CHECK THIS
 
 /**
  * Class representing a level in the game
@@ -25,6 +26,7 @@ class CLevel
 {
 public:
     
+    // Default constructor deleted
     CLevel() = delete;
 
     CLevel(const std::wstring& filename);
@@ -73,6 +75,8 @@ private:
     void XmlDeclaration(const std::shared_ptr<xmlnode::CXmlNode>& node);
 
     void XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node);
+
+    Gdiplus::Bitmap* ImageLoad(std::wstring filename);
 
 };
 
