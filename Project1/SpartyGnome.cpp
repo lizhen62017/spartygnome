@@ -19,6 +19,7 @@ const double Gravity = 1000.0;
 /// Horizontal character speed in pixels per second
 const double HorizontalSpeed = 500.00;
 
+/// Vertial character speed in pixels per second
 const double JumpSpeed = -800;
 
 /// Small value to ensure we do not stay in collision

@@ -14,6 +14,10 @@
 // See Project1.cpp for the implementation of this class
 //
 
+
+/**
+ * The Project1App Class
+ */
 class CProject1App : public CWinApp
 {
 public:

@@ -18,6 +18,7 @@
 class CSpartyGnome
 {
 private:
+	/// Dunno if mX mY are necessary any more
 	/// X location of gnome
 	double mX;
 	/// Y location of gnome
@@ -27,9 +28,9 @@ private:
 	/// Image for gnome
 	std::unique_ptr<Gdiplus::Bitmap> mImage;
 
-	// speed vectors, contains all the getters and setters
+	/// speed vectors, contains all the getters and setters
 	CVector mV = CVector(0, 0);
-	// position vectors contains all the getters and setters
+	/// position vectors contains all the getters and setters
 	CVector mP = CVector(512, 128);
 	/// The supported image states
 	enum class ImageStates { Base, Left1, Left2, Right1, Right2 };
@@ -45,35 +46,35 @@ public:
 	void Draw(Gdiplus::Graphics* graphics);
 
 	/**  Sets gnome's x location
-	* \param New x location */
+	* \param x X location */
 	void SetLocX(double x) { mP.SetX(x); }
 
 	/**  Sets gnome's y location
-	* \param New y location */
+	* \param y Y location */
 	void SetLocY(double y) { mP.SetY(y); }
 
 	/**  Finds gnome's x location
-	* \reutrn x location */
+	* \return x location */
 	double GetX() { return mP.X(); }
 
 	/**  Finds gnome's y location
-	* \reutrn y location */
+	* \return y location */
 	double GetY() { return mP.Y(); }
 
 	/**  Sets gnome's x velocity
-	* \param New x velocity */
+	* \param x X velocity */
 	void SetVelX(double x) { mV.SetX(x); }
 
 	/**  Sets gnome's y velocity
-	* \param New y velocity */
+	* \param y Y velocity */
 	void SetVelY(double y) { mV.SetY(y); }
 
 	/**  Finds gnome's x velocity
-	* \reutrn x velocity */
+	* \return x velocity */
 	double GetVelX() { return mV.X(); }
 
 	/**  Finds gnome's y velocity
-	* \reutrn y velocity */
+	* \return y velocity */
 	double GetVelY() { return mV.Y(); }
 
 	/// Get the width of the item

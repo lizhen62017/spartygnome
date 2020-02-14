@@ -47,18 +47,18 @@ private:
     /// Height of platform
     double mHeight = 0;
 
-    std::unique_ptr<Gdiplus::Bitmap> mGrassImage;
-    std::unique_ptr<Gdiplus::Bitmap> mGrassMidImage;
-    std::unique_ptr<Gdiplus::Bitmap> mGrassLeftImage;
-    std::unique_ptr<Gdiplus::Bitmap> mGrassRightImage;
-    std::unique_ptr<Gdiplus::Bitmap> mSnowImage;
-    std::unique_ptr<Gdiplus::Bitmap> mSnowMidImage;
-    std::unique_ptr<Gdiplus::Bitmap> mSnowLeftImage;
-    std::unique_ptr<Gdiplus::Bitmap> mSnowRightImage;
-    std::unique_ptr<Gdiplus::Bitmap> mIndustrialImage;
-    std::unique_ptr<Gdiplus::Bitmap> mIndustrialMidImage;
-    std::unique_ptr<Gdiplus::Bitmap> mIndustrialLeftImage;
-    std::unique_ptr<Gdiplus::Bitmap> mIndustrialRightImage;
+    std::unique_ptr<Gdiplus::Bitmap> mGrassImage; ///< Grass Image
+    std::unique_ptr<Gdiplus::Bitmap> mGrassMidImage; ///< Grass Mid Image
+    std::unique_ptr<Gdiplus::Bitmap> mGrassLeftImage; ///< Grass Left Image
+    std::unique_ptr<Gdiplus::Bitmap> mGrassRightImage; ///< Grass Right Image
+    std::unique_ptr<Gdiplus::Bitmap> mSnowImage; ///< Snow Image
+    std::unique_ptr<Gdiplus::Bitmap> mSnowMidImage; ///< Snow Mid Image
+    std::unique_ptr<Gdiplus::Bitmap> mSnowLeftImage; ///< Snow Left Image
+    std::unique_ptr<Gdiplus::Bitmap> mSnowRightImage; ///< Snow Right Image
+    std::unique_ptr<Gdiplus::Bitmap> mIndustrialImage; ///< Industrial Image
+    std::unique_ptr<Gdiplus::Bitmap> mIndustrialMidImage; ///< Industrial Mid Image
+    std::unique_ptr<Gdiplus::Bitmap> mIndustrialLeftImage; ///< Industrial Left Image
+    std::unique_ptr<Gdiplus::Bitmap> mIndustrialRightImage; ///< Industrial Right Image
     int isEdge = 0; ///< 0 if Mid, 1 if Left, 2 if Right, 3 if Only
     int mMode = 0; ///<mode 0 grass, 1 snow, 2 industrial
 };

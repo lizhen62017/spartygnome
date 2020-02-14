@@ -49,6 +49,7 @@ public:
 
 	/// Draw this item
 	/// \param graphics Graphics device to draw on
+	/// \param scrollX the distance the gnome has scrolled
 	void Draw(Gdiplus::Graphics* graphics, int scrollX);
 
 	/// Handle updates for animation
@@ -65,7 +66,6 @@ public:
 
 	virtual void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node);
 
-protected:
 	CItem(CLevel* level, const std::wstring& filename);
 
 private:

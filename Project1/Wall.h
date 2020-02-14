@@ -11,6 +11,9 @@
 #include "Item.h"
 #include "Level.h"
 
+/**
+ * The Wall Class
+ */
 class CWall : public CItem
 {
 public:
@@ -22,10 +25,12 @@ public:
 
     /**
      * Constructor
-     * \param aquarium Aquarium this fish is a member of
      */
     CWall(CLevel* level, const std::wstring& filename);
 
+    /* Drawing the wall
+    * \param graphics the graphics being drawn 
+    */
     void Draw(Gdiplus::Graphics* graphics);
 
     /**
@@ -35,7 +40,7 @@ public:
     void SetMode(int mode) { mMode = mode; };
 
 private:
-    std::unique_ptr<Gdiplus::Bitmap> mWall1Image;
-    std::unique_ptr<Gdiplus::Bitmap> mWall2Image;
+    std::unique_ptr<Gdiplus::Bitmap> mWall1Image; ///< Image of Wall1
+    std::unique_ptr<Gdiplus::Bitmap> mWall2Image; ///< Image of Wall2
     int mMode = 0; ///<mode 0 Wall1, 1 Wall2
 };
