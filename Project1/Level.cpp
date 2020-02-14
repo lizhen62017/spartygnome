@@ -7,6 +7,8 @@
 #include "pch.h"
 #include "Level.h"
 
+#include "MoneyDeclaration.h"
+
 
 using namespace std;
 using namespace xmlnode;
@@ -112,17 +114,30 @@ void CLevel::Load(const std::wstring& filename)
 */
 void CLevel::XmlDeclaration(const std::shared_ptr<xmlnode::CXmlNode>& node)
 {
- /**
+ 
     std::wstring type = node->GetName();
     std::wstring id = node->GetAttributeValue(L"id", L"");
 
+    // Platforms have 3 images
     if (type == L"platform")
     {
         std::wstring leftFile = node->GetAttributeValue(L"left-image", L"");
+        Bitmap* leftImage = ImageLoad(leftFile);
+
         std::wstring midFile = node->GetAttributeValue(L"mid-image", L"");
+        Bitmap* midImage = ImageLoad(midFile);
+
         std::wstring rightFile = node->GetAttributeValue(L"right-image", L"");
+        Bitmap* rightImage = ImageLoad(rightFile);
+
+        CDeclaration declaration;
+        declaration.AddImage(leftImage);
+        declaration.AddImage(midImage);
+        declaration.AddImage(rightImage);
+        mDeclarations.insert({ id, declaration });
     }
 
+    // Has a single image
     else 
     {
         // Get image file
@@ -130,17 +145,24 @@ void CLevel::XmlDeclaration(const std::shared_ptr<xmlnode::CXmlNode>& node)
         
         Bitmap* image = ImageLoad(file);
 
+        // Money has value attribute
         if (type == L"money") 
         {
+            CMoneyDeclaration declaration;
+            double value = node->GetAttributeDoubleValue(L"value", 0);
+            declaration.SetValue(value);
+            declaration.AddImage(image);
+            mDeclarations.insert({ id, declaration });
 
         }
         else 
         {
             CDeclaration declaration;
             declaration.AddImage(image);
+            mDeclarations.insert({ id, declaration });
         }
 
-    }*/
+    }
 }
 
 /**
@@ -207,6 +229,8 @@ Gdiplus::Bitmap* CLevel::ImageLoad(std::wstring filename)
 {
     // Get image file path
     std::wstring path = L"data/images/" + filename;
+
+    // Get image
     Bitmap* image = Bitmap::FromFile(path.c_str());
     if (image->GetLastStatus() != Ok)
     {

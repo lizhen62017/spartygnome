@@ -17,7 +17,8 @@
 #include "Declaration.h"
 
 class CItem;
-class CMoneyDeclaration; //CHECK THIS
+class CDeclaration;
+class CMoneyDeclaration;//CHECK THIS
 
 /**
  * Class representing a level in the game

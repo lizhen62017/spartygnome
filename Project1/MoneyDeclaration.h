@@ -15,7 +15,7 @@
  * Class representing a money declaration
  */
 class CMoneyDeclaration :
-    public CDeclaration
+    public CDeclaration 
 
 {
 public:
