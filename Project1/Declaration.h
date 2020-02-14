@@ -11,9 +11,11 @@
 
 class CDeclaration
 {
+public:
+
 
 private:
-	/// Image for declaration
+	/// Images for declaration
 	std::vector<Gdiplus::Bitmap*> mImages;
 };
 
