@@ -1,4 +1,5 @@
 #include "pch.h"
+/*
 #include "Background.h"
 
 using namespace Gdiplus;
@@ -23,4 +24,4 @@ void CBackground::OnDraw(Gdiplus::Graphics* graphics,double scrollX)
     graphics->DrawImage(mImage, -wid/2 + scrollX, 0, wid, hit);
     graphics->DrawImage(mImage, wid/2-1 + scrollX, 0, wid, hit);
     graphics->DrawImage(mImage, 1.5 * wid - 2 + scrollX, 0, wid, hit);
-}
+}*/
