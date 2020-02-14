@@ -11,6 +11,7 @@
 #include <vector>
 #include <memory>
 #include <string>
+#include <map>
 
 #include "XmlNode.h"
 
@@ -63,7 +64,7 @@ private:
     double mStartY;
 
     /// All of the item declarations
-    
+    std::map<std::wstring, std::shared_ptr<xmlnode::CXmlNode>&> mDeclarations;
 
     /// All of the items populating the level
     std::vector<std::shared_ptr<CItem>> mItems;

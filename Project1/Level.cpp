@@ -29,6 +29,17 @@ void CLevel::Add(std::shared_ptr<CItem> item)
     mItems.push_back(item);
 }
 
+/**
+ * Clears the level
+ */
+void CLevel::Clear()
+{
+    mWidth = 0;
+    mHeight = 0;
+    mStartX = 0;
+    mStartY = 0;
+    mItems.clear();
+}
 
 /**
  * Loads a level from an Xml file
@@ -68,6 +79,7 @@ void CLevel::Load(const std::wstring& filename)
         {
             if (node->GetType() == NODE_ELEMENT && node->GetName() == L"declarations")
             {
+                // Traverse item declarations
                 for (auto declaration : node->GetChildren())
                 {
                     XmlDeclaration(declaration);
@@ -76,6 +88,7 @@ void CLevel::Load(const std::wstring& filename)
 
             if (node->GetType() == NODE_ELEMENT && node->GetName() == L"items")
             {
+                // Traverse items
                 for (auto item : node->GetChildren())
                 {
                     XmlItem(item);
@@ -91,18 +104,6 @@ void CLevel::Load(const std::wstring& filename)
 
 }
 
-
-/**
- * Clears the level
- */
-void CLevel::Clear()
-{
-    mWidth = 0;
-    mHeight = 0;
-    mStartX = 0;
-    mStartY = 0;
-    mItems.clear();
-}
 
 /**
 * Handle a declaration node.

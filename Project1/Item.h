@@ -17,7 +17,7 @@
 class CLevel;
 
 /**
- * Base class for any item in our aquarium.
+ * Base class for any item in our game.
  */
 class CItem
 {

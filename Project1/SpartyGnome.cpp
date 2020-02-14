@@ -27,7 +27,7 @@ const double Epsilon = 0.01;
  */
 CSpartyGnome::CSpartyGnome()
 {
-    mImage = Bitmap::FromFile(L"../data/images/gnome.png");
+    mImage = Bitmap::FromFile(L"data/images/gnome.png");
     if (mImage->GetLastStatus() != Ok)
     {
         AfxMessageBox(L"Failed to open data/images/gnome.png");

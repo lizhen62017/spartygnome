@@ -44,6 +44,11 @@ namespace Testing
 			Assert::IsTrue(level0.GetStartX() == 468);
 			Assert::IsTrue(level0.GetStartY() == 572);
 		}
+
+		void TestPlatformLoading()
+		{
+
+		}
 	};
 
 }
