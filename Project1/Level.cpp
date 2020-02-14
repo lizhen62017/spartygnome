@@ -217,7 +217,7 @@ std::shared_ptr<CItem> CLevel::CollisionTest(CSpartyGnome* gnome)
         return mItems[i];
     }
     else
-        return nullptr;
+        return nullptr; 
 }
 
 /**
