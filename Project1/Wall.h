@@ -11,6 +11,9 @@
 #include "Item.h"
 #include "Level.h"
 
+/**
+ * The Wall Class
+ */
 class CWall : public CItem
 {
 public:
