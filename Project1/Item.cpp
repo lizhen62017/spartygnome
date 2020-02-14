@@ -41,7 +41,6 @@ CItem::~CItem()
 
 /**
  * Draw this item
- * \param graphics Graphics device to draw on
  */
 void CItem::Draw(Gdiplus::Graphics* graphics, int scrollX)
 {
