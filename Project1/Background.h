@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 class CBackground
 {
 public:
@@ -8,5 +8,5 @@ public:
 
 private:
 	Gdiplus::Bitmap* mImage;
-};
+};*/
 
