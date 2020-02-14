@@ -34,7 +34,7 @@ CSpartyGnome::CSpartyGnome()
     }
     // Will need to update to starting platform
     mX = 512;
-    mY = 512;
+    mY = 100;
 }
 
 
