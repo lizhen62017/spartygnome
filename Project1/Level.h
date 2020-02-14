@@ -38,6 +38,8 @@ public:
 
     void Clear();
 
+    CDeclaration GetDeclaration(std::wstring);
+
     /**  Getter for level width
      * \return level width */
     double GetWidth() { return mWidth; }

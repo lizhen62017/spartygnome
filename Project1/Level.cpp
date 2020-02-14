@@ -34,6 +34,17 @@ void CLevel::Add(std::shared_ptr<CItem> item)
     mItems.push_back(item);
 }
 
+
+/**
+ * Getter for a declaration
+ * \param id The ID for the declaration we want to get
+ * \returns A pointer to the declaration we want to get
+ */
+CDeclaration CLevel::GetDeclaration(std::wstring id)
+{
+    return mDeclarations[id];
+}
+
 /**
  * Clears the level
  */
@@ -183,7 +194,7 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
 
     if (type == L"background")
     {
-        item = make_shared<CPlatform>(this);
+        ///TODO
     }
 
     else if (type == L"platform")
