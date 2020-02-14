@@ -16,6 +16,7 @@
 #include "XmlNode.h"
 #include "Declaration.h"
 
+class CSpartyGnome; // Add this to support Gnome's collision
 class CItem;
 class CDeclaration;
 class CMoneyDeclaration;//CHECK THIS
@@ -55,6 +56,13 @@ public:
     /**  Getter for level start position y value
      * \return level start position y value */
     double GetStartY() { return mStartY; }
+
+    /**
+     * where Gnome collision happens
+     * \param gnome the mighty gnome
+     * \return the item to be collided, nullptr if no collision
+     */
+    std::shared_ptr<CItem> CollisionTest(CSpartyGnome* gnome);
 
 private:
     /// Level width in virtual pixels
