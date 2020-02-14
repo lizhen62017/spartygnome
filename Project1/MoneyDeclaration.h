@@ -25,7 +25,7 @@ public:
     void SetValue(double value) { mValue = value; }
 
     /**  Gets the value of the money declaration
-     * \reutrn the value of the money declaration */
+     * \return the value of the money declaration */
     double GetValue() { return mValue; }
 
 private:

@@ -1,9 +1,21 @@
+/**
+ * \file ChildView.h
+ *
+ * \author 
+ *
+ * Class that implements the child window in which the program draws.
+ *
+ * The window is a child of the main frame which holds the window,
+ * the menu bar, and the status bar
+ */
+
 #include "GameSystem.h"
 #pragma once
 
 
-// CChildView window
-
+/**
+ * Class implementing the child window in which the program draws
+ */
 class CChildView : public CWnd
 {
 // Construction
