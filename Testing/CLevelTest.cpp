@@ -45,9 +45,14 @@ namespace Testing
 			Assert::IsTrue(level0.GetStartY() == 572);
 		}
 
-		void TestDeclarationLoading(CLevel* level0)
+		TEST_METHOD(TestDeclarationLoading)
 		{
-			CDeclaration background = level0->GetDeclaration(L"i001");
+			std::wstring path = L"../Project1/data/levels/level0.xml";
+			CLevel level0(path);
+
+			CDeclaration background = level0.GetDeclaration(L"i001");
+			Assert::IsTrue(background.GetType() == L"background");
+			Assert::IsFalse(background.GetType() == L"platform");
 		}
 	};
 
