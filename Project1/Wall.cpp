@@ -17,7 +17,8 @@ const wstring Wall2ImageName = L"images/wall2.png";
 
 /**
 * Constructor
-* \param aquarium Aquarium this fish is a member of
+* \param level The level the wall is a part of
+( \param filename The filename of the wall image
 */
 CWall::CWall(CLevel* level, const std::wstring& filename) : CItem(level, filename)
 {
