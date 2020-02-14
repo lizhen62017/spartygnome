@@ -60,4 +60,5 @@ void CSpartyGnome::Update(double elapsed)
 {
     SetLocX(mX+elapsed*mVx);
     SetLocY(mY+elapsed*mVy);
+
 }
