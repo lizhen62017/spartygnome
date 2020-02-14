@@ -11,18 +11,18 @@ using namespace Gdiplus;
 using namespace std;
 
 /// filenames 
-const wstring GrassImageName = L"data/images/grass.png";
-const wstring GrassMidImageName = L"data/images/grassMid.png";
-const wstring GrassLeftImageName = L"data/images/grassLeft.png";
-const wstring GrassRightImageName = L"data/images/grassRight.png";
-const wstring SnowImageName = L"data/images/snow.png";
-const wstring SnowMidImageName = L"data/images/snowMid.png";
-const wstring SnowLeftImageName = L"data/images/snowLeft.png";
-const wstring SnowRightImageName = L"data/images/snowRight.png";
-const wstring IndustrialImageName = L"data/images/platformIndustrial_057.png";
-const wstring IndustrialMidImageName = L"data/images/platformIndustrial_060.png";
-const wstring IndustrialLeftImageName = L"data/images/platformIndustrial_059.png";
-const wstring IndustrialRightImageName = L"data/images/platformIndustrial_061.png";
+const wstring GrassImageName = L"data/images/grass.png"; ///< Grass Image
+const wstring GrassMidImageName = L"data/images/grassMid.png"; ///< Grass Mid Image
+const wstring GrassLeftImageName = L"data/images/grassLeft.png"; ///< Grass Left Image
+const wstring GrassRightImageName = L"data/images/grassRight.png"; ///< Grass Right Image
+const wstring SnowImageName = L"data/images/snow.png"; ///< Snow Image
+const wstring SnowMidImageName = L"data/images/snowMid.png"; ///< Snow Mid Image
+const wstring SnowLeftImageName = L"data/images/snowLeft.png"; ///< Snow Left Image
+const wstring SnowRightImageName = L"data/images/snowRight.png"; ///< Snow Right Image
+const wstring IndustrialImageName = L"data/images/platformIndustrial_057.png"; ///< Industrial Image
+const wstring IndustrialMidImageName = L"data/images/platformIndustrial_060.png"; ///< Industrial Mid Image
+const wstring IndustrialLeftImageName = L"data/images/platformIndustrial_059.png"; ///< Industrial Left Image
+const wstring IndustrialRightImageName = L"data/images/platformIndustrial_061.png"; ///< Industrial Right Image
 
 /**
  * Constructor
