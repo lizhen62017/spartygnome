@@ -20,7 +20,7 @@ class CSpartyGnome
 private:
 
 	/// Check to see if gnome has already jumped
-	boolean isJumping = false;
+	boolean misJumping = false;
 	/// Image for gnome
 	std::unique_ptr<Gdiplus::Bitmap> mImage;
 
@@ -91,5 +91,7 @@ public:
 	CLevel* GetLevel() { return mLevel; };
 
 	void Death(boolean villain);
+
+	void Jump();
 };
 
