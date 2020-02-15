@@ -89,5 +89,7 @@ public:
 	* \returns the mAquarium private member
 	*/
 	CLevel* GetLevel() { return mLevel; };
+
+	void Death(boolean villain);
 };
 

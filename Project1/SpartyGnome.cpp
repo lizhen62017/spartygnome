@@ -69,6 +69,8 @@ void CSpartyGnome::Update(double elapsed)
     CVector newP = mP + newV * elapsed;
 
     mP.SetY(newP.Y());
+
+    Death(false);
     
     for (auto collided : GetLevel()->CollisionTest(this))
     {
@@ -115,4 +117,17 @@ void CSpartyGnome::Update(double elapsed)
 
     mV = newV;
     mP = newP;
+}
+
+/**
+ * Function to check if SpartyGnome has died
+ * \param villain Boolean if Death function was called via a villian hit test
+ */
+void CSpartyGnome::Death(boolean villain)
+{
+    if (mP.Y() - mImage->GetHeight() / 2 > 1024 || villain)
+    {
+        //Message to check if working, leave commented
+        //AfxMessageBox(L"SpartyGnome has died");
+    }
 }
