@@ -36,7 +36,8 @@ private:
 	enum class ImageStates { Base, Left1, Left2, Right1, Right2 };
 
 	/// The level this gnome is contained in
-	CLevel* mLevel;
+	CLevel Temp = CLevel(L"data/levels/level0.xml");
+	CLevel* mLevel = &Temp;
 
 
 

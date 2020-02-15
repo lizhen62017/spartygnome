@@ -109,7 +109,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>pch;XmlNode;SpartyGnome;Level;Declaration;Vector;Item</AdditionalDependencies>
+      <AdditionalDependencies>pch;XmlNode;SpartyGnome;Level;Declaration;Vector;Item;Platform;Wall</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

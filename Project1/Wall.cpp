@@ -12,8 +12,8 @@ using namespace std;
 using namespace Gdiplus;
 
 /// Fish filename 
-const wstring Wall1ImageName = L"images/wall1.png";
-const wstring Wall2ImageName = L"images/wall2.png";
+const wstring Wall1ImageName = L"data/images/wall1.png";
+const wstring Wall2ImageName = L"data/images/wall2.png";
 
 /**
 * Constructor

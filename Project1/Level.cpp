@@ -29,8 +29,8 @@ const double initCoord = 500;
 CLevel::CLevel(const std::wstring& filename)
 {
     Load(filename);
-    /*cannot push stuff into mItems yet...
-    const int NumRows = 5;
+
+    const int NumRows = 8;
     const int NumCols = 8;
     for (int r = 0; r < NumRows; r++)
     {
@@ -51,7 +51,7 @@ CLevel::CLevel(const std::wstring& filename)
 
         // Create a new fish.
         // This creates a shared pointer pointing at this fish
-        shared_ptr<CPlatform> platform = make_shared<CPlatform>(this, dummy);
+        shared_ptr<CPlatform> platform = make_shared<CPlatform>(this, L"data/images/grass.png");
 
         platform->SetMode(2);
 
@@ -69,9 +69,9 @@ CLevel::CLevel(const std::wstring& filename)
         platform->SetLocation(x, y);
 
         // Add to the list of fish.
-        mItems.push_back(platform);
+        Add(platform);
     }
-
+/*
     for (int r = 0; r < NumCols; r++)
     {
         // There is a row every 64 pixels and
@@ -91,7 +91,7 @@ CLevel::CLevel(const std::wstring& filename)
 
         // Create a new fish.
         // This creates a shared pointer pointing at this fish
-        shared_ptr<CWall> wall = make_shared<CWall>(this);
+        shared_ptr<CWall> wall = make_shared<CWall>(this, L"data/images/grass.png");
 
         wall->SetMode(0);
 
@@ -99,7 +99,7 @@ CLevel::CLevel(const std::wstring& filename)
         wall->SetLocation(x, y);
 
         // Add to the list of fish.
-        mItems.push_back(wall);
+        Add(wall);
 
     }*/
 }
