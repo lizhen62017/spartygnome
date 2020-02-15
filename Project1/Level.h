@@ -39,7 +39,7 @@ public:
 
     void Clear();
 
-    std::shared_ptr<CDeclaration> GetDeclaration(std::wstring);
+    CDeclaration GetDeclaration(std::wstring);
 
     /**  Getter for level width
      * \return level width */
@@ -78,7 +78,7 @@ private:
     double mStartY;
 
     /// All of the item declarations
-    std::map<std::wstring, std::shared_ptr<CDeclaration>> mDeclarations;
+    std::map<std::wstring, CDeclaration> mDeclarations;
 
     /// All of the items populating the level
     std::vector<std::shared_ptr<CItem>> mItems;

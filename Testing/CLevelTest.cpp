@@ -50,13 +50,13 @@ namespace Testing
 			std::wstring path = L"data/levels/level0.xml";
 			CLevel level0(path);
 
-			std::shared_ptr<CDeclaration> background = level0.GetDeclaration(L"i001");
-			Assert::IsTrue(background->GetType() == L"background");
-			Assert::IsFalse(background->GetType() == L"platform");
+			CDeclaration background = level0.GetDeclaration(L"i001");
+			Assert::IsTrue(background.GetType() == L"background");
+			Assert::IsFalse(background.GetType() == L"platform");
 
-			std::shared_ptr<CDeclaration> platform = level0.GetDeclaration(L"i005");
-			Assert::IsTrue(platform->GetType() == L"platform");
-			Assert::IsFalse(platform->GetType() == L"background");
+			CDeclaration platform = level0.GetDeclaration(L"i005");
+			Assert::IsTrue(platform.GetType() == L"platform");
+			Assert::IsFalse(platform.GetType() == L"background");
 		}
 	};
 
