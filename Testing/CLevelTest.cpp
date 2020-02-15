@@ -58,6 +58,14 @@ namespace Testing
 			Assert::IsTrue(platform->GetType() == L"platform");
 			Assert::IsFalse(platform->GetType() == L"background");
 		}
+
+		TEST_METHOD(TestItemLoading)
+		{
+			std::wstring path = L"data/levels/level0.xml";
+			CLevel level0(path);
+
+
+		}
 	};
 
 }

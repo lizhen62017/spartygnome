@@ -26,6 +26,6 @@ void CDeclaration::AddImage(Gdiplus::Bitmap* image)
  */
 Gdiplus::Bitmap* CDeclaration::GetImage(int index) 
 {
-    /// ADD Try ad catch error
+    /// ADD Try and catch error
     return mImages[index];
 }

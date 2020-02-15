@@ -8,6 +8,7 @@
 #include "Level.h"
 #include "MoneyDeclaration.h"
 #include "SpartyGnome.h"
+#include "Background.h"
 #include "Platform.h"
 #include "Wall.h"
 
@@ -297,7 +298,7 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
 
     if (type == L"background")
     {
-        ///TODO
+        // item = make_shared<CBackground>(this, declaration); FIXME AFTER COLLISION IS FIXED
     }
 
     else if (type == L"platform")

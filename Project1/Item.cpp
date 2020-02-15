@@ -35,9 +35,11 @@ CItem::CItem(CLevel* level, const std::wstring& filename) :
  * \param level The level this item is a member of
  * \param declaration Declaration used to instantiate member variables
  */
-CItem::CItem(CLevel* level, const std::shared_ptr<CDeclaration> declaration)
+CItem::CItem(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
+    mLevel(level)
 {
-
+    // Set the item image from the declaration
+    mItemImage = unique_ptr<Bitmap>(declaration->GetImage(0));
 }
 
 /**
