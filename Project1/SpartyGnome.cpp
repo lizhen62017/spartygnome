@@ -69,19 +69,18 @@ void CSpartyGnome::Update(double elapsed)
     CVector newP = mP + newV * elapsed;
 
     mP.SetY(newP.Y());
-
-    Death(false);
     
     for (auto collided : GetLevel()->CollisionTest(this))
     {
         if (collided != nullptr)
         {
-            if (abs(collided->GetX() - GetX()) < 44) //collided->GetWidth() / 2.0 + GetWidth() / 2.0 - Epsilon)
+            if (abs(collided->GetX() - GetX()) < collided->GetWidth() / 2.0 + GetWidth() / 2.0 - Epsilon)
             {
                 if (newV.Y() > 0 && collided->GetY() > GetY())
                 {
                     // We are falling, stop at the collision point
                     newP.SetY(collided->GetY() - collided->GetHeight() / 2.0 - GetHeight() / 2.0 - Epsilon);
+                    misJumping = false;
                 }
                 else if (newV.Y() < 0 && collided->GetY() < GetY())
                 {
@@ -117,6 +116,9 @@ void CSpartyGnome::Update(double elapsed)
 
     mV = newV;
     mP = newP;
+
+    //Check if gnome died
+    Death(false);
 }
 
 /**
@@ -129,5 +131,18 @@ void CSpartyGnome::Death(boolean villain)
     {
         //Message to check if working, leave commented
         //AfxMessageBox(L"SpartyGnome has died");
+
+        //Temp location reset to make playtesting easier
+        SetLocX(512);
+        SetLocY(128);
+    }
+}
+
+void CSpartyGnome::Jump()
+{
+    if (!misJumping && mV.Y() == 0)
+    {
+        SetVelY(JumpSpeed);
+        misJumping = true;
     }
 }
