@@ -9,6 +9,7 @@
 #include "MoneyDeclaration.h"
 #include "SpartyGnome.h"
 #include "Platform.h"
+#include "Background.h"
 #include "Wall.h"
 
 
@@ -118,7 +119,7 @@ void CLevel::Add(std::shared_ptr<CItem> item)
  * \param id The ID for the declaration we want to get
  * \returns A pointer to the declaration we want to get
  */
-CDeclaration CLevel::GetDeclaration(std::wstring id)
+shared_ptr<CDeclaration> CLevel::GetDeclaration(std::wstring id)
 {
     return mDeclarations[id];
 }
@@ -242,11 +243,11 @@ void CLevel::XmlDeclaration(const std::shared_ptr<xmlnode::CXmlNode>& node)
         std::wstring rightFile = node->GetAttributeValue(L"right-image", L"");
         Bitmap* rightImage = ImageLoad(rightFile);
 
-        CDeclaration declaration;
-        declaration.SetType(type);
-        declaration.AddImage(leftImage);
-        declaration.AddImage(midImage);
-        declaration.AddImage(rightImage);
+        shared_ptr<CDeclaration> declaration;
+        declaration->SetType(type);
+        declaration->AddImage(leftImage);
+        declaration->AddImage(midImage);
+        declaration->AddImage(rightImage);
         mDeclarations.insert({ id, declaration });
     }
 
@@ -261,11 +262,11 @@ void CLevel::XmlDeclaration(const std::shared_ptr<xmlnode::CXmlNode>& node)
         // Money has value attribute
         if (type == L"money") 
         {
-            CMoneyDeclaration declaration;
-            declaration.SetType(type);
+            shared_ptr<CMoneyDeclaration> declaration;
+            declaration->SetType(type);
             double value = node->GetAttributeDoubleValue(L"value", 0);
-            declaration.SetValue(value);
-            declaration.AddImage(image);
+            declaration->SetValue(value);
+            declaration->AddImage(image);
             mDeclarations.insert({ id, declaration });
 
         }
@@ -273,9 +274,9 @@ void CLevel::XmlDeclaration(const std::shared_ptr<xmlnode::CXmlNode>& node)
         // Item is basic
         else 
         {
-            CDeclaration declaration;
-            declaration.SetType(type);
-            declaration.AddImage(image);
+            shared_ptr<CDeclaration> declaration;
+            declaration->SetType(type);
+            declaration->AddImage(image);
             mDeclarations.insert({ id, declaration });
         }
 
@@ -292,7 +293,7 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
     shared_ptr<CItem> item;
 
     std::wstring id = node->GetAttributeValue(L"id", L"");
-    CDeclaration declaration = mDeclarations[id];
+    shared_ptr<CDeclaration> declaration = mDeclarations[id];
     std::wstring type = node->GetName();
 
 
@@ -303,7 +304,7 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
 
     else if (type == L"platform")
     {
-        ///TODO
+        ///item = make_shared<CPlatform>(this);
     }
 
     else if (type == L"wall")

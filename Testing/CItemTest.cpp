@@ -22,7 +22,7 @@ namespace Testing
 			std::wstring path = L"data/levels/level0.xml";
 			CLevel level0(path);
 
-			CItem item(&level0, path);
+			CItem item(&level0, L"data/images/platformIndustrial_059.png");
 
 			// Test SetLocation, GetX, and GetY
 			item.SetLocation(10.5, 17.2);
