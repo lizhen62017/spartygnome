@@ -17,6 +17,7 @@
 class CDeclaration
 {
 public:
+
     void AddImage(Gdiplus::Bitmap* image);
 
     /**  Sets declaration's type
@@ -34,6 +35,6 @@ private:
 	std::vector<Gdiplus::Bitmap*> mImages;
 
     /// The type of item
-    std::wstring mType;
+    std::wstring mType = L"";
 };
 
