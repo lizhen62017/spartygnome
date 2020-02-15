@@ -4,6 +4,7 @@
  * \author Chase Lindeboom
  */
 
+#include<stdexcept>
 #include "pch.h"
 #include "Declaration.h"
 
@@ -25,6 +26,6 @@ void CDeclaration::AddImage(Gdiplus::Bitmap* image)
  */
 Gdiplus::Bitmap* CDeclaration::GetImage(int index) 
 {
-    // ADD TRY CATCH HERE
+    /// ADD Try ad catch error
     return mImages[index];
 }

@@ -29,9 +29,9 @@ public:
     CBackground(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
 	void OnDraw(Gdiplus::Graphics* graphics, double scrollX);
-	double GetImageHeight() {return mImage->GetHeight(); };
+	/**double GetImageHeight() {return mImage->GetHeight(); };*/
 
-private:
-	Gdiplus::Bitmap* mImage;
+/**private:
+	Gdiplus::Bitmap* mImage;*/
 };
 
