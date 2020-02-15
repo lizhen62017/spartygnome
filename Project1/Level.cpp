@@ -30,7 +30,7 @@ CLevel::CLevel(const std::wstring& filename)
 {
     Load(filename);
 
-    const int NumRows = 8;
+    const int NumRows = 20; ///Hey Chase, feel free to change these things below whenever you feel like necessary
     const int NumCols = 8;
     for (int r = 0; r < NumRows; r++)
     {
@@ -71,12 +71,12 @@ CLevel::CLevel(const std::wstring& filename)
         // Add to the list of fish.
         Add(platform);
     }
-/*
+
     for (int r = 0; r < NumCols; r++)
     {
         // There is a row every 64 pixels and
         // we start 150 pixels from the top
-        int x = initCoord;
+        int x = 372;
 
         // The number of columns starts at 1 and increases as we
         // go down in the Y direction until half way, then decreases.
@@ -84,7 +84,7 @@ CLevel::CLevel(const std::wstring& filename)
         // will be:  1 2 3 4 1
 
         // We center the columns on the screen
-        const int yStart = 180;
+        const int yStart = 244;
 
         // Each column is 128 pixels to the right.
         int y = r * 32 + yStart;
@@ -101,7 +101,7 @@ CLevel::CLevel(const std::wstring& filename)
         // Add to the list of fish.
         Add(wall);
 
-    }*/
+    }
 }
 
 /** Add an item to the level
@@ -198,26 +198,20 @@ void CLevel::Load(const std::wstring& filename)
 
 }
 
-std::shared_ptr<CItem> CLevel::CollisionTest(CSpartyGnome* gnome)
+std::vector<std::shared_ptr<CItem>> CLevel::CollisionTest(CSpartyGnome* gnome)
 {
-    int i = -1;
-    for (int j = 0; j < mItems.size(); j++)
+    std::vector<std::shared_ptr<CItem>> mOut;
+    for (int i = 0; i < mItems.size(); i++)
     {
-        if (abs(mItems[j].get()->GetX() - gnome->GetX()) <=
-            mItems[j].get()->GetWidth() / 2 + gnome->GetWidth() / 2 - Epsilon &&
-            abs(mItems[j].get()->GetY() - gnome->GetY()) <=
-            mItems[j].get()->GetHeight() / 2 + gnome->GetHeight() / 2 - Epsilon)
+        if (abs(mItems[i]->GetX() - gnome->GetX()) <=
+            mItems[i]->GetWidth() / 2.0 + gnome->GetWidth() / 2.0 + Epsilon &&
+            abs(mItems[i]->GetY() - gnome->GetY()) <=
+            mItems[i]->GetHeight() / 2.0 + gnome->GetHeight() / 2.0 + Epsilon)
         {
-            i = j;
-            break;
+            mOut.push_back(mItems[i]);
         }
     }
-    if (i >= 0)
-    {
-        return mItems[i];
-    }
-    else
-        return nullptr; 
+    return mOut;
 }
 
 /**

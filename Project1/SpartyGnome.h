@@ -18,11 +18,7 @@
 class CSpartyGnome
 {
 private:
-	/// Dunno if mX mY are necessary any more
-	/// X location of gnome
-	double mX;
-	/// Y location of gnome
-	double mY;
+
 	/// Check to see if gnome has already jumped
 	boolean isJumping = false;
 	/// Image for gnome

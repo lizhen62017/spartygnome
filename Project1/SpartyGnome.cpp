@@ -70,51 +70,48 @@ void CSpartyGnome::Update(double elapsed)
 
     mP.SetY(newP.Y());
     
-    auto collided = GetLevel()->CollisionTest(this);
-    if (collided != nullptr)
+    for (auto collided : GetLevel()->CollisionTest(this))
     {
-        if (newV.Y() > 0)
+        if (collided != nullptr)
         {
-            // We are falling, stop at the collision point
-            newP.SetY(collided->GetY() - collided->GetHeight() / 2 - GetHeight() / 2 - Epsilon);
-        }
-        else
-        {
-            // We are rising, stop at the collision point
-            newP.SetY(collided->GetY() + collided->GetHeight() / 2 + GetHeight() / 2 + Epsilon);
+            if (abs(collided->GetX() - GetX()) < collided->GetWidth() / 2.0 + GetWidth() / 2.0 - Epsilon)
+            {
+                if (newV.Y() > 0 && collided->GetY() > GetY())
+                {
+                    // We are falling, stop at the collision point
+                    newP.SetY(collided->GetY() - collided->GetHeight() / 2.0 - GetHeight() / 2.0 - Epsilon);
+                }
+                else if (newV.Y() < 0 && collided->GetY() < GetY())
+                {
+                    // We are rising, stop at the collision point
+                    newP.SetY(collided->GetY() + collided->GetHeight() / 2.0 + GetHeight() / 2.0 + Epsilon);
+                }
+                // If we collide, we cancel any velocity
+                // in the Y direction
+                newV.SetY(0);
+            }
+            
+            if (abs(collided->GetY() - GetY()) < 103) //collided->GetHeight() / 2.0 + GetHeight() / 2.0 - Epsilon) NEED TO CHANGE THIS
+            {
+                if (newV.X() > 0 && collided->GetX() > GetX())
+                {
+                    // We are moving to the right, stop at the collision point
+                    newP.SetX(collided->GetX() - collided->GetWidth() / 2.0 - GetWidth() / 2.0 - Epsilon);
+                    newV.SetX(0);
+                }
+                else if (newV.X() < 0 && collided->GetX() < GetX())
+                {
+                    // We are moving to the left, stop at the collision point
+                    newP.SetX(collided->GetX() + collided->GetWidth() / 2.0 + GetWidth() / 2.0 + Epsilon);
+                    newV.SetX(0);
+                }
 
+                // If we collide, we cancel any velocity
+                // in the X direction
+                
+            }
         }
-
-        // If we collide, we cancel any velocity
-        // in the Y direction
-        newV.SetY(0);
     }
-
-    //
-    // Try updating the X location
-    //
-    mP.SetX(newP.X());
-
-    collided = GetLevel()->CollisionTest(this);
-    /*
-    if (collided != nullptr)
-    {
-        if (newV.X() > 0)
-        {
-            // We are moving to the right, stop at the collision point
-            newP.SetX(collided->GetX() - collided->GetWidth() / 2 - GetWidth() / 2 - Epsilon);
-        }
-        else if (newV.X() < 0)
-        {
-            // We are moving to the left, stop at the collision point
-            newP.SetX(collided->GetX() + collided->GetWidth() / 2 + GetWidth() / 2 + Epsilon);
-        }
-
-        // If we collide, we cancel any velocity
-        // in the X direction
-        newV.SetX(0);
-    }
-    */
 
     mV = newV;
     mP = newP;

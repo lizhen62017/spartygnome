@@ -58,11 +58,11 @@ public:
     double GetStartY() { return mStartY; }
 
     /**
-     * where Gnome collision happens
-     * \param gnome the mighty gnome
-     * \return the item to be collided, nullptr if no collision
-     */
-    std::shared_ptr<CItem> CollisionTest(CSpartyGnome* gnome);
+   * where Gnome collision happens
+   * \param gnome the mighty gnome
+   * \return the items to be collided, nullptr if no collision
+   */
+    std::vector<std::shared_ptr<CItem>> CollisionTest(CSpartyGnome* gnome);
 
 private:
     /// Level width in virtual pixels
