@@ -285,9 +285,14 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
     // A pointer for the item we are loading
     shared_ptr<CItem> item;
 
+    // What type is the node
+    std::wstring type = node->GetName();
+
+    // what is the declaration associated with item's id
     std::wstring id = node->GetAttributeValue(L"id", L"");
     shared_ptr<CDeclaration> declaration = mDeclarations[id];
-    std::wstring type = node->GetName();
+
+   
 
 
     if (type == L"background")

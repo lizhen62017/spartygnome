@@ -31,12 +31,21 @@ CItem::CItem(CLevel* level, const std::wstring& filename) :
 
 
 /**
+ * Constructor constructing item from Level Xml file
+ * \param level The level this item is a member of
+ * \param declaration Declaration used to instantiate member variables
+ */
+CItem::CItem(CLevel* level, const std::shared_ptr<CDeclaration> declaration)
+{
+
+}
+
+/**
  * Destructor
  */
 CItem::~CItem()
 {
 }
-
 
 
 /**

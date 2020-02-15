@@ -31,6 +31,6 @@ public:
 private:
 
     /// The value of the money declaration
-    double mValue = 100;
+    double mValue = 0;
 };
 
