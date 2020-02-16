@@ -29,10 +29,14 @@ public:
 
 	/// Gets the money amount
 	/// \return money The money as a std::wstring to print to the screen
-	std::wstring GetTime() { return std::to_wstring(mTime); }
+	std::wstring GetDollars() { return std::to_wstring(mDollars); }
 
 	/// Draws the score to the screen
 	virtual void Draw(Gdiplus::Graphics* graphics);
+
+	/// Adds dollars to the total amount
+	/// \param dollarAmount number of dollars to add to mDollars
+	void AddDollars(int dollarAmount) { mDollars += dollarAmount; }
 
 	/// Update the scoreboard
 	/// \param elapsed The time elapsed from previous update

@@ -34,10 +34,35 @@ CScoreboard::~CScoreboard()
 */
 void CScoreboard::Draw(Gdiplus::Graphics* graphics)
 {
+	std::wstring timePrint;
+	std::wstring dollarsPrint = L"$" + GetDollars();
+
+	if (mTime < 10)
+	{
+		timePrint = L"0:0" + std::to_wstring(mTime);
+	}
+	else if (mTime < 60)
+	{
+		timePrint = L"0:" + std::to_wstring(mTime);
+	}
+	else
+	{
+		int rem = mTime % 60;
+		if (rem < 10)
+		{
+			timePrint = std::to_wstring(mTime / 60) + L":0" + std::to_wstring(rem);
+		}
+		else
+		{
+			timePrint = std::to_wstring(mTime / 60) + L":" + std::to_wstring(rem);
+		}
+	}
+
 	FontFamily fontFamily(L"Arial");
-	Gdiplus::Font font(&fontFamily, 60);
-	SolidBrush blue(Color(0, 0, 255));
-	graphics->DrawString(GetTime().c_str(), -1, &font, PointF(100, 100), &blue);
+	Gdiplus::Font font(&fontFamily, 70, FontStyleBold);
+	SolidBrush blue(Color(0, 255, 255));
+	graphics->DrawString(timePrint.c_str(), -1, &font, PointF(90, 25), &blue);
+	graphics->DrawString(dollarsPrint.c_str(), -1, &font, PointF(2000, 25), &blue);
 }
 
 
