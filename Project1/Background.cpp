@@ -43,3 +43,6 @@ void CBackground::Draw(Gdiplus::Graphics* graphics,double scrollX)
     graphics->DrawImage(mImage, wid/2-1 + scrollX, 0, wid, hit);
     graphics->DrawImage(mImage, 1.5 * wid - 2 + scrollX, 0, wid, hit);*/
 }
+
+/** Accept a visitor
+ * \param visitor The visitor we accept */

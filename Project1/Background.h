@@ -34,6 +34,10 @@ public:
 	void Draw(Gdiplus::Graphics* graphics, double scrollX);
 	/**double GetImageHeight() {return mImage->GetHeight(); };*/
 
+    /** Accept a visitor
+     * \param visitor The visitor we accept */
+    virtual void Accept(CItemVisitor* visitor) override { visitor->VisitBackground(this); }
+
 /**private:
 	Gdiplus::Bitmap* mImage;*/
 };

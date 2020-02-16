@@ -14,6 +14,7 @@
 
 #include "XmlNode.h"
 #include "Declaration.h"
+#include "ItemVisitor.h"
 
 class CLevel;
 
@@ -70,6 +71,10 @@ public:
 	CItem(CLevel* level, const std::wstring& filename);
 
 	CItem(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
+
+	/** Accept a visitor
+	 * \param visitor The visitor we accept */
+	virtual void Accept(CItemVisitor* visitor) = 0;
 
 private:
 	/// The level this item is contained in
