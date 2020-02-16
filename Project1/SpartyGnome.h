@@ -11,6 +11,7 @@
 #include "Vector.h"
 #include "Level.h"
 #include "Item.h"
+#include "GameSystem.h"
 
 /**
  * SpartyGnome to play the game
@@ -41,10 +42,15 @@ private:
 	/// Boolean if gnome has used double jump
 	boolean mDoubleJump = false;
 
+	/// The game this item is contained in
+	CGameSystem* mGameSystem;
 
 
 public:
-	CSpartyGnome();
+	/// Default constructor (deleted)
+	CSpartyGnome() = delete;
+
+	CSpartyGnome(CGameSystem* game);
 
 	void Draw(Gdiplus::Graphics* graphics, int scrollX);
 

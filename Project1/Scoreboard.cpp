@@ -63,6 +63,19 @@ void CScoreboard::Draw(Gdiplus::Graphics* graphics)
 	SolidBrush blue(Color(0, 255, 255));
 	graphics->DrawString(timePrint.c_str(), -1, &font, PointF(90, 25), &blue);
 	graphics->DrawString(dollarsPrint.c_str(), -1, &font, PointF(2000, 25), &blue);
+
+	if (mDied)
+	{
+		FontFamily fontFamily(L"Arial");
+		Gdiplus::Font font(&fontFamily, 150, FontStyleBold);
+		SolidBrush purple(Color(255, 0, 255));
+		graphics->DrawString(L"You Lose!", -1, &font, PointF(512, 400), &purple);
+
+		mTime = 0;
+		mDollars = 0;
+		mDied = false;
+
+	}
 }
 
 
@@ -78,4 +91,12 @@ void CScoreboard::Update(double elapsed)
 	}
 }
 
+
+/**
+ * Resets the scoreboard on gnome death or level reload
+ */
+void CScoreboard::Reset()
+{
+	mDied = true;
+}
 

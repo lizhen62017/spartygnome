@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "GameSystem.h"
 #include "Scoreboard.h"
+#include "SpartyGnome.h"
 
 using namespace Gdiplus;
 using namespace std;
@@ -18,6 +19,7 @@ CGameSystem::CGameSystem()
 {
 	// initialize game scoreboard
 	mScoreboard = new CScoreboard(this);
+    mGnome = new CSpartyGnome(this);
 
 }
 
@@ -47,13 +49,13 @@ void CGameSystem::Draw(Gdiplus::Graphics* graphics,int width, int height)
     // Determine the virtual width
     auto virtualWidth = (float)width / mScale;
 
-    auto xOffset = (float)-mGnome.GetX() + virtualWidth / 2.0f;
+    auto xOffset = (float)-mGnome->GetX() + virtualWidth / 2.0f;
 
     // all drawing needs to be below here to allow for virtual pixels
 
     mLevel0.Draw(graphics, xOffset);
 
-    mGnome.Draw(graphics, xOffset);
+    mGnome->Draw(graphics, xOffset);
 
 	mScoreboard->Draw(graphics);
 
@@ -67,6 +69,15 @@ void CGameSystem::Draw(Gdiplus::Graphics* graphics,int width, int height)
 
 void CGameSystem::Update(double elapsed)
 {
-	mGnome.Update(elapsed);
+	mGnome->Update(elapsed);
 	mScoreboard->Update(elapsed);
+}
+
+
+/**
+ * Resets a level on load or gnome death
+ */
+void CGameSystem::Reset()
+{
+    mScoreboard->Reset();
 }

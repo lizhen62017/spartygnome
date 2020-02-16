@@ -9,11 +9,11 @@
 #pragma once
 
 #include "Background.h"
-#include "SpartyGnome.h"
 #include "Level.h"
 #include <string>
 
 class CScoreboard;
+class CSpartyGnome;
 
 /**
  * CGameSystem Class
@@ -34,15 +34,17 @@ public:
 
     /// Gets the gnome object
     /// \return the gnome object
-    CSpartyGnome* GetGnome() { return &mGnome; }
+    CSpartyGnome* GetGnome() { return mGnome; }
 
 	/// Updates the screen from the last elapsed time
 	void Update(double elapsed);
 
+    void Reset();
+
 
 private:
     /// The gnome object for the game
-    CSpartyGnome mGnome;
+    CSpartyGnome* mGnome;
 
 	/// The scoreboard object for the game
 	CScoreboard* mScoreboard;

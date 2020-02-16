@@ -26,8 +26,9 @@ const double Epsilon = 0.01;
 /**
  * Constructor for spartGnome
  */
-CSpartyGnome::CSpartyGnome()
+CSpartyGnome::CSpartyGnome(CGameSystem* game)
 {
+    mGameSystem = game;
     mImage = unique_ptr<Bitmap>(Bitmap::FromFile(ImageName.c_str()));
     if (mImage->GetLastStatus() != Ok)
     {
@@ -130,7 +131,7 @@ void CSpartyGnome::Death(boolean villain)
     {
         //Message to check if working, leave commented
         //AfxMessageBox(L"SpartyGnome has died");
-
+        mGameSystem->Reset();
         //Temp location reset to make playtesting easier
         SetLocX(512);
         SetLocY(128);

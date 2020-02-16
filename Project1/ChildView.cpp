@@ -7,6 +7,7 @@
 
 #include "framework.h"
 #include "ChildView.h"
+#include "SpartyGnome.h"
 #include "DoubleBufferDC.h"
 
 #ifdef _DEBUG
