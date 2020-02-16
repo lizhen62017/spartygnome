@@ -35,6 +35,12 @@ private:
 	CLevel Temp = CLevel(L"data/levels/level0.xml");
 	CLevel* mLevel = &Temp; ///< The level spartygnome is currently on???
 
+	/// Boolean if gnome has wings
+	boolean mWings = false;
+
+	/// Boolean if gnome has used double jump
+	boolean mDoubleJump = false;
+
 
 
 public:

@@ -16,9 +16,6 @@ const wstring ImageName = L"data/images/gnome.png"; ///< please change this to s
 /// Gravity in virtual pixels per second per second
 const double Gravity = 1000.0;
 
-/// Horizontal character speed in pixels per second
-const double HorizontalSpeed = 500.00;
-
 /// Vertial character speed in pixels per second
 const double JumpSpeed = -800;
 
@@ -82,6 +79,7 @@ void CSpartyGnome::Update(double elapsed)
                     // We are falling, stop at the collision point
                     newP.SetY(collided->GetY() - collided->GetHeight() / 2.0 - GetHeight() / 2.0 - Epsilon);
                     misJumping = false;
+                    mDoubleJump = false;
                 }
                 else if (newV.Y() < 0 && collided->GetY() < GetY())
                 {
@@ -139,11 +137,20 @@ void CSpartyGnome::Death(boolean villain)
     }
 }
 
+    /**
+    * Function for processing a jump
+    */
 void CSpartyGnome::Jump()
 {
     if (!misJumping && mV.Y() == 0)
     {
         SetVelY(JumpSpeed);
         misJumping = true;
+    }
+    // Support for double jumping if gnome has wings
+    else if (mWings && !mDoubleJump && mV.Y() > 0)
+    {
+        SetVelY(JumpSpeed);
+        mDoubleJump = true;
     }
 }
