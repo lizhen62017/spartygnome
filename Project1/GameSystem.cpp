@@ -7,7 +7,7 @@ using namespace std;
 
 //constant for scale of the window.  All background objects are 1024 pixels, so
 // that is going to be what it is scaled to at all times.
-const int BACKGROUND_SIZE = 1024;
+const int BackgroundSize = 1024;
 
 
 /**
@@ -41,7 +41,7 @@ void CGameSystem::Draw(Gdiplus::Graphics* graphics,int width, int height)
     //
     // Automatic Scaling
     //
-    mScale = float(height) / float(BACKGROUND_SIZE);
+    mScale = float(height) / float(BackgroundSize);
     graphics->ScaleTransform(mScale, mScale);
 
     // Determine the virtual width
