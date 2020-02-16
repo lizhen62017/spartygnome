@@ -5,12 +5,14 @@
  */
 
 #include "pch.h"
+#include "Item.h"
 #include "Level.h"
 #include "MoneyDeclaration.h"
 #include "SpartyGnome.h"
 #include "Background.h"
 #include "Platform.h"
 #include "Wall.h"
+#include "ItemVisitor.h"
 
 
 using namespace std;
@@ -387,5 +389,16 @@ void CLevel::Draw(Gdiplus::Graphics* graphics, int scrollX)
     for (auto item : mItems)
     {
         item->Draw(graphics, scrollX);
+    }
+}
+
+/** Accept a visitor for the collection of items
+ * \param visitor The visitor for the collection
+ */
+void CLevel::Accept(CItemVisitor* visitor)
+{
+    for (auto item : mItems)
+    {
+        item->Accept(visitor);
     }
 }

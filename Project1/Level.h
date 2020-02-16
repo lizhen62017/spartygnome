@@ -20,6 +20,7 @@ class CSpartyGnome; // Add this to support Gnome's collision
 class CItem;
 class CDeclaration;
 class CMoneyDeclaration;//CHECK THIS
+class CItemVisitor;
 
 /**
  * Class representing a level in the game
@@ -70,6 +71,8 @@ public:
     * \param scrollX The scrolling distance to scroll the level 
     */
     void Draw(Gdiplus::Graphics* graphics, int scrollX);
+
+    void Accept(CItemVisitor* visitor);
 
 private:
     /// Level width in virtual pixels
