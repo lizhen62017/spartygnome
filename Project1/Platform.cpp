@@ -121,6 +121,33 @@ CPlatform::CPlatform(CLevel* level, const std::wstring& filename) :
 }
 
 /**
+ * Constructor for a platform when loaded from level file
+ * \param level The level this platform is a part of
+ * \param declaration The Declaration used to instantiate this item
+ */
+CPlatform::CPlatform(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
+    CItem(level, declaration)
+{
+    //mLeftImage = unique_ptr<Bitmap>(declaration->GetImage(0)); FIXME: Redundant with mItemImage
+    mMidImage = shared_ptr<Bitmap>(declaration->GetImage(1));
+    mRightImage = shared_ptr<Bitmap>(declaration->GetImage(2));
+}
+
+
+/**
+ * Loads the attributes of a Platform item from an Xml Node
+ * \param node The Xml node we are loading the platform from
+ */
+void CPlatform::XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node)
+{
+    mWidth = node->GetAttributeDoubleValue(L"width", 0);
+    mHeight = node->GetAttributeDoubleValue(L"height", 0);
+
+    CItem::XmlLoad(node);
+}
+
+
+/**
  * Draw this item
  * \param graphics Graphics device to draw on
  */

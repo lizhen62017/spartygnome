@@ -31,7 +31,7 @@ CLevel::CLevel(const std::wstring& filename)
 {
     Load(filename);
 
-    const int NumRows = 20; ///Hey Chase, feel free to change these things below whenever you feel like necessary
+    /**const int NumRows = 20; ///Hey Chase, feel free to change these things below whenever you feel like necessary
     const int NumCols = 8;
     for (int r = 0; r < NumRows; r++)
     {
@@ -102,7 +102,7 @@ CLevel::CLevel(const std::wstring& filename)
         // Add to the list of fish.
         Add(wall);
 
-    }
+    }*/
 }
 
 /** Add an item to the level
@@ -117,7 +117,7 @@ void CLevel::Add(std::shared_ptr<CItem> item)
 /**
  * Getter for a declaration
  * \param id The ID for the declaration we want to get
- * \returns A pointer to the declaration we want to get
+ * \returns A shared pointer to the declaration we want to get
  */
 shared_ptr<CDeclaration> CLevel::GetDeclaration(std::wstring id)
 {
@@ -151,17 +151,14 @@ void CLevel::Load(const std::wstring& filename)
         // Once we know it is open, clear the existing data
         Clear();
 
-        // Load Level parameters
+        // Load Level attributes
 
         // Load level width
         mWidth = root->GetAttributeDoubleValue(L"width", 0);
-
         // Load level height
         mHeight = root->GetAttributeDoubleValue(L"height", 0);
-
         // Load level starting X-position
         mStartX = root->GetAttributeDoubleValue(L"start-x", 0);
-
         //Load level starting Y-position
         mStartY = root->GetAttributeDoubleValue(L"start-y", 0);
 
@@ -221,27 +218,34 @@ std::vector<std::shared_ptr<CItem>> CLevel::CollisionTest(CSpartyGnome* gnome)
 */
 void CLevel::XmlDeclaration(const std::shared_ptr<xmlnode::CXmlNode>& node)
 {
- 
-    std::wstring type = node->GetName();
-    std::wstring id = node->GetAttributeValue(L"id", L"");
+    // What is the type of this declaration?
+    wstring type = node->GetName();
+    // What is the declaration's id?
+    wstring id = node->GetAttributeValue(L"id", L"");
 
     // Platforms have 3 images
     if (type == L"platform")
     {
-        std::wstring leftFile = node->GetAttributeValue(L"left-image", L"");
-        Bitmap* leftImage = ImageLoad(leftFile);
+        // Left platform image
+        wstring leftFile = node->GetAttributeValue(L"left-image", L"");
+        shared_ptr<Bitmap> leftImage = ImageLoad(leftFile);
 
-        std::wstring midFile = node->GetAttributeValue(L"mid-image", L"");
-        Bitmap* midImage = ImageLoad(midFile);
+        // Middle platform image
+        wstring midFile = node->GetAttributeValue(L"mid-image", L"");
+        shared_ptr<Bitmap> midImage = ImageLoad(midFile);
 
-        std::wstring rightFile = node->GetAttributeValue(L"right-image", L"");
-        Bitmap* rightImage = ImageLoad(rightFile);
+        // Right platform image
+        wstring rightFile = node->GetAttributeValue(L"right-image", L"");
+        shared_ptr<Bitmap> rightImage = ImageLoad(rightFile);
 
+        // Make the platform declaration
         auto declaration = make_shared<CDeclaration>();
         declaration->SetType(type);
         declaration->AddImage(leftImage);
         declaration->AddImage(midImage);
         declaration->AddImage(rightImage);
+
+        // Insert declaration into map
         mDeclarations.insert({ id, declaration });
     }
 
@@ -249,18 +253,21 @@ void CLevel::XmlDeclaration(const std::shared_ptr<xmlnode::CXmlNode>& node)
     else 
     {
         // Get image file
-        std::wstring file = node->GetAttributeValue(L"image", L"");
-        
-        Bitmap* image = ImageLoad(file);
+        wstring file = node->GetAttributeValue(L"image", L"");
+        // Load image file
+        shared_ptr<Bitmap> image = ImageLoad(file);
 
         // Money has value attribute
         if (type == L"money") 
         {
+            // Make the declaration
             auto declaration = make_shared<CMoneyDeclaration>();
             declaration->SetType(type);
             double value = node->GetAttributeDoubleValue(L"value", 0);
             declaration->SetValue(value);
             declaration->AddImage(image);
+
+            // Insert declaration into map
             mDeclarations.insert({ id, declaration });
 
         }
@@ -268,9 +275,12 @@ void CLevel::XmlDeclaration(const std::shared_ptr<xmlnode::CXmlNode>& node)
         // Item is basic
         else 
         {
+            // Make the declaration
             auto declaration = make_shared<CDeclaration>();
             declaration->SetType(type);
             declaration->AddImage(image);
+
+            // Insert declaration into map
             mDeclarations.insert({ id, declaration });
         }
 
@@ -286,62 +296,66 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
     // A pointer for the item we are loading
     shared_ptr<CItem> item;
 
-    // What type is the node
+    // What type is the node?
     std::wstring type = node->GetName();
 
-    // what is the declaration associated with item's id
+    // what is the declaration associated with item's id?
     std::wstring id = node->GetAttributeValue(L"id", L"");
     shared_ptr<CDeclaration> declaration = mDeclarations[id];
 
-   
-
-
+    // If it is a background
     if (type == L"background")
     {
-        // item = make_shared<CBackground>(this, declaration); FIXME AFTER COLLISION IS FIXED
+        item = make_shared<CBackground>(this, declaration);
     }
 
+    // If it is a platform
     else if (type == L"platform")
     {
-        ///TODO
+        item = make_shared<CPlatform>(this, declaration);
     }
 
+    // If it is a wall
     else if (type == L"wall")
     {
         ///TODO
     }
 
+    // If it is money
     else if (type == L"money")
     {
         ///TODO
     }
 
+    // If it is a tuition-up
     else if (type == L"tuition-up")
     {
         ///TODO
     }
 
+    // If it is a door
     else if (type == L"door")
     {
         ///TODO
     }
-
+    
+    //If it is a villain
     else if (type == L"villain")
     {
         ///TODO
     }
     
-    /**
-    else if (type == L"TEAMITEMHERE")
+    // If it is wings
+    else if (type == L"wings")
     {
         /// TODO when we add teamitem
     }
-    */
+    
 
     if (item != nullptr)
     {
         item->XmlLoad(node);
-        Add(item); /// FIX LATER
+        Add(item);
     }
 }
 
@@ -351,16 +365,18 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
  * \param filename The name  file name of the specific image
  * \returns A pointer to the image we want
  */
-Gdiplus::Bitmap* CLevel::ImageLoad(std::wstring filename)
+shared_ptr<Bitmap> CLevel::ImageLoad(wstring filename)
 {
     // Get image file path
     std::wstring path = L"data/images/" + filename;
 
+    shared_ptr<Bitmap> image;
+
     // Get image
-    Bitmap* image = Bitmap::FromFile(path.c_str());
+     image = shared_ptr<Bitmap>(Bitmap::FromFile(path.c_str()));
     if (image->GetLastStatus() != Ok)
     {
-        std::wstring message = L"Failed to open" + path;
+        wstring message = L"Failed to open" + path;
         AfxMessageBox(message.c_str()); //////FIX THIS LATER
     }
     return image;

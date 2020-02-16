@@ -80,7 +80,7 @@ private:
 	double  mY = 0;     ///< Y location for the center of the item
 
 	/// The image of this item
-	std::unique_ptr<Gdiplus::Bitmap> mItemImage;
+	std::shared_ptr<Gdiplus::Bitmap> mItemImage;
 
 	/// id given to specific item if it needs to be copied
 	std::wstring mID;

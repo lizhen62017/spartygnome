@@ -87,7 +87,7 @@ private:
 
     void XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node);
 
-    Gdiplus::Bitmap* ImageLoad(std::wstring filename);
+    std::shared_ptr<Gdiplus::Bitmap> ImageLoad(std::wstring filename);
 
 };
 

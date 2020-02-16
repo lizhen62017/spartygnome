@@ -8,14 +8,19 @@
 #include "pch.h"
 #include "Declaration.h"
 
+using namespace std;
 
 /**
  * Adds an image to the declaration vector of images
  * \param image The image to add
  */
-void CDeclaration::AddImage(Gdiplus::Bitmap* image)
+void CDeclaration::AddImage(shared_ptr<Gdiplus::Bitmap> image)
 {
     mImages.push_back(image);
+}
+
+CDeclaration::~CDeclaration()
+{
 }
 
 
@@ -24,7 +29,7 @@ void CDeclaration::AddImage(Gdiplus::Bitmap* image)
  * \param index The index we want the picture from
  * \returns 
  */
-Gdiplus::Bitmap* CDeclaration::GetImage(int index) 
+shared_ptr<Gdiplus::Bitmap> CDeclaration::GetImage(int index) 
 {
     /// ADD Try and catch error
     return mImages[index];
