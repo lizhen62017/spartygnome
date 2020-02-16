@@ -3,6 +3,8 @@
 
 #include "pch.h"
 
+#include "Project1.h"
+
 #include "framework.h"
 #include "ChildView.h"
 #include "DoubleBufferDC.h"
@@ -37,6 +39,10 @@ BEGIN_MESSAGE_MAP(CChildView, CWnd)
 	ON_WM_TIMER()
 	ON_WM_KEYDOWN()
 	ON_WM_KEYUP()
+	ON_COMMAND(ID_LEVEL_LEVEL0, &CChildView::OnLevelLevel0)
+	ON_COMMAND(ID_LEVEL_LEVEL1, &CChildView::OnLevelLevel1)
+	ON_COMMAND(ID_LEVEL_LEVEL2, &CChildView::OnLevelLevel2)
+	ON_COMMAND(ID_LEVEL_LEVEL3, &CChildView::OnLevelLevel3)
 END_MESSAGE_MAP()
 
 
@@ -162,4 +168,40 @@ void CChildView::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 		mGameSystem.GetGnome()->SetVelX(0);
 		break;
 	}
+}
+
+
+/**
+ * Play level 0 menu option handler
+ */
+void CChildView::OnLevelLevel0()
+{
+	// TODO: Add your command handler code here
+}
+
+/**
+ * Play level 1 menu option handler
+ */
+void CChildView::OnLevelLevel1()
+{
+	// TODO: Add your command handler code here
+}
+
+
+/**
+ * Play level 2 menu option handler
+ */
+void CChildView::OnLevelLevel2()
+{
+	// TODO: Add your command handler code here
+}
+
+
+
+/**
+ * Play level 3 menu option handler
+ */
+void CChildView::OnLevelLevel3()
+{
+	// TODO: Add your command handler code here
 }
