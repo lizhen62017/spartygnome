@@ -16,6 +16,12 @@ class CItemPickup :
 {
 public:
 
+    /// default constructor (disabled)
+    CItemPickup() = delete;
+
+    ///copy constructor (disabled)
+    CItemPickup(const CItemPickup&) = delete;
+
     /** Accept a visitor
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitItemPickup(this); }

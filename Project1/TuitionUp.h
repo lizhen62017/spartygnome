@@ -16,6 +16,11 @@ class CTuitionUp :
 	public CItemPickup
 {
 private:
+    /// default constructor (disabled)
+    CTuitionUp() = delete;
+
+    ///copy constructor (disabled)
+    CTuitionUp(const CTuitionUp&) = delete;
 public:
 };
 
