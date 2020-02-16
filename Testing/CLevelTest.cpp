@@ -2,16 +2,32 @@
 #include "CppUnitTest.h"
 
 #include "Level.h"
+#include "Background.h"
+#include "Platform.h"
 
 #include <regex>
 #include <string>
 #include <fstream>
 #include <streambuf>
+#include <memory>
 
+using namespace std;
+using namespace Gdiplus;
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace Testing
 {
+
+	class CTestVisitor : public CItemVisitor
+	{
+	public:
+		virtual void VisitBackground(CBackground* background) override { mNumBackgrounds++; }
+		virtual void VisitPlatform(CPlatform* building) override { mNumPlatforms++; }
+
+		int mNumBackgrounds = 0;
+		int mNumPlatforms = 0;
+	};
+
 	TEST_CLASS(CLevelTest)
 	{
 	public:
@@ -59,13 +75,44 @@ namespace Testing
 			Assert::IsFalse(platform->GetType() == L"background");
 		}
 
-		TEST_METHOD(TestItemLoading)
+		TEST_METHOD(TestCItemVisitor)
 		{
+			// FIXME!!!
 			std::wstring path = L"data/levels/level0.xml";
-			CLevel level0(path);
+			CLevel level(path);
+			wstring filename = L"data/images/grass.png";
 
+			shared_ptr<Bitmap> image;
+
+			// Get image
+			image = shared_ptr<Bitmap>(Bitmap::FromFile(filename.c_str()));
+			if (image->GetLastStatus() != Ok)
+			{
+				wstring message = L"Failed to open" + path;
+				AfxMessageBox(message.c_str()); //////FIX THIS LATER
+			}
+
+			CTestVisitor visitor;
+			level.Accept(&visitor);
+			Assert::AreEqual(0, visitor.mNumBackgrounds,
+				L"Visitor number of backgrounds");
+
+			const shared_ptr<CDeclaration> emptyDeclaration = make_shared<CDeclaration>();
+			emptyDeclaration->AddImage(image);
+
+			// Add some platforms and backgrounds
+			auto item1 = make_shared<CBackground>(&level, emptyDeclaration);
+			auto item2 = make_shared<CBackground>(&level, emptyDeclaration);
+
+			level.Add(item1);
+			level.Add(item2);
+
+			level.Accept(&visitor);
+			Assert::AreEqual(2, visitor.mNumBackgrounds,
+				L"Visitor number of backgrounds");
 
 		}
+
 	};
 
 }
