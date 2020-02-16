@@ -29,7 +29,7 @@ public:
 
     CPlatform(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
-    void Draw(Gdiplus::Graphics* graphics);
+    void Draw(Gdiplus::Graphics* graphics, int scrollX) override;
 
     /**
      * shape setter
