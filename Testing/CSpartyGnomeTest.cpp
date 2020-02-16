@@ -44,5 +44,18 @@ namespace Testing
 			Assert::IsFalse(gnome.GetVelY() == 512, L"Incorrect Test");
 		}
 
+		TEST_METHOD(Jump)
+		{
+			CSpartyGnome gnome;
+
+			Assert::IsTrue(gnome.GetVelY() == 0, L"Base Test");
+			gnome.SetVelY(10);
+			gnome.Jump();
+			Assert::IsTrue(gnome.GetVelY() == 10, L"Didn't jump Test");
+			gnome.SetVelY(0);
+			gnome.Jump();
+			Assert::IsTrue(gnome.GetVelY() == -800, L"Jumped Test");
+		}
+
 	};
 }
