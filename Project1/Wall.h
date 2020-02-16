@@ -39,6 +39,10 @@ public:
      */
     void SetMode(int mode) { mMode = mode; };
 
+    /** Accept a visitor
+     * \param visitor The visitor we accept */
+    virtual void Accept(CItemVisitor* visitor) override { visitor->VisitWall(this); }
+
 private:
     std::unique_ptr<Gdiplus::Bitmap> mWall1Image; ///< Image of Wall1
     std::unique_ptr<Gdiplus::Bitmap> mWall2Image; ///< Image of Wall2

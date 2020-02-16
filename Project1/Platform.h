@@ -45,6 +45,10 @@ public:
 
     void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node) override;
 
+    /** Accept a visitor
+     * \param visitor The visitor we accept */
+    virtual void Accept(CItemVisitor* visitor) override { visitor->VisitPlatform(this); }
+
 private:
     /// Width of platform, needs to stack up image by image
     double mWidth = 0;
