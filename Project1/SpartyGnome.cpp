@@ -42,7 +42,7 @@ CSpartyGnome::CSpartyGnome()
 /**
  * \param graphics The graphic SpartyGnome is being drawn on
  */
-void CSpartyGnome::Draw(Gdiplus::Graphics* graphics)
+void CSpartyGnome::Draw(Gdiplus::Graphics* graphics, int scrollX)
 {
     if (mImage != nullptr)
     {
@@ -50,7 +50,7 @@ void CSpartyGnome::Draw(Gdiplus::Graphics* graphics)
         int hit = mImage->GetHeight();
 
         graphics->DrawImage(mImage.get(),
-            float(mP.X() - wid / 2), float(mP.Y() - hit / 2),
+            float(mP.X() - wid / 2) + scrollX, float(mP.Y() - hit / 2),
             (float)mImage->GetWidth(), (float)mImage->GetHeight());
     }
 }

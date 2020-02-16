@@ -51,7 +51,7 @@ void CGameSystem::Draw(Gdiplus::Graphics* graphics,int width, int height)
 
     // all drawing needs to be below here to allow for virtual pixels
 
-    mGnome.Draw(graphics);
+    mGnome.Draw(graphics, xOffset);
 
 	mScoreboard->Draw(graphics);
 

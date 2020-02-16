@@ -40,7 +40,7 @@ private:
 public:
 	CSpartyGnome();
 
-	void Draw(Gdiplus::Graphics* graphics);
+	void Draw(Gdiplus::Graphics* graphics, int scrollX);
 
 	/**  Sets gnome's x location
 	* \param x X location */
