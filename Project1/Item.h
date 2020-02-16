@@ -52,7 +52,7 @@ public:
 	/// Draw this item
 	/// \param graphics Graphics device to draw on
 	/// \param scrollX the distance the gnome has scrolled
-	void Draw(Gdiplus::Graphics* graphics, int scrollX);
+	virtual void Draw(Gdiplus::Graphics* graphics, int scrollX);
 
 	/// Handle updates for animation
 	/// \param elapsed The time since the last update

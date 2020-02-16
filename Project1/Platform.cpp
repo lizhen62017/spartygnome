@@ -151,7 +151,7 @@ void CPlatform::XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node)
  * Draw this item
  * \param graphics Graphics device to draw on
  */
-void CPlatform::Draw(Gdiplus::Graphics* graphics)
+void CPlatform::Draw(Gdiplus::Graphics* graphics, int scrollX)
 {
     double wid = GetWidth();
     double hit = GetHeight();
@@ -160,28 +160,28 @@ void CPlatform::Draw(Gdiplus::Graphics* graphics)
         if (isEdge == 0)
         {
             graphics->DrawImage(mGrassMidImage.get(),
-                float(GetX() - wid / 2), float(GetY() - hit / 2),
+                float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
                 (float)mGrassMidImage->GetWidth(), (float)mGrassMidImage->GetHeight());
         }
 
         else if (isEdge == 1)
         {
             graphics->DrawImage(mGrassLeftImage.get(),
-                float(GetX() - wid / 2), float(GetY() - hit / 2),
+                float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
                 (float)mGrassLeftImage->GetWidth(), (float)mGrassLeftImage->GetHeight());
         }
 
         else if (isEdge == 2)
         {
             graphics->DrawImage(mGrassRightImage.get(),
-                float(GetX() - wid / 2), float(GetY() - hit / 2),
+                float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
                 (float)mGrassRightImage->GetWidth(), (float)mGrassRightImage->GetHeight());
         }
 
         else if (isEdge == 3)
         {
             graphics->DrawImage(mGrassImage.get(),
-                float(GetX() - wid / 2), float(GetY() - hit / 2),
+                float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
                 (float)mGrassImage->GetWidth(), (float)mGrassImage->GetHeight());
         }
     }
@@ -190,28 +190,28 @@ void CPlatform::Draw(Gdiplus::Graphics* graphics)
         if (isEdge == 0)
         {
             graphics->DrawImage(mSnowMidImage.get(),
-                float(GetX() - wid / 2), float(GetY() - hit / 2),
+                float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
                 (float)mSnowMidImage->GetWidth(), (float)mSnowMidImage->GetHeight());
         }
 
         else if (isEdge == 1)
         {
             graphics->DrawImage(mSnowLeftImage.get(),
-                float(GetX() - wid / 2), float(GetY() - hit / 2),
+                float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
                 (float)mSnowLeftImage->GetWidth(), (float)mSnowLeftImage->GetHeight());
         }
 
         else if (isEdge == 2)
         {
             graphics->DrawImage(mSnowRightImage.get(),
-                float(GetX() - wid / 2), float(GetY() - hit / 2),
+                float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
                 (float)mSnowRightImage->GetWidth(), (float)mSnowRightImage->GetHeight());
         }
 
         else if (isEdge == 3)
         {
             graphics->DrawImage(mSnowImage.get(),
-                float(GetX() - wid / 2), float(GetY() - hit / 2),
+                float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
                 (float)mSnowImage->GetWidth(), (float)mSnowImage->GetHeight());
         }
     }
@@ -220,28 +220,28 @@ void CPlatform::Draw(Gdiplus::Graphics* graphics)
         if (isEdge == 0)
         {
             graphics->DrawImage(mIndustrialMidImage.get(),
-                float(GetX() - wid / 2), float(GetY() - hit / 2),
+                float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
                 (float)mIndustrialMidImage->GetWidth(), (float)mIndustrialMidImage->GetHeight());
         }
 
         else if (isEdge == 1)
         {
             graphics->DrawImage(mIndustrialLeftImage.get(),
-                float(GetX() - wid / 2), float(GetY() - hit / 2),
+                float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
                 (float)mIndustrialLeftImage->GetWidth(), (float)mIndustrialLeftImage->GetHeight());
         }
 
         else if (isEdge == 2)
         {
             graphics->DrawImage(mIndustrialRightImage.get(),
-                float(GetX() - wid / 2), float(GetY() - hit / 2),
+                float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
                 (float)mIndustrialRightImage->GetWidth(), (float)mIndustrialRightImage->GetHeight());
         }
 
         else if (isEdge == 3)
         {
             graphics->DrawImage(mIndustrialImage.get(),
-                float(GetX() - wid / 2), float(GetY() - hit / 2),
+                float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
                 (float)mIndustrialImage->GetWidth(), (float)mIndustrialImage->GetHeight());
         }
     }

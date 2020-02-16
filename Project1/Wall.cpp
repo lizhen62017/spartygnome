@@ -42,20 +42,20 @@ CWall::CWall(CLevel* level, const std::wstring& filename) : CItem(level, filenam
  * Draw this item
  * \param graphics Graphics device to draw on
  */
-void CWall::Draw(Gdiplus::Graphics* graphics)
+void CWall::Draw(Gdiplus::Graphics* graphics, int scrollX)
 {
     double wid = 32;
     double hit = 32;
     if (mMode == 0)
     {
         graphics->DrawImage(mWall1Image.get(),
-            float(GetX() - wid / 2), float(GetY() - hit / 2),
+            float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
             (float)mWall1Image->GetWidth(), (float)mWall1Image->GetHeight());
     }
     if (mMode == 1)
     {
         graphics->DrawImage(mWall2Image.get(),
-            float(GetX() - wid / 2), float(GetY() - hit / 2),
+            float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
             (float)mWall2Image->GetWidth(), (float)mWall2Image->GetHeight());
     }
 }

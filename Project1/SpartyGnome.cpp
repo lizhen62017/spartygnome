@@ -91,7 +91,7 @@ void CSpartyGnome::Update(double elapsed)
                 newV.SetY(0);
             }
             
-            if (abs(collided->GetY() - GetY()) < 103) //collided->GetHeight() / 2.0 + GetHeight() / 2.0 - Epsilon) NEED TO CHANGE THIS
+            if (abs(collided->GetY() - GetY()) < 95) //collided->GetHeight() / 2.0 + GetHeight() / 2.0 - Epsilon) NEED TO CHANGE THIS
             {
                 if (newV.X() > 0 && collided->GetX() > GetX())
                 {
