@@ -185,6 +185,7 @@
   <ItemGroup>
     <ClInclude Include="Background.h" />
     <ClInclude Include="ChildView.h" />
+    <ClInclude Include="ItemVisitor.h" />
     <ClInclude Include="Declaration.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameSystem.h" />
@@ -207,6 +208,7 @@
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="ChildView.cpp" />
+    <ClCompile Include="ItemVisitor.cpp" />
     <ClCompile Include="Declaration.cpp" />
     <ClCompile Include="GameSystem.cpp" />
     <ClCompile Include="Item.cpp" />

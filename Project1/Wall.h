@@ -31,13 +31,17 @@ public:
     /* Drawing the wall
     * \param graphics the graphics being drawn 
     */
-    void Draw(Gdiplus::Graphics* graphics);
+    void Draw(Gdiplus::Graphics* graphics, int scrollX) override;
 
     /**
      * mode setter
      * \param mode mode to be set
      */
     void SetMode(int mode) { mMode = mode; };
+
+    /** Accept a visitor
+     * \param visitor The visitor we accept */
+    virtual void Accept(CItemVisitor* visitor) override { visitor->VisitWall(this); }
 
 private:
     std::unique_ptr<Gdiplus::Bitmap> mWall1Image; ///< Image of Wall1

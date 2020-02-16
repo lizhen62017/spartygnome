@@ -14,6 +14,7 @@
 
 #include "XmlNode.h"
 #include "Declaration.h"
+#include "ItemVisitor.h"
 
 class CLevel;
 
@@ -51,7 +52,7 @@ public:
 	/// Draw this item
 	/// \param graphics Graphics device to draw on
 	/// \param scrollX the distance the gnome has scrolled
-	void Draw(Gdiplus::Graphics* graphics, int scrollX);
+	virtual void Draw(Gdiplus::Graphics* graphics, int scrollX);
 
 	/// Handle updates for animation
 	/// \param elapsed The time since the last update
@@ -70,6 +71,10 @@ public:
 	CItem(CLevel* level, const std::wstring& filename);
 
 	CItem(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
+
+	/** Accept a visitor
+	 * \param visitor The visitor we accept */
+	virtual void Accept(CItemVisitor* visitor) = 0;
 
 private:
 	/// The level this item is contained in

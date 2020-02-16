@@ -5,12 +5,14 @@
  */
 
 #include "pch.h"
+#include "Item.h"
 #include "Level.h"
 #include "MoneyDeclaration.h"
 #include "SpartyGnome.h"
 #include "Background.h"
 #include "Platform.h"
 #include "Wall.h"
+#include "ItemVisitor.h"
 
 
 using namespace std;
@@ -48,7 +50,7 @@ CLevel::CLevel(const std::wstring& filename)
         const int xStart = 372;
 
         // Each column is 128 pixels to the right.
-        int x = r * 32 + xStart;
+        int x = r * 31 + xStart;
 
         // Create a new fish.
         // This creates a shared pointer pointing at this fish
@@ -85,10 +87,10 @@ CLevel::CLevel(const std::wstring& filename)
         // will be:  1 2 3 4 1
 
         // We center the columns on the screen
-        const int yStart = 244;
+        const int yStart = 251;
 
         // Each column is 128 pixels to the right.
-        int y = r * 32 + yStart;
+        int y = r * 31 + yStart;
 
         // Create a new fish.
         // This creates a shared pointer pointing at this fish
@@ -387,5 +389,16 @@ void CLevel::Draw(Gdiplus::Graphics* graphics, int scrollX)
     for (auto item : mItems)
     {
         item->Draw(graphics, scrollX);
+    }
+}
+
+/** Accept a visitor for the collection of items
+ * \param visitor The visitor for the collection
+ */
+void CLevel::Accept(CItemVisitor* visitor)
+{
+    for (auto item : mItems)
+    {
+        item->Accept(visitor);
     }
 }

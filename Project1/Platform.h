@@ -29,7 +29,7 @@ public:
 
     CPlatform(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
-    void Draw(Gdiplus::Graphics* graphics);
+    void Draw(Gdiplus::Graphics* graphics, int scrollX) override;
 
     /**
      * shape setter
@@ -44,6 +44,10 @@ public:
     void SetMode(int mode) { mMode = mode; };
 
     void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node) override;
+
+    /** Accept a visitor
+     * \param visitor The visitor we accept */
+    virtual void Accept(CItemVisitor* visitor) override { visitor->VisitPlatform(this); }
 
 private:
     /// Width of platform, needs to stack up image by image

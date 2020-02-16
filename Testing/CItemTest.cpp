@@ -1,12 +1,41 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include "Level.h"
+#include "Declaration.h"
 #include "Item.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace Testing
 {
+	/**
+	 *  CItem mock derived object
+	 */
+	class CItemMock : public CItem
+	{
+	public:
+		/**  Constructor
+		 * \param level Level this item is a member of
+		 * \param filename Filename for opening item image
+		 */
+		CItemMock(CLevel* level, const std::wstring filename) : 
+			CItem(level, filename)
+		{
+		}
+
+		///  Default constructor (disabled)
+		CItemMock() = delete;
+
+		///  Copy constructor (disabled)
+		CItemMock(const CItemMock&) = delete;
+
+		~CItemMock() {}
+
+		/** Accept a visitor
+		 * \param visitor The visitor we accept */
+		virtual void Accept(CItemVisitor* visitor) override{ }
+	};
+
 	TEST_CLASS(CItemTest)
 	{
 	public:
@@ -22,7 +51,7 @@ namespace Testing
 			std::wstring path = L"data/levels/level0.xml";
 			CLevel level0(path);
 
-			CItem item(&level0, L"data/images/platformIndustrial_059.png");
+			CItemMock item(&level0, L"data/images/platformIndustrial_059.png");
 
 			// Test SetLocation, GetX, and GetY
 			item.SetLocation(10.5, 17.2);
