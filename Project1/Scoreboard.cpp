@@ -37,7 +37,20 @@ void CScoreboard::Draw(Gdiplus::Graphics* graphics)
 	FontFamily fontFamily(L"Arial");
 	Gdiplus::Font font(&fontFamily, 60);
 	SolidBrush blue(Color(0, 0, 255));
-	graphics->DrawString(L"Arial", -1, &font, PointF(100, 100), &blue);
+	graphics->DrawString(GetTime().c_str(), -1, &font, PointF(100, 100), &blue);
+}
+
+
+
+void CScoreboard::Update(double elapsed)
+{
+	mTimeElapsed += elapsed;
+
+	if (mTimeElapsed >= 1.0)
+	{
+		mTime += 1;
+		mTimeElapsed = 0.0;
+	}
 }
 
 

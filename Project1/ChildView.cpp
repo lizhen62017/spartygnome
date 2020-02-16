@@ -93,8 +93,7 @@ void CChildView::OnPaint()
 	double elapsed = double(diff) / mTimeFreq;
 	mLastTime = time.QuadPart;
 
-	mGameSystem.GetGnome()->Update(elapsed);
-
+	mGameSystem.Update(elapsed);
 	mGameSystem.Draw(&graphics, rect.Width(), rect.Height());
 
 	// Do not call CWnd::OnPaint() for painting messages
