@@ -64,6 +64,8 @@ public:
    */
     std::vector<std::shared_ptr<CItem>> CollisionTest(CSpartyGnome* gnome);
 
+    void Draw(Gdiplus::Graphics* graphics, int scrollX);
+
 private:
     /// Level width in virtual pixels
     double mWidth;

@@ -381,3 +381,11 @@ shared_ptr<Bitmap> CLevel::ImageLoad(wstring filename)
     }
     return image;
 }
+
+void CLevel::Draw(Gdiplus::Graphics* graphics, int scrollX)
+{
+    for (auto item : mItems)
+    {
+        item->Draw(graphics, scrollX);
+    }
+}

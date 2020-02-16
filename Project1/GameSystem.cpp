@@ -55,6 +55,7 @@ void CGameSystem::Draw(Gdiplus::Graphics* graphics,int width, int height)
 
 	mScoreboard->Draw(graphics);
 
+    mLevel0.Draw(graphics, xOffset);
 
 }
 
