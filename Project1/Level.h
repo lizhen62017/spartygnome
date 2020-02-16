@@ -64,6 +64,11 @@ public:
    */
     std::vector<std::shared_ptr<CItem>> CollisionTest(CSpartyGnome* gnome);
 
+    /**
+    * Drawing a given level
+    * \param graphics The graphics item needed
+    * \param scrollX The scrolling distance to scroll the level 
+    */
     void Draw(Gdiplus::Graphics* graphics, int scrollX);
 
 private:

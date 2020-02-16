@@ -55,10 +55,10 @@ private:
     // image for the left of the platform
     //std::shared_ptr<Gdiplus::Bitmap> mLeftImage; FIXME May be redundant with mItemImage.
 
-    // Image for the middle of the platform
+    /// Image for the middle of the platform
     std::shared_ptr<Gdiplus::Bitmap> mMidImage;
 
-    // Image for the right of the platform
+    /// Image for the right of the platform
     std::shared_ptr<Gdiplus::Bitmap> mRightImage;
 
     std::unique_ptr<Gdiplus::Bitmap> mGrassImage; ///< Grass Image

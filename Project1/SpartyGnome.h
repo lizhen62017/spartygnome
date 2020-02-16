@@ -33,7 +33,7 @@ private:
 
 	/// The level this gnome is contained in
 	CLevel Temp = CLevel(L"data/levels/level0.xml");
-	CLevel* mLevel = &Temp;
+	CLevel* mLevel = &Temp; ///< The level spartygnome is currently on???
 
 
 
@@ -90,8 +90,14 @@ public:
 	*/
 	CLevel* GetLevel() { return mLevel; };
 
+	/**
+	* Function for handling the death of SpartyGnome
+	*/
 	void Death(boolean villain);
 
+	/**
+	* Function for processing a jump
+	*/
 	void Jump();
 };
 

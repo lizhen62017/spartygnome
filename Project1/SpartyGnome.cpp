@@ -41,6 +41,7 @@ CSpartyGnome::CSpartyGnome()
 
 /**
  * \param graphics The graphic SpartyGnome is being drawn on
+ * \param scrollX The distance needed so that SpartyGnome can remain centered 
  */
 void CSpartyGnome::Draw(Gdiplus::Graphics* graphics, int scrollX)
 {

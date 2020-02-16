@@ -34,6 +34,8 @@ public:
 	/// Draws the score to the screen
 	virtual void Draw(Gdiplus::Graphics* graphics);
 
+	/// Update the scoreboard
+	/// \param elapsed The time elapsed from previous update
 	void Update(double elapsed);
 
 private:

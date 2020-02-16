@@ -32,7 +32,7 @@ CBackground::CBackground(CLevel* level, const std::shared_ptr<CDeclaration> decl
 }
 
 // I think this is likely redundant
-void CBackground::OnDraw(Gdiplus::Graphics* graphics,double scrollX)
+void CBackground::Draw(Gdiplus::Graphics* graphics,double scrollX)
 {
     /**int wid = mImage->GetWidth();
     int hit = mImage->GetHeight();

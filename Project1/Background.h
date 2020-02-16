@@ -28,7 +28,10 @@ public:
 
     CBackground(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
-	void OnDraw(Gdiplus::Graphics* graphics, double scrollX);
+    /// Drawing the background
+    /// \param graphics The graphics needed to draw
+    /// \param scrollX The distance needed to scroll the background
+	void Draw(Gdiplus::Graphics* graphics, double scrollX);
 	/**double GetImageHeight() {return mImage->GetHeight(); };*/
 
 /**private:
