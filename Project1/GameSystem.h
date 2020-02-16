@@ -6,12 +6,14 @@
  * 
  */
 
+#pragma once
+
 #include "Background.h"
 #include "SpartyGnome.h"
 #include "Level.h"
 #include <string>
-#pragma once
 
+class CScoreboard;
 
 /**
  * CGameSystem Class
@@ -30,6 +32,10 @@ public:
 private:
     /// The gnome object for the game
     CSpartyGnome mGnome;
+
+	/// The scoreboard object for the game
+	CScoreboard* mScoreboard;
+
     /// The scale of the game is set to
 	float mScale;
 
