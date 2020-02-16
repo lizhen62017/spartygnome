@@ -40,7 +40,7 @@ public:
 	* \returns Y location in pixels */
 	double GetY() const { return mY; }
 
-	/** The Aquarium the item is in
+	/** The Level the item is in
 	* \returns Level the item is associated with */
 	CLevel* GetLevel() { return mLevel; }
 

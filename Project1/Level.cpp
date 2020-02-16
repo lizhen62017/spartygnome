@@ -13,6 +13,7 @@
 #include "Platform.h"
 #include "Wall.h"
 #include "ItemVisitor.h"
+#include "Door.h"
 
 
 using namespace std;

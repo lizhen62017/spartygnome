@@ -16,7 +16,7 @@ class CItemPickup;
 //class CTuitionUp;
 //class CWings;
 //class CVillain;
-//class CDoor;
+class CDoor;
 
 /**
  * Item visitor base class
@@ -41,6 +41,10 @@ public:
     /** Visit a CItemPickup object
      * \param itemPickup ItemPickup we are visiting */
     virtual void VisitItemPickup(CItemPickup* itemPickup) {}
+
+    /** Visit a CDoor object
+     * \param door Door we are visiting */
+    virtual void VisitDoor(CDoor* door) {}
 
     //ADD MORE DOWN HERE
 };
