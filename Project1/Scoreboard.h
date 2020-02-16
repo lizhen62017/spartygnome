@@ -29,10 +29,12 @@ public:
 
 	/// Gets the money amount
 	/// \return money The money as a std::wstring to print to the screen
-	std::wstring GetDollars() { return std::to_wstring(mDollars); }
+	std::wstring GetTime() { return std::to_wstring(mTime); }
 
 	/// Draws the score to the screen
 	virtual void Draw(Gdiplus::Graphics* graphics);
+
+	void Update(double elapsed);
 
 private:
 	/// The game this item is contained in
@@ -44,7 +46,7 @@ private:
 	/// The time elapsed since the level started
 	int mTime = 0;
 
-
-
+	/// The time elapsed since the last second
+	double mTimeElapsed = 0.0;
 };
 

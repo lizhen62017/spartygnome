@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "GameSystem.h"
+#include "Scoreboard.h"
 
 using namespace Gdiplus;
 using namespace std;
@@ -7,6 +8,27 @@ using namespace std;
 //constant for scale of the window.  All background objects are 1024 pixels, so
 // that is going to be what it is scaled to at all times.
 const int BACKGROUND_SIZE = 1024;
+
+
+/**
+* Constructor
+*/
+
+CGameSystem::CGameSystem()
+{
+	// initialize game scoreboard
+	mScoreboard = new CScoreboard(this);
+
+}
+
+
+/**
+* Destructor
+*/
+CGameSystem::~CGameSystem()
+{
+	delete mScoreboard;
+}
 
 /**
  * Draws the Game and scales everything accordingly
@@ -31,5 +53,18 @@ void CGameSystem::Draw(Gdiplus::Graphics* graphics,int width, int height)
 
     mGnome.Draw(graphics);
 
+	mScoreboard->Draw(graphics);
 
+
+}
+
+
+/** Handle updates for animation
+* \param elapsed The time since the last update
+*/
+
+void CGameSystem::Update(double elapsed)
+{
+	mGnome.Update(elapsed);
+	mScoreboard->Update(elapsed);
 }

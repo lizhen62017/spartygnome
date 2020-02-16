@@ -22,12 +22,23 @@ class CScoreboard;
 class CGameSystem
 {
 public:
+	/// Constructor
+	CGameSystem();
+
+	/// Destructor
+	~CGameSystem();
+
+
     /// Draws
 	void Draw(Gdiplus::Graphics* graphics, int width, int height);
 
     /// Gets the gnome object
     /// \return the gnome object
     CSpartyGnome* GetGnome() { return &mGnome; }
+
+	/// Updates the screen from the last elapsed time
+	void Update(double elapsed);
+
 
 private:
     /// The gnome object for the game
