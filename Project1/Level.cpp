@@ -78,6 +78,46 @@ CLevel::CLevel(const std::wstring& filename)
         Add(platform);
     }
 
+    for (int r = 0; r < NumRows; r++)
+    {
+        // There is a row every 64 pixels and
+        // we start 150 pixels from the top
+        int y = initCoord - 250;
+
+        // The number of columns starts at 1 and increases as we
+        // go down in the Y direction until half way, then decreases.
+        // If we had 5 rows, the number of columns for each row
+        // will be:  1 2 3 4 1
+
+        // We center the columns on the screen
+        const int xStart = 872;
+
+        // Each column is 128 pixels to the right.
+        int x = r * 31 + xStart;
+
+        // Create a new fish.
+        // This creates a shared pointer pointing at this fish
+        shared_ptr<CPlatform> platform = make_shared<CPlatform>(this, L"data/images/grass.png");
+
+        platform->SetMode(2);
+
+        if (r == 0)
+        {
+            platform->SetIsEdge(1);
+        }
+
+        if (r == NumRows - 1)
+        {
+            platform->SetIsEdge(2);
+        }
+
+        // Set the location
+        platform->SetLocation(x, y);
+
+        // Add to the list of fish.
+        Add(platform);
+    }
+
     for (int r = 0; r < NumCols; r++)
     {
         // There is a row every 64 pixels and

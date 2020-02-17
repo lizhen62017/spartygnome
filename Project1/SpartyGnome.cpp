@@ -76,7 +76,7 @@ void CSpartyGnome::Update(double elapsed)
         {
             if (collided != nullptr)
             {
-                if (abs(collided->GetX() - GetX()) < 58) //collided->GetWidth() / 2.0 + GetWidth() / 2.0 - Epsilon)
+                if (abs(collided->GetX() - GetX()) < collided->GetWidth() / 2.0 + GetWidth() / 2.0 - 11)
                 {
                     if (newV.Y() > 0 && collided->GetY() > GetY())
                     {
@@ -84,18 +84,20 @@ void CSpartyGnome::Update(double elapsed)
                         newP.SetY(collided->GetY() - collided->GetHeight() / 2.0 - GetHeight() / 2.0 - Epsilon);
                         misJumping = false;
                         mDoubleJump = false;
+                        newV.SetY(0);
                     }
                     else if (newV.Y() < 0 && collided->GetY() < GetY())
                     {
                         // We are rising, stop at the collision point
                         newP.SetY(collided->GetY() + collided->GetHeight() / 2.0 + GetHeight() / 2.0 + Epsilon);
+                        newV.SetY(0);
                     }
                     // If we collide, we cancel any velocity
                     // in the Y direction
-                    newV.SetY(0);
+                    
                 }
 
-                if (abs(collided->GetY() - GetY()) < 95) //collided->GetHeight() / 2.0 + GetHeight() / 2.0 - Epsilon) NEED TO CHANGE THIS
+                if (abs(collided->GetY() - GetY()) < collided->GetHeight() / 2.0 + GetHeight() / 2.0 - 21) 
                 {
                     if (newV.X() > 0 && collided->GetX() > GetX())
                     {
@@ -109,7 +111,6 @@ void CSpartyGnome::Update(double elapsed)
                         newP.SetX(collided->GetX() + collided->GetWidth() / 2.0 + GetWidth() / 2.0 + Epsilon);
                         newV.SetX(0);
                     }
-
                     // If we collide, we cancel any velocity
                     // in the X direction
 
