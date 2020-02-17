@@ -10,13 +10,14 @@
 #include <memory>
 #include "Item.h"
 #include "Level.h"
+#include "Terrain.h"
 #include "Declaration.h"
 
 /**
  * Class representing a platform item in our game
  */
 class CPlatform :
-	public CItem
+	public CTerrain
 {
 public:
     /// Default constructor (disabled)

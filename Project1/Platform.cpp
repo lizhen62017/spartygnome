@@ -30,7 +30,7 @@ const wstring IndustrialRightImageName = L"data/images/platformIndustrial_061.pn
  * \param filename  The filename for the image
  */
 CPlatform::CPlatform(CLevel* level, const std::wstring& filename) :
-    CItem(level, filename)
+    CTerrain(level, filename)
 {
     mGrassImage = unique_ptr<Bitmap>(Bitmap::FromFile(GrassImageName.c_str()));
     if (mGrassImage->GetLastStatus() != Ok)
@@ -126,7 +126,7 @@ CPlatform::CPlatform(CLevel* level, const std::wstring& filename) :
  * \param declaration The Declaration used to instantiate this item
  */
 CPlatform::CPlatform(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
-    CItem(level, declaration)
+    CTerrain(level, declaration)
 {
     //mLeftImage = unique_ptr<Bitmap>(declaration->GetImage(0)); FIXME: Redundant with mItemImage
     mMidImage = shared_ptr<Bitmap>(declaration->GetImage(1));

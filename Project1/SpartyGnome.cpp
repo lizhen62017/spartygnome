@@ -76,7 +76,7 @@ void CSpartyGnome::Update(double elapsed)
         {
             if (collided != nullptr)
             {
-                if (abs(collided->GetX() - GetX()) < 43) //collided->GetWidth() / 2.0 + GetWidth() / 2.0 - Epsilon)
+                if (abs(collided->GetX() - GetX()) < 57) //collided->GetWidth() / 2.0 + GetWidth() / 2.0 - Epsilon)
                 {
                     if (newV.Y() > 0 && collided->GetY() > GetY())
                     {

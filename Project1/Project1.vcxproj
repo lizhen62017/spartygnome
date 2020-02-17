@@ -203,6 +203,7 @@
     <ClInclude Include="Scoreboard.h" />
     <ClInclude Include="SpartyGnome.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Terrain.h" />
     <ClInclude Include="TuitionUp.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Wall.h" />
@@ -232,6 +233,7 @@
     <ClCompile Include="Project1.cpp" />
     <ClCompile Include="Scoreboard.cpp" />
     <ClCompile Include="SpartyGnome.cpp" />
+    <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="TuitionUp.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="Wall.cpp" />
