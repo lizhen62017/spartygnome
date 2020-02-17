@@ -69,47 +69,50 @@ void CSpartyGnome::Update(double elapsed)
 
     mP.SetY(newP.Y());
     
-    for (auto collided : GetLevel()->CollisionTest(this))
+    if (!isAfterDeath)
     {
-        if (collided != nullptr)
+        for (auto collided : GetLevel()->CollisionTest(this))
         {
-            if (abs(collided->GetX() - GetX()) < 43) //collided->GetWidth() / 2.0 + GetWidth() / 2.0 - Epsilon)
+            if (collided != nullptr)
             {
-                if (newV.Y() > 0 && collided->GetY() > GetY())
+                if (abs(collided->GetX() - GetX()) < 43) //collided->GetWidth() / 2.0 + GetWidth() / 2.0 - Epsilon)
                 {
-                    // We are falling, stop at the collision point
-                    newP.SetY(collided->GetY() - collided->GetHeight() / 2.0 - GetHeight() / 2.0 - Epsilon);
-                    misJumping = false;
-                    mDoubleJump = false;
-                }
-                else if (newV.Y() < 0 && collided->GetY() < GetY())
-                {
-                    // We are rising, stop at the collision point
-                    newP.SetY(collided->GetY() + collided->GetHeight() / 2.0 + GetHeight() / 2.0 + Epsilon);
-                }
-                // If we collide, we cancel any velocity
-                // in the Y direction
-                newV.SetY(0);
-            }
-            
-            if (abs(collided->GetY() - GetY()) < 95) //collided->GetHeight() / 2.0 + GetHeight() / 2.0 - Epsilon) NEED TO CHANGE THIS
-            {
-                if (newV.X() > 0 && collided->GetX() > GetX())
-                {
-                    // We are moving to the right, stop at the collision point
-                    newP.SetX(collided->GetX() - collided->GetWidth() / 2.0 - GetWidth() / 2.0 - Epsilon);
-                    newV.SetX(0);
-                }
-                else if (newV.X() < 0 && collided->GetX() < GetX())
-                {
-                    // We are moving to the left, stop at the collision point
-                    newP.SetX(collided->GetX() + collided->GetWidth() / 2.0 + GetWidth() / 2.0 + Epsilon);
-                    newV.SetX(0);
+                    if (newV.Y() > 0 && collided->GetY() > GetY())
+                    {
+                        // We are falling, stop at the collision point
+                        newP.SetY(collided->GetY() - collided->GetHeight() / 2.0 - GetHeight() / 2.0 - Epsilon);
+                        misJumping = false;
+                        mDoubleJump = false;
+                    }
+                    else if (newV.Y() < 0 && collided->GetY() < GetY())
+                    {
+                        // We are rising, stop at the collision point
+                        newP.SetY(collided->GetY() + collided->GetHeight() / 2.0 + GetHeight() / 2.0 + Epsilon);
+                    }
+                    // If we collide, we cancel any velocity
+                    // in the Y direction
+                    newV.SetY(0);
                 }
 
-                // If we collide, we cancel any velocity
-                // in the X direction
-                
+                if (abs(collided->GetY() - GetY()) < 95) //collided->GetHeight() / 2.0 + GetHeight() / 2.0 - Epsilon) NEED TO CHANGE THIS
+                {
+                    if (newV.X() > 0 && collided->GetX() > GetX())
+                    {
+                        // We are moving to the right, stop at the collision point
+                        newP.SetX(collided->GetX() - collided->GetWidth() / 2.0 - GetWidth() / 2.0 - Epsilon);
+                        newV.SetX(0);
+                    }
+                    else if (newV.X() < 0 && collided->GetX() < GetX())
+                    {
+                        // We are moving to the left, stop at the collision point
+                        newP.SetX(collided->GetX() + collided->GetWidth() / 2.0 + GetWidth() / 2.0 + Epsilon);
+                        newV.SetX(0);
+                    }
+
+                    // If we collide, we cancel any velocity
+                    // in the X direction
+
+                }
             }
         }
     }
@@ -129,12 +132,20 @@ void CSpartyGnome::Death(boolean villain)
 {
     if (mP.Y() - mImage->GetHeight() / 2 > 1024 || villain)
     {
-        //Message to check if working, leave commented
-        //AfxMessageBox(L"SpartyGnome has died");
-        mGameSystem->Reset();
-        //Temp location reset to make playtesting easier
-        SetLocX(512);
-        SetLocY(128);
+        if (villain)
+        {
+            SetIsAfterDeath(true);
+        }
+        else
+        {
+            //Message to check if working, leave commented
+            //AfxMessageBox(L"SpartyGnome has died");
+            mGameSystem->Reset();
+            //Temp location reset to make playtesting easier
+            SetLocX(512);
+            SetLocY(128);
+            SetIsAfterDeath(false);
+        }
     }
 }
 

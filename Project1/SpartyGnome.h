@@ -45,6 +45,8 @@ private:
 	/// The game this item is contained in
 	CGameSystem* mGameSystem;
 
+	/// Trace if gnome is really falling or falling after killed by villan
+	boolean isAfterDeath = false;
 
 public:
 	/// Default constructor (deleted)
@@ -111,5 +113,10 @@ public:
 	* Function for processing a jump
 	*/
 	void Jump();
+
+	/**
+	* Set death condition so won't collide anymore while dropping after hitting a villain. 
+	*/
+	void SetIsAfterDeath(boolean temp) { isAfterDeath = temp; };
 };
 
