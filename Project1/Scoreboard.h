@@ -44,6 +44,8 @@ public:
 
 	void Reset();
 
+	void Door();
+
 private:
 	/// The game this item is contained in
 	CGameSystem* mGameSystem;
@@ -59,6 +61,9 @@ private:
 
 	/// Check to see if should draw death message
 	boolean mDied = false;
+	
+	/// Check to see if should draw door message
+	boolean mDoor = false;
 
 };
 

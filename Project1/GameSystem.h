@@ -41,6 +41,8 @@ public:
 
     void Reset();
 
+    void Completion();
+
 
 private:
     /// The gnome object for the game

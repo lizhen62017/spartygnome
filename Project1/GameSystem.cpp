@@ -81,3 +81,11 @@ void CGameSystem::Reset()
 {
     mScoreboard->Reset();
 }
+
+/**
+ * Completes level and loads next level
+ */
+void CGameSystem::Completion()
+{
+    mScoreboard->Door();
+}
