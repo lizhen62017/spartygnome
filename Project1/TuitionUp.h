@@ -22,5 +22,8 @@ private:
     ///copy constructor (disabled)
     CTuitionUp(const CTuitionUp&) = delete;
 public:
+    /** Accept a visitor
+     * \param visitor The visitor we accept */
+    virtual void Accept(CItemVisitor* visitor) override { visitor->VisitTuitionUp(this); }
 };
 

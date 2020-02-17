@@ -20,6 +20,10 @@ public:
     ///copy constructor (disabled)
     CMoney(const CMoney&) = delete;
 
+    /** Accept a visitor
+     * \param visitor The visitor we accept */
+    virtual void Accept(CItemVisitor* visitor) override { visitor->VisitMoney(this); }
+
 private:
     double mValue; ///< The value of a given money object
 };

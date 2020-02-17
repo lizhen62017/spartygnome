@@ -12,9 +12,9 @@ class CBackground;
 class CPlatform;
 class CWall;
 class CItemPickup;
-//class CMoney;
-//class CTuitionUp;
-//class CWings;
+class CMoney;
+class CTuitionUp;
+class CWings;
 //class CVillain;
 class CDoor;
 
@@ -45,6 +45,18 @@ public:
     /** Visit a CDoor object
      * \param door Door we are visiting */
     virtual void VisitDoor(CDoor* door) {}
+
+    /** Visit a CMoney object
+     * \param money Money we are visiting */
+    virtual void VisitMoney(CMoney* money) {}
+
+    /** Visit a CTuitionUp object
+     * \param tuition TuitionUp we are visiting */
+    virtual void VisitTuitionUp(CTuitionUp* tuition) {}
+
+    /** Visit a CWings object
+     * \param wings Wings we are visiting */
+    virtual void VisitWings(CWings* wings) {}
 
     //ADD MORE DOWN HERE
 };
