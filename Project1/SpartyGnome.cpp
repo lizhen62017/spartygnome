@@ -24,7 +24,8 @@ const double Epsilon = 0.01;
 
 
 /**
- * Constructor for spartGnome
+ * Constructor for spartyGnome
+ * \param game The game the gnome is a part of
  */
 CSpartyGnome::CSpartyGnome(CGameSystem* game)
 {

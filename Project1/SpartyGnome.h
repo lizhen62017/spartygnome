@@ -116,6 +116,7 @@ public:
 
 	/**
 	* Set death condition so won't collide anymore while dropping after hitting a villain. 
+	* \param temp Whether SpartyGnome was killed or not
 	*/
 	void SetIsAfterDeath(boolean temp) { isAfterDeath = temp; };
 };

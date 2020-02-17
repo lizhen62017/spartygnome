@@ -10,6 +10,10 @@
 #include "Item.h"
 #include<string>
 
+
+/**
+ * Class for a single door
+ */
 class CDoor :
 	public CItem
 {
