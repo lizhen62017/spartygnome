@@ -2,6 +2,7 @@
 #include "CppUnitTest.h"
 
 #include "SpartyGnome.h"
+#include "GameSystem.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -19,7 +20,9 @@ namespace Testing
 		
 		TEST_METHOD(TestLocation)
 		{
-			CSpartyGnome gnome;
+			CGameSystem game;
+
+			CSpartyGnome gnome(&game);
 			gnome.SetLocX(512);
 			gnome.SetLocY(512);
 			Assert::IsTrue(gnome.GetX() == 512, L"Correct Test");
@@ -32,7 +35,9 @@ namespace Testing
 
 		TEST_METHOD(TestVelocity)
 		{
-			CSpartyGnome gnome;
+			CGameSystem game;
+
+			CSpartyGnome gnome(&game);
 
 			Assert::IsTrue(gnome.GetVelX() == 0, L"Correct Test");
 			Assert::IsTrue(gnome.GetVelY() == 0, L"Correct Test");
@@ -46,7 +51,9 @@ namespace Testing
 
 		TEST_METHOD(Jump)
 		{
-			CSpartyGnome gnome;
+			CGameSystem game;
+
+			CSpartyGnome gnome(&game);
 
 			Assert::IsTrue(gnome.GetVelY() == 0, L"Base Test");
 			gnome.SetVelY(10);

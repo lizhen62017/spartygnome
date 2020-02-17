@@ -109,7 +109,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>pch;XmlNode;SpartyGnome;Level;Declaration;Background;ItemVisitor;Vector;Item;Platform;Wall</AdditionalDependencies>
+      <AdditionalDependencies>pch;XmlNode;SpartyGnome;Level;Declaration;Background;ItemVisitor;Vector;Item;Platform;Wall;GameSystem;Door;Scoreboard</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -177,6 +177,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="CLevelTest.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="CScoreboardTest.cpp">
       <SubType>
       </SubType>
     </ClCompile>
