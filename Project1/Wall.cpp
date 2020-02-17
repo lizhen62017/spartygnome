@@ -20,7 +20,7 @@ const wstring Wall2ImageName = L"data/images/wall2.png";
 * \param level The level the wall is a part of
 ( \param filename The filename of the wall image
 */
-CWall::CWall(CLevel* level, const std::wstring& filename) : CItem(level, filename)
+CWall::CWall(CLevel* level, const std::wstring& filename) : CTerrain(level, filename)
 {
     mWall1Image = unique_ptr<Bitmap>(Bitmap::FromFile(Wall1ImageName.c_str()));
     if (mWall1Image->GetLastStatus() != Ok)

@@ -10,11 +10,12 @@
 #include <memory>
 #include "Item.h"
 #include "Level.h"
+#include "Terrain.h"
 
 /**
  * The Wall Class
  */
-class CWall : public CItem
+class CWall : public CTerrain
 {
 public:
     /// Default constructor (disabled)
