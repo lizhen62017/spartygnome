@@ -80,7 +80,7 @@ void CGameSystem::Draw(Gdiplus::Graphics* graphics,int width, int height)
 
     mGnome->Draw(graphics, xOffset);
 
-	mScoreboard->Draw(graphics);
+	mScoreboard->Draw(graphics, virtualWidth);
 
 
 }

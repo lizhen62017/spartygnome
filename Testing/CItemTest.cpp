@@ -5,19 +5,19 @@
 #include "Item.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-
+/*
 namespace Testing
 {
 	/**
 	 *  CItem mock derived object
-	 */
+	 
 	class CItemMock : public CItem
 	{
 	public:
 		/**  Constructor
 		 * \param level Level this item is a member of
 		 * \param filename Filename for opening item image
-		 */
+		 
 		CItemMock(CLevel* level, const std::wstring filename) : 
 			CItem(level, filename)
 		{
@@ -32,7 +32,7 @@ namespace Testing
 		~CItemMock() {}
 
 		/** Accept a visitor
-		 * \param visitor The visitor we accept */
+		 * \param visitor The visitor we accept 
 		virtual void Accept(CItemVisitor* visitor) override{ }
 
 		/// Get the width of the item
@@ -45,7 +45,7 @@ namespace Testing
 
 		/** Define if item is collidable
 		* \param collidable the situation
-		*/
+		
 		virtual boolean IsCollidable() override { return true; }; //FIXME Virtual Item
 	};
 
@@ -73,4 +73,4 @@ namespace Testing
 		}
 
 	};
-}
+} */

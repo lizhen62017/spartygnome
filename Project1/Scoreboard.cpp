@@ -32,7 +32,7 @@ CScoreboard::~CScoreboard()
 * Draws the score to the screen
 * \param graphics Graphics context on which to draw
 */
-void CScoreboard::Draw(Gdiplus::Graphics* graphics)
+void CScoreboard::Draw(Gdiplus::Graphics* graphics, int width) 
 {
 	std::wstring timePrint;
 	std::wstring dollarsPrint = L"$" + GetDollars();
@@ -62,7 +62,7 @@ void CScoreboard::Draw(Gdiplus::Graphics* graphics)
 	Gdiplus::Font font(&fontFamily, 70, FontStyleBold);
 	SolidBrush blue(Color(0, 255, 255));
 	graphics->DrawString(timePrint.c_str(), -1, &font, PointF(90, 25), &blue);
-	graphics->DrawString(dollarsPrint.c_str(), -1, &font, PointF(2000, 25), &blue);
+	graphics->DrawString(dollarsPrint.c_str(), -1, &font, PointF(width-300, 25), &blue);
 
 	// Draws text on gnome death
 	if (mDied)
