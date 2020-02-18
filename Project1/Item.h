@@ -68,6 +68,11 @@ public:
 	/// \returns item height
 	virtual int GetHeight() = 0;
 
+	/** Define if item is collidable
+	* \param collidable the situation
+	*/
+	virtual boolean IsCollidable() = 0;
+
 	virtual void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node);
 
 	CItem(CLevel* level, const std::wstring& filename);

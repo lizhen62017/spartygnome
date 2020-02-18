@@ -47,3 +47,8 @@ int CTerrain::GetWidth()
 {
     return mWidth;
 }
+
+boolean CTerrain::IsCollidable()
+{
+    return true;
+}

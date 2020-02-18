@@ -28,6 +28,8 @@ public:
 
     int GetWidth() override; 
 
+    boolean IsCollidable() override;
+
     void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node) override;
 
 private:

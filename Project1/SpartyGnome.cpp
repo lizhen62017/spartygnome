@@ -74,7 +74,7 @@ void CSpartyGnome::Update(double elapsed)
     {
         for (auto collided : GetLevel()->CollisionTest(this))
         {
-            if (collided != nullptr)
+            if (collided != nullptr && collided->IsCollidable())
             {
                 if (abs(collided->GetX() - GetX()) < collided->GetWidth() / 2.0 + GetWidth() / 2.0 - 11)
                 {
