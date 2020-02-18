@@ -72,8 +72,8 @@ void CGameSystem::Draw(Gdiplus::Graphics* graphics,int width, int height)
         mGnome->ChangeLevel(&mLevel2);
         break;
     case (Level3):
-       // mLevel3.Draw(graphics, xOffset);
-       // mGnome->ChangeLevel(&mLevel3);
+        mLevel3.Draw(graphics, xOffset);
+        mGnome->ChangeLevel(&mLevel3);
         break;
     }
 

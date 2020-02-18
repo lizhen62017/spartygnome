@@ -67,5 +67,5 @@ private:
 	CLevel mLevel0 = CLevel(L"data/levels/level0.xml"); ///< Level object for level 0
     CLevel mLevel1 = CLevel(L"data/levels/level1.xml"); ///< Level object for level 1
     CLevel mLevel2 = CLevel(L"data/levels/level2.xml"); ///< Level object for level 2
-   // CLevel mLevel3 = CLevel(L"data/levels/level3.xml"); ///< Level object for level 3
+    CLevel mLevel3 = CLevel(L"data/levels/level3.xml"); ///< Level object for level 3
 };
