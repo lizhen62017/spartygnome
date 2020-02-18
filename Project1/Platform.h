@@ -33,18 +33,14 @@ public:
 
     void Draw(Gdiplus::Graphics* graphics, int scrollX) override;
 
-    /**
-     * shape setter
-     * \param edge decide whether shape should go as edge or not
-     
-    void SetIsEdge(int edge) { isEdge = edge; };
 
-    /**
-      * mode setter
-      * \param mode mode to be set
+     
+    //void SetIsEdge(int edge) { isEdge = edge; };
+
+
       
-    void SetMode(int mode) { mMode = mode; };
-    */
+    //void SetMode(int mode) { mMode = mode; };
+    
     /** Accept a visitor
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitPlatform(this); }
