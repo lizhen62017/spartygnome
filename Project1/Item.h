@@ -77,7 +77,7 @@ public:
 
 	virtual void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node);
 
-	CItem(CLevel* level, const std::wstring& filename);
+	//CItem(CLevel* level, const std::wstring& filename);
 
 	CItem(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 

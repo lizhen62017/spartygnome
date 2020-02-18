@@ -18,7 +18,7 @@ const double Epsilon = 1; ///< remove the white lines between objects made of mu
  * Constructor
  * \param level The level this item is a member of
  * \param filename Filename for the image we use
- */
+ 
 CItem::CItem(CLevel* level, const std::wstring& filename) :
 	mLevel(level)
 {
@@ -29,7 +29,7 @@ CItem::CItem(CLevel* level, const std::wstring& filename) :
 		msg += filename;
 		AfxMessageBox(msg.c_str());
 	}
-}
+}*/
 
 
 /**

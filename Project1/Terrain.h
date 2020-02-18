@@ -24,13 +24,17 @@ public:
     /// Copy constructor (disabled)
     CTerrain(const CTerrain&) = delete;
 
-    CTerrain::CTerrain(CLevel* level, const std::wstring& filename);
+    //CTerrain::CTerrain(CLevel* level, const std::wstring& filename);
 
     CTerrain(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
-    int GetHeight() override;
+    /** Getter for terrain height
+     * \return height of terrain */
+    int GetHeight() override { return mHeight; }
 
-    int GetWidth() override; 
+    /** Getter for terrain width
+    * \return width of terrain */
+    int GetWidth() override { return mWidth; }
 
     boolean IsCollidable() override;
 

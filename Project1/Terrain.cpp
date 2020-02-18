@@ -16,10 +16,10 @@ using namespace std;
  * Constructor
  * \param level The level this item is a member of
  * \param filename Filename for the image we use
- */
+ 
 CTerrain::CTerrain(CLevel* level, const std::wstring& filename) : CItem(level, filename)
 {
-}
+}*/
 
 /**
  * Constructor
@@ -41,20 +41,6 @@ void CTerrain::XmlLoad(const std::shared_ptr<xmlnode::CXmlNode> & node)
     mHeight = node->GetAttributeDoubleValue(L"height", 0);
 
     CItem::XmlLoad(node);
-}
-
-    /** Getter for terrain height
-     * \return height of terrain */
-int CTerrain::GetHeight()
-{
-    return mHeight;
-}
-
-    /** Getter for terrain width
-     * \return width of terrain */
-int CTerrain::GetWidth()
-{
-    return mWidth;
 }
 
 
