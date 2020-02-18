@@ -12,6 +12,8 @@
 using namespace Gdiplus;
 using namespace std;
 
+const double Epsilon = 1; ///< remove the white lines between objects made of multiple pictures.
+
 /**
  * Constructor
  * \param level The level this item is a member of
@@ -59,7 +61,7 @@ void CItem::Draw(Gdiplus::Graphics* graphics, int scrollX)
 
 	graphics->DrawImage(mItemImage.get(),
 		float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
-		(float)mItemImage->GetWidth(), (float)mItemImage->GetHeight());
+		(float)mItemImage->GetWidth() + Epsilon, (float)mItemImage->GetHeight());
 }
 
 /**
