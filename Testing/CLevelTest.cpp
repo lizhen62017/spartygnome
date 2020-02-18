@@ -24,6 +24,12 @@ namespace Testing
 		virtual void VisitBackground(CBackground* background) override { mNumBackgrounds++; }
 		virtual void VisitPlatform(CPlatform* building) override { mNumPlatforms++; }
 
+		void ResetVisits()
+		{
+			mNumBackgrounds = 0;
+			mNumPlatforms = 0;
+		}
+
 		int mNumBackgrounds = 0;
 		int mNumPlatforms = 0;
 	};
@@ -94,8 +100,11 @@ namespace Testing
 
 			CTestVisitor visitor;
 			level.Accept(&visitor);
-			Assert::AreEqual(0, visitor.mNumBackgrounds,
+			Assert::AreEqual(1, visitor.mNumBackgrounds,
 				L"Visitor number of backgrounds");
+
+			visitor.ResetVisits();
+
 
 			const shared_ptr<CDeclaration> emptyDeclaration = make_shared<CDeclaration>();
 			emptyDeclaration->AddImage(image);
@@ -108,7 +117,7 @@ namespace Testing
 			level.Add(item2);
 
 			level.Accept(&visitor);
-			Assert::AreEqual(2, visitor.mNumBackgrounds,
+			Assert::AreEqual(3, visitor.mNumBackgrounds,
 				L"Visitor number of backgrounds");
 
 		}

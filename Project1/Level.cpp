@@ -351,7 +351,7 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
     // If it is a background
     if (type == L"background")
     {
-        //item = make_shared<CBackground>(this, declaration);
+        item = make_shared<CBackground>(this, declaration);
     }
 
     // If it is a platform
