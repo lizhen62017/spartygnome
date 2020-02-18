@@ -95,6 +95,7 @@ void CGameSystem::Update(double elapsed)
     //
     // Prevent tunnelling
     //
+    double temp = elapsed;
     while (elapsed > MaxElapsed)
     {
         mGnome->Update(MaxElapsed);
@@ -107,7 +108,7 @@ void CGameSystem::Update(double elapsed)
     {
         mGnome->Update(elapsed);
     }
-	mScoreboard->Update(elapsed);
+	mScoreboard->Update(temp);
 }
 
 
