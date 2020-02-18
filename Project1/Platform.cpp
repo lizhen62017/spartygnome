@@ -11,7 +11,7 @@ using namespace Gdiplus;
 using namespace std;
 
 /// filenames 
-
+/**
 const wstring GrassImageName = L"data/images/grass.png"; ///< Grass Image
 const wstring GrassMidImageName = L"data/images/grassMid.png"; ///< Grass Mid Image
 const wstring GrassLeftImageName = L"data/images/grassLeft.png"; ///< Grass Left Image
@@ -24,15 +24,15 @@ const wstring IndustrialImageName = L"data/images/platformIndustrial_057.png"; /
 const wstring IndustrialMidImageName = L"data/images/platformIndustrial_060.png"; ///< Industrial Mid Image
 const wstring IndustrialLeftImageName = L"data/images/platformIndustrial_059.png"; ///< Industrial Left Image
 const wstring IndustrialRightImageName = L"data/images/platformIndustrial_061.png"; ///< Industrial Right Image
-
-
+*/
+const double Epsilon = 1;
 
 
 /**
  * Constructor
  * \param level the level this Platform is a member of
  * \param filename  The filename for the image
- */
+ 
 CPlatform::CPlatform(CLevel* level, const std::wstring& filename) :
     CTerrain(level, filename)
 {
@@ -122,7 +122,7 @@ CPlatform::CPlatform(CLevel* level, const std::wstring& filename) :
         msg += IndustrialRightImageName;
         AfxMessageBox(msg.c_str());
     }
-}
+}*/
 
 /**
  * Constructor for a platform when loaded from level file
@@ -154,7 +154,7 @@ void CPlatform::Draw(Gdiplus::Graphics* graphics, int scrollX)
     {
         graphics->DrawImage(mMidImage.get(), 
             float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
-            (float)mMidImage->GetWidth(), (float)mMidImage->GetHeight());
+            (float)mMidImage->GetWidth() + Epsilon, (float)mMidImage->GetHeight());
     }
 
     else 
@@ -164,7 +164,7 @@ void CPlatform::Draw(Gdiplus::Graphics* graphics, int scrollX)
 
         graphics->DrawImage(GetImage().get(),
             float(currentCenter - wid / 2 + scrollX), float(GetY() - hit / 2),
-            (float)GetImage()->GetWidth(), (float)GetImage()->GetHeight());
+            (float)GetImage()->GetWidth() + Epsilon, (float)GetImage()->GetHeight());
 
         currentCenter += 32;
 
@@ -172,14 +172,14 @@ void CPlatform::Draw(Gdiplus::Graphics* graphics, int scrollX)
         {
             graphics->DrawImage(mMidImage.get(),
                 float(currentCenter - wid / 2 + scrollX), float(GetY() - hit / 2),
-                (float)mMidImage->GetWidth(), (float)mMidImage->GetHeight());
+                (float)mMidImage->GetWidth() + Epsilon, (float)mMidImage->GetHeight());
 
             currentCenter += 32;
         }
 
         graphics->DrawImage(mRightImage.get(),
             float(currentCenter - wid / 2 + scrollX), float(GetY() - hit / 2),
-            (float)mRightImage->GetWidth(), (float)mRightImage->GetHeight());
+            (float)mRightImage->GetWidth() + Epsilon, (float)mRightImage->GetHeight());
 
     }
     /**if (mMode == 0)

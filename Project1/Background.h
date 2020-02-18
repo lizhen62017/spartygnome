@@ -40,11 +40,11 @@ public:
 
     /// Get the width of the background
     /// \returns item width
-    virtual int GetWidth() override { return 0; } //FIXME Virtual Item
+    virtual int GetWidth() override { return 0; } //FIXME Virtual Item // Think this is fine...
 
     /// Get the height of the background
     /// \returns item height
-    virtual int GetHeight() override { return 0; } //FIXME Virtual Item
+    virtual int GetHeight() override { return 0; } //FIXME Virtual Item // I call it a smart solution!
 
    /** Define if beackground is collidable
     * \param collidable the situation
