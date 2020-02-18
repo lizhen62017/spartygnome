@@ -26,6 +26,8 @@ public:
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitItemPickup(this); }
 
+    boolean IsCollidable() override;
+
 private:
     bool mActive = true; ///< Bool for determining whether or not the item is currently active
 };

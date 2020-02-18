@@ -34,7 +34,8 @@ private:
 
 	/// The level this gnome is contained in
 	CLevel Temp = CLevel(L"data/levels/level0.xml");
-	CLevel* mLevel = &Temp; ///< The level spartygnome is currently on???
+	CLevel Temp1 = CLevel(L"data/levels/level1.xml");
+	CLevel* mLevel = &Temp1; ///< The level spartygnome is currently on???
 
 	/// Boolean if gnome has wings
 	boolean mWings = false;
@@ -119,5 +120,9 @@ public:
 	* \param temp Whether SpartyGnome was killed or not
 	*/
 	void SetIsAfterDeath(boolean temp) { isAfterDeath = temp; };
+
+	void ChangeLevel(CLevel* level);
+
+	void Reset();
 };
 

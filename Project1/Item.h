@@ -62,11 +62,16 @@ public:
 
 	/// Get the width of the item
 	/// \returns item width
-	int GetWidth() const { return mItemImage->GetWidth(); }
+	virtual int GetWidth() = 0;
 
 	/// Get the height of the item
 	/// \returns item height
-	int GetHeight() const { return mItemImage->GetHeight(); }
+	virtual int GetHeight() = 0;
+
+	/** Define if item is collidable
+	* \param collidable the situation
+	*/
+	virtual boolean IsCollidable() = 0;
 
 	virtual void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node);
 

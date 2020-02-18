@@ -46,3 +46,8 @@ void CBackground::Draw(Gdiplus::Graphics* graphics,double scrollX)
 
 /** Accept a visitor
  * \param visitor The visitor we accept */
+
+boolean CBackground::IsCollidable()
+{
+    return false;
+}
