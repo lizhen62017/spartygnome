@@ -3,6 +3,7 @@
   <declarations>
     <background id="i001" image="backgroundForest.png"/>
     <platform id="i005" left-image="platformIndustrial_059.png" mid-image="platformIndustrial_060.png" right-image="platformIndustrial_061.png"/>
+    <wall id="i006" image="wall1.png"/>
   </declarations>
   <items>
     <background id="i001" x="512" y="512"/>
@@ -11,5 +12,6 @@
     <platform id="i005" x="432" y="848" width="96" height="32"/>
     <platform id="i005" x="448" y="784" width="128" height="32"/>
     <platform id="i005" x="464" y="720" width="160" height="32"/>
+    <wall id="i006" x="1520" y="816" width="32" height="224"/>
   </items>
 </level>
