@@ -10,6 +10,8 @@ using namespace std;
 // that is going to be what it is scaled to at all times.
 const int BackgroundSize = 1024;
 
+/// Maximum amount of time to allow for elapsed
+const double MaxElapsed = 0.050;
 
 /**
 * Constructor
@@ -89,7 +91,21 @@ void CGameSystem::Draw(Gdiplus::Graphics* graphics,int width, int height)
 
 void CGameSystem::Update(double elapsed)
 {
-	mGnome->Update(elapsed);
+    //
+    // Prevent tunnelling
+    //
+    while (elapsed > MaxElapsed)
+    {
+        mGnome->Update(MaxElapsed);
+
+        elapsed -= MaxElapsed;
+    }
+
+    // Consume any remaining time
+    if (elapsed > 0)
+    {
+        mGnome->Update(elapsed);
+    }
 	mScoreboard->Update(elapsed);
 }
 
