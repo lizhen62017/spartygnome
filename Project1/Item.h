@@ -71,7 +71,7 @@ public:
 	virtual int GetHeight() = 0;
 
 	/** Define if item is collidable
-	* \param collidable the situation
+	* \return value The value of whether or not it's collidable
 	*/
 	virtual boolean IsCollidable() = 0;
 

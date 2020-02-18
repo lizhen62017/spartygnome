@@ -47,7 +47,6 @@ public:
     virtual int GetHeight() override { return 0; } //FIXME Virtual Item // I call it a smart solution!
 
    /** Define if beackground is collidable
-    * \param collidable the situation
     */
     boolean IsCollidable() override;
 

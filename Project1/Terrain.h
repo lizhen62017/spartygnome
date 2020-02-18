@@ -37,10 +37,10 @@ public:
     void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node) override;
 
 private:
-    // The height of the terrain
+    /// The height of the terrain
     double mHeight = 0;
 
-    // The width of the terrain
+    /// The width of the terrain
     double mWidth = 0;
 };
 

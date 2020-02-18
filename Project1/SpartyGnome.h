@@ -34,7 +34,7 @@ private:
 
 	/// The level this gnome is contained in
 	CLevel Temp = CLevel(L"data/levels/level0.xml");
-	CLevel Temp1 = CLevel(L"data/levels/level1.xml");
+	CLevel Temp1 = CLevel(L"data/levels/level1.xml"); ///< The level the gnome starts on
 	CLevel* mLevel = &Temp1; ///< The level spartygnome is currently on???
 
 	/// Boolean if gnome has wings

@@ -57,6 +57,11 @@ int CTerrain::GetWidth()
     return mWidth;
 }
 
+
+/**
+ * Function for determining if a given item has collision physics
+ * \return true Terrain has collision physics 
+ */
 boolean CTerrain::IsCollidable()
 {
     return true;

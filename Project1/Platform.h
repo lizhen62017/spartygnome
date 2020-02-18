@@ -26,8 +26,9 @@ public:
     /// Copy constructor (disabled)
     CPlatform(const CPlatform&) = delete;
 
-    CPlatform::CPlatform(CLevel* level, const std::wstring& filename);
+    //CPlatform::CPlatform(CLevel* level, const std::wstring& filename);
 
+    /// Level constructor declaration
     CPlatform(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
     void Draw(Gdiplus::Graphics* graphics, int scrollX) override;

@@ -44,9 +44,11 @@ void CBackground::Draw(Gdiplus::Graphics* graphics,double scrollX)
     graphics->DrawImage(mImage, 1.5 * wid - 2 + scrollX, 0, wid, hit);*/
 }
 
-/** Accept a visitor
- * \param visitor The visitor we accept */
 
+/**
+* function for determining if the gnome can collide with it.
+* \return false It's not collidable.
+*/
 boolean CBackground::IsCollidable()
 {
     return false;

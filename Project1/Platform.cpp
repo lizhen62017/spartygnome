@@ -28,11 +28,7 @@ const wstring IndustrialRightImageName = L"data/images/platformIndustrial_061.pn
 const double Epsilon = 1;
 
 
-/**
- * Constructor
- * \param level the level this Platform is a member of
- * \param filename  The filename for the image
- 
+/*
 CPlatform::CPlatform(CLevel* level, const std::wstring& filename) :
     CTerrain(level, filename)
 {

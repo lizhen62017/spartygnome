@@ -26,6 +26,10 @@ public:
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitItemPickup(this); }
 
+    /**
+    * Function for determining if an object has collision physics
+    * \return False Pickup items do not have collision physics as expected.
+    */
     boolean IsCollidable() override;
 
 private:
