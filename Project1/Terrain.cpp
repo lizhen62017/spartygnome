@@ -27,15 +27,14 @@ CTerrain::CTerrain(CLevel* level, const std::shared_ptr<CDeclaration> declaratio
 }
 
 
-/**
- * Draw this item
+/**Loads the attributes of a Platform item from an Xml Node
+ * \param node The Xml node we are loading the platform from
  */
-void CTerrain::Draw(Gdiplus::Graphics* graphics, int scrollX)
+void CTerrain::XmlLoad(const std::shared_ptr<xmlnode::CXmlNode> & node)
 {
-    double wid = mItemImage->GetWidth();
-    double hit = mItemImage->GetHeight();
+    mWidth = node->GetAttributeDoubleValue(L"width", 0);
+    mHeight = node->GetAttributeDoubleValue(L"height", 0);
 
-    graphics->DrawImage(mItemImage.get(),
-        float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
-        (float)mItemImage->GetWidth(), (float)mItemImage->GetHeight());
+    CItem::XmlLoad(node);
 }
+

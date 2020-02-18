@@ -26,6 +26,8 @@ const wstring IndustrialLeftImageName = L"data/images/platformIndustrial_059.png
 const wstring IndustrialRightImageName = L"data/images/platformIndustrial_061.png"; ///< Industrial Right Image
 
 
+
+
 /**
  * Constructor
  * \param level the level this Platform is a member of
@@ -137,19 +139,6 @@ CPlatform::CPlatform(CLevel* level, const std::shared_ptr<CDeclaration> declarat
 
 
 /**
- * Loads the attributes of a Platform item from an Xml Node
- * \param node The Xml node we are loading the platform from
- */
-void CPlatform::XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node)
-{
-    mWidth = node->GetAttributeDoubleValue(L"width", 0);
-    mHeight = node->GetAttributeDoubleValue(L"height", 0);
-
-    CItem::XmlLoad(node);
-}
-
-
-/**
  * Draw this item
  * \param graphics Graphics device to draw on
  */
@@ -158,7 +147,7 @@ void CPlatform::Draw(Gdiplus::Graphics* graphics, int scrollX)
     double wid = GetWidth();
     double hit = GetHeight();
 
-    float numMid = (mWidth - 64)/ 32;
+    float numMid = (GetTerrainWidth() - 64)/ 32;
 
     if (numMid < 0)
     {

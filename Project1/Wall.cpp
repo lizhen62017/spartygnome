@@ -39,6 +39,16 @@ CWall::CWall(CLevel* level, const std::wstring& filename) : CTerrain(level, file
 }
 
 /**
+ * Constructor for a platform when loaded from level file
+ * \param level The level this platform is a part of
+ * \param declaration The Declaration used to instantiate this item
+ */
+CWall::CWall(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
+    CTerrain(level, declaration)
+{
+}
+
+/**
  * Draw this item
  * \param graphics Graphics device to draw on
  */

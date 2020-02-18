@@ -11,6 +11,7 @@
 #include "Item.h"
 #include "Level.h"
 #include "Terrain.h"
+#include "Declaration.h"
 
 /**
  * The Wall Class
@@ -28,6 +29,8 @@ public:
      * Constructor
      */
     CWall(CLevel* level, const std::wstring& filename);
+
+    CWall(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
     /* Drawing the wall
     * \param graphics the graphics being drawn 

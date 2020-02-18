@@ -24,10 +24,16 @@ public:
 
     CTerrain(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
-    void Draw(Gdiplus::Graphics* graphics, int scrollX) override;
+    double GetTerrainHeight() { return mHeight; }
+
+    double GetTerrainWidth() { return mWidth; }
+
+    void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node) override;
 
 private:
-    /// The image of this item
-    std::shared_ptr<Gdiplus::Bitmap> mItemImage;
+
+    double mHeight = 0;
+
+    double mWidth = 0;
 };
 

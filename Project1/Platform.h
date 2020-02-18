@@ -44,18 +44,11 @@ public:
       */
     void SetMode(int mode) { mMode = mode; };
 
-    void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node) override;
-
     /** Accept a visitor
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitPlatform(this); }
 
 private:
-    /// Width of platform, needs to stack up image by image
-    double mWidth = 0;
-
-    /// Height of platform
-    double mHeight = 0;
 
     // image for the left of the platform
     //std::shared_ptr<Gdiplus::Bitmap> mLeftImage; FIXME May be redundant with mItemImage.
