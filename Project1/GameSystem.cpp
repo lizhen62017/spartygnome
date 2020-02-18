@@ -32,6 +32,7 @@ CGameSystem::CGameSystem()
 CGameSystem::~CGameSystem()
 {
 	delete mScoreboard;
+	delete mGnome;
 }
 
 /**
