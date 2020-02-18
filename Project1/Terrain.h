@@ -11,6 +11,10 @@
 #include "Level.h"
 #include "Declaration.h"
 
+
+/**
+ * Abstract Base class representing terrain (walls and platforms) 
+ */
 class CTerrain : public CItem
 {
 public:
@@ -33,9 +37,10 @@ public:
     void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node) override;
 
 private:
-
+    // The height of the terrain
     double mHeight = 0;
 
+    // The width of the terrain
     double mWidth = 0;
 };
 

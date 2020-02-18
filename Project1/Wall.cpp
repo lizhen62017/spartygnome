@@ -51,6 +51,7 @@ CWall::CWall(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
 /**
  * Draw this item
  * \param graphics Graphics device to draw on
+ * \param scrollX The offset used due to screen scrolling
  */
 void CWall::Draw(Gdiplus::Graphics* graphics, int scrollX)
 {

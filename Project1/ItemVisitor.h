@@ -1,5 +1,5 @@
 /**
- * \file CItemVisitor.h
+ * \file ItemVisitor.h
  *
  * \author Chase Lindeboom
  *

@@ -44,6 +44,8 @@ public:
 	* \returns Level the item is associated with */
 	CLevel* GetLevel() { return mLevel; }
 
+	/** The image belonging to the item
+	 * \returns Level the item is associated with */
 	std::shared_ptr<Gdiplus::Bitmap> GetImage() {return mItemImage;}
 
 	/// Set the item location

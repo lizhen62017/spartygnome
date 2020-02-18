@@ -141,6 +141,7 @@ CPlatform::CPlatform(CLevel* level, const std::shared_ptr<CDeclaration> declarat
 /**
  * Draw this item
  * \param graphics Graphics device to draw on
+ * \param scrollX The offset used due to screen scrolling
  */
 void CPlatform::Draw(Gdiplus::Graphics* graphics, int scrollX)
 {
