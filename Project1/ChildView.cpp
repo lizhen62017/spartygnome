@@ -177,7 +177,7 @@ void CChildView::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
  */
 void CChildView::OnLevelLevel0()
 {
-	// TODO: Add your command handler code here
+	mGameSystem.ChangeLevel(0);
 }
 
 /**
@@ -185,7 +185,7 @@ void CChildView::OnLevelLevel0()
  */
 void CChildView::OnLevelLevel1()
 {
-	// TODO: Add your command handler code here
+	mGameSystem.ChangeLevel(1);
 }
 
 
@@ -194,7 +194,7 @@ void CChildView::OnLevelLevel1()
  */
 void CChildView::OnLevelLevel2()
 {
-	// TODO: Add your command handler code here
+	mGameSystem.ChangeLevel(2);
 }
 
 
@@ -204,5 +204,5 @@ void CChildView::OnLevelLevel2()
  */
 void CChildView::OnLevelLevel3()
 {
-	// TODO: Add your command handler code here
+	mGameSystem.ChangeLevel(3);
 }

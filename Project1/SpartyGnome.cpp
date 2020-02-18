@@ -144,8 +144,7 @@ void CSpartyGnome::Death(boolean villain)
             //AfxMessageBox(L"SpartyGnome has died");
             mGameSystem->Reset();
             //Temp location reset to make playtesting easier
-            SetLocX(512);
-            SetLocY(128);
+            Reset();
             SetIsAfterDeath(false);
         }
     }
@@ -167,4 +166,23 @@ void CSpartyGnome::Jump()
         SetVelY(JumpSpeed);
         mDoubleJump = true;
     }
+}
+
+
+/**
+ * A class for changing which level spartygnome currently is in
+ * \param level the level being changed to
+ */
+void CSpartyGnome::ChangeLevel(CLevel* level)
+{
+    mLevel = level;
+}
+
+/**
+ * function for resetting spartygnomes location after dying or a level change
+ */
+void CSpartyGnome::Reset()
+{
+    SetLocX(512);
+    SetLocY(128);
 }

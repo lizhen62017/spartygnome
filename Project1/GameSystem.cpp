@@ -53,7 +53,27 @@ void CGameSystem::Draw(Gdiplus::Graphics* graphics,int width, int height)
 
     // all drawing needs to be below here to allow for virtual pixels
 
-    mLevel0.Draw(graphics, xOffset);
+    
+    // determine which level is currently active
+    switch (mCurrentLevel)
+    {
+    case (Level0):
+        mLevel0.Draw(graphics, xOffset);
+        mGnome->ChangeLevel(&mLevel0);
+        break;
+    case (Level1):
+        mLevel1.Draw(graphics, xOffset);
+        mGnome->ChangeLevel(&mLevel1);
+        break;
+    case (Level2):
+        mLevel2.Draw(graphics, xOffset);
+        mGnome->ChangeLevel(&mLevel2);
+        break;
+    case (Level3):
+       // mLevel3.Draw(graphics, xOffset);
+       // mGnome->ChangeLevel(&mLevel3);
+        break;
+    }
 
     mGnome->Draw(graphics, xOffset);
 
@@ -88,4 +108,25 @@ void CGameSystem::Reset()
 void CGameSystem::Completion()
 {
     mScoreboard->Door();
+}
+
+
+void CGameSystem::ChangeLevel(int level)
+{
+    switch (level)
+    {
+    case (0):
+        mCurrentLevel = Level0;
+        break;
+    case (1):
+        mCurrentLevel = Level1;
+        break;
+    case (2):
+        mCurrentLevel = Level2;
+        break;
+    case (3):
+        mCurrentLevel = Level3;
+        break;
+    }
+    mGnome->Reset();
 }
