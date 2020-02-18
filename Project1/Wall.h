@@ -25,11 +25,7 @@ public:
     /// Copy constructor (disabled)
     CWall(const CWall&) = delete;
 
-    /**
-     * Constructor
-     */
-    CWall(CLevel* level, const std::wstring& filename);
-
+    //Constructor
     CWall(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
     /* Drawing the wall
@@ -37,18 +33,10 @@ public:
     */
     void Draw(Gdiplus::Graphics* graphics, int scrollX) override;
 
-    /**
-     * mode setter
-     * \param mode mode to be set
-     */
-    void SetMode(int mode) { mMode = mode; };
-
     /** Accept a visitor
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitWall(this); }
 
 private:
-    std::unique_ptr<Gdiplus::Bitmap> mWall1Image; ///< Image of Wall1
-    std::unique_ptr<Gdiplus::Bitmap> mWall2Image; ///< Image of Wall2
-    int mMode = 0; ///<mode 0 Wall1, 1 Wall2
+    std::shared_ptr<Gdiplus::Bitmap> mWallImage; ///< Image of Wall
 };

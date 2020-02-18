@@ -363,7 +363,7 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
     // If it is a wall
     else if (type == L"wall")
     {
-        //item = make_shared<CWall>(this, declaration); CRASHES PROGRAM, RE-ACTIVATE DRAW WALL IS FIXED
+        item = make_shared<CWall>(this, declaration); //CRASHES PROGRAM, RE-ACTIVATE DRAW WALL IS FIXED
     }
 
     // If it is money

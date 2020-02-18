@@ -36,15 +36,15 @@ public:
     /**
      * shape setter
      * \param edge decide whether shape should go as edge or not
-     */
+     
     void SetIsEdge(int edge) { isEdge = edge; };
 
     /**
       * mode setter
       * \param mode mode to be set
-      */
+      
     void SetMode(int mode) { mMode = mode; };
-
+    */
     /** Accept a visitor
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitPlatform(this); }
@@ -59,7 +59,7 @@ private:
 
     /// Image for the right of the platform
     std::shared_ptr<Gdiplus::Bitmap> mRightImage;
-
+    /**
     std::unique_ptr<Gdiplus::Bitmap> mGrassImage; ///< Grass Image
     std::unique_ptr<Gdiplus::Bitmap> mGrassMidImage; ///< Grass Mid Image
     std::unique_ptr<Gdiplus::Bitmap> mGrassLeftImage; ///< Grass Left Image
@@ -74,5 +74,6 @@ private:
     std::unique_ptr<Gdiplus::Bitmap> mIndustrialRightImage; ///< Industrial Right Image
     int isEdge = 0; ///< 0 if Mid, 1 if Left, 2 if Right, 3 if Only
     int mMode = 0; ///<mode 0 grass, 1 snow, 2 industrial
+    */
 };
 

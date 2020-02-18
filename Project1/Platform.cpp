@@ -25,6 +25,7 @@ const wstring IndustrialMidImageName = L"data/images/platformIndustrial_060.png"
 const wstring IndustrialLeftImageName = L"data/images/platformIndustrial_059.png"; ///< Industrial Left Image
 const wstring IndustrialRightImageName = L"data/images/platformIndustrial_061.png"; ///< Industrial Right Image
 */
+// Strentch image a bit so no gap between them.
 const double Epsilon = 1;
 
 
