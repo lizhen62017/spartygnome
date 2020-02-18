@@ -35,7 +35,7 @@ CLevel::CLevel(const std::wstring& filename)
     
     Load(filename);
 
-    
+    /**
     const int NumRows = 20; ///Hey Chase, feel free to change these things below whenever you feel like necessary
     const int NumCols = 8;
     for (int r = 0; r < NumRows; r++)
@@ -147,7 +147,7 @@ CLevel::CLevel(const std::wstring& filename)
         // Add to the list of fish.
         Add(wall);
 
-    }
+    }*/
 }
 
 /** Add an item to the level
@@ -357,7 +357,7 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
     // If it is a platform
     else if (type == L"platform")
     {
-        //item = make_shared<CPlatform>(this, declaration);
+        item = make_shared<CPlatform>(this, declaration);
     }
 
     // If it is a wall

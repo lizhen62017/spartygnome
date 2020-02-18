@@ -40,7 +40,7 @@ namespace Testing
 		
 		TEST_METHOD(TestCLevelConstruct)
 		{
-			std::wstring path = L"data/levels/level0.xml";
+			std::wstring path = L"data/levels/level1.xml";
 			CLevel level0(path);
 		}
 

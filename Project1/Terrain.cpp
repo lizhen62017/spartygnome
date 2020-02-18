@@ -24,7 +24,6 @@ CTerrain::CTerrain(CLevel* level, const std::wstring& filename) : CItem(level, f
 CTerrain::CTerrain(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
     CItem(level, declaration)
 {
-    mItemImage = shared_ptr<Bitmap>(declaration->GetImage(0));
 }
 
 

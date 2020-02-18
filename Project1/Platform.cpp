@@ -11,6 +11,7 @@ using namespace Gdiplus;
 using namespace std;
 
 /// filenames 
+
 const wstring GrassImageName = L"data/images/grass.png"; ///< Grass Image
 const wstring GrassMidImageName = L"data/images/grassMid.png"; ///< Grass Mid Image
 const wstring GrassLeftImageName = L"data/images/grassLeft.png"; ///< Grass Left Image
@@ -23,6 +24,7 @@ const wstring IndustrialImageName = L"data/images/platformIndustrial_057.png"; /
 const wstring IndustrialMidImageName = L"data/images/platformIndustrial_060.png"; ///< Industrial Mid Image
 const wstring IndustrialLeftImageName = L"data/images/platformIndustrial_059.png"; ///< Industrial Left Image
 const wstring IndustrialRightImageName = L"data/images/platformIndustrial_061.png"; ///< Industrial Right Image
+
 
 /**
  * Constructor
@@ -155,7 +157,42 @@ void CPlatform::Draw(Gdiplus::Graphics* graphics, int scrollX)
 {
     double wid = GetWidth();
     double hit = GetHeight();
-    if (mMode == 0)
+
+    float numMid = (mWidth - 64)/ 32;
+
+    if (numMid < 0)
+    {
+        graphics->DrawImage(mMidImage.get(), 
+            float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
+            (float)mMidImage->GetWidth(), (float)mMidImage->GetHeight());
+    }
+
+    else 
+    {
+        float currentCenter = GetX() - (numMid / 2) * 32 - 16;
+        float rightCenter = GetX() + (numMid / 2) * 32 + 16;
+
+        graphics->DrawImage(GetImage().get(),
+            float(currentCenter - wid / 2 + scrollX), float(GetY() - hit / 2),
+            (float)GetImage()->GetWidth(), (float)GetImage()->GetHeight());
+
+        currentCenter += 32;
+
+        while (currentCenter < rightCenter)
+        {
+            graphics->DrawImage(mMidImage.get(),
+                float(currentCenter - wid / 2 + scrollX), float(GetY() - hit / 2),
+                (float)mMidImage->GetWidth(), (float)mMidImage->GetHeight());
+
+            currentCenter += 32;
+        }
+
+        graphics->DrawImage(mRightImage.get(),
+            float(currentCenter - wid / 2 + scrollX), float(GetY() - hit / 2),
+            (float)mRightImage->GetWidth(), (float)mRightImage->GetHeight());
+
+    }
+    /**if (mMode == 0)
     {
         if (isEdge == 0)
         {
@@ -244,5 +281,5 @@ void CPlatform::Draw(Gdiplus::Graphics* graphics, int scrollX)
                 float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
                 (float)mIndustrialImage->GetWidth(), (float)mIndustrialImage->GetHeight());
         }
-    }
+    }*/
 }
