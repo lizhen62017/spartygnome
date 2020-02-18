@@ -38,3 +38,12 @@ void CTerrain::XmlLoad(const std::shared_ptr<xmlnode::CXmlNode> & node)
     CItem::XmlLoad(node);
 }
 
+int CTerrain::GetHeight()
+{
+    return mHeight;
+}
+
+int CTerrain::GetWidth()
+{
+    return mWidth;
+}

@@ -24,9 +24,9 @@ public:
 
     CTerrain(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
-    double GetTerrainHeight() { return mHeight; }
+    int GetHeight() override;
 
-    double GetTerrainWidth() { return mWidth; }
+    int GetWidth() override; 
 
     void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node) override;
 

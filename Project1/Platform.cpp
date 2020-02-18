@@ -144,10 +144,10 @@ CPlatform::CPlatform(CLevel* level, const std::shared_ptr<CDeclaration> declarat
  */
 void CPlatform::Draw(Gdiplus::Graphics* graphics, int scrollX)
 {
-    double wid = GetWidth();
-    double hit = GetHeight();
+    double wid = 32;
+    double hit = 32;
 
-    float numMid = (GetTerrainWidth() - 64)/ 32;
+    float numMid = (GetWidth() - 64)/ 32;
 
     if (numMid < 0)
     {
