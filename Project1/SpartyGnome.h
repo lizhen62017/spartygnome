@@ -49,6 +49,12 @@ private:
 	/// Trace if gnome is really falling or falling after killed by villan
 	boolean isAfterDeath = false;
 
+	/// Your ability to control gnome
+	boolean isControllable = false;
+
+	/// Total time
+	double mTimeElapsed = 0.0;
+
 public:
 	/// Default constructor (deleted)
 	CSpartyGnome() = delete;
@@ -120,6 +126,12 @@ public:
 	* Function for processing a jump
 	*/
 	void Jump();
+
+	/**
+	* Get your ability to control gnome
+	* \returns status
+	*/
+	boolean GetIsControllable() { return isControllable; }
 
 	/**
 	* Set death condition so won't collide anymore while dropping after hitting a villain. 
