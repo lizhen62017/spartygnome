@@ -14,6 +14,7 @@
 #include "Wall.h"
 #include "ItemVisitor.h"
 #include "Door.h"
+#include "Money.h"
 
 
 using namespace std;
@@ -32,122 +33,7 @@ const double initCoord = 500;
  */
 CLevel::CLevel(const std::wstring& filename)
 {
-    
     Load(filename);
-
-    /**
-    const int NumRows = 20; ///Hey Chase, feel free to change these things below whenever you feel like necessary
-    const int NumCols = 8;
-    for (int r = 0; r < NumRows; r++)
-    {
-        // There is a row every 64 pixels and
-        // we start 150 pixels from the top
-        int y = initCoord;
-
-        // The number of columns starts at 1 and increases as we
-        // go down in the Y direction until half way, then decreases.
-        // If we had 5 rows, the number of columns for each row
-        // will be:  1 2 3 4 1
-
-        // We center the columns on the screen
-        const int xStart = 372;
-
-        // Each column is 128 pixels to the right.
-        int x = r * 31 + xStart;
-
-        // Create a new fish.
-        // This creates a shared pointer pointing at this fish
-        shared_ptr<CPlatform> platform = make_shared<CPlatform>(this, L"data/images/grass.png");
-
-        platform->SetMode(2);
-
-        if (r == 0)
-        {
-            platform->SetIsEdge(1);
-        }
-
-        if (r == NumRows - 1)
-        {
-            platform->SetIsEdge(2);
-        }
-
-        // Set the location
-        platform->SetLocation(x, y);
-
-        // Add to the list of fish.
-        Add(platform);
-    }
-
-    for (int r = 0; r < NumRows; r++)
-    {
-        // There is a row every 64 pixels and
-        // we start 150 pixels from the top
-        int y = initCoord - 250;
-
-        // The number of columns starts at 1 and increases as we
-        // go down in the Y direction until half way, then decreases.
-        // If we had 5 rows, the number of columns for each row
-        // will be:  1 2 3 4 1
-
-        // We center the columns on the screen
-        const int xStart = 872;
-
-        // Each column is 128 pixels to the right.
-        int x = r * 31 + xStart;
-
-        // Create a new fish.
-        // This creates a shared pointer pointing at this fish
-        shared_ptr<CPlatform> platform = make_shared<CPlatform>(this, L"data/images/grass.png");
-
-        platform->SetMode(2);
-
-        if (r == 0)
-        {
-            platform->SetIsEdge(1);
-        }
-
-        if (r == NumRows - 1)
-        {
-            platform->SetIsEdge(2);
-        }
-
-        // Set the location
-        platform->SetLocation(x, y);
-
-        // Add to the list of fish.
-        Add(platform);
-    }
-
-    for (int r = 0; r < NumCols; r++)
-    {
-        // There is a row every 64 pixels and
-        // we start 150 pixels from the top
-        int x = 372;
-
-        // The number of columns starts at 1 and increases as we
-        // go down in the Y direction until half way, then decreases.
-        // If we had 5 rows, the number of columns for each row
-        // will be:  1 2 3 4 1
-
-        // We center the columns on the screen
-        const int yStart = 251;
-
-        // Each column is 128 pixels to the right.
-        int y = r * 31 + yStart;
-
-        // Create a new fish.
-        // This creates a shared pointer pointing at this fish
-        shared_ptr<CWall> wall = make_shared<CWall>(this, L"data/images/grass.png");
-
-        wall->SetMode(0);
-
-        // Set the location
-        wall->SetLocation(x, y);
-
-        // Add to the list of fish.
-        Add(wall);
-
-    }*/
 }
 
 /** Add an item to the level
@@ -383,7 +269,7 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
     // If it is money
     else if (type == L"money")
     {
-        //item = make_shared<CPlatform>(this, declaration);
+        item = make_shared<CMoney>(this, declaration);
     }
 
     // If it is a tuition-up

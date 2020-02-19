@@ -17,6 +17,8 @@ public:
     /// default constructor (disabled)
     CMoney() = delete;
 
+    CMoney(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
+
     ///copy constructor (disabled)
     CMoney(const CMoney&) = delete;
 
