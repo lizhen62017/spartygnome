@@ -194,6 +194,7 @@
     <ClInclude Include="ItemPickup.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="Message.h" />
     <ClInclude Include="Money.h" />
     <ClInclude Include="MoneyDeclaration.h" />
     <ClInclude Include="pch.h" />
@@ -222,6 +223,7 @@
     <ClCompile Include="ItemPickup.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="Message.cpp" />
     <ClCompile Include="Money.cpp" />
     <ClCompile Include="MoneyDeclaration.cpp" />
     <ClCompile Include="pch.cpp">

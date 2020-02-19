@@ -17,6 +17,7 @@
 #include "ItemVisitor.h"
 
 class CLevel;
+class CGameSystem;
 
 /**
  * Base class for any item in our game.
@@ -60,7 +61,7 @@ public:
 
 	/// Handle updates for animation
 	/// \param elapsed The time since the last update
-	virtual void Update(double elapsed) {}
+	virtual bool Update(double elapsed) { return false; }
 
 	/// Get the width of the item
 	/// \returns item width
@@ -80,6 +81,8 @@ public:
 	//CItem(CLevel* level, const std::wstring& filename);
 
 	CItem(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
+
+	CItem(CGameSystem* game);
 
 	/** Accept a visitor
 	 * \param visitor The visitor we accept */

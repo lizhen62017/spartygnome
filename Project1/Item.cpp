@@ -7,6 +7,7 @@
 #include "pch.h"
 #include "Item.h"
 #include "Level.h"
+#include "GameSystem.h"
 #include <string>
 
 using namespace Gdiplus;
@@ -42,6 +43,12 @@ CItem::CItem(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
 {
     mItemImage = shared_ptr<Bitmap>(declaration->GetImage(0));
 }
+
+
+CItem::CItem(CGameSystem* game) 
+{
+}
+
 
 /**
  * Destructor

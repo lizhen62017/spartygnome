@@ -110,6 +110,22 @@ void CGameSystem::Update(double elapsed)
         mGnome->Update(elapsed);
     }
 	mScoreboard->Update(temp);
+
+	std::shared_ptr<CItem> removeItem;
+
+	// Update mitems if returns true, delete
+	for (auto item : mItems)
+	{
+		bool del = item->Update(elapsed);
+
+		if (del)
+		{
+			removeItem = item;
+		}
+	}
+
+	RemoveItem(removeItem);
+
 }
 
 
@@ -201,3 +217,19 @@ std::vector<std::shared_ptr<CItem>> CGameSystem::CollisionTest(CSpartyGnome* gno
 	}
 	return mOut;
 }
+
+
+/**
+ * Remove an item on the screen
+ * \param item to be removed
+ */
+void CGameSystem::RemoveItem(std::shared_ptr<CItem> item)
+{
+	auto loc = find(mItems.begin(), mItems.end(), item);
+
+	if (loc != end(mItems))
+	{
+		mItems.erase(loc);
+	}
+}
+

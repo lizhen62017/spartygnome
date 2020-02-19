@@ -55,6 +55,8 @@ public:
 	void Add(std::shared_ptr<CItem> item);
 
 	std::vector<std::shared_ptr<CItem>> CollisionTest(CSpartyGnome* gnome);
+
+	void RemoveItem(std::shared_ptr<CItem> item);
     
 
 private:
