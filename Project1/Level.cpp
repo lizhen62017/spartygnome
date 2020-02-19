@@ -286,7 +286,7 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
     // If it is a door
     else if (type == L"door")
     {
-        //item = make_shared<CDoor>(this, declaration);
+        item = make_shared<CDoor>(this, declaration);
     }
     
     //If it is a villain

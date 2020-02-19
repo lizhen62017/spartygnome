@@ -34,11 +34,11 @@ public:
 
     /** Getter for terrain height
      * \return height of terrain */
-    int GetHeight() override { return mItemImage->GetHeight(); }
+    int GetHeight() { return 0; }
 
     /** Getter for terrain width
     * \return width of terrain */
-    int GetWidth() override { return mItemImage->GetWidth(); }
+    int GetWidth() { return 0; }
 
     /** Define if item is collidable
     * \return value The value of whether or not it's collidable
@@ -48,9 +48,5 @@ public:
     boolean CollideGnome(CSpartyGnome* gnome);
 
     void Collided() override {}
-
-private:
-    /// The image of door
-    std::shared_ptr<Gdiplus::Bitmap> mItemImage;
 };
 
