@@ -127,6 +127,7 @@ void CGameSystem::Update(double elapsed)
 
 	RemoveItem(removeItem);
 
+	// if respawn is set, wait two seconds
 	if (mRespawn)
 	{
 		mTimeElapsed += temp;
@@ -134,6 +135,7 @@ void CGameSystem::Update(double elapsed)
 		if (mTimeElapsed >= 2.0)
 		{
 			mCurrentLevel->Install();
+			mGnome->Alive(true);
 			Reset();
 			mRespawn = false;
 			mTimeElapsed = 0.0;
@@ -246,4 +248,6 @@ void CGameSystem::RemoveItem(std::shared_ptr<CItem> item)
 		mItems.erase(loc);
 	}
 }
+
+
 

@@ -18,6 +18,7 @@
 #include "TuitionUp.h"
 #include "Villain.h"
 #include "Wings.h"
+#include "Message.h"
 #include "GameSystem.h"
 
 
@@ -338,6 +339,14 @@ void CLevel::Install()
 	{
 		mGame->Add(item);
 	}
+
+
+	shared_ptr<CItem> item;
+
+	item = make_shared<CMessage>(mGame, L"Level 1 Begin", 150, L"red", 2.0);
+	item->SetLocation(512, 100);
+	mGame->Add(item);
+
 
 	// set gnome location
 	mGame->GetGnome()->SetLocX(mStartX);

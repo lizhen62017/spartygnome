@@ -64,20 +64,8 @@ void CScoreboard::Draw(Gdiplus::Graphics* graphics, int width)
 	graphics->DrawString(timePrint.c_str(), -1, &font, PointF(90, 25), &blue);
 	graphics->DrawString(dollarsPrint.c_str(), -1, &font, PointF(width-300, 25), &blue);
 
-	// Draws text on gnome death
-	if (mDied)
-	{
-		FontFamily fontFamily(L"Arial");
-		Gdiplus::Font font(&fontFamily, 150, FontStyleBold);
-		SolidBrush purple(Color(255, 0, 255));
-		graphics->DrawString(L"You Lose!", -1, &font, PointF(512, 400), &purple);
 
-		mTime = 0;
-		mDollars = 0;
-		mDied = false;
-
-	}
-	// Draws text on level completion via door
+	/* Draws text on level completion via door
 	if (mDoor)
 	{
 		FontFamily fontFamily(L"Arial");
@@ -89,7 +77,7 @@ void CScoreboard::Draw(Gdiplus::Graphics* graphics, int width)
 		mDollars = 0;
 		mDoor = false;
 
-	}
+	}  */
 }
 
 
@@ -111,7 +99,9 @@ void CScoreboard::Update(double elapsed)
  */
 void CScoreboard::Reset()
 {
-	mDied = true;
+	mTime = 0;
+	mDollars = 0;
+	mTimeElapsed = 0.0;
 }
 
 /**

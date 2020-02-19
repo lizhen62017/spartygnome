@@ -52,6 +52,9 @@ private:
 	/// Your ability to control gnome
 	boolean isControllable = false;
 
+	/// status of spartygnome
+	boolean mIsAlive = true;
+
 	/// Total time
 	double mTimeElapsed = 0.0;
 
@@ -104,6 +107,10 @@ public:
 	int GetHeight() const { return mImage->GetHeight(); }
 
 	void Update(double elapsed);
+
+	/**  Sets gnome's status
+	* \param status whether he is alive/dead */
+	void Alive(bool status) { mIsAlive = status; }
 
 	/**
 	* Getter to playingarea

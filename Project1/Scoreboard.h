@@ -59,9 +59,6 @@ private:
 	/// The time elapsed since the last second
 	double mTimeElapsed = 0.0;
 
-	/// Check to see if should draw death message
-	boolean mDied = false;
-	
 	/// Check to see if should draw door message
 	boolean mDoor = false;
 

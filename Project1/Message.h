@@ -43,12 +43,21 @@ public:
 	*/
 	boolean IsCollidable() override;
 
+	/// Draw this item
+	/// \param graphics Graphics device to draw on
+	/// \param scrollX the distance the gnome has scrolled
+	virtual void Draw(Gdiplus::Graphics* graphics, int scrollX) override;
+
+	/// Handle updates for animation
+	/// \param elapsed The time since the last update
+	virtual bool Update(double elapsed) override;
+
 	void Collided() override {}
 
 private:
 	double mDelayTime = 0; ///< The value of a given messsages delay
 
-	double mElapsedTime = 0; ///< The time since creation
+	double mTimeElapsed = 0; ///< The time since creation
 
 	int mTextSize = 0; ///< The value of the text size
 

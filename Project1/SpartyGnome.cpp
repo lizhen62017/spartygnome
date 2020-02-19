@@ -7,6 +7,7 @@
 #include <string>
 #include "pch.h"
 #include "SpartyGnome.h"
+#include "Message.h"
 
 using namespace Gdiplus;
 using namespace std;
@@ -147,7 +148,23 @@ void CSpartyGnome::Death(boolean villain)
         }
         //Message to check if working, leave commented
         //AfxMessageBox(L"SpartyGnome has died");
-        mGameSystem->SetRespawn(true);
+
+		// A pointer for the message we are loading
+
+		// only run once -> when he dies
+		if (mIsAlive)
+		{
+			shared_ptr<CItem> item;
+
+			item = make_shared<CMessage>(mGameSystem, L"You Lose!", 150, L"red", 2.0);
+			item->SetLocation(512, 100);
+			mGameSystem->Add(item);
+
+			mGameSystem->SetRespawn(true);
+			mIsAlive = false;
+			
+		}
+
         //Temp location reset to make playtesting easier
         // Reset();
         isAfterDeath = false;
