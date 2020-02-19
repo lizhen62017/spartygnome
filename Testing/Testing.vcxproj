@@ -109,7 +109,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>pch;XmlNode;SpartyGnome;Level;Declaration;Background;ItemVisitor;Money;ItemPickup;TuitionUp;Vector;Item;Terrain;Platform;Wall;GameSystem;Door;Scoreboard</AdditionalDependencies>
+      <AdditionalDependencies>pch;XmlNode;SpartyGnome;Level;Declaration;Background;ItemVisitor;Money;ItemPickup;TuitionUp;Door;Villain;Vector;Item;Terrain;Platform;Wall;GameSystem;Door;Scoreboard</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -147,7 +147,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>pch;XmlNode;SpartyGnome;Level;Declaration;Background;ItemVisitor;Money;ItemPickup;TuitionUp;</AdditionalDependencies>
+      <AdditionalDependencies>pch;XmlNode;SpartyGnome;Level;Declaration;Background;ItemVisitor;Money;ItemPickup;TuitionUp;Door;Villain;</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

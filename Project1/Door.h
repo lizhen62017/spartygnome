@@ -26,11 +26,11 @@ public:
     ///copy constructor (disabled)
     CDoor(const CDoor&) = delete;
 
+    CDoor(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
+
     /** Accept a visitor
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitDoor(this); }
-
-    CDoor(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
     /** Getter for terrain height
      * \return height of terrain */
@@ -39,6 +39,11 @@ public:
     /** Getter for terrain width
     * \return width of terrain */
     int GetWidth() override { return mItemImage->GetWidth(); }
+
+    /** Define if item is collidable
+    * \return value The value of whether or not it's collidable
+    */
+    virtual boolean IsCollidable() { return false; } //FIXME
 
     boolean CollideGnome(CSpartyGnome* gnome);
 
