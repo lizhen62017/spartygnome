@@ -133,12 +133,6 @@ public:
 	*/
 	boolean GetIsControllable() { return isControllable; }
 
-	/**
-	* Set death condition so won't collide anymore while dropping after hitting a villain. 
-	* \param temp Whether SpartyGnome was killed or not
-	*/
-	void SetIsAfterDeath(boolean temp) { isAfterDeath = temp; };
-
 	void ChangeLevel(CLevel* level);
 
 	void Reset();
