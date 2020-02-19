@@ -15,11 +15,14 @@
 class CWings :
 	public CItemPickup
 {
+public:
     /// default constructor (disabled)
     CWings() = delete;
 
     ///copy constructor (disabled)
     CWings(const CWings&) = delete;
+
+    CWings(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
     /** Accept a visitor
      * \param visitor The visitor we accept */

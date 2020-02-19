@@ -16,6 +16,8 @@
 #include "Door.h"
 #include "Money.h"
 #include "TuitionUp.h"
+#include "Villain.h"
+#include "Wings.h"
 #include "GameSystem.h"
 
 
@@ -266,7 +268,7 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
     // If it is a wall
     else if (type == L"wall")
     {
-        item = make_shared<CWall>(this, declaration); //CRASHES PROGRAM, RE-ACTIVATE DRAW WALL IS FIXED
+        item = make_shared<CWall>(this, declaration);
     }
 
     // If it is money
@@ -285,19 +287,19 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
     // If it is a door
     else if (type == L"door")
     {
-        ///TODO
+        item = make_shared<CDoor>(this, declaration);
     }
     
     //If it is a villain
     else if (type == L"villain")
     {
-        ///TODO
+        item = make_shared<CVillain>(this, declaration);
     }
     
     // If it is wings
     else if (type == L"wings")
     {
-        /// TODO when we add teamitem
+        item = make_shared<CWings>(this, declaration);
     }
     
 
