@@ -27,5 +27,5 @@ public:
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitMoney(this); }
 
 private:
-    double mValue; ///< The value of a given money object
+    double mValue = 0; ///< The value of a given money object
 };
