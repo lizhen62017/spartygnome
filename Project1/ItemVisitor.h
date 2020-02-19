@@ -17,6 +17,7 @@ class CTuitionUp;
 class CWings;
 class CVillain;
 class CDoor;
+class CMessage;
 
 /**
  * Item visitor base class
@@ -61,6 +62,11 @@ public:
     /** Visit a CVillain object
     * \param villain Villain we are visiting */
     virtual void VisitVillain(CVillain* villain) {}
+
+	/** Visit a CMessage object
+	* \param message message we are visiting */
+	virtual void VisitMessage(CMessage* message) {}
+
     //ADD MORE DOWN HERE
 };
 

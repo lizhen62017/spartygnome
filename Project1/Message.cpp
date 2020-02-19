@@ -14,3 +14,9 @@ CMessage::CMessage(CGameSystem* game, std::wstring text, int textSize, std::wstr
 	mColor = color;
 	mDelayTime = delayTime;
 }
+
+
+boolean CMessage::IsCollidable()
+{
+	return false;
+}

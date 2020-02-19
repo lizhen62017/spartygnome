@@ -25,6 +25,26 @@ public:
 	///copy constructor (disabled)
 	CMessage(const CMessage&) = delete;
 
+	/** Accept a visitor
+	* \param visitor The visitor we accept */
+	virtual void Accept(CItemVisitor* visitor) override { visitor->VisitMessage(this); }
+
+	/// Get the width of the item
+	/// \returns item width
+	virtual int GetWidth() { return 0; };
+
+	/// Get the height of the item
+	/// \returns item height
+	virtual int GetHeight() { return 0; };
+
+	/**
+	* Function for determining if an object has collision physics
+	* \return False Pickup items do not have collision physics as expected.
+	*/
+	boolean IsCollidable() override;
+
+	void Collided() override {}
+
 private:
 	double mDelayTime = 0; ///< The value of a given messsages delay
 
