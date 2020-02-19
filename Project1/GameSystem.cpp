@@ -70,8 +70,10 @@ void CGameSystem::Draw(Gdiplus::Graphics* graphics,int width, int height)
 
     // all drawing needs to be below here to allow for virtual pixels
 
-    
-    mCurrentLevel->Draw(graphics, xOffset);
+    for (auto item : mItems)
+    {
+        item->Draw(graphics, xOffset);
+    }
 
     mGnome->Draw(graphics, xOffset);
 
