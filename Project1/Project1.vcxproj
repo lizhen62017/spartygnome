@@ -206,6 +206,7 @@
     <ClInclude Include="Terrain.h" />
     <ClInclude Include="TuitionUp.h" />
     <ClInclude Include="Vector.h" />
+    <ClInclude Include="Villain.h" />
     <ClInclude Include="Wall.h" />
     <ClInclude Include="Wings.h" />
     <ClInclude Include="XmlNode.h" />
@@ -236,6 +237,7 @@
     <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="TuitionUp.cpp" />
     <ClCompile Include="Vector.cpp" />
+    <ClCompile Include="Villain.cpp" />
     <ClCompile Include="Wall.cpp" />
     <ClCompile Include="Wings.cpp" />
     <ClCompile Include="XmlNode.cpp" />
