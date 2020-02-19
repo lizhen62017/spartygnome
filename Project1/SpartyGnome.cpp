@@ -185,4 +185,6 @@ void CSpartyGnome::Reset()
 {
     SetLocX(512);
     SetLocY(128);
+    SetVelX(0);
+    SetVelY(0);
 }
