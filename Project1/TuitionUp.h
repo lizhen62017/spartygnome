@@ -15,16 +15,15 @@
 class CTuitionUp :
 	public CItemPickup
 {
-private:
+public:
     /// default constructor (disabled)
     CTuitionUp() = delete;
 
     ///copy constructor (disabled)
     CTuitionUp(const CTuitionUp&) = delete;
 
-    void Collided() override {}
+    CTuitionUp(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
-public:
     /** Accept a visitor
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitTuitionUp(this); }

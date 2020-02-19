@@ -29,5 +29,5 @@ public:
     void Collided() override {}
 
 private:
-    double mValue; ///< The value of a given money object
+    double mValue = 0; ///< The value of a given money object
 };
