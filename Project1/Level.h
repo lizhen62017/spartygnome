@@ -67,12 +67,6 @@ public:
 	* \param level start position y value */
 	void SetStartY(double locY) { mStartY = locY; }
 
-    /**
-   * where Gnome collision happens
-   * \param gnome the mighty gnome
-   * \return the items to be collided, nullptr if no collision
-   */
-    std::vector<std::shared_ptr<CItem>> CollisionTest(CSpartyGnome* gnome);
 
   
    // void Draw(Gdiplus::Graphics* graphics, int scrollX);
