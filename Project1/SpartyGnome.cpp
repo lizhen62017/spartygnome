@@ -76,7 +76,7 @@ void CSpartyGnome::Update(double elapsed)
         {
             if (collided != nullptr && collided->IsCollidable())
             {
-                if (abs(collided->GetX() - GetX()) < collided->GetWidth() / 2.0 + GetWidth() / 2.0 - 5)
+                if (abs(collided->GetY() - GetY()) > collided->GetHeight() / 2.0 + GetHeight() / 2.0 - 23) //Purely vertical collision, tuned to have 23 works the best
                 {
                     if (newV.Y() > 0 && collided->GetY() > GetY())
                     {
@@ -97,7 +97,7 @@ void CSpartyGnome::Update(double elapsed)
                     
                 }
 
-                if (abs(collided->GetY() - GetY()) < collided->GetHeight() / 2.0 + GetHeight() / 2.0 - 10) 
+                if (abs(collided->GetX() - GetX()) > collided->GetWidth() / 2.0 + GetWidth() / 2.0 - 13) //Purely horizontal collision, tuned to have 13 works the best
                 {
                     if (newV.X() > 0 && collided->GetX() > GetX())
                     {
