@@ -139,19 +139,20 @@ void CSpartyGnome::Death(boolean villain)
 {
     if (mP.Y() - mImage->GetHeight() / 2 > 1024 || villain)
     {
+        // Display "You Lose" image here
         if (villain)
         {
-            SetIsAfterDeath(true);
+            isAfterDeath = true; //Avoid further collision
+            SetVelY(500); //Let it fall
         }
-        else
-        {
-            //Message to check if working, leave commented
-            //AfxMessageBox(L"SpartyGnome has died");
-			mGameSystem->SetRespawn(true);
-            //Temp location reset to make playtesting easier
-            // Reset();
-            SetIsAfterDeath(false);
-        }
+        //Message to check if working, leave commented
+        //AfxMessageBox(L"SpartyGnome has died");
+        mGameSystem->SetRespawn(true);
+        //Temp location reset to make playtesting easier
+        // Reset();
+        isAfterDeath = false;
+        isControllable = false;
+        mTimeElapsed = 0.0;
     }
 }
 
