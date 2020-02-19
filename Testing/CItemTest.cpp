@@ -3,6 +3,7 @@
 #include "Level.h"
 #include "Declaration.h"
 #include "Item.h"
+#include "GameSystem.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -66,7 +67,10 @@ namespace Testing
 		TEST_METHOD(TestCItemConstruct)
 		{
 			std::wstring path = L"data/levels/level0.xml";
-			CLevel level0(path);
+
+			CGameSystem game;
+
+			CLevel level0(&game, path);
 
 			CItemMock item(&level0, level0.GetDeclaration(L"i001"));
 

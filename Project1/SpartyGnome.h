@@ -32,10 +32,10 @@ private:
 	/// The supported image states
 	enum class ImageStates { Base, Left1, Left2, Right1, Right2 };
 
-	/// The level this gnome is contained in
+	/* The level this gnome is contained in
 	CLevel Temp = CLevel(L"data/levels/level0.xml");
 	CLevel Temp1 = CLevel(L"data/levels/level1.xml"); ///< The level the gnome starts on
-	CLevel* mLevel = &Temp1; ///< The level spartygnome is currently on???
+	CLevel* mLevel = &Temp1; ///< The level spartygnome is currently on???  */
 
 	/// Boolean if gnome has wings
 	boolean mWings = false;
@@ -103,7 +103,13 @@ public:
 	* Getter to playingarea
 	* \returns the mAquarium private member
 	*/
-	CLevel* GetLevel() { return mLevel; };
+	// CLevel* GetLevel() { return mLevel; };
+
+	/**
+	* Getter to playingarea
+	* \returns the mAquarium private member
+	*/
+	CGameSystem* GetGame() { return mGameSystem; };
 
 	/**
 	* Function for handling the death of SpartyGnome

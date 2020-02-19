@@ -2,6 +2,7 @@
 #include "GameSystem.h"
 #include "Scoreboard.h"
 #include "SpartyGnome.h"
+#include "Item.h"
 
 using namespace Gdiplus;
 using namespace std;
@@ -23,6 +24,14 @@ CGameSystem::CGameSystem()
 	mScoreboard = new CScoreboard(this);
     mGnome = new CSpartyGnome(this);
 
+	mLevel0 = new CLevel(this, L"data/levels/level0.xml");
+	mLevel1 = new CLevel(this, L"data/levels/level1.xml");
+	mLevel2 = new CLevel(this, L"data/levels/level2.xml");
+	mLevel3 = new CLevel(this, L"data/levels/level3.xml");
+
+	mCurrentLevel = mLevel1;
+
+	mCurrentLevel->Install(this);
 }
 
 
@@ -33,6 +42,11 @@ CGameSystem::~CGameSystem()
 {
 	delete mScoreboard;
 	delete mGnome;
+	delete mLevel0;
+	delete mLevel1;
+	delete mLevel2;
+	delete mLevel3;
+
 }
 
 /**
@@ -57,7 +71,7 @@ void CGameSystem::Draw(Gdiplus::Graphics* graphics,int width, int height)
     // all drawing needs to be below here to allow for virtual pixels
 
     
-    mCurrentLevel.Draw(graphics, xOffset);
+    mCurrentLevel->Draw(graphics, xOffset);
 
     mGnome->Draw(graphics, xOffset);
 
@@ -101,6 +115,16 @@ void CGameSystem::Reset()
     mScoreboard->Reset();
 }
 
+
+/**
+ * Resets a level on load or gnome death
+ */
+void CGameSystem::Clear()
+{
+	mItems.clear();
+}
+
+
 /**
  * Completes level and loads next level
  */
@@ -128,6 +152,48 @@ void CGameSystem::ChangeLevel(int level)
         mCurrentLevel = mLevel3;
         break;
     }
-    mGnome->ChangeLevel(&mCurrentLevel);
+    //mGnome->ChangeLevel(mCurrentLevel);
+	Clear();
+	mCurrentLevel->Install(this);
     mGnome->Reset();
+}
+
+
+/** Add an item to the game
+ * \param item New item to add
+ */
+void CGameSystem::Add(std::shared_ptr<CItem> item)
+{
+	mItems.push_back(item);
+}
+
+
+std::vector<std::shared_ptr<CItem>> CGameSystem::CollisionTest(CSpartyGnome* gnome)
+{
+	std::vector<std::shared_ptr<CItem>> mOut;
+	for (int i = 0; i < mItems.size(); i++)
+	{
+		// Border for the item
+		auto itemLeft = mItems[i]->GetX() - mItems[i]->GetWidth() / 2;
+		auto itemRight = mItems[i]->GetX() + mItems[i]->GetWidth() / 2;
+		auto itemTop = mItems[i]->GetY() - mItems[i]->GetHeight() / 2;
+		auto itemBottom = mItems[i]->GetY() + mItems[i]->GetHeight() / 2;
+
+		// For us
+		auto ourLeft = gnome->GetX() - gnome->GetWidth() / 2;
+		auto ourRight = gnome->GetX() + gnome->GetWidth() / 2;
+		auto ourTop = gnome->GetY() - gnome->GetHeight() / 2;
+		auto ourBottom = gnome->GetY() + gnome->GetHeight() / 2;
+
+		// Test for all of the non-collision cases,
+		// cases where there is a gap between the two items
+		if (!(ourRight < itemLeft ||  // Completely to the left
+			ourLeft > itemRight ||  // Completely to the right
+			ourTop > itemBottom ||  // Completely below
+			ourBottom < itemTop))    // Completely above
+		{
+			mOut.push_back(mItems[i]);
+		}
+	}
+	return mOut;
 }

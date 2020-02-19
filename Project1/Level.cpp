@@ -16,6 +16,7 @@
 #include "Door.h"
 #include "Money.h"
 #include "TuitionUp.h"
+#include "GameSystem.h"
 
 
 using namespace std;
@@ -32,9 +33,10 @@ const double initCoord = 500;
  * Level Constructor
  * \param filename The name of the file the level is loaded from
  */
-CLevel::CLevel(const std::wstring& filename)
+CLevel::CLevel(CGameSystem* game, const std::wstring& filename)
 {
     Load(filename);
+	mGame = game;
 }
 
 /** Add an item to the level
@@ -346,4 +348,20 @@ void CLevel::Accept(CItemVisitor* visitor)
     {
         item->Accept(visitor);
     }
+}
+
+
+/** Install a new level into the gamesystem
+ * \param game for the level to be installed
+ */
+void CLevel::Install(CGameSystem* game)
+{
+	// reset level
+
+	for (auto item : mItems)
+	{
+		mGame->Add(item);
+	}
+
+	// set gnome location
 }

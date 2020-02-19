@@ -21,6 +21,7 @@ class CItem;
 class CDeclaration;
 class CMoneyDeclaration;//CHECK THIS
 class CItemVisitor;
+class CGameSystem;
 
 /**
  * Class representing a level in the game
@@ -32,7 +33,7 @@ public:
     // Default constructor deleted
     CLevel() = delete;
 
-    CLevel(const std::wstring& filename);
+    CLevel(CGameSystem* game, const std::wstring& filename);
 
     void CLevel::Add(std::shared_ptr<CItem> item);
 
@@ -74,7 +75,12 @@ public:
 
     void Accept(CItemVisitor* visitor);
 
+	void Install(CGameSystem* game);
+
 private:
+	/// The game object the level is in 
+	CGameSystem* mGame;
+
     /// Level width in virtual pixels
     double mWidth;
 

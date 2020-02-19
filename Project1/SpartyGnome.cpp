@@ -72,7 +72,7 @@ void CSpartyGnome::Update(double elapsed)
     
     if (!isAfterDeath)
     {
-        for (auto collided : GetLevel()->CollisionTest(this))
+        for (auto collided : GetGame()->CollisionTest(this))
         {
             if (collided != nullptr && collided->IsCollidable())
             {
@@ -175,7 +175,7 @@ void CSpartyGnome::Jump()
  */
 void CSpartyGnome::ChangeLevel(CLevel* level)
 {
-    mLevel = level;
+    // mLevel = level;
 }
 
 /**

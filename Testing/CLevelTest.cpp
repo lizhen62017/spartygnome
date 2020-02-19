@@ -4,6 +4,7 @@
 #include "Level.h"
 #include "Background.h"
 #include "Platform.h"
+#include "GameSystem.h"
 
 #include <regex>
 #include <string>
@@ -47,13 +48,19 @@ namespace Testing
 		TEST_METHOD(TestCLevelConstruct)
 		{
 			std::wstring path = L"data/levels/level1.xml";
-			CLevel level0(path);
+
+			CGameSystem game;
+
+			CLevel level0(&game, path);
 		}
 
 		TEST_METHOD(TestCLevelLoading)
 		{
 			std::wstring path = L"data/levels/level0.xml";
-			CLevel level0(path);
+
+			CGameSystem game;
+
+			CLevel level0(&game, path);
 
 			double width = 1024;
 			double height = 1024;
@@ -70,7 +77,10 @@ namespace Testing
 		TEST_METHOD(TestDeclarationLoading)
 		{
 			std::wstring path = L"data/levels/level0.xml";
-			CLevel level0(path);
+
+			CGameSystem game;
+
+			CLevel level0(&game, path);
 
 			std::shared_ptr<CDeclaration> background = level0.GetDeclaration(L"i001");
 			Assert::IsTrue(background->GetType() == L"background");
@@ -85,7 +95,12 @@ namespace Testing
 		{
 			// FIXME!!!
 			std::wstring path = L"data/levels/level0.xml";
-			CLevel level(path);
+
+			CGameSystem game;
+
+			CLevel level(&game, path);
+
+
 			wstring filename = L"data/images/grass.png";
 
 			shared_ptr<Bitmap> image;
