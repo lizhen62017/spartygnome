@@ -15,6 +15,7 @@
 #include "ItemVisitor.h"
 #include "Door.h"
 #include "Money.h"
+#include "TuitionUp.h"
 
 
 using namespace std;
@@ -270,12 +271,13 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
     else if (type == L"money")
     {
         item = make_shared<CMoney>(this, declaration);
+        // include visitor to set money value
     }
 
     // If it is a tuition-up
     else if (type == L"tuition-up")
     {
-        ///TODO
+        item = make_shared<CTuitionUp>(this, declaration);
     }
 
     // If it is a door
