@@ -55,9 +55,17 @@ public:
      * \return level start position x value */
     double GetStartX() { return mStartX; }
 
+	/**  Setter for level start position x value
+	* \param level start position x value */
+	void SetStartX(double locX) { mStartX = locX; }
+
     /**  Getter for level start position y value
      * \return level start position y value */
     double GetStartY() { return mStartY; }
+
+	/**  Setter for level start position y value
+	* \param level start position y value */
+	void SetStartY(double locY) { mStartY = locY; }
 
     /**
    * where Gnome collision happens
@@ -71,7 +79,7 @@ public:
 
     void Accept(CItemVisitor* visitor);
 
-	void Install(CGameSystem* game);
+	void Install();
 
 private:
 	/// The game object the level is in 

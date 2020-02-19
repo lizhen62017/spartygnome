@@ -25,13 +25,17 @@ CGameSystem::CGameSystem()
     mGnome = new CSpartyGnome(this);
 
 	mLevel0 = new CLevel(this, L"data/levels/level0.xml");
+	mLevel0->SetStartX(500);
+	mLevel0->SetStartY(500);
 	mLevel1 = new CLevel(this, L"data/levels/level1.xml");
+	mLevel1->SetStartX(850);
+	mLevel1->SetStartY(550);
 	mLevel2 = new CLevel(this, L"data/levels/level2.xml");
 	mLevel3 = new CLevel(this, L"data/levels/level3.xml");
 
 	mCurrentLevel = mLevel1;
 
-	mCurrentLevel->Install(this);
+	mCurrentLevel->Install();
 }
 
 
@@ -155,9 +159,7 @@ void CGameSystem::ChangeLevel(int level)
         break;
     }
     //mGnome->ChangeLevel(mCurrentLevel);
-	Clear();
-	mCurrentLevel->Install(this);
-    mGnome->Reset();
+	mCurrentLevel->Install();
 }
 
 

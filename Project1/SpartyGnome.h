@@ -28,7 +28,7 @@ private:
 	/// speed vectors, contains all the getters and setters
 	CVector mV = CVector(0, 0);
 	/// position vectors contains all the getters and setters
-	CVector mP = CVector(512, 128);
+	CVector mP = CVector(850, 550);
 	/// The supported image states
 	enum class ImageStates { Base, Left1, Left2, Right1, Right2 };
 

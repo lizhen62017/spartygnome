@@ -355,9 +355,10 @@ void CLevel::Accept(CItemVisitor* visitor)
 /** Install a new level into the gamesystem
  * \param game for the level to be installed
  */
-void CLevel::Install(CGameSystem* game)
+void CLevel::Install()
 {
 	// reset level
+	mGame->Clear();
 
 	for (auto item : mItems)
 	{
@@ -365,4 +366,8 @@ void CLevel::Install(CGameSystem* game)
 	}
 
 	// set gnome location
+	mGame->GetGnome()->SetLocX(mStartX);
+	mGame->GetGnome()->SetLocY(mStartY);
+	mGame->GetGnome()->SetVelX(0);
+	mGame->GetGnome()->SetVelY(0);
 }
