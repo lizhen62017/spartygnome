@@ -39,6 +39,9 @@ public:
     /** Accept a visitor
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { }
+
+    void Collided() override {}
+
 private:
 };
 

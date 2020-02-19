@@ -15,8 +15,16 @@
 class CWings :
 	public CItemPickup
 {
+    /// default constructor (disabled)
+    CWings() = delete;
+
+    ///copy constructor (disabled)
+    CWings(const CWings&) = delete;
+
     /** Accept a visitor
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitWings(this); }
+
+    void Collided() override {}
 };
 

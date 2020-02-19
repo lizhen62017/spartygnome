@@ -21,6 +21,7 @@ class CItem;
 class CDeclaration;
 class CMoneyDeclaration;//CHECK THIS
 class CItemVisitor;
+class CGameSystem;
 
 /**
  * Class representing a level in the game
@@ -32,7 +33,7 @@ public:
     // Default constructor deleted
     CLevel() = delete;
 
-    CLevel(const std::wstring& filename);
+    CLevel(CGameSystem* game, const std::wstring& filename);
 
     void CLevel::Add(std::shared_ptr<CItem> item);
 
@@ -54,9 +55,17 @@ public:
      * \return level start position x value */
     double GetStartX() { return mStartX; }
 
+	/**  Setter for level start position x value
+	* \param level start position x value */
+	void SetStartX(double locX) { mStartX = locX; }
+
     /**  Getter for level start position y value
      * \return level start position y value */
     double GetStartY() { return mStartY; }
+
+	/**  Setter for level start position y value
+	* \param level start position y value */
+	void SetStartY(double locY) { mStartY = locY; }
 
     /**
    * where Gnome collision happens
@@ -65,16 +74,17 @@ public:
    */
     std::vector<std::shared_ptr<CItem>> CollisionTest(CSpartyGnome* gnome);
 
-    /**
-    * Drawing a given level
-    * \param graphics The graphics item needed
-    * \param scrollX The scrolling distance to scroll the level 
-    */
-    void Draw(Gdiplus::Graphics* graphics, int scrollX);
+  
+   // void Draw(Gdiplus::Graphics* graphics, int scrollX);
 
     void Accept(CItemVisitor* visitor);
 
+	void Install();
+
 private:
+	/// The game object the level is in 
+	CGameSystem* mGame;
+
     /// Level width in virtual pixels
     double mWidth;
 

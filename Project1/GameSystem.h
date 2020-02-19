@@ -14,6 +14,7 @@
 
 class CScoreboard;
 class CSpartyGnome;
+class CItem;
 
 /**
  * CGameSystem Class
@@ -41,12 +42,19 @@ public:
 
     void Reset();
 
+	void Clear();
+
     void Completion();
 
     
     /// Changes the level to the desired level
     /// \param level The level being changed to
     void ChangeLevel(int level);
+
+
+	void Add(std::shared_ptr<CItem> item);
+
+	std::vector<std::shared_ptr<CItem>> CollisionTest(CSpartyGnome* gnome);
     
 
 private:
@@ -59,11 +67,15 @@ private:
     /// The scale of the game is set to. Defaults to 1 for no scaling
 	float mScale = 1;
 
-	CLevel mLevel0 = CLevel(L"data/levels/level0.xml"); ///< Level object for level 0
-    CLevel mLevel1 = CLevel(L"data/levels/level1.xml"); ///< Level object for level 1
-    CLevel mLevel2 = CLevel(L"data/levels/level2.xml"); ///< Level object for level 2
-    CLevel mLevel3 = CLevel(L"data/levels/level3.xml"); ///< Level object for level 3
+	CLevel* mLevel0; ///< Level object for level 0
+    CLevel* mLevel1; ///< Level object for level 1
+    CLevel* mLevel2; ///< Level object for level 2
+    CLevel* mLevel3; ///< Level object for level 3
 
     /// The current and active level
-    CLevel mCurrentLevel = mLevel1;
+    CLevel* mCurrentLevel;
+
+
+	/// All of the items currently in gamesystem
+	std::vector<std::shared_ptr<CItem>> mItems;
 };

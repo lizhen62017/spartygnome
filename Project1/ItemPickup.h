@@ -42,6 +42,8 @@ public:
     */
     boolean IsCollidable() override;
 
+    void Collided() override {}
+
 private:
     bool mActive = true; ///< Bool for determining whether or not the item is currently active
 };

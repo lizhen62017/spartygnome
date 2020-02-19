@@ -40,6 +40,8 @@ public:
 
     void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node) override;
 
+    void Collided() override {}
+
 private:
     /// The height of the terrain
     double mHeight = 0;

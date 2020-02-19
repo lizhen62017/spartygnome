@@ -17,6 +17,7 @@
 #include "Money.h"
 #include "TuitionUp.h"
 #include "Villain.h"
+#include "GameSystem.h"
 
 
 using namespace std;
@@ -33,9 +34,10 @@ const double initCoord = 500;
  * Level Constructor
  * \param filename The name of the file the level is loaded from
  */
-CLevel::CLevel(const std::wstring& filename)
+CLevel::CLevel(CGameSystem* game, const std::wstring& filename)
 {
     Load(filename);
+	mGame = game;
 }
 
 /** Add an item to the level
@@ -330,13 +332,14 @@ shared_ptr<Bitmap> CLevel::ImageLoad(wstring filename)
     return image;
 }
 
+/*
 void CLevel::Draw(Gdiplus::Graphics* graphics, int scrollX)
 {
     for (auto item : mItems)
     {
-        item->Draw(graphics, scrollX);
+       // item->Draw(graphics, scrollX);
     }
-}
+}*/
 
 /** Accept a visitor for the collection of items
  * \param visitor The visitor for the collection
@@ -347,4 +350,25 @@ void CLevel::Accept(CItemVisitor* visitor)
     {
         item->Accept(visitor);
     }
+}
+
+
+/** Install a new level into the gamesystem
+ * \param game for the level to be installed
+ */
+void CLevel::Install()
+{
+	// reset level
+	mGame->Clear();
+
+	for (auto item : mItems)
+	{
+		mGame->Add(item);
+	}
+
+	// set gnome location
+	mGame->GetGnome()->SetLocX(mStartX);
+	mGame->GetGnome()->SetLocY(mStartY);
+	mGame->GetGnome()->SetVelX(0);
+	mGame->GetGnome()->SetVelY(0);
 }

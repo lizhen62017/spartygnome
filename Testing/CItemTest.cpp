@@ -3,21 +3,22 @@
 #include "Level.h"
 #include "Declaration.h"
 #include "Item.h"
+#include "GameSystem.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-/**
+
 namespace Testing
 {
 	/**
 	 *  CItem mock derived object
-	 
+	 */
 	class CItemMock : public CItem
 	{
 	public:
 		/**  Constructor
 		 * \param level Level this item is a member of
 		 * \param filename Filename for opening item image
-		 
+		 */
 		CItemMock(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
 			CItem(level, declaration)
 		{
@@ -33,6 +34,7 @@ namespace Testing
 
 		/** Accept a visitor
 		 * \param visitor The visitor we accept 
+		 */
 		virtual void Accept(CItemVisitor* visitor) override{ }
 		
 		/// Get the width of the item
@@ -45,8 +47,11 @@ namespace Testing
 
 		/** Define if item is collidable
 		* \param collidable the situation
-		
+		*/
 		virtual boolean IsCollidable() override { return true; }; //FIXME Virtual Item
+
+		/// Handles results of a collision with an item
+		virtual void Collided() override {};
 };
 
 	TEST_CLASS(CItemTest)
@@ -62,9 +67,12 @@ namespace Testing
 		TEST_METHOD(TestCItemConstruct)
 		{
 			std::wstring path = L"data/levels/level0.xml";
-			CLevel level0(path);
 
-			CItemMock item(&level0, );
+			CGameSystem game;
+
+			CLevel level0(&game, path);
+
+			CItemMock item(&level0, level0.GetDeclaration(L"i001"));
 
 			// Test SetLocation, GetX, and GetY
 			item.SetLocation(10.5, 17.2);
@@ -73,4 +81,4 @@ namespace Testing
 		}
 
 	};
-} */
+} 
