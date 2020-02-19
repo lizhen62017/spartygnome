@@ -142,9 +142,9 @@ void CSpartyGnome::Death(boolean villain)
         {
             //Message to check if working, leave commented
             //AfxMessageBox(L"SpartyGnome has died");
-            mGameSystem->Reset();
+			mGameSystem->SetRespawn(true);
             //Temp location reset to make playtesting easier
-            Reset();
+            // Reset();
             SetIsAfterDeath(false);
         }
     }

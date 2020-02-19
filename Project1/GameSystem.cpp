@@ -127,6 +127,19 @@ void CGameSystem::Update(double elapsed)
 
 	RemoveItem(removeItem);
 
+	if (mRespawn)
+	{
+		mTimeElapsed += temp;
+
+		if (mTimeElapsed >= 2.0)
+		{
+			mCurrentLevel->Install();
+			Reset();
+			mRespawn = false;
+			mTimeElapsed = 0.0;
+		}
+	}
+
 }
 
 

@@ -40,6 +40,8 @@ public:
 	/// Updates the screen from the last elapsed time
 	void Update(double elapsed);
 
+	void SetRespawn(bool state) { mRespawn = state; }
+
     void Reset();
 
 	void Clear();
@@ -65,6 +67,12 @@ private:
 
 	/// The scoreboard object for the game
 	CScoreboard* mScoreboard;
+
+	/// tests to see if respawn delay is needed
+	bool mRespawn = false;
+
+	/// keeps track of time in the game 
+	double mTimeElapsed = 0.0;
 
     /// The scale of the game is set to. Defaults to 1 for no scaling
 	float mScale = 1;
