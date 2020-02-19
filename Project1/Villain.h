@@ -8,6 +8,8 @@
 
 #pragma once
 #include "Item.h"
+#include "Vector.h"
+
 /**
  * Class for handling villains
  */
@@ -40,8 +42,16 @@ public:
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { }
 
-    void Collided() override {}
+    /** Determines what happens when colliding with a villain
+    */
+    void Collided() override;
+
+    /* Updates the villain to enable movement
+    * \param elapsed The time elapsed since last update */
+    bool Update(double elapsed) override;
 
 private:
+    double mVelocityY = 350; ///< The speed at which the villain moves
+    double mTraveled = 0; ///< The total distance the villain has traveled
 };
 

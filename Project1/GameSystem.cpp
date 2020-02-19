@@ -98,7 +98,8 @@ void CGameSystem::Update(double elapsed)
     //
     double temp = elapsed;
     while (elapsed > MaxElapsed)
-    {
+	{
+
         mGnome->Update(MaxElapsed);
 
         elapsed -= MaxElapsed;

@@ -15,7 +15,7 @@ class CItemPickup;
 class CMoney;
 class CTuitionUp;
 class CWings;
-//class CVillain;
+class CVillain;
 class CDoor;
 
 /**
@@ -58,6 +58,9 @@ public:
      * \param wings Wings we are visiting */
     virtual void VisitWings(CWings* wings) {}
 
+    /** Visit a CVillain object
+    * \param villain Villain we are visiting */
+    virtual void VisitVillain(CVillain* villain) {}
     //ADD MORE DOWN HERE
 };
 
