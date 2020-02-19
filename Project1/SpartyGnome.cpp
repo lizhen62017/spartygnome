@@ -76,9 +76,9 @@ void CSpartyGnome::Update(double elapsed)
         {
             if (collided != nullptr && collided->IsCollidable())
             {
-                if (abs(collided->GetX() - GetX()) < collided->GetWidth() / 2.0 + GetWidth() / 2.0 - 11)
+                if (abs(collided->GetX() - GetX()) < collided->GetWidth() / 2.0 + GetWidth() / 2.0 - 5)
                 {
-                    if (newV.Y() > 0 && collided->GetY() > GetY())
+                    if (newV.Y() > 0.1 && collided->GetY() > GetY())
                     {
                         // We are falling, stop at the collision point
                         newP.SetY(collided->GetY() - collided->GetHeight() / 2.0 - GetHeight() / 2.0 - Epsilon);
@@ -86,7 +86,7 @@ void CSpartyGnome::Update(double elapsed)
                         mDoubleJump = false;
                         newV.SetY(0);
                     }
-                    else if (newV.Y() < 0 && collided->GetY() < GetY())
+                    else if (newV.Y() < -0.1 && collided->GetY() < GetY())
                     {
                         // We are rising, stop at the collision point
                         newP.SetY(collided->GetY() + collided->GetHeight() / 2.0 + GetHeight() / 2.0 + Epsilon);
@@ -97,7 +97,7 @@ void CSpartyGnome::Update(double elapsed)
                     
                 }
 
-                if (abs(collided->GetY() - GetY()) < collided->GetHeight() / 2.0 + GetHeight() / 2.0 - 21) 
+                if (abs(collided->GetY() - GetY()) < collided->GetHeight() / 2.0 + GetHeight() / 2.0 - 10) 
                 {
                     if (newV.X() > 0 && collided->GetX() > GetX())
                     {

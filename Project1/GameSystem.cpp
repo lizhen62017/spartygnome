@@ -11,7 +11,7 @@ using namespace std;
 const int BackgroundSize = 1024;
 
 /// Maximum amount of time to allow for elapsed
-const double MaxElapsed = 0.001;
+const double MaxElapsed = 0.010;
 
 /**
 * Constructor

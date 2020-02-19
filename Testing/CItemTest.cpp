@@ -5,7 +5,7 @@
 #include "Item.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-/*
+/**
 namespace Testing
 {
 	/**
@@ -18,8 +18,8 @@ namespace Testing
 		 * \param level Level this item is a member of
 		 * \param filename Filename for opening item image
 		 
-		CItemMock(CLevel* level, const std::wstring filename) : 
-			CItem(level, filename)
+		CItemMock(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
+			CItem(level, declaration)
 		{
 		}
 
@@ -34,7 +34,7 @@ namespace Testing
 		/** Accept a visitor
 		 * \param visitor The visitor we accept 
 		virtual void Accept(CItemVisitor* visitor) override{ }
-
+		
 		/// Get the width of the item
 		/// \returns item width
 		virtual int GetWidth() override { return 0; } //FIXME Virtual Item
@@ -47,7 +47,7 @@ namespace Testing
 		* \param collidable the situation
 		
 		virtual boolean IsCollidable() override { return true; }; //FIXME Virtual Item
-	};
+};
 
 	TEST_CLASS(CItemTest)
 	{
@@ -64,7 +64,7 @@ namespace Testing
 			std::wstring path = L"data/levels/level0.xml";
 			CLevel level0(path);
 
-			CItemMock item(&level0, L"data/images/platformIndustrial_059.png");
+			CItemMock item(&level0, );
 
 			// Test SetLocation, GetX, and GetY
 			item.SetLocation(10.5, 17.2);

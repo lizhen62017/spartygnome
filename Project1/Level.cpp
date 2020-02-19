@@ -246,10 +246,24 @@ std::vector<std::shared_ptr<CItem>> CLevel::CollisionTest(CSpartyGnome* gnome)
     std::vector<std::shared_ptr<CItem>> mOut;
     for (int i = 0; i < mItems.size(); i++)
     {
-        if (abs(mItems[i]->GetX() - gnome->GetX()) <=
-            mItems[i]->GetWidth() / 2.0 + gnome->GetWidth() / 2.0 + Epsilon &&
-            abs(mItems[i]->GetY() - gnome->GetY()) <=
-            mItems[i]->GetHeight() / 2.0 + gnome->GetHeight() / 2.0 + Epsilon)
+        // Border for the item
+        auto itemLeft = mItems[i]->GetX() - mItems[i]->GetWidth() / 2;
+        auto itemRight = mItems[i]->GetX() + mItems[i]->GetWidth() / 2;
+        auto itemTop = mItems[i]->GetY() - mItems[i]->GetHeight() / 2;
+        auto itemBottom = mItems[i]->GetY() + mItems[i]->GetHeight() / 2;
+
+        // For us
+        auto ourLeft = gnome->GetX() - gnome->GetWidth() / 2;
+        auto ourRight = gnome->GetX() + gnome->GetWidth() / 2;
+        auto ourTop = gnome->GetY() - gnome->GetHeight() / 2;
+        auto ourBottom = gnome->GetY() + gnome->GetHeight() / 2;
+
+        // Test for all of the non-collision cases,
+        // cases where there is a gap between the two items
+        if (!(ourRight < itemLeft ||  // Completely to the left
+            ourLeft > itemRight ||  // Completely to the right
+            ourTop > itemBottom ||  // Completely below
+            ourBottom < itemTop))    // Completely above
         {
             mOut.push_back(mItems[i]);
         }
