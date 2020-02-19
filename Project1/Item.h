@@ -85,6 +85,9 @@ public:
 	 * \param visitor The visitor we accept */
 	virtual void Accept(CItemVisitor* visitor) = 0;
 
+	/// Handles results of a collision with an item
+	virtual void Collided() = 0;
+
 private:
 	/// The level this item is contained in
 	CLevel* mLevel;

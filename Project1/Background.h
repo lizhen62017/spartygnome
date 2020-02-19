@@ -50,6 +50,8 @@ public:
     */
     boolean IsCollidable() override;
 
+    void Collided() override {}
+
 /**private:
 	Gdiplus::Bitmap* mImage;*/
 };

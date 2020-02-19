@@ -26,6 +26,8 @@ public:
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitMoney(this); }
 
+    void Collided() override {}
+
 private:
     double mValue; ///< The value of a given money object
 };

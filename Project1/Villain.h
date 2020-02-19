@@ -20,6 +20,9 @@ public:
 
     ///copy constructor (disabled)
     CVillain(const CVillain&) = delete;
+
+    void Collided() override {}
+
 private:
 };
 

@@ -42,6 +42,8 @@ public:
 
     boolean CollideGnome(CSpartyGnome* gnome);
 
+    void Collided() override {}
+
 private:
     /// The image of door
     std::shared_ptr<Gdiplus::Bitmap> mItemImage;

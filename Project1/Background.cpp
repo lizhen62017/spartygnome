@@ -53,3 +53,4 @@ boolean CBackground::IsCollidable()
 {
     return false;
 }
+

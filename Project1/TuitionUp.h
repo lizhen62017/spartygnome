@@ -21,6 +21,9 @@ private:
 
     ///copy constructor (disabled)
     CTuitionUp(const CTuitionUp&) = delete;
+
+    void Collided() override {}
+
 public:
     /** Accept a visitor
      * \param visitor The visitor we accept */
