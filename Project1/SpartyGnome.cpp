@@ -61,6 +61,11 @@ void CSpartyGnome::Draw(Gdiplus::Graphics* graphics, int scrollX)
 */
 void CSpartyGnome::Update(double elapsed)
 {
+    mTimeElapsed += elapsed;
+    if (mTimeElapsed >= 2.1)
+    {
+        isControllable = true;
+    }
     // Gravity
     // Compute a new velocity with gravity added in.
     CVector newV(mV.X(), mV.Y() + Gravity * elapsed);

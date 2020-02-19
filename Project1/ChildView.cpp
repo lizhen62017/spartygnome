@@ -137,19 +137,22 @@ void CChildView::OnTimer(UINT_PTR nIDEvent)
  */
 void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
-	switch (nChar)
+	if (mGameSystem.GetGnome()->GetIsControllable())
 	{
-	case VK_RIGHT:
-		mGameSystem.GetGnome()->SetVelX(HorizontalSpeed);
-		break;
+		switch (nChar)
+		{
+		case VK_RIGHT:
+			mGameSystem.GetGnome()->SetVelX(HorizontalSpeed);
+			break;
 
-	case VK_LEFT:
-		mGameSystem.GetGnome()->SetVelX(-HorizontalSpeed);
-		break;
+		case VK_LEFT:
+			mGameSystem.GetGnome()->SetVelX(-HorizontalSpeed);
+			break;
 
-	case VK_SPACE:
-		mGameSystem.GetGnome()->Jump();
-		break;
+		case VK_SPACE:
+			mGameSystem.GetGnome()->Jump();
+			break;
+		}
 	}
 }
 
