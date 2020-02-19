@@ -17,6 +17,7 @@
 #include "Money.h"
 #include "TuitionUp.h"
 #include "Villain.h"
+#include "Wings.h"
 #include "GameSystem.h"
 
 
@@ -298,7 +299,7 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
     // If it is wings
     else if (type == L"wings")
     {
-        /// TODO when we add teamitem
+        item = make_shared<CWings>(this, declaration);
     }
     
 
