@@ -23,7 +23,6 @@ CVillain::CVillain(CLevel* level, const std::shared_ptr<CDeclaration> declaratio
 */
 void CVillain::Collided()
 {
-
 }
 
 /**

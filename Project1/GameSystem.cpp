@@ -117,7 +117,7 @@ void CGameSystem::Update(double elapsed)
 	// Update mitems if returns true, delete
 	for (auto item : mItems)
 	{
-		bool del = item->Update(elapsed);
+		bool del = item->Update(temp);
 
 		if (del)
 		{
