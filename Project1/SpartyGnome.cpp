@@ -78,6 +78,7 @@ void CSpartyGnome::Draw(Gdiplus::Graphics* graphics, int scrollX)
 void CSpartyGnome::Update(double elapsed)
 {
     mTimeElapsed += elapsed;
+    mImageTime += elapsed;
     if (mTimeElapsed >= 2.1)
     {
         isControllable = true;
@@ -105,10 +106,34 @@ void CSpartyGnome::Update(double elapsed)
     //Check if gnome died
     Death(false);
 
+    //Set proper image state for animation
+    if (mImageState == ImageState::Left1 && mImageTime > .200 && !misJumping)
+    {
+        mImageState = ImageState::Left2;
+        mImageTime = 0.0;
+    }
+    else if (mImageState == ImageState::Left2 && mImageTime > .200 && !misJumping)
+    {
+        mImageState = ImageState::Left1;
+        mImageTime = 0.0;
+    }
+    else if (mImageState == ImageState::Right1 && mImageTime > .200 && !misJumping)
+    {
+        mImageState = ImageState::Right2;
+        mImageTime = 0.0;
+    }
+    else if (mImageState == ImageState::Right2 && mImageTime > .200 && !misJumping)
+    {
+        mImageState = ImageState::Right1;
+        mImageTime = 0.0;
+    }
+
+    //Set the correct image based on ImageState
     if (mImageState == ImageState::Base)
     {
         if (mWings) {SetImage(ImageBaseWing);}
         else { SetImage(ImageBase); }
+        mImageTime = 0.0;
     }
     else if (mImageState == ImageState::Left1)
     {
@@ -308,6 +333,7 @@ void CSpartyGnome::MoveRight()
 {
     SetVelX(HorizontalSpeed);
     mImageState = ImageState::Right1;
+  //mImageTime = 0.0;
 }
 
 /**
@@ -317,6 +343,7 @@ void CSpartyGnome::MoveLeft()
 {
     SetVelX(-HorizontalSpeed);
     mImageState = ImageState::Left1;
+   // mImageTime = 0.0;
 }
 
 /**

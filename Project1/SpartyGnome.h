@@ -62,6 +62,9 @@ private:
 	/// Total time
 	double mTimeElapsed = 0.0;
 
+	/// Time spent in a partcilar image, used for SpartyGnome animation
+	double mImageTime = 0.0;
+
 public:
 	/// Default constructor (deleted)
 	CSpartyGnome() = delete;
