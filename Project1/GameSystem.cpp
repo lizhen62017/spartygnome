@@ -99,6 +99,7 @@ void CGameSystem::Update(double elapsed)
     // Prevent tunnelling
     //
     double temp = elapsed;
+	mGnome->UpdateImageTime(temp);
     while (elapsed > MaxElapsed)
 	{
 
