@@ -221,3 +221,40 @@ void CSpartyGnome::RightColide(double x, double width)
     SetLocX(x - width / 2.0 - GetWidth() / 2.0 - Epsilon);
     SetVelX(0);
 }
+
+
+/**
+ * 
+ * \param x X coord of object collided with
+ * \param y Y coord of object collided with
+ * \param width Width of object collided with
+ * \param height Height of object collided with
+ */
+void CSpartyGnome::TerrainColide(double x, double y, double width, double height)
+{
+    // Vertical collision
+    if (abs(y - GetY()) > height / 2.0 + GetHeight() / 2.0 - 23) //Purely vertical collision, tuned to have 23 works the best
+    {
+        if (GetVelY() > 0 && y > GetY()) // Gnome is falling
+        {
+            FallingColide(y, height);
+        }
+        else if (GetVelY() < 0 && y < GetY()) // Gnome is rising
+        {
+            RisingColide(y, height);
+        }
+    }
+
+    // Horizontal collision
+    if (abs(x - GetX()) > width / 2.0 + GetWidth() / 2.0 - 13) //Purely horizontal collision, tuned to have 13 works the best
+    {
+        if (GetVelX() > 0 && x > GetX()) //Moving right
+        {
+            RightColide(x, width);
+        }
+        else if (GetVelX() < 0 && x < GetX()) // Moving left
+        {
+            LeftColide(x, width);
+        }
+    }
+}

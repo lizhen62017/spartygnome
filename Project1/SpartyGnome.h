@@ -151,5 +151,7 @@ public:
 	void LeftColide(double x, double width);
 
 	void RightColide(double x, double width);
+
+	void TerrainColide(double x, double y, double width, double height);
 };
 
