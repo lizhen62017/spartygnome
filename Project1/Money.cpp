@@ -21,3 +21,28 @@ CMoney::CMoney(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
     declaration->Accept(&visitor);
     mValue = visitor.GetMoneyValue();
 }
+
+/**
+* The function for handling tuitionUp collisions
+*/
+void CMoney::Collided()
+{
+    mHit = true;
+}
+
+/**
+ * The function for updating the tuitionUp
+ */
+bool CMoney::Update(double elapsed)
+{
+    if (mHit)
+    {
+        if (GetY() - GetImage()->GetHeight() / 2 < 0)
+        {
+            return true;
+        }
+        double newY = GetY() + mVelocity * elapsed;
+        SetLocation(GetX(), newY);
+    }
+    return false;
+}
