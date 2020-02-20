@@ -59,6 +59,14 @@ public:
 	std::vector<std::shared_ptr<CItem>> CollisionTest(CSpartyGnome* gnome);
 
 	void RemoveItem(std::shared_ptr<CItem> item);
+
+	/** The virtual width of the game
+	* \returns mWidth width of the game */
+	float GetVirtualWidth() { return mWidth; }
+
+	/** The current level number the game is on
+	* \returns level the number in current */
+	int GetLevel();
     
 
 private:
@@ -67,6 +75,9 @@ private:
 
 	/// The scoreboard object for the game
 	CScoreboard* mScoreboard;
+
+	/// keeps track of the virtual width of the game
+	float mWidth = 2226.76880;
 
 	/// tests to see if respawn delay is needed
 	bool mRespawn = false;

@@ -343,8 +343,10 @@ void CLevel::Install()
 
 	shared_ptr<CItem> item;
 
-	item = make_shared<CMessage>(mGame, L"Level 1 Begin", 150, L"red", 2.0);
-	item->SetLocation(512, 100);
+	std::wstring printString = L"Level " + std::to_wstring(mGame->GetLevel()) + L" Begin";
+
+	item = make_shared<CMessage>(mGame, printString, 150, L"red", 2.0);
+	item->SetLocation((mGame->GetVirtualWidth() / 2.0) - 700, 100);
 	mGame->Add(item);
 
 

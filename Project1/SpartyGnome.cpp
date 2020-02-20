@@ -157,7 +157,7 @@ void CSpartyGnome::Death(boolean villain)
 			shared_ptr<CItem> item;
 
 			item = make_shared<CMessage>(mGameSystem, L"You Lose!", 150, L"red", 2.0);
-			item->SetLocation(512, 100);
+			item->SetLocation((mGameSystem->GetVirtualWidth() / 2.0) - 500, 100);
 			mGameSystem->Add(item);
 
 			mGameSystem->SetRespawn(true);
