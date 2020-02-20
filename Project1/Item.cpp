@@ -7,7 +7,6 @@
 #include "pch.h"
 #include "Item.h"
 #include "Level.h"
-#include "GameSystem.h"
 #include <string>
 
 using namespace Gdiplus;

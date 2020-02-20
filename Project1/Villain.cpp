@@ -6,6 +6,9 @@
 
 #include "pch.h"
 #include "Villain.h"
+#include "Level.h"
+#include "GameSystem.h"
+#include "SpartyGnome.h"
 
 /// The maximum allowed distance a villain is allowed to move
 const double MaxTravelDistance = 300;
@@ -23,6 +26,8 @@ CVillain::CVillain(CLevel* level, const std::shared_ptr<CDeclaration> declaratio
 */
 void CVillain::Collided()
 {
+    auto Gnome = GetLevel()->GetGame()->GetGnome();
+    Gnome->Death(true);
 }
 
 /**

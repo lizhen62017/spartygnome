@@ -47,7 +47,7 @@ private:
 	CGameSystem* mGameSystem;
 
 	/// Trace if gnome is really falling or falling after killed by villan
-	boolean isAfterDeath = false;
+	boolean mIsAfterDeath = false;
 
 	/// Your ability to control gnome
 	boolean isControllable = false;
@@ -110,7 +110,7 @@ public:
 
 	/**  Sets gnome's status
 	* \param status whether he is alive/dead */
-	void Alive(bool status) { mIsAlive = status; }
+	void Alive(bool status) { mIsAlive = status; mIsAfterDeath = false; };
 
 	/**
 	* Getter to playingarea
@@ -120,7 +120,7 @@ public:
 
 	/**
 	* Getter to playingarea
-	* \returns the mAquarium private member
+	* \returns the mGameSystem private member
 	*/
 	CGameSystem* GetGame() { return mGameSystem; };
 
@@ -143,5 +143,13 @@ public:
 	void ChangeLevel(CLevel* level);
 
 	void Reset();
+	
+	void FallingColide(double y, double height);
+
+	void RisingColide(double y, double height);
+
+	void LeftColide(double x, double width);
+
+	void RightColide(double x, double width);
 };
 

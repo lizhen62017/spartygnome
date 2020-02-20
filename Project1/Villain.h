@@ -8,7 +8,8 @@
 
 #pragma once
 #include "Item.h"
-#include "Vector.h"
+#include "Level.h"
+#include "Declaration.h"
 
 /**
  * Class for handling villains

@@ -16,6 +16,7 @@
 #include "Declaration.h"
 #include "ItemVisitor.h"
 
+
 class CLevel;
 class CGameSystem;
 

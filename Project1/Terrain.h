@@ -11,7 +11,6 @@
 #include "Level.h"
 #include "Declaration.h"
 
-
 /**
  * Abstract Base class representing terrain (walls and platforms) 
  */
@@ -40,7 +39,7 @@ public:
 
     void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node) override;
 
-    void Collided() override {}
+    void Collided() override;
 
 private:
     /// The height of the terrain

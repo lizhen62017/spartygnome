@@ -70,6 +70,8 @@ void CGameSystem::Draw(Gdiplus::Graphics* graphics,int width, int height)
     // Determine the virtual width
     auto virtualWidth = (float)width / mScale;
 
+	mWidth = virtualWidth;
+
     auto xOffset = (float)-mGnome->GetX() + virtualWidth / 2.0f;
 
     // all drawing needs to be below here to allow for virtual pixels
@@ -192,6 +194,7 @@ void CGameSystem::ChangeLevel(int level)
     }
     //mGnome->ChangeLevel(mCurrentLevel);
 	mCurrentLevel->Install();
+	Reset();
 }
 
 
@@ -246,6 +249,26 @@ void CGameSystem::RemoveItem(std::shared_ptr<CItem> item)
 	if (loc != end(mItems))
 	{
 		mItems.erase(loc);
+	}
+}
+
+int CGameSystem::GetLevel()
+{
+	if (mCurrentLevel == mLevel0)
+	{
+		return 0;
+	}
+	else if (mCurrentLevel == mLevel1)
+	{
+		return 1;
+	}
+	else if (mCurrentLevel == mLevel2)
+	{
+		return 2;
+	}
+	else 
+	{
+		return 3;
 	}
 }
 
