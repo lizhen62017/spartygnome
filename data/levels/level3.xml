@@ -4,8 +4,16 @@
     <villain id="i012" image="antignome.png"/>
     <villain id="i013" image="giantantignome.png"/>
     <platform id="i005" left-image="grassLeft.png" mid-image="grassMid.png" right-image="grassRight.png"/>
+    <platform id="i006" left-image="bottomWallTransparent.png" mid-image="bottomWallTransparent.png" right-image="bottomWallTransparent.png"/>
+    <platform id="i007" left-image="topWallTransparent.png" mid-image="topWallTransparent.png" right-image="topWallTransparent.png"/>
+    <wall id="i008" image="rightWallTransparent.png"/>
+    <wall id="i009" image="leftWallTransparent.png"/>
   </declarations>
   <items>
+    <platform id="i006" x="250" y="551" width="320" height="32"/>
+    <platform id="i007" x="250" y="519" width="320" height="32"/>
+    <wall id="i008" x="394" y="535" width="32" height="32"/>
+    <wall id="i009" x="106" y="535" width="32" height="32" />
     <platform id="i005" x="650" y="800" width="640" height="32"/>
     <platform id="i005" x="1536" y="650" width="1024" height="32"/>
     <platform id="i005" x="1536" y="351" width="1024" height="32"/>
