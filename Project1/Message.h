@@ -54,6 +54,26 @@ public:
 
 	void Collided() override {}
 
+	/// Get the delay of the message
+	/// \returns mDelayTime how long the message will last
+	double GetDelay() { return mDelayTime; }
+
+	/// Get the size of the message
+	/// \returns mTextSize how bigthe message is
+	double GetTextSize() { return mTextSize; }
+
+	/// Get the text of the message
+	/// \returns mText what the message says
+	std::wstring GetText() { return mText; }
+
+	/// Get the color of the message
+	/// \returns mColor the color
+	std::wstring GetColor() { return mColor; }
+
+	/// adds to the size of the message
+	/// \param size int to add
+	void AddToSize(int size) { mTextSize += size; }
+
 private:
 	double mDelayTime = 0; ///< The value of a given messsages delay
 

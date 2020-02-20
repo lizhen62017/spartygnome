@@ -68,7 +68,6 @@ public:
 	* \returns level the number in current */
 	int GetLevel();
     
-
 private:
     /// The gnome object for the game
     CSpartyGnome* mGnome;
