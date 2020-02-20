@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-
 #include "SpartyGnome.h"
 #include "GameSystem.h"
 
@@ -62,6 +61,15 @@ namespace Testing
 			gnome.SetVelY(0);
 			gnome.Jump();
 			Assert::IsTrue(gnome.GetVelY() == -800, L"Jumped Test");
+		}
+
+		TEST_METHOD(TestGnomeControllable)
+		{
+			CGameSystem game;
+
+			CSpartyGnome gnome(&game);
+
+			Assert::IsFalse(gnome.GetIsControllable());
 		}
 
 	};

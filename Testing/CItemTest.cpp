@@ -4,6 +4,7 @@
 #include "Declaration.h"
 #include "Item.h"
 #include "GameSystem.h"
+#include "SpartyGnome.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -78,6 +79,25 @@ namespace Testing
 			item.SetLocation(10.5, 17.2);
 			Assert::AreEqual(10.5, item.GetX(), 0.0001);
 			Assert::AreEqual(17.2, item.GetY(), 0.0001);
+		}
+
+		TEST_METHOD(TestCItemCollision)
+		{
+			std::wstring path = L"data/levels/level0.xml";
+
+			CGameSystem game;
+
+			CSpartyGnome gnome(&game);
+
+			CLevel level0(&game, path);
+
+			CItemMock item(&level0, level0.GetDeclaration(L"i008")); //add a money on the same location as gnome
+
+			// Test SetLocation, GetX, and GetY
+			item.SetLocation(512,512);
+			gnome.SetLocX(512);
+			gnome.SetLocY(512);
+			Assert::IsTrue(game.CollisionTest(&gnome).size() == 1); //See if it collides with money
 		}
 
 	};
