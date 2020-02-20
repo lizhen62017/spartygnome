@@ -11,6 +11,8 @@
 #include <string>
 #include <memory>
 
+#include "DeclarationVisitor.h"
+
 
 /**
  * Class representing a declaration used for item loading
@@ -32,6 +34,10 @@ public:
     /** Gets declaration's type
      * \return Wstring of Declarations type*/
     std::wstring GetType() { return mType; }
+
+    /** Accept a visitor
+     * \param visitor The visitor we accept */
+    virtual void Accept(CDeclarationVisitor* visitor) {};
 
 private:
 	/// Images for declaration

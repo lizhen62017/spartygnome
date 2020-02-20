@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<level width="1024" height="1024" start-y="572" start-x="468">
+<level width="1024" height="1024" start-y="572" start-x="256">
   <declarations>
     <background id="i001" image="testbackground1.png"/>
     <platform id="i005" left-image="xmlPlatform.png" mid-image="xmlPlatform.png" right-image="xmlPlatform.png"/>
