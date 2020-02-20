@@ -36,7 +36,7 @@ public:
 
 	/// Adds dollars to the total amount
 	/// \param dollarAmount number of dollars to add to mDollars
-	void AddDollars(int dollarAmount) { mDollars += dollarAmount; }
+	void AddDollars(int dollarAmount);
 
 	/// Update the scoreboard
 	/// \param elapsed The time elapsed from previous update
@@ -61,6 +61,9 @@ private:
 
 	/// Check to see if should draw door message
 	boolean mDoor = false;
+
+	///The multiplier for tuition dollar pickup
+	double mMultiplier = 1.0;
 
 };
 
