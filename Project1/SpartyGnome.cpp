@@ -79,7 +79,7 @@ void CSpartyGnome::Update(double elapsed)
     mV = newV;
     mP = newP;
     
-    if (!isAfterDeath)
+    if (!mIsAfterDeath)
     {
         for (auto collided : GetGame()->CollisionTest(this))
         {
@@ -102,7 +102,7 @@ void CSpartyGnome::Death(boolean villain)
         // Display "You Lose" image here
         if (villain)
         {
-            isAfterDeath = true; //Avoid further collision
+            mIsAfterDeath = true; //Avoid further collision
             SetVelY(500); //Let it fall
         }
         //Message to check if working, leave commented
@@ -126,7 +126,7 @@ void CSpartyGnome::Death(boolean villain)
 
         //Temp location reset to make playtesting easier
         // Reset();
-        isAfterDeath = false;
+     //   isAfterDeath = false;
         isControllable = false;
         mTimeElapsed = 0.0;
     }

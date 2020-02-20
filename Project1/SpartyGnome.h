@@ -47,7 +47,7 @@ private:
 	CGameSystem* mGameSystem;
 
 	/// Trace if gnome is really falling or falling after killed by villan
-	boolean isAfterDeath = false;
+	boolean mIsAfterDeath = false;
 
 	/// Your ability to control gnome
 	boolean isControllable = false;
@@ -110,7 +110,7 @@ public:
 
 	/**  Sets gnome's status
 	* \param status whether he is alive/dead */
-	void Alive(bool status) { mIsAlive = status; }
+	void Alive(bool status) { mIsAlive = status; mIsAfterDeath = false; };
 
 	/**
 	* Getter to playingarea
