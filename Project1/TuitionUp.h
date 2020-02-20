@@ -28,6 +28,15 @@ public:
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitTuitionUp(this); }
 
-    void Collided() override {}
+	void Collided() override;
+
+	/// Handle updates for animation
+	/// \param elapsed The time since the last update
+	virtual bool Update(double elapsed) override;
+
+private:
+
+	double mVelocity = 750; ///< the speed tuitionUp moves after being hit
+	bool mHit = false; ///< determines when the tuitionUp has been hit by spartygnome
 };
 

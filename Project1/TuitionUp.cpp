@@ -16,3 +16,31 @@ CTuitionUp::CTuitionUp(CLevel* level, const std::shared_ptr<CDeclaration> declar
     CItemPickup(level, declaration)
 {
 }
+
+
+/**
+* The function for handling tuitionUp collisions
+*/
+void CTuitionUp::Collided()
+{
+	mHit = true;
+}
+
+/**
+* The function for updating the tuitionUp
+*/
+bool CTuitionUp::Update(double elapsed)
+{
+	if (mHit)
+	{
+		if (GetY() - GetImage()->GetHeight() / 2 > 1024)
+		{
+			return true;
+		}
+		double newY = GetY() + mVelocity * elapsed;
+		SetLocation(GetX(), newY);
+	}
+
+
+	return false;
+}
