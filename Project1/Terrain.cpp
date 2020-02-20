@@ -61,31 +61,5 @@ boolean CTerrain::IsCollidable()
  */
 void CTerrain::Collided()
 {
-    // The gnome that is collideing
-    auto Gnome = GetLevel()->GetGame()->GetGnome();
-
-    if (abs(GetY() - Gnome->GetY()) > GetHeight() / 2.0 + Gnome->GetHeight() / 2.0 - 23) //Purely vertical collision, tuned to have 23 works the best
-    {
-       if (Gnome->GetVelY() > 0 && GetY() > Gnome->GetY())
-        {
-           Gnome->FallingColide(GetY(), GetHeight());
-        }
-        else if (Gnome->GetVelY() < 0 && GetY() < Gnome->GetY())
-        {
-           Gnome->RisingColide(GetY(), GetHeight());
-        }
-    }
-
-    if (abs(GetX() - Gnome->GetX()) > GetWidth() / 2.0 + Gnome->GetWidth() / 2.0 - 13) //Purely horizontal collision, tuned to have 13 works the best
-    {
-        if (Gnome->GetVelX() > 0 && GetX() > Gnome->GetX())
-        {
-            Gnome->RightColide(GetX(), GetWidth());
-        }
-        else if (Gnome->GetVelX() < 0 && GetX() < Gnome->GetX())
-        {
-            // We are moving to the left, stop at the collision point
-            Gnome->LeftColide(GetX(), GetWidth());
-        }
-    }
+    GetLevel()->GetGame()->GetGnome()->TerrainColide(GetX(), GetY(), GetWidth(), GetHeight());
 }
