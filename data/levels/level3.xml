@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <level width="1024" height="1024" start-y="572" start-x="468">
   <declarations>
-    <villain id="i012" image="antignome.png"/>
-    <villain id="i013" image="giantantignome.png"/>
-    <platform id="i005" left-image="grassLeft.png" mid-image="grassMid.png" right-image="grassRight.png"/>
-    <platform id="i006" left-image="bottomWallTransparent.png" mid-image="bottomWallTransparent.png" right-image="bottomWallTransparent.png"/>
-    <platform id="i007" left-image="topWallTransparent.png" mid-image="topWallTransparent.png" right-image="topWallTransparent.png"/>
-    <wall id="i008" image="rightWallTransparent.png"/>
-    <wall id="i009" image="leftWallTransparent.png"/>
+    <platform id="i001" left-image="platformIndustrial_059.png" mid-image="platformIndustrial_060.png" right-image="platformIndustrial_061.png"/>
+    <villain id="i010" image="antignome.png"/>
   </declarations>
   <items>
-    <platform id="i006" x="250" y="551" width="320" height="32"/>
-    <platform id="i007" x="250" y="519" width="320" height="32"/>
-    <wall id="i008" x="394" y="535" width="32" height="32"/>
-    <wall id="i009" x="106" y="535" width="32" height="32" />
-    <platform id="i005" x="650" y="800" width="640" height="32"/>
-    <platform id="i005" x="1536" y="650" width="1024" height="32"/>
-    <platform id="i005" x="1536" y="351" width="1024" height="32"/>
-    <villain id="i012" x="1250" y="790"/>
-    <villain id="i012" x="1500" y="540"/>
-    <villain id="i012" x="1750" y="790"/>
-    <villain id="i013" x="2650" y="1000"/>
+    <platform id="i001" x="512" y="900" width="960" height="32"/>
+    <platform id="i001" x="715" y="415" width="160" height="32"/>
+    <platform id="i001" x="250" y="250" width="160" height="32"/>
+  
+    <platform id="i001" x="1536" y="650" width ="960" height="32"/>
+
+    <platform id="i001" x="2560" y="800" width="864" height="32"/>
+    <platform id="i001" x="2560" y="550" width="460" height="32"/>
+
+    <platform id="i001" x="3584" y="400" width="960" height="32"/>
+    <platform id="i001" x="3584" y="100" width="960" height="32"/>
   </items>
 </level>
