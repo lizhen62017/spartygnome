@@ -20,6 +20,6 @@ public:
 
     /** Visit a CMoneyDeclaration object
      * \param declaration CMoneyDeclaration we are visiting */
-    virtual void VisitMoneyDeclaration(CMoneyDeclaration* declaration) {}
+    virtual void VisitMoneyDeclaration(CMoneyDeclaration* moneyDeclaration) {}
 };
 
