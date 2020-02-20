@@ -194,6 +194,7 @@ void CGameSystem::ChangeLevel(int level)
     }
     //mGnome->ChangeLevel(mCurrentLevel);
 	mCurrentLevel->Install();
+	Reset();
 }
 
 
