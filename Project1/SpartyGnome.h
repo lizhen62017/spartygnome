@@ -120,7 +120,7 @@ public:
 
 	/**
 	* Getter to playingarea
-	* \returns the mAquarium private member
+	* \returns the mGameSystem private member
 	*/
 	CGameSystem* GetGame() { return mGameSystem; };
 
@@ -143,5 +143,13 @@ public:
 	void ChangeLevel(CLevel* level);
 
 	void Reset();
+	
+	void FallingColide(double y, double height);
+
+	void RisingColide(double y, double height);
+
+	void LeftColide(double x, double width);
+
+	void RightColide(double x, double width);
 };
 

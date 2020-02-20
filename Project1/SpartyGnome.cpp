@@ -75,58 +75,17 @@ void CSpartyGnome::Update(double elapsed)
     CVector newP = mP + newV * elapsed;
 
     mP.SetY(newP.Y());
+
+    mV = newV;
+    mP = newP;
     
     if (!isAfterDeath)
     {
         for (auto collided : GetGame()->CollisionTest(this))
         {
-            if (collided != nullptr && collided->IsCollidable())
-            {
-                if (abs(collided->GetY() - GetY()) > collided->GetHeight() / 2.0 + GetHeight() / 2.0 - 23) //Purely vertical collision, tuned to have 23 works the best
-                {
-                    if (newV.Y() > 0 && collided->GetY() > GetY())
-                    {
-                        // We are falling, stop at the collision point
-                        newP.SetY(collided->GetY() - collided->GetHeight() / 2.0 - GetHeight() / 2.0 - Epsilon);
-                        misJumping = false;
-                        mDoubleJump = false;
-                        newV.SetY(0);
-                    }
-                    else if (newV.Y() < 0 && collided->GetY() < GetY())
-                    {
-                        // We are rising, stop at the collision point
-                        newP.SetY(collided->GetY() + collided->GetHeight() / 2.0 + GetHeight() / 2.0 + Epsilon);
-                        newV.SetY(0);
-                    }
-                    // If we collide, we cancel any velocity
-                    // in the Y direction
-                    
-                }
-
-                if (abs(collided->GetX() - GetX()) > collided->GetWidth() / 2.0 + GetWidth() / 2.0 - 13) //Purely horizontal collision, tuned to have 13 works the best
-                {
-                    if (newV.X() > 0 && collided->GetX() > GetX())
-                    {
-                        // We are moving to the right, stop at the collision point
-                        newP.SetX(collided->GetX() - collided->GetWidth() / 2.0 - GetWidth() / 2.0 - Epsilon);
-                        newV.SetX(0);
-                    }
-                    else if (newV.X() < 0 && collided->GetX() < GetX())
-                    {
-                        // We are moving to the left, stop at the collision point
-                        newP.SetX(collided->GetX() + collided->GetWidth() / 2.0 + GetWidth() / 2.0 + Epsilon);
-                        newV.SetX(0);
-                    }
-                    // If we collide, we cancel any velocity
-                    // in the X direction
-
-                }
-            }
+            collided->Collided();
         }
     }
-
-    mV = newV;
-    mP = newP;
 
     //Check if gnome died
     Death(false);
@@ -210,4 +169,55 @@ void CSpartyGnome::Reset()
     SetLocY(128);
     SetVelX(0);
     SetVelY(0);
+}
+
+
+/**
+ * Function to handle collision with top of wall or platform
+ * \param y Y coord of the object collided with
+ * \paran height Height of the object collided with
+ */
+void CSpartyGnome::FallingColide(double y, double height)
+{
+    // We are falling, stop at the collision point
+    SetLocY(y - height / 2.0 - GetHeight() / 2.0 - Epsilon);
+    misJumping = false;
+    mDoubleJump = false;
+    SetVelY(0);
+}
+
+/**
+ * Function to handle collision with bottom of wall or platform
+ * \param y Y coord of the object collided with
+ * \paran height Height of the object collided with
+ */
+void CSpartyGnome::RisingColide(double y, double height)
+{
+    // We are rising, stop at the collision point
+    SetLocY(y + height / 2.0 + GetHeight() / 2.0 + Epsilon);
+    SetVelY(0);
+}
+
+/**
+ * Function to handle collision with side of wall or platform
+ * \param x X coord of the object collided with
+ * \param width Width of the object collided with
+ */
+void CSpartyGnome::LeftColide(double x, double width)
+{
+    // We are moving to the left, stop at the collision point
+    SetLocX(x + width / 2.0 + GetWidth() / 2.0 + Epsilon);
+    SetVelX(0);
+}
+
+/**
+ * Function to handle collision with side of wall or platform
+ * \param x X coord of the object collided with
+ * \param width Width of the object collided with
+ */
+void CSpartyGnome::RightColide(double x, double width)
+{
+    // We are moving to the right, stop at the collision point
+    SetLocX(x - width / 2.0 - GetWidth() / 2.0 - Epsilon);
+    SetVelX(0);
 }
