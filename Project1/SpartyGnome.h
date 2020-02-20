@@ -168,5 +168,11 @@ public:
 	void Stop();
 	
 	void SetImage(const std::wstring& file);
+
+	/**
+	* Updates the imagetime variable
+	* \param elapsed The elapsed time
+	*/
+	void UpdateImageTime(double elapsed) { mImageTime += elapsed; }
 };
 

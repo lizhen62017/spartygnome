@@ -20,7 +20,7 @@ const wstring ImageRight1 = L"data/images/gnome-walk-right-1.png";
 const wstring ImageRight2 = L"data/images/gnome-walk-right-2.png";
 
 /// The five wing images for SpartyGnome animation
-const wstring ImageBaseWing = L"data/images/gnome.png";
+const wstring ImageBaseWing = L"data/images/gnome-wing.png";
 const wstring ImageLeft1Wing = L"data/images/gnome-walk-left-1-wing.png";
 const wstring ImageLeft2Wing = L"data/images/gnome-walk-left-2-wing.png";
 const wstring ImageRight1Wing = L"data/images/gnome-walk-right-1-wing.png";
@@ -78,7 +78,6 @@ void CSpartyGnome::Draw(Gdiplus::Graphics* graphics, int scrollX)
 void CSpartyGnome::Update(double elapsed)
 {
     mTimeElapsed += elapsed;
-    mImageTime += elapsed;
     if (mTimeElapsed >= 2.1)
     {
         isControllable = true;
@@ -107,22 +106,22 @@ void CSpartyGnome::Update(double elapsed)
     Death(false);
 
     //Set proper image state for animation
-    if (mImageState == ImageState::Left1 && mImageTime > .200 && !misJumping)
+    if (mImageState == ImageState::Left1 && mImageTime > .300 && !misJumping && GetVelY() == 0)
     {
         mImageState = ImageState::Left2;
         mImageTime = 0.0;
     }
-    else if (mImageState == ImageState::Left2 && mImageTime > .200 && !misJumping)
+    else if (mImageState == ImageState::Left2 && mImageTime > .300 && !misJumping && GetVelY() == 0)
     {
         mImageState = ImageState::Left1;
         mImageTime = 0.0;
     }
-    else if (mImageState == ImageState::Right1 && mImageTime > .200 && !misJumping)
+    else if (mImageState == ImageState::Right1 && mImageTime > .300 && !misJumping && GetVelY() == 0)
     {
         mImageState = ImageState::Right2;
         mImageTime = 0.0;
     }
-    else if (mImageState == ImageState::Right2 && mImageTime > .200 && !misJumping)
+    else if (mImageState == ImageState::Right2 && mImageTime > .300 && !misJumping && GetVelY() == 0)
     {
         mImageState = ImageState::Right1;
         mImageTime = 0.0;
@@ -273,6 +272,8 @@ void CSpartyGnome::LeftColide(double x, double width)
 {
     // We are moving to the left, stop at the collision point
     SetLocX(x + width / 2.0 + GetWidth() / 2.0 + Epsilon);
+    mImageState = ImageState::Base;
+    mImageTime = 0.0;
     SetVelX(0);
 }
 
@@ -286,6 +287,8 @@ void CSpartyGnome::RightColide(double x, double width)
     // We are moving to the right, stop at the collision point
     SetLocX(x - width / 2.0 - GetWidth() / 2.0 - Epsilon);
     SetVelX(0);
+    mImageState = ImageState::Base;
+    mImageTime = 0.0;
 }
 
 
@@ -332,8 +335,11 @@ void CSpartyGnome::TerrainColide(double x, double y, double width, double height
 void CSpartyGnome::MoveRight()
 {
     SetVelX(HorizontalSpeed);
-    mImageState = ImageState::Right1;
-  //mImageTime = 0.0;
+    if (mImageState != ImageState::Right1 && mImageState != ImageState::Right2)
+    {
+        mImageState = ImageState::Right1;
+        mImageTime = 0.0;
+    }
 }
 
 /**
@@ -342,8 +348,11 @@ void CSpartyGnome::MoveRight()
 void CSpartyGnome::MoveLeft()
 {
     SetVelX(-HorizontalSpeed);
-    mImageState = ImageState::Left1;
-   // mImageTime = 0.0;
+    if (mImageState != ImageState::Left1 && mImageState != ImageState::Left2)
+    {
+        mImageState = ImageState::Left1;
+        mImageTime = 0.0;
+    }
 }
 
 /**
