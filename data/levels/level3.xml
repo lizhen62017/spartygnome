@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <level width="1024" height="1024" start-y="572" start-x="468">
   <declarations>
-    <background id="i001" image="testbackground1.png"/>
-    <platform id="i005" left-image="xmlPlatform.png" mid-image="xmlPlatform.png" right-image="xmlPlatform.png"/>
+    <villain id="i012" image="antignome.png"/>
+    <villain id="i013" image="giantantignome.png"/>
+    <platform id="i005" left-image="grassLeft.png" mid-image="grassMid.png" right-image="grassRight.png"/>
   </declarations>
   <items>
-    <background id="i001" x="512" y="512"/>
-    <platform id="i005" x="256" y="800" width="160" height="32"/>
-    <platform id="i005" x="725" y="616" width="160" height="32"/>
+    <platform id="i005" x="650" y="800" width="640" height="32"/>
+    <platform id="i005" x="1536" y="650" width="1024" height="32"/>
+    <platform id="i005" x="1536" y="351" width="1024" height="32"/>
+    <villain id="i012" x="1250" y="790"/>
+    <villain id="i012" x="1500" y="540"/>
+    <villain id="i012" x="1750" y="790"/>
+    <villain id="i013" x="2650" y="1000"/>
   </items>
 </level>
