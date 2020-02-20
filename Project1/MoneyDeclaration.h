@@ -28,6 +28,13 @@ public:
      * \return the value of the money declaration */
     double GetValue() { return mValue; }
 
+    /** Accept a visitor
+     * \param visitor The visitor we accept */
+    void Accept(CDeclarationVisitor* visitor) override 
+    {
+        visitor->VisitMoneyDeclaration(this); 
+    };
+
 private:
 
     /// The value of the money declaration

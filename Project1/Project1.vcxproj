@@ -185,6 +185,7 @@
   <ItemGroup>
     <ClInclude Include="Background.h" />
     <ClInclude Include="ChildView.h" />
+    <ClInclude Include="DeclarationVisitor.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="ItemVisitor.h" />
     <ClInclude Include="Declaration.h" />
@@ -215,6 +216,7 @@
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="ChildView.cpp" />
+    <ClCompile Include="DeclarationVisitor.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="ItemVisitor.cpp" />
     <ClCompile Include="Declaration.cpp" />
