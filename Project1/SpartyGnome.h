@@ -29,8 +29,12 @@ private:
 	CVector mV = CVector(0, 0);
 	/// position vectors contains all the getters and setters
 	CVector mP = CVector(850, 550);
+
 	/// The supported image states
-	enum class ImageStates { Base, Left1, Left2, Right1, Right2 };
+	enum class ImageState { Base, Left1, Left2, Right1, Right2 };
+
+	/// The current image state
+	ImageState mImageState = ImageState::Base;
 
 	/* The level this gnome is contained in
 	CLevel Temp = CLevel(L"data/levels/level0.xml");
@@ -153,5 +157,13 @@ public:
 	void RightColide(double x, double width);
 
 	void TerrainColide(double x, double y, double width, double height);
+
+	void MoveRight();
+
+	void MoveLeft();
+
+	void Stop();
+	
+	void SetImage(const std::wstring& file);
 };
 

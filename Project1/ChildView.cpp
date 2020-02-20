@@ -19,9 +19,6 @@ using namespace Gdiplus;
 /// Frame duration in milliseconds
 const int FrameDuration = 30;
 
-/// Horizontal character speed in pixels per second
-const double HorizontalSpeed = 500.00;
-
 // CChildView
 
 CChildView::CChildView()
@@ -142,11 +139,11 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		switch (nChar)
 		{
 		case VK_RIGHT:
-			mGameSystem.GetGnome()->SetVelX(HorizontalSpeed);
+			mGameSystem.GetGnome()->MoveRight();
 			break;
 
 		case VK_LEFT:
-			mGameSystem.GetGnome()->SetVelX(-HorizontalSpeed);
+			mGameSystem.GetGnome()->MoveLeft();
 			break;
 
 		case VK_SPACE:
@@ -169,7 +166,7 @@ void CChildView::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	{
 	case VK_RIGHT:
 	case VK_LEFT:
-		mGameSystem.GetGnome()->SetVelX(0);
+		mGameSystem.GetGnome()->Stop();
 		break;
 	}
 }
