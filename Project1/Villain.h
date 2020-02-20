@@ -47,8 +47,7 @@ public:
     */
     void Collided() override;
 
-    /* Updates the villain to enable movement
-    * \param elapsed The time elapsed since last update */
+    /* Updates the villain to enable movement*/
     bool Update(double elapsed) override;
 
 private:
