@@ -43,7 +43,15 @@ boolean CDoor::CollideGnome(CSpartyGnome* gnome)
 
 void CDoor::Collided()
 {
-    GetLevel()->GetGame()->ChangeLevel(2);
+    int temp = GetLevel()->GetGame()->GetLevel(); //Get integer level number
+    if (temp < 3)
+    {
+        GetLevel()->GetGame()->ChangeLevel(temp + 1); //engage level
+    }
+    else
+    {
+        GetLevel()->GetGame()->ChangeLevel(temp); //loop at level 3
+    }
 }
 
 
