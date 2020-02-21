@@ -42,7 +42,9 @@ CLevel::CLevel(CGameSystem* game, const std::wstring& filename)
 {
     Load(filename);
 	mGame = game;
+    mFilename = filename;
 }
+
 
 /** Add an item to the level
  * \param item New item to add
@@ -74,6 +76,7 @@ void CLevel::Clear()
     mStartY = 0;
     mItems.clear();
 }
+
 
 /**
  * Loads a level from an Xml file
@@ -336,6 +339,9 @@ void CLevel::Install()
 {
 	// reset level
 	mGame->Clear();
+    
+    Clear();
+    Load(mFilename);
 
 	for (auto item : mItems)
 	{

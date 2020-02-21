@@ -37,8 +37,6 @@ public:
 
     void CLevel::Add(std::shared_ptr<CItem> item);
 
-    void Load(const std::wstring& filename);
-
     void Clear();
 
     std::shared_ptr<CDeclaration> GetDeclaration(std::wstring);
@@ -77,6 +75,7 @@ public:
 
 	void Install();
 
+
 private:
 	/// The game object the level is in 
 	CGameSystem* mGame;
@@ -93,11 +92,15 @@ private:
     /// Initial starting point for SpartyGnome on Y-axis
     double mStartY;
 
+    std::wstring mFilename;
+
     /// All of the item declarations
     std::map<std::wstring, std::shared_ptr<CDeclaration>> mDeclarations;
 
     /// All of the items populating the level
     std::vector<std::shared_ptr<CItem>> mItems;
+
+    void Load(const std::wstring& filename);
 
     void XmlDeclaration(const std::shared_ptr<xmlnode::CXmlNode>& node);
 

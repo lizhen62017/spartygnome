@@ -43,7 +43,10 @@ CItem::CItem(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
     mItemImage = shared_ptr<Bitmap>(declaration->GetImage(0));
 }
 
-
+/**
+ * Constructor constructing item for game system
+ * \param game The game system this item belongs to
+ */
 CItem::CItem(CGameSystem* game) 
 {
 }
