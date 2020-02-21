@@ -79,7 +79,7 @@ namespace Testing
 			CLevel level0(&game, path);
 		}
 
-		TEST_METHOD(TestCLevelLoading)
+		TEST_METHOD(TestLoad)
 		{
 			std::wstring path = L"data/levels/level0.xml";
 
@@ -99,7 +99,7 @@ namespace Testing
 			Assert::IsTrue(level0.GetStartY() == 572);
 		}
 
-		TEST_METHOD(TestDeclarationLoading)
+		TEST_METHOD(TestXmlDeclaration)
 		{
 			std::wstring path = L"data/levels/level0.xml";
 
@@ -114,28 +114,6 @@ namespace Testing
 			std::shared_ptr<CDeclaration> platform = level0.GetDeclaration(L"i005");
 			Assert::IsTrue(platform->GetType() == L"platform");
 			Assert::IsFalse(platform->GetType() == L"background");
-		}
-
-		TEST_METHOD(TestItemLoading)
-		{
-			std::wstring path = L"data/levels/level1.xml";
-
-			CGameSystem game;
-
-			CLevel level1(&game, path);
-
-			CTestVisitor visitor;
-			level1.Accept(&visitor);
-
-			Assert::AreEqual(8, visitor.mNumBackgrounds);
-			Assert::AreEqual(23, visitor.mNumPlatforms);
-			Assert::AreEqual(10, visitor.mNumWalls);
-			Assert::AreEqual(44, visitor.mNumMoney);
-			Assert::AreEqual(2, visitor.mNumVillains);
-			Assert::AreEqual(1, visitor.mNumTuitionUps);
-			Assert::AreEqual(0, visitor.mNumWings);
-			Assert::AreEqual(1, visitor.mNumDoors);
-
 		}
 
 		TEST_METHOD(TestCItemVisitor)
@@ -157,31 +135,59 @@ namespace Testing
 			if (image->GetLastStatus() != Ok)
 			{
 				wstring message = L"Failed to open" + path;
-				AfxMessageBox(message.c_str()); //////FIX THIS LATER
+				AfxMessageBox(message.c_str());
 			}
 
 			CTestVisitor visitor;
-			level.Accept(&visitor);
-			Assert::AreEqual(1, visitor.mNumBackgrounds,
-				L"Visitor number of backgrounds");
 
+			// Set the initial values in case we change them later in level 0
+			level.Accept(&visitor);
+			int initialBackgrounds = visitor.mNumBackgrounds;
+			int initialVillains = visitor.mNumVillains;
+
+			// Reset the visitor to make sure count is accurate
 			visitor.ResetVisits();
 
-
+			// Make an empty declaration
 			const shared_ptr<CDeclaration> emptyDeclaration = make_shared<CDeclaration>();
 			emptyDeclaration->AddImage(image);
 
 			// Add some platforms and backgrounds
 			auto item1 = make_shared<CBackground>(&level, emptyDeclaration);
 			auto item2 = make_shared<CBackground>(&level, emptyDeclaration);
+			auto item3 = make_shared<CVillain>(&level, emptyDeclaration);
 
 			level.Add(item1);
 			level.Add(item2);
+			level.Add(item3);
 
 			level.Accept(&visitor);
-			Assert::AreEqual(3, visitor.mNumBackgrounds,
+			Assert::AreEqual(initialBackgrounds + 2, visitor.mNumBackgrounds,
 				L"Visitor number of backgrounds");
+			Assert::AreEqual(initialVillains + 1, visitor.mNumVillains,
+				L"Visitor number of villains");
 
+		}
+		TEST_METHOD(TestXmlItem)
+		{
+			//Test invalid if we change level 1
+			std::wstring path = L"data/levels/level1.xml";
+
+			CGameSystem game;
+
+			CLevel level1(&game, path);
+
+			CTestVisitor visitor;
+			level1.Accept(&visitor);
+
+			Assert::AreEqual(8, visitor.mNumBackgrounds);
+			Assert::AreEqual(23, visitor.mNumPlatforms);
+			Assert::AreEqual(10, visitor.mNumWalls);
+			Assert::AreEqual(44, visitor.mNumMoney);
+			Assert::AreEqual(2, visitor.mNumVillains);
+			Assert::AreEqual(1, visitor.mNumTuitionUps);
+			Assert::AreEqual(0, visitor.mNumWings);
+			Assert::AreEqual(1, visitor.mNumDoors);
 		}
 
 	};
