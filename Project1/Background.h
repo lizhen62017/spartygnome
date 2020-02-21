@@ -50,6 +50,8 @@ public:
     */
     boolean IsCollidable() override;
 
+    /** Defines what happens if collision occurs
+     */
     void Collided() override {}
 
 /**private:

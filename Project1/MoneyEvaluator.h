@@ -17,7 +17,8 @@ class CMoneyDeclaration;
 
 
 /**
- * 
+ * Declaration visitor that returns the value of a 
+ * money declaration
  */
 class CMoneyEvaluator :
 	public CDeclarationVisitor
