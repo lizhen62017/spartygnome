@@ -27,8 +27,12 @@ void CTuitionUp::Collided()
 }
 
 /**
-* The function for updating the tuitionUp
-*/
+ * The function for updating the tuitionUp
+ * Handle updates for animation
+ * \param elapsed The time since the last update
+ * \returns false if the item becomes marked for deletion,
+ * true if not
+ */
 bool CTuitionUp::Update(double elapsed)
 {
 	if (mHit)

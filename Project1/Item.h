@@ -62,6 +62,7 @@ public:
 
 	/// Handle updates for animation
 	/// \param elapsed The time since the last update
+	/// \returns false
 	virtual bool Update(double elapsed) { return false; }
 
 	/// Get the width of the item

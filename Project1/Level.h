@@ -54,7 +54,7 @@ public:
     double GetStartX() { return mStartX; }
 
 	/**  Setter for level start position x value
-	* \param level start position x value */
+	* \param locX Level start position x value */
 	void SetStartX(double locX) { mStartX = locX; }
 
     /**  Getter for level start position y value
@@ -62,9 +62,11 @@ public:
     double GetStartY() { return mStartY; }
 
 	/**  Setter for level start position y value
-	* \param level start position y value */
+	* \param locY start position y value */
 	void SetStartY(double locY) { mStartY = locY; }
 
+    /**  Getter for game system level is a part of
+     * \return the game system */
     CGameSystem* GetGame() { return mGame; }
 
 
@@ -92,6 +94,7 @@ private:
     /// Initial starting point for SpartyGnome on Y-axis
     double mStartY;
 
+    /// The Filename used to instantiate the level
     std::wstring mFilename;
 
     /// All of the item declarations

@@ -28,8 +28,6 @@ public:
 
     void Collided() override;
 
-    /// Handle updates for animation
-    /// \param elapsed The time since the last update
     virtual bool Update(double elapsed) override;
 
 private:

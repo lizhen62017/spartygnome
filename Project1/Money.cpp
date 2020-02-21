@@ -24,7 +24,7 @@ CMoney::CMoney(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
 }
 
 /**
-* The function for handling tuitionUp collisions
+* The function for handling money collisions
 */
 void CMoney::Collided()
 {
@@ -37,12 +37,17 @@ void CMoney::Collided()
 }
 
 /**
- * The function for updating the tuitionUp
+ * The function for updating the money
+ * Handle updates for animation
+ * \param elapsed The time since the last update
+ * \returns false if the item becomes marked for deletion,
+ * true if not
  */
 bool CMoney::Update(double elapsed)
 {
     if (mHit)
     {
+        // doesn't delete item until it is offscreen
         if (GetY() - GetImage()->GetHeight() / 2 < 0)
         {
             return true;

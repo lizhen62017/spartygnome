@@ -11,7 +11,7 @@
 
 
  /** Visit a CMoneyDeclaration object
-  * \param building money declaration we are visiting */
+  * \param moneyDeclaration money declaration we are visiting */
 void CMoneyEvaluator::VisitMoneyDeclaration(CMoneyDeclaration* moneyDeclaration)
 {
     mMoneyValue = moneyDeclaration->GetValue();

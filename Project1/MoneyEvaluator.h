@@ -28,13 +28,11 @@ public:
      * \returns value of money declaration */
     double GetMoneyValue() const { return mMoneyValue; }
 
-    /** Visit a CMoneyDeclaration object
-     * \param building money declaration we are visiting */
     void VisitMoneyDeclaration(CMoneyDeclaration* moneyDeclaration) override;
 
 private:
 
-    //The value of the money
+    /// The value of the money from the Declaration
     double mMoneyValue = 0;
 };
 

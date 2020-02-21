@@ -16,8 +16,6 @@ using namespace std;
 
 /**
  * Constructor
- * \param level The level this item is a member of
- * \param filename Filename for the image we use
  
 CTerrain::CTerrain(CLevel* level, const std::wstring& filename) : CItem(level, filename)
 {

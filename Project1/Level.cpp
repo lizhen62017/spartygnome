@@ -37,6 +37,7 @@ const double initCoord = 500;
 /**
  * Level Constructor
  * \param filename The name of the file the level is loaded from
+ * \param game The game system the level is a part of
  */
 CLevel::CLevel(CGameSystem* game, const std::wstring& filename)
 {
@@ -333,7 +334,6 @@ void CLevel::Accept(CItemVisitor* visitor)
 
 
 /** Install a new level into the gamesystem
- * \param game for the level to be installed
  */
 void CLevel::Install()
 {

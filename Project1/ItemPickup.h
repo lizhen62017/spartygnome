@@ -42,6 +42,9 @@ public:
     */
     boolean IsCollidable() override;
 
+    /**
+     * Function for determining what happens when SpartyGnome collides with this object
+     */
     void Collided() override {}
 
 private:
