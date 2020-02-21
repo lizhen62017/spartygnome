@@ -41,15 +41,22 @@ bool CVillain::Update(double elapsed)
 {
     double newY = this->GetY() - mVelocityY * elapsed;
 
-    mTraveled += mVelocityY * elapsed;
 
     this->SetLocation(this->GetX(), newY);
 
-    if (mTraveled > MaxTravelDistance || mTraveled < -MaxTravelDistance)
+    
+    if ((newY < mMinY && mVelocityY > 0) || (newY > mMaxY && mVelocityY < 0))
     {
-        mVelocityY = -mVelocityY;
-        mTraveled = 0;
+        ReverseDirection();
     }
 
     return false;
+}
+
+void CVillain::XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node)
+{
+    mMaxY = node->GetAttributeDoubleValue(L"y", 0);
+    mMinY =  mMaxY- 300;
+
+    CItem::XmlLoad(node);
 }

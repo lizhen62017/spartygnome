@@ -68,6 +68,8 @@ void CChildView::OnPaint()
 	CPaintDC paintDC(this);     // device context for painting
 	CDoubleBufferDC dc(&paintDC); // device context for painting
 	Graphics graphics(dc.m_hDC);
+	graphics.Clear(Color(0, 0, 0));
+
 
 	CRect rect;
 	GetClientRect(&rect);

@@ -11,6 +11,8 @@
 #include "Level.h"
 #include "Declaration.h"
 
+const double Velocity = 240; ///< Constant speed for the villains
+
 /**
  * Class for handling villains
  */
@@ -50,8 +52,14 @@ public:
     /* Updates the villain to enable movement*/
     bool Update(double elapsed) override;
 
+    /// Reverse the direction of the gnome
+    void ReverseDirection() { mVelocityY = -mVelocityY; };
+
+    void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node) override;
+
 private:
-    double mVelocityY = 150; ///< The speed at which the villain moves
-    double mTraveled = 0; ///< The total distance the villain has traveled
+    double mVelocityY = Velocity; ///< The speed at which the villain moves
+    double mMaxY = 0; ///< The minimum travel height of a villain
+    double mMinY = 0; ///< The maximum travel height of a villain
 };
 
