@@ -40,6 +40,9 @@ const double HorizontalSpeed = 500.00;
 /// Small value to ensure we do not stay in collision
 const double Epsilon = 0.01;
 
+/// Maximum vertical speed
+const double MaxVY = 1600;
+
 
 /**
  * Constructor for spartyGnome
@@ -80,7 +83,7 @@ void CSpartyGnome::Draw(Gdiplus::Graphics* graphics, int scrollX)
 void CSpartyGnome::Update(double elapsed)
 {
     mTimeElapsed += elapsed;
-    if (mTimeElapsed >= 2.1)
+    if (mTimeElapsed >= 2.0)
     {
         isControllable = true;
     }
@@ -92,6 +95,11 @@ void CSpartyGnome::Update(double elapsed)
     CVector newP = mP + newV * elapsed;
 
     mP.SetY(newP.Y());
+
+    if (mV.Y() >= MaxVY)
+    {
+        mV.SetY(MaxVY);
+    }
 
     mV = newV;
     mP = newP;
@@ -186,6 +194,7 @@ void CSpartyGnome::Death(boolean villain)
 			item->SetLocation((mGameSystem->GetVirtualWidth() / 2.0) - 500, 100);
 			mGameSystem->Add(item);
             PlaySound(TEXT("data/sounds/pacman_death.wav"), NULL, SND_ASYNC);
+            SetVelX(0);
 
 			mGameSystem->SetRespawn(true);
 			mIsAlive = false;

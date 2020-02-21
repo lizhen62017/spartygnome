@@ -173,6 +173,8 @@ public:
 	
 	void SetImage(const std::wstring& file);
 
+	void SetTimeElapsed(double temp) { mTimeElapsed = temp; }
+
 	/**
 	* Updates the imagetime variable
 	* \param elapsed The elapsed time

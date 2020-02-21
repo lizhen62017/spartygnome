@@ -44,6 +44,11 @@ void CMessage::Draw(Gdiplus::Graphics* graphics, int scrollX)
 		SolidBrush purple(Color(255, 0, 255));
 		graphics->DrawString(mText.c_str(), -1, &font, PointF(GetX(), GetY()), &purple);
 	}
+	else if (mColor == L"green")
+	{
+		SolidBrush green(Color(0, 255, 0));
+		graphics->DrawString(mText.c_str(), -1, &font, PointF(GetX(), GetY()), &green);
+	}
 	else
 	{
 		SolidBrush blue(Color(0, 255, 255));
