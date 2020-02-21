@@ -2,6 +2,8 @@
 #include "CppUnitTest.h"
 #include "SpartyGnome.h"
 #include "GameSystem.h"
+#include <Windows.h>
+#include <mmsystem.h>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 

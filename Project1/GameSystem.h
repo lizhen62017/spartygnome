@@ -29,8 +29,8 @@ public:
 	/// Destructor
 	~CGameSystem();
 
-
-    /// Draws
+	
+	/// Draws
 	void Draw(Gdiplus::Graphics* graphics, int width, int height);
 
     /// Gets the gnome object
@@ -73,6 +73,10 @@ public:
 	int GetLevel();
 
 	void SetLevelUp(boolean status) { mLevelUp = status; }
+
+	/** Returns the number of items in the game
+	* \returns number of items in mItems */
+	int ItemsLength() { return mItems.size(); }
     
 private:
     /// The gnome object for the game
