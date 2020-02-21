@@ -150,6 +150,8 @@ void CGameSystem::Update(double elapsed)
 	{
 		mTimeElapsed += temp;
 		int level = GetLevel(); //Get integer level number
+		mGnome->SetVelX(0);
+		mGnome->SetVelY(0);
 		mGnome->SetIsControllable(false);
 		shared_ptr<CItem> item;
 		item = make_shared<CMessage>(this, L"Level " + to_wstring(level) + L" Clear!", 150, L"red", 2.0);
