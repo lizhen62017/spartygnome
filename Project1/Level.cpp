@@ -312,15 +312,6 @@ shared_ptr<Bitmap> CLevel::ImageLoad(wstring filename)
     return image;
 }
 
-/*
-void CLevel::Draw(Gdiplus::Graphics* graphics, int scrollX)
-{
-    for (auto item : mItems)
-    {
-       // item->Draw(graphics, scrollX);
-    }
-}*/
-
 /** Accept a visitor for the collection of items
  * \param visitor The visitor for the collection
  */

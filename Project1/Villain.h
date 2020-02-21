@@ -41,7 +41,7 @@ public:
 
     /** Accept a visitor
      * \param visitor The visitor we accept */
-    virtual void Accept(CItemVisitor* visitor) override { }
+    virtual void Accept(CItemVisitor* visitor) override { visitor->VisitVillain(this); };
 
     /** Determines what happens when colliding with a villain
     */
