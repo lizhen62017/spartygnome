@@ -6,6 +6,9 @@
 
 #include "pch.h"
 #include "TuitionUp.h"
+#include "Level.h"
+#include "GameSystem.h"
+#include "Scoreboard.h"
 
  /**
   * Constructor for a tuition-up when loaded from level file
@@ -23,6 +26,10 @@ CTuitionUp::CTuitionUp(CLevel* level, const std::shared_ptr<CDeclaration> declar
 */
 void CTuitionUp::Collided()
 {
+	if (!mHit)
+	{
+		GetLevel()->GetGame()->GetScoreboard()->UpdateMultiplier(0.1);;
+	}
 	mHit = true;
 }
 

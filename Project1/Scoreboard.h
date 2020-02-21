@@ -38,6 +38,10 @@ public:
 	/// \param dollarAmount number of dollars to add to mDollars
 	void AddDollars(int dollarAmount);
 
+	/// Adds to multplier value when tuitionUp is collected
+	/// \param increse the amount the multiplier will go up by
+	void UpdateMultiplier(double increase) { mMultiplier += increase; }
+
 	/// Update the scoreboard
 	/// \param elapsed The time elapsed from previous update
 	void Update(double elapsed);
