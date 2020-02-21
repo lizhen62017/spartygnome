@@ -7,6 +7,7 @@
 #include "pch.h"
 #include "Money.h"
 #include "MoneyEvaluator.h"
+#include "Scoreboard.h"
 
 
  /**
@@ -27,6 +28,11 @@ CMoney::CMoney(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
 */
 void CMoney::Collided()
 {
+    if (!mHit)
+    {
+        auto scoreboard = GetLevel()->GetGame()->GetScoreboard();
+        scoreboard->AddDollars(mValue);
+    }
     mHit = true;
 }
 

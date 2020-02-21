@@ -27,7 +27,6 @@ CScoreboard::~CScoreboard()
 {
 }
 
-
 /**
 * Draws the score to the screen
 * \param graphics Graphics context on which to draw
@@ -80,6 +79,12 @@ void CScoreboard::Draw(Gdiplus::Graphics* graphics, int width)
 	}  */
 }
 
+/// Adds dollars to the total amount
+/// \param dollarAmount number of dollars to add to mDollars
+void CScoreboard::AddDollars(int dollarAmount) 
+{ 
+	mDollars += (mMultiplier * dollarAmount); 
+}
 
 
 void CScoreboard::Update(double elapsed)
@@ -102,6 +107,7 @@ void CScoreboard::Reset()
 	mTime = 0;
 	mDollars = 0;
 	mTimeElapsed = 0.0;
+	mMultiplier = 1.0;
 }
 
 /**
