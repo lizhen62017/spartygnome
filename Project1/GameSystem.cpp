@@ -13,7 +13,7 @@ using namespace std;
 const int BackgroundSize = 1024;
 
 /// Maximum amount of time to allow for elapsed, tuned to have 0.020 works the best
-const double MaxElapsed = 0.020; 
+const double MaxElapsed = 0.019; 
 
 /**
 * Constructor

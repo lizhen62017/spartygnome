@@ -41,7 +41,7 @@ const double HorizontalSpeed = 500.00;
 const double Epsilon = 0.01;
 
 /// Maximum vertical speed
-const double MaxVY = 1600;
+const double MaxVY = 1500;
 
 
 /**
