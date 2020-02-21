@@ -173,6 +173,8 @@ void CGameSystem::Update(double elapsed)
 			Reset();
 			mLevelUp = false;
 			mTimeElapsed = 0.0;
+			mGnome->SetIsControllable(false);
+			mGnome->SetTimeElapsed(0.0);
 		}
 	}
 }
@@ -227,6 +229,8 @@ void CGameSystem::ChangeLevel(int level)
     //mGnome->ChangeLevel(mCurrentLevel);
 	mCurrentLevel->Install();
 	Reset();
+	mGnome->SetIsControllable(false);
+	mGnome->SetTimeElapsed(0.0);
 }
 
 
