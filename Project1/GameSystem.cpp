@@ -17,7 +17,6 @@ const double MaxElapsed = 0.020;
 /**
 * Constructor
 */
-
 CGameSystem::CGameSystem()
 {
 	// initialize game scoreboard
@@ -158,7 +157,7 @@ void CGameSystem::Reset()
 
 
 /**
- * Resets a level on load or gnome death
+ * Clears the items known by the gamesystem
  */
 void CGameSystem::Clear()
 {
@@ -208,6 +207,12 @@ void CGameSystem::Add(std::shared_ptr<CItem> item)
 }
 
 
+
+/**
+ * Tests each item known by the gamesystem to see if it is colliding with the gnome
+ * \param gnome Pointer to Spartygnome to see if we are colliding
+ * \returns A vector of items gnome is currently colliding with
+ */
 std::vector<std::shared_ptr<CItem>> CGameSystem::CollisionTest(CSpartyGnome* gnome)
 {
 	std::vector<std::shared_ptr<CItem>> mOut;

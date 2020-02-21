@@ -37,6 +37,8 @@ public:
     /// \return the gnome object
     CSpartyGnome* GetGnome() { return mGnome; }
 
+	/// Gets the scoreboard object
+	/// \return the scoreboard object
 	CScoreboard* GetScoreboard() { return mScoreboard; }
 
 	/// Updates the screen from the last elapsed time
