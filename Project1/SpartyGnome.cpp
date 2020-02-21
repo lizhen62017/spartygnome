@@ -13,18 +13,18 @@ using namespace Gdiplus;
 using namespace std;
 
 /// The five base images for SpartyGnome animation
-const wstring ImageBase = L"data/images/gnome.png";
-const wstring ImageLeft1 = L"data/images/gnome-walk-left-1.png";
-const wstring ImageLeft2 = L"data/images/gnome-walk-left-2.png";
-const wstring ImageRight1 = L"data/images/gnome-walk-right-1.png";
-const wstring ImageRight2 = L"data/images/gnome-walk-right-2.png";
+const wstring ImageBase = L"data/images/gnome.png"; ///< Base image
+const wstring ImageLeft1 = L"data/images/gnome-walk-left-1.png"; ///< First moving left image
+const wstring ImageLeft2 = L"data/images/gnome-walk-left-2.png"; ///< Second moving left image
+const wstring ImageRight1 = L"data/images/gnome-walk-right-1.png"; ///< First moving right image
+const wstring ImageRight2 = L"data/images/gnome-walk-right-2.png"; ///< Second moving right image
 
 /// The five wing images for SpartyGnome animation
-const wstring ImageBaseWing = L"data/images/gnome-wing.png";
-const wstring ImageLeft1Wing = L"data/images/gnome-walk-left-1-wing.png";
-const wstring ImageLeft2Wing = L"data/images/gnome-walk-left-2-wing.png";
-const wstring ImageRight1Wing = L"data/images/gnome-walk-right-1-wing.png";
-const wstring ImageRight2Wing = L"data/images/gnome-walk-right-2-wing.png";
+const wstring ImageBaseWing = L"data/images/gnome-wing.png"; ///< Base image with wings
+const wstring ImageLeft1Wing = L"data/images/gnome-walk-left-1-wing.png"; ///< First moving left image with wings
+const wstring ImageLeft2Wing = L"data/images/gnome-walk-left-2-wing.png"; ///< Second moving left image with wings
+const wstring ImageRight1Wing = L"data/images/gnome-walk-right-1-wing.png"; ///< First moving right image with wings
+const wstring ImageRight2Wing = L"data/images/gnome-walk-right-2-wing.png"; ///< Second moving right image with wings
 
 /// Gravity in virtual pixels per second per second
 const double Gravity = 1000.0;
@@ -241,7 +241,7 @@ void CSpartyGnome::Reset()
 /**
  * Function to handle collision with top of wall or platform
  * \param y Y coord of the object collided with
- * \paran height Height of the object collided with
+ * \param height Height of the object collided with
  */
 void CSpartyGnome::FallingColide(double y, double height)
 {
@@ -255,7 +255,7 @@ void CSpartyGnome::FallingColide(double y, double height)
 /**
  * Function to handle collision with bottom of wall or platform
  * \param y Y coord of the object collided with
- * \paran height Height of the object collided with
+ * \param height Height of the object collided with
  */
 void CSpartyGnome::RisingColide(double y, double height)
 {

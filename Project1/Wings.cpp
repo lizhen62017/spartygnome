@@ -20,6 +20,10 @@ CWings::CWings(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
 {
 }
 
+
+/**
+ * Function to handle SpartyGnome collision with wings
+ */
 void CWings::Collided()
 {
 	mHit = true;
