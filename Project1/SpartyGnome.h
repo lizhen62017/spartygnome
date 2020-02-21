@@ -147,6 +147,8 @@ public:
 	*/
 	boolean GetIsControllable() { return isControllable; }
 
+	void SetIsControllable(boolean temp) { isControllable = temp; }
+
 	void ChangeLevel(CLevel* level);
 
 	void Reset();

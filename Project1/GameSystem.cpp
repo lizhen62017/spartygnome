@@ -3,6 +3,7 @@
 #include "Scoreboard.h"
 #include "SpartyGnome.h"
 #include "Item.h"
+#include "Message.h"
 
 using namespace Gdiplus;
 using namespace std;
@@ -144,6 +145,34 @@ void CGameSystem::Update(double elapsed)
 		}
 	}
 
+	// if respawn is set, wait two seconds
+	if (mLevelUp)
+	{
+		mTimeElapsed += temp;
+		int level = GetLevel(); //Get integer level number
+		mGnome->SetIsControllable(false);
+		shared_ptr<CItem> item;
+		item = make_shared<CMessage>(this, L"Level " + to_wstring(level) + L" Clear!", 150, L"red", 2.0);
+		item->SetLocation((GetVirtualWidth() / 2.0) - 500, 100);
+		Add(item);
+		/// The solution above is very shitty because 
+		/// I did not quite get why there is a ScoreBoard::Door() function... 
+		/// I should use that but do not know how
+		if (mTimeElapsed >= 2.0)
+		{
+			if (level < 3)
+			{
+				ChangeLevel(level + 1); //engage level
+			}
+			else
+			{
+				ChangeLevel(level); //loop at level 3
+			}
+			Reset();
+			mLevelUp = false;
+			mTimeElapsed = 0.0;
+		}
+	}
 }
 
 
@@ -277,6 +306,8 @@ int CGameSystem::GetLevel()
 		return 3;
 	}
 }
+
+
 
 
 

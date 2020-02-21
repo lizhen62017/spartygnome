@@ -71,6 +71,8 @@ public:
 	/** The current level number the game is on
 	* \returns level the number in current */
 	int GetLevel();
+
+	void SetLevelUp(boolean status) { mLevelUp = status; }
     
 private:
     /// The gnome object for the game
@@ -102,4 +104,6 @@ private:
 
 	/// All of the items currently in gamesystem
 	std::vector<std::shared_ptr<CItem>> mItems;
+
+	boolean mLevelUp = false;
 };
