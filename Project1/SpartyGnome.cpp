@@ -106,22 +106,22 @@ void CSpartyGnome::Update(double elapsed)
     Death(false);
 
     //Set proper image state for animation
-    if (mImageState == ImageState::Left1 && mImageTime > .300 && !misJumping && GetVelY() == 0)
+    if (mImageState == ImageState::Left1 && mImageTime > .2500 && !misJumping && GetVelY() == 0)
     {
         mImageState = ImageState::Left2;
         mImageTime = 0.0;
     }
-    else if (mImageState == ImageState::Left2 && mImageTime > .300 && !misJumping && GetVelY() == 0)
+    else if (mImageState == ImageState::Left2 && mImageTime > .2500 && !misJumping && GetVelY() == 0)
     {
         mImageState = ImageState::Left1;
         mImageTime = 0.0;
     }
-    else if (mImageState == ImageState::Right1 && mImageTime > .300 && !misJumping && GetVelY() == 0)
+    else if (mImageState == ImageState::Right1 && mImageTime > .2500 && !misJumping && GetVelY() == 0)
     {
         mImageState = ImageState::Right2;
         mImageTime = 0.0;
     }
-    else if (mImageState == ImageState::Right2 && mImageTime > .300 && !misJumping && GetVelY() == 0)
+    else if (mImageState == ImageState::Right2 && mImageTime > .2500 && !misJumping && GetVelY() == 0)
     {
         mImageState = ImageState::Right1;
         mImageTime = 0.0;
