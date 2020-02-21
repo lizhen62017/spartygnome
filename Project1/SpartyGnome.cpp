@@ -194,6 +194,7 @@ void CSpartyGnome::Death(boolean villain)
 			item->SetLocation((mGameSystem->GetVirtualWidth() / 2.0) - 500, 100);
 			mGameSystem->Add(item);
             PlaySound(TEXT("data/sounds/pacman_death.wav"), NULL, SND_ASYNC);
+            SetVelX(0);
 
 			mGameSystem->SetRespawn(true);
 			mIsAlive = false;
