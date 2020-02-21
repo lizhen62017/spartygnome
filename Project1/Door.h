@@ -47,6 +47,6 @@ public:
 
     boolean CollideGnome(CSpartyGnome* gnome);
 
-    void Collided() override {}
+    void Collided() override;
 };
 
