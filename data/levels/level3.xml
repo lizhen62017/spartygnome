@@ -13,14 +13,21 @@
     <wings id="i030" image="redbull.png"/>
     <door id="i031" image="door.png"/>
 
+    <money id="i040" image="diamond.png" value="10000"/>
+
   </declarations>
   <items>
     <background id="i020" x="-512" y="512"/>
 
     <background id="i020" x="512" y="512"/>
-    <platform id="i001" x="512" y="900" width="960" height="32"/>
+    <platform id="i001" x="512" y="912" width="960" height="32"/>
     <platform id="i001" x="715" y="415" width="160" height="32"/>
-    <platform id="i001" x="250" y="250" width="160" height="32"/>
+    <platform id="i001" x="202" y="80" width="352" height="32"/>
+    <platform id="i001" x="290" y="402" width="160" height="32"/>
+    <wall id="i002" x="16" y="496" width ="32" height="868"/>
+    <wall id ="i002" x="368" y ="336" width="32" height="544"/>
+    <villain id ="i010" x="106" y="800"/>
+    <money id ="i040" x="290" y="328"/>
   
     <background id="i020" x="1536" y="512"/>
     <platform id="i001" x="1536" y="650" width ="960" height="32"/>
