@@ -186,6 +186,7 @@ void CSpartyGnome::Death(boolean villain)
 
 			mGameSystem->SetRespawn(true);
 			mIsAlive = false;
+            mWings = false;
 			
 		}
 
@@ -197,9 +198,9 @@ void CSpartyGnome::Death(boolean villain)
     }
 }
 
-    /**
-    * Function for processing a jump
-    */
+/**
+* Function for processing a jump
+*/
 void CSpartyGnome::Jump()
 {
     if (!misJumping && mV.Y() == 0)

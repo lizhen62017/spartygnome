@@ -3,6 +3,7 @@
   <declarations>
     <platform id="i001" left-image="platformIndustrial_059.png" mid-image="platformIndustrial_060.png" right-image="platformIndustrial_061.png"/>
     <villain id="i010" image="antignome.png"/>
+    <wings id="i011" image="redbull.png"/>
   </declarations>
   <items>
     <platform id="i001" x="512" y="900" width="960" height="32"/>
@@ -16,5 +17,7 @@
 
     <platform id="i001" x="3584" y="400" width="960" height="32"/>
     <platform id="i001" x="3584" y="100" width="960" height="32"/>
+
+    <wings id="i011" x="600" y="600"/>
   </items>
 </level>

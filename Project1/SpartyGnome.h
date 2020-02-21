@@ -174,5 +174,11 @@ public:
 	* \param elapsed The elapsed time
 	*/
 	void UpdateImageTime(double elapsed) { mImageTime += elapsed; }
+
+	/**
+	* Updates the mWings variable
+	* \param wings If gnome is gaining or losing wings
+	*/
+	void Wings(boolean wings) { mWings = wings; }
 };
 

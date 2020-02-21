@@ -28,6 +28,14 @@ public:
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitWings(this); }
 
-    void Collided() override {}
+    void Collided() override;
+
+    /// Handle updates for animation
+    /// \param elapsed The time since the last update
+    virtual bool Update(double elapsed) override;
+
+private:
+    double mVelocity = -750; ///< the speed wings moves after being hit
+    bool mHit = false; ///< determines when the wings has been hit by spartygnome
 };
 
