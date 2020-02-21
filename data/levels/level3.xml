@@ -2,7 +2,7 @@
 <level width="1024" height="1024" start-y="572" start-x="468">
   <declarations>
     <platform id="i001" left-image="platformIndustrial_059.png" mid-image="platformIndustrial_060.png" right-image="platformIndustrial_061.png"/>
-    <wall id="i002" image="brick-wall.png"/>
+    <wall id="i002" image="wall-brick.png"/>
 
     <villain id="i010" image="antignome.png"/>
     <villain id="i011" image="giantantignome.png"/>
