@@ -61,7 +61,7 @@ void CScoreboard::Draw(Gdiplus::Graphics* graphics, int width)
 	Gdiplus::Font font(&fontFamily, 70, FontStyleBold);
 	SolidBrush blue(Color(0, 255, 255));
 	graphics->DrawString(timePrint.c_str(), -1, &font, PointF(90, 25), &blue);
-	graphics->DrawString(dollarsPrint.c_str(), -1, &font, PointF(width-300, 25), &blue);
+	graphics->DrawString(dollarsPrint.c_str(), -1, &font, PointF(width-450, 25), &blue);
 
 
 	/* Draws text on level completion via door
