@@ -40,3 +40,10 @@ boolean CDoor::CollideGnome(CSpartyGnome* gnome)
         return false;
     }
 }
+
+void CDoor::Collided()
+{
+    GetLevel()->GetGame()->ChangeLevel(2);
+}
+
+
