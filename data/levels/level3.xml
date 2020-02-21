@@ -33,15 +33,14 @@
     <platform id="i001" x="3584" y="100" width="1024" height="32"/>
     <platform id="i001" x="3488" y="350" width="864" height="32"/>
     <platform id="i001" x="3665" y="600" width="800" height="32"/>
-    <platform id="i001" x="3584" y="850" width="1024" height="32"/> 
     <wall id="i002" x="3088" y="718" width="32" height="704"/>
     <wall id="i002" x="3088" y="50" width="32" height="128"/>
-    <wall id="i002" x="4081" y="363" width="32" height="512"/>
+    <wall id="i002" x="4081" y="363" width="32" height="480"/>
 
 
     <background id="i021" x="4608" y="512"/>
-    <platform id="i001" x="4608" y="800" width ="850" height="32"/>
-    <wings id="i030" x="4608" y="675"/>
+    <platform id="i001" x="4096" y="900" width="2048" height="32"/> 
+    <wings id="i030" x="4608" y="725"/>
 
     <background id="i022" x="5632" y="512"/>
     <platform id="i001" x="5328" y="300" width="288" height="32"/>
