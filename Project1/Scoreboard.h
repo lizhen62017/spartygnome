@@ -39,11 +39,12 @@ public:
 	void AddDollars(int dollarAmount);
 
 	/// Adds to multplier value when tuitionUp is collected
-	/// \param increse the amount the multiplier will go up by
+	/// \param increase the amount the multiplier will go up by
 	void UpdateMultiplier(double increase) { mMultiplier += increase; }
 
 	/// Update the scoreboard
 	/// \param elapsed The time elapsed from previous update
+	/// \return bool A boolean to determine if it's deleted
 	void Update(double elapsed);
 
 	void Reset();

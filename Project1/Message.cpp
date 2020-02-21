@@ -11,6 +11,14 @@
 using namespace std;
 using namespace Gdiplus;
 
+/**
+* Function for creating a message to display
+* \param game The game to display the message in
+* \param text The text to display
+* \param textSize The size of the text
+* \param color The color of the text
+* \param delayTime The time it is shown on screen
+*/
 CMessage::CMessage(CGameSystem* game, std::wstring text, int textSize, std::wstring color, double delayTime) : CItem(game)
 {
 	mText = text;

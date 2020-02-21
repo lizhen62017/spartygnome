@@ -290,6 +290,10 @@ void CGameSystem::RemoveItem(std::shared_ptr<CItem> item)
 	}
 }
 
+/*
+* Function for returning a given int value of the current level
+* \returns int An int of a given level
+*/
 int CGameSystem::GetLevel()
 {
 	if (mCurrentLevel == mLevel0)

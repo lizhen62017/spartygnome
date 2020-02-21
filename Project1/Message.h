@@ -50,8 +50,10 @@ public:
 
 	/// Handle updates for animation
 	/// \param elapsed The time since the last update
+	/// \return The boolean for it is it to be deleted
 	virtual bool Update(double elapsed) override;
 
+	/// Handle collisions when it's collided with
 	void Collided() override {}
 
 	/// Get the delay of the message

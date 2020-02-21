@@ -32,6 +32,7 @@ public:
 
 	/// Handle updates for animation
 	/// \param elapsed The time since the last update
+	/// \return bool The boolean to determine if it is to be deleted
 	virtual bool Update(double elapsed) override;
 
 private:

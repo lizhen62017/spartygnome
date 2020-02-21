@@ -30,6 +30,7 @@ CScoreboard::~CScoreboard()
 /**
 * Draws the score to the screen
 * \param graphics Graphics context on which to draw
+* \param width The distance to scroll the text
 */
 void CScoreboard::Draw(Gdiplus::Graphics* graphics, int width) 
 {

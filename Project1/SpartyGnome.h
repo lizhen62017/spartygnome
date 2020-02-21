@@ -147,6 +147,8 @@ public:
 	*/
 	boolean GetIsControllable() { return isControllable; }
 
+	/// Function for handling if the gnome is controllable
+	/// \param temp A bool for switching controllable
 	void SetIsControllable(boolean temp) { isControllable = temp; }
 
 	void ChangeLevel(CLevel* level);

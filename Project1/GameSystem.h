@@ -43,7 +43,11 @@ public:
 
 	/// Updates the screen from the last elapsed time
 	void Update(double elapsed);
-
+	
+	/**
+	* Function for respawning the gnome
+	* \param state The state of the gnome
+	*/
 	void SetRespawn(bool state) { mRespawn = state; }
 
     void Reset();
@@ -72,6 +76,10 @@ public:
 	* \returns level the number in current */
 	int GetLevel();
 
+	/**
+	* Levels up the gnome
+	* \param status Status of whether or not to level up
+	*/
 	void SetLevelUp(boolean status) { mLevelUp = status; }
 
 	/** Returns the number of items in the game
@@ -109,5 +117,6 @@ private:
 	/// All of the items currently in gamesystem
 	std::vector<std::shared_ptr<CItem>> mItems;
 
+	/// The boolean for handling if a level up is in order
 	boolean mLevelUp = false;
 };
