@@ -8,6 +8,8 @@
 #include "pch.h"
 #include "SpartyGnome.h"
 #include "Message.h"
+#include <Windows.h>
+#include <mmsystem.h>
 
 using namespace Gdiplus;
 using namespace std;
@@ -183,6 +185,7 @@ void CSpartyGnome::Death(boolean villain)
 			item = make_shared<CMessage>(mGameSystem, L"You Lose!", 150, L"red", 2.0);
 			item->SetLocation((mGameSystem->GetVirtualWidth() / 2.0) - 500, 100);
 			mGameSystem->Add(item);
+            PlaySound(TEXT("data/sounds/pacman_death.wav"), NULL, SND_ASYNC);
 
 			mGameSystem->SetRespawn(true);
 			mIsAlive = false;

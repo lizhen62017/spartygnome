@@ -3,7 +3,7 @@
  *
  * \author Jeremy Cowelchuk
  */
-
+#pragma comment(lib, "winmm.lib") 
 #include "pch.h"
 #include "Wings.h"
 #include "Level.h"
