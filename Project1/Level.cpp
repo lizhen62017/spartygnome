@@ -22,6 +22,7 @@
 #include "Wings.h"
 #include "Message.h"
 #include "GameSystem.h"
+#include "Fragile.h"
 
 
 using namespace std;
@@ -248,6 +249,12 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
     else if (type == L"wall")
     {
         item = make_shared<CWall>(this, declaration);
+    }
+
+    // If it is fragile
+    else if (type == L"fragile")
+    {
+        item = make_shared<CFragile>(this, declaration);
     }
 
     // If it is money

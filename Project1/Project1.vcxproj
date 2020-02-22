@@ -188,6 +188,7 @@
     <ClInclude Include="ChildView.h" />
     <ClInclude Include="DeclarationVisitor.h" />
     <ClInclude Include="Door.h" />
+    <ClInclude Include="Fragile.h" />
     <ClInclude Include="ItemVisitor.h" />
     <ClInclude Include="Declaration.h" />
     <ClInclude Include="framework.h" />
@@ -221,6 +222,7 @@
     <ClCompile Include="ChildView.cpp" />
     <ClCompile Include="DeclarationVisitor.cpp" />
     <ClCompile Include="Door.cpp" />
+    <ClCompile Include="Fragile.cpp" />
     <ClCompile Include="ItemVisitor.cpp" />
     <ClCompile Include="Declaration.cpp" />
     <ClCompile Include="GameSystem.cpp" />

@@ -18,6 +18,7 @@ class CWings;
 class CVillain;
 class CDoor;
 class CMessage;
+class CFragile;
 
 /**
  * Item visitor base class
@@ -66,6 +67,10 @@ public:
 	/** Visit a CMessage object
 	* \param message message we are visiting */
 	virtual void VisitMessage(CMessage* message) {}
+
+    /** Visit a CFragile object
+    * \param message message we are visiting */
+    virtual void VisitFragile(CFragile* message) {}
 
     //ADD MORE DOWN HERE
 };

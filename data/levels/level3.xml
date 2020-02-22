@@ -3,7 +3,7 @@
   <declarations>
     <platform id="i001" left-image="platformIndustrial_059.png" mid-image="platformIndustrial_060.png" right-image="platformIndustrial_061.png"/>
     <wall id="i002" image="wall-brick.png"/>
-
+    <fragile id="i050" image="fragile.png"/>
     <villain id="i010" image="antignome.png"/>
     <villain id="i011" image="giantantignome.png"/>
     <villain id="i012" image="ufo.png"/>
@@ -21,7 +21,7 @@
 
     <background id="i020" x="512" y="512"/>
     <platform id="i001" x="512" y="912" width="960" height="32"/>
-    <platform id="i001" x="715" y="415" width="160" height="32"/>
+    <fragile id="i050" x="715" y="415"/>
     <platform id="i001" x="202" y="80" width="352" height="32"/>
     <platform id="i001" x="290" y="402" width="160" height="32"/>
     <wall id="i002" x="16" y="496" width ="32" height="868"/>
