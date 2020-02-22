@@ -30,13 +30,13 @@ void CMoney::Collided()
 {
     if (!mHit)
     {
-        if (mValue > 0)
-        {
-            PlaySound(TEXT("data/sounds/coin-sound.wav"), NULL, SND_ASYNC);
-        }
-        else if (mValue > 2500)
+        if (mValue > 2500)
         {
             PlaySound(TEXT("data/sounds/bigMoney.wav"), NULL, SND_ASYNC);
+        }
+        else if (mValue > 0)
+        {
+            PlaySound(TEXT("data/sounds/coin-sound.wav"), NULL, SND_ASYNC);
         }
         else
         {
