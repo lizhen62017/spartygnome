@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<level width="1024" height="1024" start-y="572" start-x="468">
+<level width="1024" height="1024" start-y="800" start-x="300">
   <declarations>
     <platform id="i001" left-image="platformIndustrial_059.png" mid-image="platformIndustrial_060.png" right-image="platformIndustrial_061.png"/>
+    <platform id="i004" left-image="snowLeft.png" mid-image="snowMid.png" right-image="snowRight.png"/>
     <wall id="i002" image="wall-brick.png"/>
     <fragile id="i050" image="warningBar.png"/>
     <villain id="i010" image="antignome.png"/>
@@ -20,28 +21,36 @@
 
   </declarations>
   <items>
-    <background id="i020" x="-512" y="512"/>
-
     <background id="i020" x="512" y="512"/>
-    <platform id="i001" x="512" y="912" width="960" height="32"/>
-    <fragile id="i050" x="715" y="415"/>
-    <platform id="i001" x="202" y="80" width="352" height="32"/>
-    <platform id="i001" x="290" y="402" width="160" height="32"/>
+    <background id="i020" x="1536" y="512"/>
+    <background id="i020" x="2560" y="512"/>
+    <background id="i020" x="3584" y="512"/>
+    <background id="i020" x="4608" y="512"/>
+    <background id="i020" x="5632" y="512"/>
+    <background id="i020" x="6656" y="512"/>
+    <background id="i020" x="7680" y="512"/>
+    <background id="i020" x="8704" y="512"/>
+    <background id="i020" x="9728" y="512"/>
+    <background id="i020" x="10752" y="512"/>
+    <background id="i020" x="11776" y="512"/>
+
+    <fragile id="i050" x="290" y="402" width="160" height="32"/>
     <wall id="i002" x="16" y="496" width ="32" height="868"/>
-    <wall id ="i002" x="368" y ="336" width="32" height="544"/>
     <villain id ="i010" x="106" y="800"/>
     <money id ="i040" x="290" y="328"/>
-  
-    <background id="i020" x="1536" y="512"/>
-    <platform id="i001" x="1536" y="650" width ="960" height="32"/>
-    <villain id="i010" x="1536" y="550"/>
-    <money id="i041" x="1546" y="450"/>
 
-    <background id="i020" x="2560" y="512"/>
-    <platform id="i001" x="2560" y="800" width="896" height="32"/>
+    
+    <platform id="i001" x="352" y="912" width="640" height="32"/>
+    
+  
+    <platform id="i001" x="1344" y="750" width ="768" height="32"/>
+    <background id="i021" x ="1216" y="574"/>
+    <money id="i041" x="1550" y="620"/>
+    <villain id="i012" x="1900" y="300"/>
+
+    <platform id="i004" x="2560" y="800" width="896" height="32"/>
     <platform id="i001" x="2560" y="500" width="460" height="32"/>
 
-    <background id="i020" x="3584" y="512"/>
     <platform id="i001" x="3584" y="100" width="1024" height="32"/>
     <platform id="i001" x="3488" y="350" width="864" height="32"/>
     <platform id="i001" x="3665" y="600" width="800" height="32"/>
@@ -50,15 +59,11 @@
     <wall id="i002" x="4081" y="363" width="32" height="480"/>
 
 
-    <background id="i020" x="4608" y="512"/>
+
 
     <platform id="i001" x="4096" y="900" width="2048" height="32"/> 
     <wings id="i030" x="4608" y="725"/>
     <villain id="i012" x="4550" y="400"/>
-
-    <background id="i020" x="5632" y="512"/>
-
-    <background id="i021" x="4900" y="720"/>
 
     <platform id="i001" x="5328" y="300" width="288" height="32"/>
     <platform id="i001" x="5936" y="600" width="288" height="32"/>
@@ -68,12 +73,10 @@
     <wall id="i002" x="5808" y="50" width="32" height="1024"/>
     <wall id="i002" x="6064" y="50" width="32" height="1024"/>
 
-    <background id="i020" x="6656" y="512"/>
     <platform id="i001" x="6656" y="850" width="800" height="32"/>
     <platform id="i001" x="7040" y="550" width="256" height="32"/>
     <platform id="i001" x="6240" y="200" width="192" height="32"/>
 
-    <background id="i020" x="7680" y="512"/>
     <villain id="i011" x="7680" y="900"/>
 
     <background id="i020" x="8704" y="512"/>
