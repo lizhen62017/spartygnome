@@ -8,6 +8,7 @@
     <villain id="i011" image="giantantignome.png"/>
     <villain id="i012" image="ufo.png"/>
 
+
     <background id="i020" image="backgroundCity.png"/>
     <background id="i021" image="billboard-RedBull.png"/>
 
@@ -15,6 +16,7 @@
     <door id="i031" image="door.png"/>
 
     <money id="i040" image="diamond.png" value="10000"/>
+    <money id="i041" image="moneyFire.png" value="-100"/>
 
   </declarations>
   <items>
@@ -33,6 +35,7 @@
     <background id="i020" x="1536" y="512"/>
     <platform id="i001" x="1536" y="650" width ="960" height="32"/>
     <villain id="i010" x="1536" y="550"/>
+    <money id="i041" x="1546" y="450"/>
 
     <background id="i020" x="2560" y="512"/>
     <platform id="i001" x="2560" y="800" width="896" height="32"/>
@@ -71,7 +74,7 @@
     <platform id="i001" x="6240" y="200" width="192" height="32"/>
 
     <background id="i020" x="7680" y="512"/>
-    <villain id="i011" x="7680" y="768"/>
+    <villain id="i011" x="7680" y="900"/>
 
     <background id="i020" x="8704" y="512"/>
     <platform id="i001" x="8504" y="900" width="320" height="32"/>
