@@ -94,7 +94,7 @@ private:
 	CScoreboard* mScoreboard;
 
 	/// keeps track of the virtual width of the game
-	float mWidth = 2226.76880;
+	float mWidth = 1415;
 
 	/// tests to see if respawn delay is needed
 	bool mRespawn = false;
