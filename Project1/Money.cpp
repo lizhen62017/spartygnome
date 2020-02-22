@@ -30,6 +30,18 @@ void CMoney::Collided()
 {
     if (!mHit)
     {
+        if (mValue > 0)
+        {
+            PlaySound(TEXT("data/sounds/coin-sound.wav"), NULL, SND_ASYNC);
+        }
+        else if (mValue > 2500)
+        {
+            PlaySound(TEXT("data/sounds/bigMoney.wav"), NULL, SND_ASYNC);
+        }
+        else
+        {
+            PlaySound(TEXT("data/sounds/error.wav"), NULL, SND_ASYNC);
+        }
         auto scoreboard = GetLevel()->GetGame()->GetScoreboard();
         scoreboard->AddDollars(mValue);
     }

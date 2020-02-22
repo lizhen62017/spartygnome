@@ -29,6 +29,7 @@ void CTuitionUp::Collided()
 	if (!mHit)
 	{
 		GetLevel()->GetGame()->GetScoreboard()->UpdateMultiplier(0.1);;
+        PlaySound(TEXT("data/sounds/tuitionUp.wav"), NULL, SND_ASYNC);
 	}
 	mHit = true;
 }

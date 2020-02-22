@@ -26,6 +26,7 @@ CWings::CWings(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
  */
 void CWings::Collided()
 {
+	PlaySound(TEXT("data/sounds/drink.wav"), NULL, SND_ASYNC);
 	mHit = true;
 	GetLevel()->GetGame()->GetGnome()->Wings(true);
 }
