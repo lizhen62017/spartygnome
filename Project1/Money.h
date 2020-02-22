@@ -30,6 +30,14 @@ public:
 
     virtual bool Update(double elapsed) override;
 
+    /// Get the width of the item
+    /// \returns item width
+    virtual int GetWidth() override { return GetImage()->GetWidth(); };
+
+    /// Get the height of the item
+    /// \returns item height
+    virtual int GetHeight() override { return GetImage()->GetHeight(); };
+
 private:
     double mValue = 0; ///< The value of a given money object
 

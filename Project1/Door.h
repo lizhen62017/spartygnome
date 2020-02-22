@@ -32,13 +32,13 @@ public:
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitDoor(this); }
 
-    /** Getter for terrain height
-     * \return height of terrain */
-    int GetHeight() { return 0; }
+    /// Get the width of the item
+    /// \returns item width
+    virtual int GetWidth() override { return GetImage()->GetWidth(); };
 
-    /** Getter for terrain width
-    * \return width of terrain */
-    int GetWidth() { return 0; }
+    /// Get the height of the item
+    /// \returns item height
+    virtual int GetHeight() override { return GetImage()->GetHeight(); };
 
     /** Define if item is collidable
     * \return value The value of whether or not it's collidable

@@ -38,13 +38,13 @@ public:
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitBackground(this); }
 
-    /// Get the width of the background
+    /// Get the width of the item
     /// \returns item width
-    virtual int GetWidth() override { return 0; } //FIXME Virtual Item // Think this is fine...
+    virtual int GetWidth() override { return GetImage()->GetWidth(); };
 
-    /// Get the height of the background
+    /// Get the height of the item
     /// \returns item height
-    virtual int GetHeight() override { return 0; } //FIXME Virtual Item // I call it a smart solution!
+    virtual int GetHeight() override { return GetImage()->GetHeight(); };
 
    /** Define if beackground is collidable
     */
