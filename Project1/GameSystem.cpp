@@ -186,7 +186,7 @@ void CGameSystem::Update(double elapsed)
 void CGameSystem::Reset()
 {
     mScoreboard->Reset();
-	mGnome->Wings(false);
+	mGnome->Wings(true); //Change me
 }
 
 
