@@ -40,7 +40,7 @@ public:
 
 	/// Adds to multplier value when tuitionUp is collected
 	/// \param increase the amount the multiplier will go up by
-	void UpdateMultiplier(double increase) { mMultiplier += increase; }
+	void UpdateMultiplier() { mMultiplier *= 1.1; }
 
 	/// Update the scoreboard
 	/// \param elapsed The time elapsed from previous update
