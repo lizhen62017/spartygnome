@@ -24,8 +24,8 @@ CFragile::CFragile(CLevel* level, const std::shared_ptr<CDeclaration> declaratio
 
 void CFragile::Draw(Gdiplus::Graphics* graphics, int scrollX)
 {
-    double wid = 256;
-    double hit = 128;
+    double wid = 160;
+    double hit = 32;
     graphics->DrawImage(mFragileImage.get(),
             float(GetX() - wid / 2 + scrollX), float(GetY() - hit / 2),
             (float)wid, (float)hit);

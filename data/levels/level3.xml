@@ -3,12 +3,13 @@
   <declarations>
     <platform id="i001" left-image="platformIndustrial_059.png" mid-image="platformIndustrial_060.png" right-image="platformIndustrial_061.png"/>
     <wall id="i002" image="wall-brick.png"/>
-    <fragile id="i050" image="fragile.png"/>
+    <fragile id="i050" image="warningBar.png"/>
     <villain id="i010" image="antignome.png"/>
     <villain id="i011" image="giantantignome.png"/>
     <villain id="i012" image="ufo.png"/>
 
     <background id="i020" image="backgroundCity.png"/>
+    <background id="i021" image="billboard-RedBull.png"/>
 
     <wings id="i030" image="redbull.png"/>
     <door id="i031" image="door.png"/>
@@ -47,11 +48,15 @@
 
 
     <background id="i020" x="4608" y="512"/>
+
     <platform id="i001" x="4096" y="900" width="2048" height="32"/> 
     <wings id="i030" x="4608" y="725"/>
     <villain id="i012" x="4550" y="400"/>
 
     <background id="i020" x="5632" y="512"/>
+
+    <background id="i021" x="4900" y="720"/>
+
     <platform id="i001" x="5328" y="300" width="288" height="32"/>
     <platform id="i001" x="5936" y="600" width="288" height="32"/>
     <platform id="i001" x="5808" y="900" width="640" height="32"/>
