@@ -12,6 +12,7 @@
 
     <background id="i020" image="backgroundCity.png"/>
     <background id="i021" image="billboard-RedBull.png"/>
+    <background id="i022" image="billboard-FireMoney.png"/>
 
     <wings id="i030" image="redbull.png"/>
     <door id="i031" image="door.png"/>
@@ -44,12 +45,16 @@
     
   
     <platform id="i001" x="1344" y="750" width ="768" height="32"/>
-    <background id="i021" x ="1216" y="574"/>
+    <background id="i022" x ="1216" y="574"/>
     <money id="i041" x="1550" y="620"/>
     <villain id="i012" x="1900" y="300"/>
 
-    <platform id="i004" x="2560" y="800" width="896" height="32"/>
-    <platform id="i001" x="2560" y="500" width="460" height="32"/>
+    
+    <platform id="i001" x="2640" y="900" width="864" height="32"/>
+    <fragile id="i050" x="2569" y="650" width="160" height="32"/>
+    <platform id="i001" x="2992" y="400" width="160" height="32"/>
+
+ 
 
     <platform id="i001" x="3584" y="100" width="1024" height="32"/>
     <platform id="i001" x="3488" y="350" width="864" height="32"/>
