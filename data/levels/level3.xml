@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<level width="1024" height="1024" start-y="800" start-x="300">
+<level width="1024" height="1024" start-y="700" start-x="2360">
   <declarations>
     <platform id="i001" left-image="platformIndustrial_059.png" mid-image="platformIndustrial_060.png" right-image="platformIndustrial_061.png"/>
     <platform id="i004" left-image="snowLeft.png" mid-image="snowMid.png" right-image="snowRight.png"/>
@@ -8,6 +8,7 @@
     <villain id="i010" image="antignome.png"/>
     <villain id="i011" image="giantantignome.png"/>
     <villain id="i012" image="ufo.png"/>
+    <villain id="i013" image="wisc.png"/>
 
 
     <background id="i020" image="backgroundCity.png"/>
@@ -45,19 +46,23 @@
 
     
     <platform id="i001" x="3152" y="900" width="1888" height="32"/>
-    <fragile id="i050" x="2569" y="650" width="160" height="32"/>
-    <platform id="i001" x="2992" y="400" width="160" height="32"/>
+    <fragile id="i050" x="2669" y="625" width="160" height="32"/>
+    <platform id="i001" x="2994" y="381" width="160" height="32"/>
 
- 
-    <platform id="i001" x="3488" y="350" width="864" height="32"/>
-    <platform id="i001" x="3665" y="600" width="800" height="32"/>
-    <wall id="i002" x="3088" y="0" width="32" height="1248"/>
+    <platform id="i001" x="3472" y="381" width="800" height="32"/>
+    <platform id="i001" x="3584" y="663" width="1024" height="32"/>
+    <wall id="i002" x="3088" y="980" width="32" height="128"/>
+    <wall id="i002" x="4081" y="980" width="32" height="128"/>
+    <wall id="i002" x="3088" y="-128" width="32" height="992"/>
+    <wall id="i002" x="3394" y="-189" width="32" height ="608"/>
     <wall id="i002" x="4081" y="484" width="32" height="800"/>
+    <villain id="i010" x="3584" y="800"/>
 
     <background id="i021" x="4656" y="724"/>
-    <platform id="i001" x="4353" y="374" width="192" heigt="32"/>
-    <platform id="i001" x="4257" y="99" width="384" height="32"/>
+    <platform id="i001" x="4353" y="374" width="192" height="32"/>
+    <platform id="i001" x="4097" y="99" width="704" height="32"/>
     <wall id="i002" x="4433" y="372" width="32" height="576"/>
+    <wall id="i002" x="4433" y="980" width="32" height="128"/>
     <platform id="i001" x="4608" y="900" width="1024" height="32"/>
     <villain id="i010" x="4177" y="800"/>
     <wings id="i030" x="5008" y="725"/>
