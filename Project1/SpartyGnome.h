@@ -31,7 +31,7 @@ private:
 	CVector mP = CVector(850, 550);
 
 	/// The supported image states
-	enum class ImageState { Base, Left1, Left2, Right1, Right2 };
+	enum class ImageState { Base, Left1, Left2, Right1, Right2, Sad};
 
 	/// The current image state
 	ImageState mImageState = ImageState::Base;
@@ -152,8 +152,6 @@ public:
 	void SetIsControllable(boolean temp) { isControllable = temp; }
 
 	void ChangeLevel(CLevel* level);
-
-	void Reset();
 	
 	void FallingColide(double y, double height);
 

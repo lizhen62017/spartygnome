@@ -20,6 +20,7 @@ const wstring ImageLeft1 = L"data/images/gnome-walk-left-1.png"; ///< First movi
 const wstring ImageLeft2 = L"data/images/gnome-walk-left-2.png"; ///< Second moving left image
 const wstring ImageRight1 = L"data/images/gnome-walk-right-1.png"; ///< First moving right image
 const wstring ImageRight2 = L"data/images/gnome-walk-right-2.png"; ///< Second moving right image
+const wstring ImageSad = L"data/images/gnome-sad.png"; ///< Sad gnome image
 
 /// The five wing images for SpartyGnome animation
 const wstring ImageBaseWing = L"data/images/gnome-wing.png"; ///< Base image with wings
@@ -27,6 +28,7 @@ const wstring ImageLeft1Wing = L"data/images/gnome-walk-left-1-wing.png"; ///< F
 const wstring ImageLeft2Wing = L"data/images/gnome-walk-left-2-wing.png"; ///< Second moving left image with wings
 const wstring ImageRight1Wing = L"data/images/gnome-walk-right-1-wing.png"; ///< First moving right image with wings
 const wstring ImageRight2Wing = L"data/images/gnome-walk-right-2-wing.png"; ///< Second moving right image with wings
+const wstring ImageSadWing = L"data/images/gnome-sad-wing.png"; ///< Sad gnome image with wings
 
 /// Gravity in virtual pixels per second per second
 const double Gravity = 1000.0;
@@ -164,6 +166,11 @@ void CSpartyGnome::Update(double elapsed)
         if (mWings) { SetImage(ImageRight2Wing); }
         else { SetImage(ImageRight2); }
     }
+    else if (mImageState == ImageState::Sad)
+    {
+        if (mWings) { SetImage(ImageSadWing); }
+        else { SetImage(ImageSad); }
+    }
 }
 
 /**
@@ -194,6 +201,8 @@ void CSpartyGnome::Death(boolean villain)
 			item->SetLocation((mGameSystem->GetVirtualWidth() / 2.0) - 500, 100);
 			mGameSystem->Add(item);
             SetVelX(0);
+            
+            mImageState = ImageState::Sad;
 
 			mGameSystem->SetRespawn(true);
 			mIsAlive = false;
@@ -201,8 +210,6 @@ void CSpartyGnome::Death(boolean villain)
 			
 		}
 
-        //Temp location reset to make playtesting easier
-        // Reset();
      //   isAfterDeath = false;
         isControllable = false;
         mTimeElapsed = 0.0;
@@ -227,6 +234,7 @@ void CSpartyGnome::Jump()
         SetVelY(JumpSpeed);
         mDoubleJump = true;
     }
+    if (mImageState == ImageState::Sad) { mImageState = ImageState::Base; }
 }
 
 
@@ -237,17 +245,6 @@ void CSpartyGnome::Jump()
 void CSpartyGnome::ChangeLevel(CLevel* level)
 {
     // mLevel = level;
-}
-
-/**
- * function for resetting spartygnomes location after dying or a level change
- */
-void CSpartyGnome::Reset()
-{
-    SetLocX(512);
-    SetLocY(128);
-    SetVelX(0);
-    SetVelY(0);
 }
 
 
@@ -263,7 +260,6 @@ void CSpartyGnome::FallingColide(double y, double height)
     misJumping = false;
     mDoubleJump = false;
     SetVelY(0);
-    //PlaySound(TEXT("data/sounds/pacman_death.wav"), NULL, SND_ASYNC);
 }
 
 /**
@@ -350,7 +346,7 @@ void CSpartyGnome::TerrainColide(double x, double y, double width, double height
 void CSpartyGnome::MoveRight()
 {
     SetVelX(HorizontalSpeed);
-    if (mImageState != ImageState::Right1 && mImageState != ImageState::Right2)
+    if (mImageState != ImageState::Right1 && mImageState != ImageState::Right2 && mIsAlive)
     {
         mImageState = ImageState::Right1;
         mImageTime = 0.0;
@@ -363,7 +359,7 @@ void CSpartyGnome::MoveRight()
 void CSpartyGnome::MoveLeft()
 {
     SetVelX(-HorizontalSpeed);
-    if (mImageState != ImageState::Left1 && mImageState != ImageState::Left2)
+    if (mImageState != ImageState::Left1 && mImageState != ImageState::Left2 && mIsAlive)
     {
         mImageState = ImageState::Left1;
         mImageTime = 0.0;
@@ -376,7 +372,10 @@ void CSpartyGnome::MoveLeft()
 void CSpartyGnome::Stop()
 {
     SetVelX(0);
-    mImageState = ImageState::Base;
+    if (mIsAlive) 
+    {
+        mImageState = ImageState::Base;
+    }
 }
 
 /**
