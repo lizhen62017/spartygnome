@@ -78,16 +78,15 @@
     <money id="i041" x="5712" y="580"/>
     <money id="i042" x="5872" y="580"/>
 
-    
-
+    <platform id="i001" x="6240" y="460" width="192" height="32"/>
     <platform id="i001" x="6656" y="850" width="640" height="32"/>
-    <platform id="i001" x="7040" y="550" width="256" height="32"/>
-    <platform id="i001" x="6240" y="200" width="192" height="32"/>
+    <platform id="i001" x="7040" y="400" width="256" height="32"/>
+    <villain id="i012" x="6620" y="400"/>
     
     
+    <villain id="i011" x="11776" y="900"/>
 
-    <villain id="i011" x="7680" y="900"/>
-
+    
     <background id="i020" x="8704" y="512"/>
     <platform id="i001" x="8504" y="900" width="320" height="32"/>
     <platform id="i001" x="8904" y="750" width="320" height="32"/>
