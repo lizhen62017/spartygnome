@@ -221,14 +221,14 @@ void CSpartyGnome::Death(boolean villain)
 */
 void CSpartyGnome::Jump()
 {
-    if (!misJumping && mV.Y() <= 0.1 && mV.Y() >= -0.1)
+    if (!misJumping && mV.Y() <= 0.5 && mV.Y() >= -0.5)
     {
         PlaySound(TEXT("data/sounds/jump.wav"), NULL, SND_ASYNC);
         SetVelY(JumpSpeed);
         misJumping = true;
     }
     // Support for double jumping if gnome has wings
-    else if (mWings && !mDoubleJump && mV.Y() > 0)
+    else if (mWings && !mDoubleJump && mV.Y() > 20)
     {
         PlaySound(TEXT("data/sounds/double_jump.wav"), NULL, SND_ASYNC);
         SetVelY(JumpSpeed);
@@ -367,7 +367,7 @@ void CSpartyGnome::MoveLeft()
 }
 
 /**
- * Function for when an move arrow is released
+ * Function for when a move arrow is released
  */
 void CSpartyGnome::Stop()
 {
