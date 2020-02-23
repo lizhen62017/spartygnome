@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<level width="1024" height="1024" start-y="700" start-x="2360">
+<level width="1024" height="1024" start-y="700" start-x="5008">
   <declarations>
     <platform id="i001" left-image="platformIndustrial_059.png" mid-image="platformIndustrial_060.png" right-image="platformIndustrial_061.png"/>
     <platform id="i004" left-image="snowLeft.png" mid-image="snowMid.png" right-image="snowRight.png"/>
@@ -20,6 +20,7 @@
 
     <money id="i040" image="diamond.png" value="10000"/>
     <money id="i041" image="moneyFire.png" value="-100"/>
+    <money id="i042" image="money1000.png" value="1000"/>
 
   </declarations>
   <items>
@@ -38,12 +39,10 @@
     
     <platform id="i001" x="352" y="912" width="640" height="32"/>
     
-  
     <platform id="i001" x="1344" y="750" width ="768" height="32"/>
     <background id="i022" x ="1216" y="574"/>
     <money id="i041" x="1550" y="620"/>
     <villain id="i012" x="1900" y="300"/>
-
     
     <platform id="i001" x="3152" y="900" width="1888" height="32"/>
     <fragile id="i050" x="2669" y="625" width="160" height="32"/>
@@ -68,17 +67,24 @@
     <wings id="i030" x="5008" y="725"/>
     <money id="i040" x="4353" y="274"/>
 
-    <platform id="i001" x="5328" y="300" width="288" height="32"/>
-    <platform id="i001" x="5936" y="600" width="288" height="32"/>
-    <platform id="i001" x="5808" y="900" width="640" height="32"/>
-    <wall id="i002" x="5200" y="600" width="32" height="512"/>
-    <wall id="i002" x="5456" y="600" width="32" height="512"/>
-    <wall id="i002" x="5808" y="50" width="32" height="1024"/>
-    <wall id="i002" x="6064" y="50" width="32" height="1024"/>
+    <wall id="i002" x="6064" y="864" width="32" height="352"/>
+    <platform id="i001" x="5632" y="700" width="896" height="32"/>
+    <wall id="i002" x="5200" y="746" width="32" height="576"/>
+    <platform id="i001" x="5248" y="460" width="128" height="32"/>
+    <fragile id="i050" x="5552" y="460" width="160" height="32"/>
+    <fragile id="i050" x="5872" y="460" width="160" height="32"/>
+    <money id="i041" x="5392" y="580"/>
+    <money id="i042" x="5552" y="580"/>
+    <money id="i041" x="5712" y="580"/>
+    <money id="i042" x="5872" y="580"/>
 
-    <platform id="i001" x="6656" y="850" width="800" height="32"/>
+    
+
+    <platform id="i001" x="6656" y="850" width="640" height="32"/>
     <platform id="i001" x="7040" y="550" width="256" height="32"/>
     <platform id="i001" x="6240" y="200" width="192" height="32"/>
+    
+    
 
     <villain id="i011" x="7680" y="900"/>
 
