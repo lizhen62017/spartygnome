@@ -214,7 +214,7 @@ void CSpartyGnome::Death(boolean villain)
 */
 void CSpartyGnome::Jump()
 {
-    if (!misJumping && mV.Y() == 0)
+    if (!misJumping && mV.Y() <= 0.1 && mV.Y() >= -0.1)
     {
         PlaySound(TEXT("data/sounds/jump.wav"), NULL, SND_ASYNC);
         SetVelY(JumpSpeed);
@@ -317,7 +317,7 @@ void CSpartyGnome::RightColide(double x, double width)
 void CSpartyGnome::TerrainColide(double x, double y, double width, double height)
 {
     // Vertical collision
-    if (abs(y - GetY()) > height / 2.0 + GetHeight() / 2.0 - 23) //Purely vertical collision, tuned to have 23 works the best
+    if (abs(x - GetX()) < width / 2.0 + GetWidth() / 2.0 - 13) //Purely vertical collision, tuned to have 23 works the best
     {
         if (GetVelY() > 0 && y > GetY()) // Gnome is falling
         {
@@ -330,7 +330,7 @@ void CSpartyGnome::TerrainColide(double x, double y, double width, double height
     }
 
     // Horizontal collision
-    if (abs(x - GetX()) > width / 2.0 + GetWidth() / 2.0 - 13) //Purely horizontal collision, tuned to have 13 works the best
+    if (abs(y - GetY()) < height / 2.0 + GetHeight() / 2.0 - 23) //Purely horizontal collision, tuned to have 13 works the best
     {
         if (GetVelX() > 0 && x > GetX()) //Moving right
         {
