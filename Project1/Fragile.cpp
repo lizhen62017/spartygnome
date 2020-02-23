@@ -54,6 +54,7 @@ bool CFragile::Update(double elapsed)
         mTimeElapsed += elapsed;
         if (mTimeElapsed >= 2.0)
         {
+            PlaySound(TEXT("data/sounds/Crumbling.wav"), NULL, SND_ASYNC);
             return true;
         }
         else

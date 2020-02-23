@@ -34,7 +34,7 @@ public:
 
     /// Get the height of the item
     /// \returns item height
-    virtual int GetHeight() override { return GetImage()->GetHeight(); };
+    virtual int GetHeight() override { return GetImage()->GetHeight()-20; };
 
     /** Define if item is collidable
     * \return value The value of whether or not it's collidable

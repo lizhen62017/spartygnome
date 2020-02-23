@@ -189,11 +189,10 @@ void CSpartyGnome::Death(boolean villain)
 		if (mIsAlive)
 		{
 			shared_ptr<CItem> item;
-
+            PlaySound(TEXT("data/sounds/pacman_death.wav"), NULL, SND_ASYNC);
 			item = make_shared<CMessage>(mGameSystem, L"You Lose!", 150, L"red", 2.0);
 			item->SetLocation((mGameSystem->GetVirtualWidth() / 2.0) - 500, 100);
 			mGameSystem->Add(item);
-            PlaySound(TEXT("data/sounds/pacman_death.wav"), NULL, SND_ASYNC);
             SetVelX(0);
 
 			mGameSystem->SetRespawn(true);
@@ -217,12 +216,14 @@ void CSpartyGnome::Jump()
 {
     if (!misJumping && mV.Y() == 0)
     {
+        PlaySound(TEXT("data/sounds/jump.wav"), NULL, SND_ASYNC);
         SetVelY(JumpSpeed);
         misJumping = true;
     }
     // Support for double jumping if gnome has wings
     else if (mWings && !mDoubleJump && mV.Y() > 0)
     {
+        PlaySound(TEXT("data/sounds/double_jump.wav"), NULL, SND_ASYNC);
         SetVelY(JumpSpeed);
         mDoubleJump = true;
     }
@@ -262,6 +263,7 @@ void CSpartyGnome::FallingColide(double y, double height)
     misJumping = false;
     mDoubleJump = false;
     SetVelY(0);
+    //PlaySound(TEXT("data/sounds/pacman_death.wav"), NULL, SND_ASYNC);
 }
 
 /**
