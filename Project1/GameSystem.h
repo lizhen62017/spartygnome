@@ -3,7 +3,7 @@
  *
  * \author
  *
- * 
+ * /
  */
 
 #pragma once
@@ -75,6 +75,10 @@ public:
 	/** The current level number the game is on
 	* \returns level the number in current */
 	int GetLevel();
+
+	/** Returns the current level the game is on
+	* \returns level the current one */
+	CLevel* GetCurrentLevel() { return mCurrentLevel; };
 
 	/**
 	* Levels up the gnome

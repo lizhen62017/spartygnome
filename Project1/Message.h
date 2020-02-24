@@ -20,7 +20,7 @@ public:
 	/// default constructor (disabled)
 	CMessage() = delete;
 
-	CMessage(CGameSystem* game, std::wstring text, int textSize, std::wstring color, double delayTime);
+	CMessage(CLevel* level, std::wstring text, int textSize, std::wstring color, double delayTime);
 
 	///copy constructor (disabled)
 	CMessage(const CMessage&) = delete;
@@ -31,11 +31,11 @@ public:
 
 	/// Get the width of the item
 	/// \returns item width
-	virtual int GetWidth() { return 0; };
+	virtual double GetWidth() { return 0; };
 
 	/// Get the height of the item
 	/// \returns item height
-	virtual int GetHeight() { return 0; };
+	virtual double GetHeight() { return 0; };
 
 	/**
 	* Function for determining if an object has collision physics
@@ -46,7 +46,7 @@ public:
 	/// Draw this item
 	/// \param graphics Graphics device to draw on
 	/// \param scrollX the distance the gnome has scrolled
-	virtual void Draw(Gdiplus::Graphics* graphics, int scrollX) override;
+	virtual void Draw(Gdiplus::Graphics* graphics, float scrollX) override;
 
 	/// Handle updates for animation
 	/// \param elapsed The time since the last update

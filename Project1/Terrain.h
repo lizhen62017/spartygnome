@@ -29,11 +29,11 @@ public:
 
     /** Getter for terrain height
      * \return height of terrain */
-    int GetHeight() override { return mHeight; }
+    double GetHeight() override { return mHeight; }
 
     /** Getter for terrain width
     * \return width of terrain */
-    int GetWidth() override { return mWidth; }
+    double GetWidth() override { return mWidth; }
 
     boolean IsCollidable() override;
 

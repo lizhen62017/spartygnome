@@ -30,11 +30,11 @@ public:
 
     /// Get the width of the item
     /// \returns item width
-    virtual int GetWidth() { return 0; };
+    virtual double GetWidth() { return 0; };
 
     /// Get the height of the item
     /// \returns item height
-    virtual int GetHeight() {return 0;};
+    virtual double GetHeight() {return 0;};
 
     /**
     * Function for determining if an object has collision physics

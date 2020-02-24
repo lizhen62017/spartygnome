@@ -31,7 +31,7 @@ public:
     /* Drawing the wall
     * \param graphics the graphics being drawn 
     */
-    void Draw(Gdiplus::Graphics* graphics, int scrollX) override;
+    void Draw(Gdiplus::Graphics* graphics, float scrollX) override;
 
     /** Accept a visitor
      * \param visitor The visitor we accept */

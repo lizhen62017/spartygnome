@@ -60,7 +60,7 @@ public:
 	/// Draw this item
 	/// \param graphics Graphics device to draw on
 	/// \param scrollX the distance the gnome has scrolled
-	virtual void Draw(Gdiplus::Graphics* graphics, int scrollX);
+	virtual void Draw(Gdiplus::Graphics* graphics, float scrollX);
 
 	/// Handle updates for animation
 	/// \param elapsed The time since the last update
@@ -69,11 +69,11 @@ public:
 
 	/// Get the width of the item
 	/// \returns item width
-	virtual int GetWidth() = 0;
+	virtual double GetWidth() = 0;
 
 	/// Get the height of the item
 	/// \returns item height
-	virtual int GetHeight() = 0;
+	virtual double GetHeight() = 0;
 
 	/** Define if item is collidable
 	* \return value The value of whether or not it's collidable
@@ -86,7 +86,7 @@ public:
 
 	CItem(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
-	CItem(CGameSystem* game);
+	CItem(CLevel* level);
 
 	/** Accept a visitor
 	 * \param visitor The visitor we accept */

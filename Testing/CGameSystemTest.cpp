@@ -74,7 +74,7 @@ namespace Testing
 			std::wstring path = L"data/levels/level1.xml";
 			int initial = game.ItemsLength();
 
-			auto item = make_shared<CMessage>(&game, L"Testing String", 150, L"red", 2.0);
+			auto item = make_shared<CMessage>(game.GetCurrentLevel(), L"Testing String", 150, L"red", 2.0);
 			item->SetLocation(500, 500);
 			game.Add(item);
 			

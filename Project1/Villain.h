@@ -30,11 +30,11 @@ public:
 
     /// Get the width of the item
     /// \returns item width
-    virtual int GetWidth() override { return GetImage()->GetWidth(); };
+    virtual double GetWidth() override { return GetImage()->GetWidth(); };
 
     /// Get the height of the item
     /// \returns item height
-    virtual int GetHeight() override { return GetImage()->GetHeight()-20; };
+    virtual double GetHeight() override { return GetImage()->GetHeight()-20; };
 
     /** Define if item is collidable
     * \return value The value of whether or not it's collidable

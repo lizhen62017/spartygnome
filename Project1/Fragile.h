@@ -31,7 +31,7 @@ public:
     /* Drawing the fragile platform
     * \param graphics the graphics being drawn
     */
-    void Draw(Gdiplus::Graphics* graphics, int scrollX) override;
+    void Draw(Gdiplus::Graphics* graphics, float scrollX) override;
 
     /** Accept a visitor
      * \param visitor The visitor we accept */
@@ -40,11 +40,11 @@ public:
     /**Getter for terrain height
       * \return height of terrain
       */
-    int GetHeight() override { return 32; }
+    double GetHeight() override { return 32; }
 
     /** Getter for terrain width
     * \return width of terrain */
-    int GetWidth() override { return 160; }
+    double GetWidth() override { return 160; }
 
     void Collided() override;
 

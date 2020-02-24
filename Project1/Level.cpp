@@ -351,7 +351,7 @@ void CLevel::Install()
 
 	std::wstring printString = L"Level " + std::to_wstring(mGame->GetLevel()) + L" Begin";
 
-	item = make_shared<CMessage>(mGame, printString, 150, L"red", 2.0);
+	item = make_shared<CMessage>(this, printString, 150, L"red", 2.0);
 	item->SetLocation((mGame->GetVirtualWidth() / 2.0) - 700, 100);
 	mGame->Add(item);
 

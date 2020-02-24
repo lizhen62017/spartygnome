@@ -31,7 +31,7 @@ public:
     /// Level constructor declaration
     CPlatform(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
-    void Draw(Gdiplus::Graphics* graphics, int scrollX) override;
+    void Draw(Gdiplus::Graphics* graphics, float scrollX) override;
 
 
      

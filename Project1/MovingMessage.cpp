@@ -18,8 +18,8 @@ using namespace Gdiplus;
 * \param color The color of the text
 * \param delayTime The time the text stays on screen
 */
-CMovingMessage::CMovingMessage(CGameSystem* game, std::wstring text, int textSize, std::wstring color, double delayTime) :
-	CMessage(game, text, textSize, color, delayTime)
+CMovingMessage::CMovingMessage(CLevel* level, std::wstring text, int textSize, std::wstring color, double delayTime) :
+	CMessage(level, text, textSize, color, delayTime)
 {
 }
 

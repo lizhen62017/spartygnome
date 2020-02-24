@@ -65,7 +65,7 @@ CSpartyGnome::CSpartyGnome(CGameSystem* game)
  * \param graphics The graphic SpartyGnome is being drawn on
  * \param scrollX The distance needed so that SpartyGnome can remain centered 
  */
-void CSpartyGnome::Draw(Gdiplus::Graphics* graphics, int scrollX)
+void CSpartyGnome::Draw(Gdiplus::Graphics* graphics, float scrollX)
 {
     if (mImage != nullptr)
     {
@@ -197,8 +197,8 @@ void CSpartyGnome::Death(boolean villain)
 		{
 			shared_ptr<CItem> item;
             PlaySound(TEXT("data/sounds/pacman_death.wav"), NULL, SND_ASYNC);
-			item = make_shared<CMessage>(mGameSystem, L"You Lose!", 150, L"red", 2.0);
-			item->SetLocation((mGameSystem->GetVirtualWidth() / 2.0) - 500, 100);
+			item = make_shared<CMessage>(mGameSystem->GetCurrentLevel(), L"You Lose!", 150, L"red", 2.0);
+			item->SetLocation(GetX() - (700*(1 - ((mGameSystem->GetCurrentLevel()->GetOffset() + 200) / 705.8333335))), 100);
 			mGameSystem->Add(item);
             SetVelX(0);
             

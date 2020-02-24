@@ -20,7 +20,7 @@ public:
 	/// default constructor (disabled)
 	CMovingMessage() = delete;
 
-	CMovingMessage(CGameSystem* game, std::wstring text, int textSize, std::wstring color, double delayTime);
+	CMovingMessage(CLevel* level, std::wstring text, int textSize, std::wstring color, double delayTime);
 
 	///copy constructor (disabled)
 	CMovingMessage(const CMessage&) = delete;

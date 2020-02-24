@@ -22,7 +22,7 @@ CFragile::CFragile(CLevel* level, const std::shared_ptr<CDeclaration> declaratio
     mFragileImage = shared_ptr<Bitmap>(declaration->GetImage(0));
 }
 
-void CFragile::Draw(Gdiplus::Graphics* graphics, int scrollX)
+void CFragile::Draw(Gdiplus::Graphics* graphics, float scrollX)
 {
     double wid = 160;
     double hit = 32;

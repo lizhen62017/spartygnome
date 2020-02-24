@@ -32,7 +32,7 @@ public:
 	std::wstring GetDollars() { return std::to_wstring(mDollars); }
 
 	/// Draws the score to the screen
-	virtual void Draw(Gdiplus::Graphics* graphics, int width);
+	virtual void Draw(Gdiplus::Graphics* graphics, float width);
 
 	/// Adds dollars to the total amount
 	/// \param dollarAmount number of dollars to add to mDollars

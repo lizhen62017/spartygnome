@@ -45,7 +45,7 @@ CItem::CItem(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
  * Constructor constructing item for game system
  * \param game The game system this item belongs to
  */
-CItem::CItem(CGameSystem* game) 
+CItem::CItem(CLevel* level) : mLevel(level)
 {
 }
 
@@ -61,7 +61,7 @@ CItem::~CItem()
 /**
  * Draw this item
  */
-void CItem::Draw(Gdiplus::Graphics* graphics, int scrollX)
+void CItem::Draw(Gdiplus::Graphics* graphics, float scrollX)
 {
 	double wid = mItemImage->GetWidth();
 	double hit = mItemImage->GetHeight();
