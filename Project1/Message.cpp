@@ -57,6 +57,7 @@ void CMessage::Draw(Gdiplus::Graphics* graphics, float scrollX)
 		SolidBrush blue(Color(0, 255, 255));
 		graphics->DrawString(mText.c_str(), -1, &font, PointF(GetX() + (scrollX - GetLevel()->GetOffset()), GetY()), &blue);
 	}
+
 }
 
 
