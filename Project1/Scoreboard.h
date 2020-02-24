@@ -29,7 +29,7 @@ public:
 
 	/// Gets the money amount
 	/// \return money The money as a std::wstring to print to the screen
-	std::wstring GetDollars() { return std::to_wstring(mDollars); }
+	std::wstring GetDollars() { return std::to_wstring(int(mDollars)); }
 
 	/// Draws the score to the screen
 	virtual void Draw(Gdiplus::Graphics* graphics, float width);
