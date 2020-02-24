@@ -109,7 +109,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>pch;XmlNode;SpartyGnome;Level;Declaration;MoneyDeclaration;Background;ItemVisitor;Money;ItemPickup;TuitionUp;Door;Villain;Wings;DeclarationVisitor;MoneyEvaluator;Fragile;Vector;Item;Terrain;Platform;Wall;GameSystem;Scoreboard;Message;winmm.lib</AdditionalDependencies>
+      <AdditionalDependencies>pch;XmlNode;SpartyGnome;Level;Declaration;MoneyDeclaration;Background;ItemVisitor;Money;ItemPickup;TuitionUp;Door;Villain;Wings;DeclarationVisitor;MoneyEvaluator;Fragile;Vector;Item;Terrain;Platform;Wall;GameSystem;Scoreboard;Message;winmm.lib;MovingMessage</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
