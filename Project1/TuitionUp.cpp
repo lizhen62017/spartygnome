@@ -41,8 +41,8 @@ void CTuitionUp::Collided()
 
 		float t = game->GetVirtualWidth();
 
-		item = make_shared<CMovingMessage>(GetLevel(), L"Tuition Increase!", 10, L"green", 2.0);
-		item->SetLocation(GetX() - 600, GetY());
+		item = make_shared<CMovingMessage>(GetLevel(), L"Tuition Increase!", 10, L"green", 0.3);
+		item->SetLocation(GetX() - 190, GetY());
 		game->Add(item);
 	}
 	mHit = true;

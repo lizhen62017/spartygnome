@@ -18,9 +18,10 @@ using namespace Gdiplus;
 * \param color The color of the text
 * \param delayTime The time the text stays on screen
 */
-CMovingMessage::CMovingMessage(CLevel* level, std::wstring text, int textSize, std::wstring color, double delayTime) :
+CMovingMessage::CMovingMessage(CLevel* level, std::wstring text, double textSize, std::wstring color, double delayTime) :
 	CMessage(level, text, textSize, color, delayTime)
 {
+	mStartSize = textSize;
 }
 
 // still need to refine this function
@@ -28,14 +29,15 @@ bool CMovingMessage::Update(double elapsed)
 {
 	mSizeTimer += elapsed;
 
+	double newX = GetX() - (mVelocity * 0.32) * elapsed;
 	double newY = GetY() - mVelocity * elapsed;
-	SetLocation(GetX(), newY);
+	SetLocation(newX, newY);
 
+	SetSize(mStartSize + (mSizeTimer / GetDelay()) * (mMaxSize - mStartSize));
 
-	if (mSizeTimer >= 0.5)
+	if ((GetY() + GetSize()) < 0)
 	{
-		AddToSize(1);
-		mSizeTimer = 0.0;
+		return true;
 	}
 
 	return false;

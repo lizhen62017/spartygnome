@@ -20,7 +20,7 @@ public:
 	/// default constructor (disabled)
 	CMessage() = delete;
 
-	CMessage(CLevel* level, std::wstring text, int textSize, std::wstring color, double delayTime);
+	CMessage(CLevel* level, std::wstring text, double textSize, std::wstring color, double delayTime);
 
 	///copy constructor (disabled)
 	CMessage(const CMessage&) = delete;
@@ -56,32 +56,24 @@ public:
 	/// Handle collisions when it's collided with
 	void Collided() override {}
 
-	/// Get the delay of the message
-	/// \returns mDelayTime how long the message will last
-	double GetDelay() { return mDelayTime; }
-
-	/// Get the size of the message
-	/// \returns mTextSize how bigthe message is
-	double GetTextSize() { return mTextSize; }
-
-	/// Get the text of the message
-	/// \returns mText what the message says
-	std::wstring GetText() { return mText; }
-
-	/// Get the color of the message
-	/// \returns mColor the color
-	std::wstring GetColor() { return mColor; }
-
 	/// adds to the size of the message
 	/// \param size int to add
-	void AddToSize(int size) { mTextSize += size; }
+	void SetSize(double size) { mTextSize = size; }
+
+	/// gets the size of the message
+	/// \returns mTextsize size of text
+	double GetSize() { return mTextSize; }
+
+	/// gets the delay of the message
+	/// \returns mDelayTime delay 
+	double GetDelay() { return mDelayTime; }
 
 private:
 	double mDelayTime = 0; ///< The value of a given messsages delay
 
 	double mTimeElapsed = 0; ///< The time since creation
 
-	int mTextSize = 0; ///< The value of the text size
+	double mTextSize = 0; ///< The value of the text size
 
 	std::wstring mText; ///< text the message displays
 

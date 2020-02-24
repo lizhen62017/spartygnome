@@ -20,7 +20,7 @@ using namespace Gdiplus;
 * \param color The color of the text
 * \param delayTime The time it is shown on screen
 */
-CMessage::CMessage(CLevel* level, std::wstring text, int textSize, std::wstring color, double delayTime) : CItem(level)
+CMessage::CMessage(CLevel* level, std::wstring text, double textSize, std::wstring color, double delayTime) : CItem(level)
 {
 	mText = text;
 	mTextSize = textSize;
