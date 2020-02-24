@@ -6,9 +6,14 @@
 
 #include "pch.h"
 #include "Money.h"
+#include "Item.h"
+#include "Level.h"
 #include "MoneyEvaluator.h"
 #include "Scoreboard.h"
+#include "Message.h"
+#include <memory>
 
+using namespace std;
 
  /**
   * Constructor for a money when loaded from level file
@@ -30,20 +35,28 @@ void CMoney::Collided()
 {
     if (!mHit)
     {
+		shared_ptr<CItem> item;
+
         if (mValue > 2500)
         {
             PlaySound(TEXT("data/sounds/bigMoney.wav"), NULL, SND_ASYNC);
+			item = make_shared<CMessage>(GetLevel(), L"$" + std::to_wstring(int(mValue)), 25, L"green", 2.0);
         }
         else if (mValue > 0)
         {
             PlaySound(TEXT("data/sounds/coin-sound.wav"), NULL, SND_ASYNC);
+			item = make_shared<CMessage>(GetLevel(), L"$" + std::to_wstring(int(mValue)), 25, L"green", 2.0);
         }
         else
         {
             PlaySound(TEXT("data/sounds/error.wav"), NULL, SND_ASYNC);
+			item = make_shared<CMessage>(GetLevel(), L"$" + std::to_wstring(int(mValue)), 25, L"red", 2.0);
         }
         auto scoreboard = GetLevel()->GetGame()->GetScoreboard();
         scoreboard->AddDollars(mValue);
+
+		item->SetLocation(GetX() - (245 - (GetLevel()->GetOffset() + 200)), GetY());
+		GetLevel()->GetGame()->Add(item);
     }
     mHit = true;
 }

@@ -6,7 +6,11 @@
  * 
  */
 
+#pragma once
 #include "ItemPickup.h"
+
+class CItem;
+
 /**
  * Class for money items in a given level
  */

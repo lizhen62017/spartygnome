@@ -10,7 +10,6 @@
 #include "Item.h"
 #include "Level.h"
 #include "GameSystem.h"
-#include "Scoreboard.h"
 #include "MovingMessage.h"
 
 using namespace std;
