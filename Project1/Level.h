@@ -69,7 +69,13 @@ public:
      * \return the game system */
     CGameSystem* GetGame() { return mGame; }
 
+    /**  Setter for level start offset
+    * \param loc start offset for gnome */
+    void SetOffset(double loc) { mGnomeOffset = loc; }
 
+    /**  Getter for level offset
+    * \return level offset */
+    double GetOffset() { return mGnomeOffset; }
   
    // void Draw(Gdiplus::Graphics* graphics, int scrollX);
 
@@ -102,6 +108,9 @@ private:
 
     /// All of the items populating the level
     std::vector<std::shared_ptr<CItem>> mItems;
+
+    /// scroll offset of level
+    double mGnomeOffset;
 
     void Load(const std::wstring& filename);
 

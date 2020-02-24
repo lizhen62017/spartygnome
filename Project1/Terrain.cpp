@@ -5,9 +5,9 @@
  */
 
 #include "pch.h"
+#include <string>
 #include "Terrain.h"
 #include "Level.h"
-#include <string>
 #include "GameSystem.h"
 #include "SpartyGnome.h"
 

@@ -71,7 +71,7 @@ public:
 
 	CSpartyGnome(CGameSystem* game);
 
-	void Draw(Gdiplus::Graphics* graphics, int scrollX);
+	void Draw(Gdiplus::Graphics* graphics, float scrollX);
 
 	/**  Sets gnome's x location
 	* \param x X location */

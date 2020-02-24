@@ -6,8 +6,9 @@
 
 
 #include "pch.h"
-#include "Door.h"
+
 #include<string>
+#include "Door.h"
 
 using namespace Gdiplus;
 using namespace std;

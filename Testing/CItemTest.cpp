@@ -40,11 +40,11 @@ namespace Testing
 		
 		/// Get the width of the item
 		/// \returns item width
-		virtual int GetWidth() override { return 0; } //FIXME Virtual Item
+		virtual double GetWidth() override { return 0; } //FIXME Virtual Item
 
 		/// Get the height of the item
 		/// \returns item height
-		virtual int GetHeight() override { return 0; } //FIXME Virtual Item
+		virtual double GetHeight() override { return 0; } //FIXME Virtual Item
 
 		/** Define if item is collidable
 		* \param collidable the situation

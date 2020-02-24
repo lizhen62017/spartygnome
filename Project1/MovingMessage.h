@@ -20,7 +20,7 @@ public:
 	/// default constructor (disabled)
 	CMovingMessage() = delete;
 
-	CMovingMessage(CGameSystem* game, std::wstring text, int textSize, std::wstring color, double delayTime);
+	CMovingMessage(CLevel* level, std::wstring text, double textSize, std::wstring color, double delayTime);
 
 	///copy constructor (disabled)
 	CMovingMessage(const CMessage&) = delete;
@@ -31,8 +31,12 @@ public:
 	virtual bool Update(double elapsed) override;
 
 private:
-	double mVelocity = 500; ///< The velocity the message moves at
+	double mVelocity = 750; ///< The velocity the message moves at
 
 	double mSizeTimer = 0.0; ///< The time since last size addition
+
+	double mStartSize; ///< The time since last size addition
+
+	double mMaxSize = 25; ///< The time since last size addition
 };
 

@@ -27,11 +27,15 @@ CGameSystem::CGameSystem()
 	mLevel0 = new CLevel(this, L"data/levels/level0.xml");
 	mLevel0->SetStartX(500);
 	mLevel0->SetStartY(500);
+	mLevel0->SetOffset(237.090027); 
 	mLevel1 = new CLevel(this, L"data/levels/level1.xml");
 	mLevel1->SetStartX(850);
 	mLevel1->SetStartY(550);
+	mLevel1->SetOffset(-146.909973);
 	mLevel2 = new CLevel(this, L"data/levels/level2.xml");
+	mLevel2->SetOffset(-82.9099731);
 	mLevel3 = new CLevel(this, L"data/levels/level3.xml");
+	mLevel3->SetOffset(405.090027);
 
 	mCurrentLevel = mLevel1;
 
@@ -154,8 +158,8 @@ void CGameSystem::Update(double elapsed)
 		mGnome->SetVelY(0);
 		mGnome->SetIsControllable(false);
 		shared_ptr<CItem> item;
-		item = make_shared<CMessage>(this, L"Level " + to_wstring(level) + L" Clear!", 150, L"red", 2.0);
-		item->SetLocation((mWidth / 2.0) - 700, 100);
+		item = make_shared<CMessage>(mCurrentLevel, L"Level " + to_wstring(level) + L" Clear!", 150, L"red", 2.0);
+		item->SetLocation(mGnome->GetX() - (900 * (1 - ((mCurrentLevel->GetOffset() + 200) / 921.9999222))), 100);
 		Add(item);
 		/// The solution above is very shitty because 
 		/// I did not quite get why there is a ScoreBoard::Door() function... 
@@ -252,7 +256,7 @@ void CGameSystem::Add(std::shared_ptr<CItem> item)
 std::vector<std::shared_ptr<CItem>> CGameSystem::CollisionTest(CSpartyGnome* gnome)
 {
 	std::vector<std::shared_ptr<CItem>> mOut;
-	for (int i = 0; i < mItems.size(); i++)
+	for (int i = 0; i < int(mItems.size()); i++)
 	{
 		// Border for the item
 		auto itemLeft = mItems[i]->GetX() - mItems[i]->GetWidth() / 2;

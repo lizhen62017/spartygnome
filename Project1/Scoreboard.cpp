@@ -32,7 +32,7 @@ CScoreboard::~CScoreboard()
 * \param graphics Graphics context on which to draw
 * \param width The distance to scroll the text
 */
-void CScoreboard::Draw(Gdiplus::Graphics* graphics, int width) 
+void CScoreboard::Draw(Gdiplus::Graphics* graphics, float width) 
 {
 	std::wstring timePrint;
 	std::wstring dollarsPrint = L"$" + GetDollars();
