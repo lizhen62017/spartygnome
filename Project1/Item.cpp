@@ -12,7 +12,7 @@
 using namespace Gdiplus;
 using namespace std;
 
-const double Epsilon = 1; ///< remove the white lines between objects made of multiple pictures.
+const Gdiplus::REAL Epsilon = 1; ///< remove the white lines between objects made of multiple pictures.
 
 /**
  * Constructor
@@ -43,7 +43,7 @@ CItem::CItem(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
 
 /**
  * Constructor constructing item for game system
- * \param game The game system this item belongs to
+ * \param level The game system this item belongs to
  */
 CItem::CItem(CLevel* level) : mLevel(level)
 {

@@ -14,7 +14,7 @@ using namespace Gdiplus;
 
 /**
 * Function for creating a message to display
-* \param game The game to display the message in
+* \param level The level to display the message in
 * \param text The text to display
 * \param textSize The size of the text
 * \param color The color of the text
@@ -38,24 +38,27 @@ void CMessage::Draw(Gdiplus::Graphics* graphics, float scrollX)
 {
 
 	FontFamily fontFamily(L"Arial");
-	Gdiplus::Font font(&fontFamily, mTextSize, FontStyleBold);
+	Gdiplus::Font font(&fontFamily, Gdiplus::REAL(mTextSize), FontStyleBold);
 
 	auto off = GetLevel()->GetOffset();
+
+	auto xCoordinate = Gdiplus::REAL(GetX() + (scrollX - GetLevel()->GetOffset()));
+	auto yCoordinate = Gdiplus::REAL(GetY());
 
 	if (mColor == L"red")
 	{
 		SolidBrush red(Color(255, 0, 255));
-		graphics->DrawString(mText.c_str(), -1, &font, PointF(GetX() + (scrollX - GetLevel()->GetOffset()), GetY()), &red);
+		graphics->DrawString(mText.c_str(), -1, &font, PointF(xCoordinate, yCoordinate), &red);
 	}
 	else if (mColor == L"green")
 	{
 		SolidBrush green(Color(0, 255, 0));
-		graphics->DrawString(mText.c_str(), -1, &font, PointF(GetX() + (scrollX - GetLevel()->GetOffset()), GetY()), &green);
+		graphics->DrawString(mText.c_str(), -1, &font, PointF(xCoordinate, yCoordinate), &green);
 	}
 	else
 	{
 		SolidBrush blue(Color(0, 255, 255));
-		graphics->DrawString(mText.c_str(), -1, &font, PointF(GetX() + (scrollX - GetLevel()->GetOffset()), GetY()), &blue);
+		graphics->DrawString(mText.c_str(), -1, &font, PointF(xCoordinate, yCoordinate), &blue);
 	}
 
 }

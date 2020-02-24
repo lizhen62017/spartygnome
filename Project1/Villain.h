@@ -55,6 +55,10 @@ public:
     /// Reverse the direction of the gnome
     void ReverseDirection() { mVelocityY = -mVelocityY; };
 
+    /**
+    * The function for loading a villain into the level
+    * \param node The XML node specific to the enemy being loaded in.
+    */
     void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node) override;
 
 private:

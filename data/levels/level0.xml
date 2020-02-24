@@ -4,6 +4,7 @@
     <background id="i001" image="backgroundCity.png"/>
     <platform id="i005" left-image="concreteLeft.png" mid-image="concreteMiddle.png" right-image="concreteRight.png"/>
     <money id="i008" image="money100.png" value="100"/>
+    <money id="i009" image="key.png" value="0"/>
     <tuition-up id="i010" image="stanley.png"/>
   </declarations>
   <items>
@@ -15,5 +16,6 @@
     <platform id="i005" x="448" y="784" width="128" height="32"/>
     <platform id="i005" x="464" y="720" width="160" height="32"/>
     <tuition-up id="i010" x="700" y="500"/>
+    <money id="i009" x="1000" y="512"/>
   </items>
 </level>

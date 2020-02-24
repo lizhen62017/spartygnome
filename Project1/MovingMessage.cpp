@@ -12,7 +12,7 @@ using namespace Gdiplus;
 
 /**
 * Function for creating a moving message item
-* \param game The game the message is a part of
+* \param level The level the message is a part of
 * \param text The text to be displayed
 * \param textSize The size of the text to be displayed
 * \param color The color of the text

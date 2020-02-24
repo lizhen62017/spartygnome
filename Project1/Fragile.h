@@ -28,8 +28,9 @@ public:
     //Constructor
     CFragile(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
-    /* Drawing the fragile platform
+    /** Drawing the fragile platform
     * \param graphics the graphics being drawn
+    * \param scrollX The distance to scroll the image
     */
     void Draw(Gdiplus::Graphics* graphics, float scrollX) override;
 
