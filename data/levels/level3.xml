@@ -15,6 +15,8 @@
     <background id="i021" image="billboard-RedBull.png"/>
     <background id="i022" image="billboard-FireMoney.png"/>
 
+    <background id="i999" image="backgroundInside.png"/>
+
     <wings id="i030" image="redbull.png"/>
     <door id="i031" image="door.png"/>
 
@@ -37,6 +39,8 @@
     <background id="i020" x="10752" y="512"/>
     <background id="i020" x="11776" y="512"/>
 
+    <background id="i999" x="3584" y="512"/>
+
     <wall id="i002" x="16" y="512" width="32" height="1024"/>
     <wall id="i002" x="656" y="976" width="32" height="128"/>
     <platform id="i001" x="352" y="912" width="640" height="32"/>
@@ -58,7 +62,7 @@
     <wall id="i002" x="3088" y="980" width="32" height="128"/>
     <wall id="i002" x="4081" y="980" width="32" height="128"/>
     <wall id="i002" x="3088" y="-128" width="32" height="992"/>
-    <wall id="i002" x="3394" y="-189" width="32" height ="608"/>
+    <wall id="i002" x="3394" y="-189" width="32" height ="672"/>
     <wall id="i002" x="4081" y="484" width="32" height="800"/>
     <villain id="i010" x="3584" y="800"/>
 
@@ -113,6 +117,8 @@
     <background id="i020" x="10752" y="512"/>
     <platform id="i001" x="10752" y="512" width="800" height="32"/>
     <door id="i031" x="11000" y="396"/>
+
+
 
 
   </items>
