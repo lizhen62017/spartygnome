@@ -4,6 +4,7 @@
 #include "SpartyGnome.h"
 #include "Item.h"
 #include "Message.h"
+#include "MoneyMultiplier.h"
 
 using namespace Gdiplus;
 using namespace std;
@@ -203,14 +204,6 @@ void CGameSystem::Clear()
 }
 
 
-/**
- * Completes level and loads next level
- */
-void CGameSystem::Completion()
-{
-    mScoreboard->Door();
-}
-
 //maybe put the gnome level switching here?
 
 void CGameSystem::ChangeLevel(int level)
@@ -323,6 +316,23 @@ int CGameSystem::GetLevel()
 }
 
 
+void CGameSystem::MultiplyMoney()
+{
+	CMoneyMultiplier visitor;
+	Accept(&visitor);
+}
 
+
+
+/** Accept a visitor for the collection
+ * \param visitor The visitor for the collection
+ */
+void CGameSystem::Accept(CItemVisitor* visitor)
+{
+	for (auto item : mItems)
+	{
+		item->Accept(visitor);
+	}
+}
 
 

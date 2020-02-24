@@ -50,7 +50,7 @@ public:
 
     /** Visit a CMoney object
      * \param money Money we are visiting */
-    virtual void VisitMoney(CMoney* money) {}
+	virtual void VisitMoney(CMoney* money) {}
 
     /** Visit a CTuitionUp object
      * \param tuition TuitionUp we are visiting */

@@ -111,6 +111,9 @@
     <ClInclude Include="Fragile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MoneyMultiplier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Project1.cpp">
@@ -198,6 +201,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Fragile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoneyMultiplier.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

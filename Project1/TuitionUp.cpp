@@ -34,13 +34,10 @@ void CTuitionUp::Collided()
 	if (!mHit)
 	{
 		auto game = GetLevel()->GetGame();
-		game->GetScoreboard()->UpdateMultiplier();;
+		game->MultiplyMoney();
         PlaySound(TEXT("data/sounds/tuitionUp.wav"), NULL, SND_ASYNC);
 
 		shared_ptr<CItem> item;
-
-		float t = game->GetVirtualWidth();
-
 		item = make_shared<CMovingMessage>(GetLevel(), L"Tuition Increase!", 10, L"green", 0.3);
 		item->SetLocation(GetX() - 190, GetY());
 		game->Add(item);

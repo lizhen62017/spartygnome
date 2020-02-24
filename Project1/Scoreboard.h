@@ -38,18 +38,12 @@ public:
 	/// \param dollarAmount number of dollars to add to mDollars
 	void AddDollars(int dollarAmount);
 
-	/// Adds to multplier value when tuitionUp is collected
-	/// \param increase the amount the multiplier will go up by
-	void UpdateMultiplier() { mMultiplier *= 1.1; }
-
 	/// Update the scoreboard
 	/// \param elapsed The time elapsed from previous update
 	/// \return bool A boolean to determine if it's deleted
 	void Update(double elapsed);
 
 	void Reset();
-
-	void Door();
 
 private:
 	/// The game this item is contained in
@@ -63,12 +57,5 @@ private:
 
 	/// The time elapsed since the last second
 	double mTimeElapsed = 0.0;
-
-	/// Check to see if should draw door message
-	boolean mDoor = false;
-
-	///The multiplier for tuition dollar pickup
-	double mMultiplier = 1.0;
-
 };
 

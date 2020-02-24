@@ -50,13 +50,15 @@ public:
 	*/
 	void SetRespawn(bool state) { mRespawn = state; }
 
+	/// Multiplies all of the money items in the game
+	void MultiplyMoney();
+
+	void Accept(CItemVisitor* visitor);
+
     void Reset();
 
 	void Clear();
 
-    void Completion();
-
-    
     /// Changes the level to the desired level
     /// \param level The level being changed to
     void ChangeLevel(int level);

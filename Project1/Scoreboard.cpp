@@ -64,27 +64,13 @@ void CScoreboard::Draw(Gdiplus::Graphics* graphics, float width)
 	graphics->DrawString(timePrint.c_str(), -1, &font, PointF(90, 25), &blue);
 	graphics->DrawString(dollarsPrint.c_str(), -1, &font, PointF(width-450, 25), &blue);
 
-
-	/* Draws text on level completion via door
-	if (mDoor)
-	{
-		FontFamily fontFamily(L"Arial");
-		Gdiplus::Font font(&fontFamily, 150, FontStyleBold);
-		SolidBrush purple(Color(255, 0, 255));
-		graphics->DrawString(L"Level Complete!", -1, &font, PointF(512, 400), &purple);
-
-		mTime = 0;
-		mDollars = 0;
-		mDoor = false;
-
-	}  */
 }
 
 /// Adds dollars to the total amount
 /// \param dollarAmount number of dollars to add to mDollars
 void CScoreboard::AddDollars(int dollarAmount) 
 { 
-	mDollars += (mMultiplier * dollarAmount); 
+	mDollars += dollarAmount; 
 }
 
 
@@ -108,14 +94,6 @@ void CScoreboard::Reset()
 	mTime = 0;
 	mDollars = 0;
 	mTimeElapsed = 0.0;
-	mMultiplier = 1.0;
 }
 
-/**
- * Sets flag to display level completion message
- */
-void CScoreboard::Door()
-{
-	mDoor = true;
-}
 

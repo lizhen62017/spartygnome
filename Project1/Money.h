@@ -38,6 +38,9 @@ public:
     /// \returns item height
     virtual double GetHeight() override { return GetImage()->GetHeight(); };
 
+	/** multiplies money value when tuitionUp is collected*/
+	void Multiply() { mValue *= 1.1; }
+
 private:
     double mValue = 0; ///< The value of a given money object
 
