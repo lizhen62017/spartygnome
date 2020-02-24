@@ -12,7 +12,7 @@ using namespace std;
 using namespace Gdiplus;
 
 //Strentch image 
-const double Epsilon = 1;
+const Gdiplus::REAL Epsilon = 1;
 /**
  * Constructor for a platform when loaded from level file
  * \param level The level this platform is a part of
@@ -34,7 +34,7 @@ void CWall::Draw(Gdiplus::Graphics* graphics, float scrollX)
     double wid = 32;
     double hit = 32;
 
-    float numMid = (GetHeight() - 64) / 32;
+    double numMid = (GetHeight() - 64) / 32;
 
     if (numMid < 0)
     {
@@ -45,8 +45,8 @@ void CWall::Draw(Gdiplus::Graphics* graphics, float scrollX)
 
     else
     {
-        float currentCenter = GetY() - (numMid / 2) * 32 - 16;
-        float bottomCenter = GetY() + (numMid / 2) * 32 + 16;
+        double currentCenter = GetY() - (numMid / 2) * 32 - 16;
+        double bottomCenter = GetY() + (numMid / 2) * 32 + 16;
 
         graphics->DrawImage(mWallImage.get(),
             float(GetX() - wid / 2 + scrollX), float(currentCenter - hit / 2),

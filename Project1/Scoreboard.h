@@ -36,7 +36,7 @@ public:
 
 	/// Adds dollars to the total amount
 	/// \param dollarAmount number of dollars to add to mDollars
-	void AddDollars(int dollarAmount);
+	void AddDollars(double dollarAmount);
 
 	/// Update the scoreboard
 	/// \param elapsed The time elapsed from previous update
@@ -50,7 +50,7 @@ private:
 	CGameSystem* mGameSystem;
 
 	/// The tuition dollars collected in the game
-	int mDollars = 0;
+	double mDollars = 0;
 
 	/// The time elapsed since the level started
 	int mTime = 0;

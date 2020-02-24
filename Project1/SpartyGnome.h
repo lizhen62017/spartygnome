@@ -171,6 +171,10 @@ public:
 	
 	void SetImage(const std::wstring& file);
 
+	/**
+	* A function for setting how long the time has elapsed for spartygnome
+	* \param temp The time being added to how long has been elasped
+	*/
 	void SetTimeElapsed(double temp) { mTimeElapsed = temp; }
 
 	/**

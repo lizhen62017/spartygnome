@@ -68,7 +68,7 @@ void CScoreboard::Draw(Gdiplus::Graphics* graphics, float width)
 
 /// Adds dollars to the total amount
 /// \param dollarAmount number of dollars to add to mDollars
-void CScoreboard::AddDollars(int dollarAmount) 
+void CScoreboard::AddDollars(double dollarAmount) 
 { 
 	mDollars += dollarAmount; 
 }

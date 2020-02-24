@@ -25,8 +25,8 @@ const wstring IndustrialMidImageName = L"data/images/platformIndustrial_060.png"
 const wstring IndustrialLeftImageName = L"data/images/platformIndustrial_059.png"; ///< Industrial Left Image
 const wstring IndustrialRightImageName = L"data/images/platformIndustrial_061.png"; ///< Industrial Right Image
 */
-// Strentch image a bit so no gap between them.
-const double Epsilon = 1;
+// Stretch image a bit so no gap between them.
+const Gdiplus::REAL Epsilon = 1;
 
 
 /**
@@ -53,7 +53,7 @@ void CPlatform::Draw(Gdiplus::Graphics* graphics, float scrollX)
     double wid = 32;
     double hit = 32;
 
-    float numMid = (GetWidth() - 64)/ 32;
+    double numMid = (GetWidth() - 64)/ 32;
 
     if (numMid < 0)
     {
@@ -64,8 +64,8 @@ void CPlatform::Draw(Gdiplus::Graphics* graphics, float scrollX)
 
     else 
     {
-        float currentCenter = GetX() - (numMid / 2) * 32 - 16;
-        float rightCenter = GetX() + (numMid / 2) * 32 + 16;
+        double currentCenter = GetX() - (numMid / 2) * 32 - 16;
+        double rightCenter = GetX() + (numMid / 2) * 32 + 16;
 
         graphics->DrawImage(GetImage().get(),
             float(currentCenter - wid / 2 + scrollX), float(GetY() - hit / 2),
