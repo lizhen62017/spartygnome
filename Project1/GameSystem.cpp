@@ -12,7 +12,7 @@ using namespace std;
 // that is going to be what it is scaled to at all times.
 const int BackgroundSize = 1024;
 
-/// Maximum amount of time to allow for elapsed, tuned to have 0.020 works the best
+/// Maximum amount of time to allow for elapsed, tuned to have 0.019 works the best
 const double MaxElapsed = 0.019; 
 
 /**
