@@ -9,6 +9,8 @@
 #pragma once
 #include "ItemPickup.h"
 
+class CItem;
+
 /**
  * Class for handling tuition up pickups
  */

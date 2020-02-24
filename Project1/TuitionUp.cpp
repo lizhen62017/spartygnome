@@ -6,9 +6,14 @@
 
 #include "pch.h"
 #include "TuitionUp.h"
+#include "Item.h"
 #include "Level.h"
 #include "GameSystem.h"
 #include "Scoreboard.h"
+#include "MovingMessage.h"
+#include <memory>
+
+using namespace std;
 
  /**
   * Constructor for a tuition-up when loaded from level file
@@ -28,8 +33,17 @@ void CTuitionUp::Collided()
 {
 	if (!mHit)
 	{
-		GetLevel()->GetGame()->GetScoreboard()->UpdateMultiplier();;
+		auto game = GetLevel()->GetGame();
+		game->GetScoreboard()->UpdateMultiplier();;
         PlaySound(TEXT("data/sounds/tuitionUp.wav"), NULL, SND_ASYNC);
+
+		shared_ptr<CItem> item;
+
+		float t = game->GetVirtualWidth();
+
+		item = make_shared<CMovingMessage>(game, L"Tuition Increase!", 80, L"green", 2.0);
+		item->SetLocation(GetX() - 400, GetY());
+		game->Add(item);
 	}
 	mHit = true;
 }
