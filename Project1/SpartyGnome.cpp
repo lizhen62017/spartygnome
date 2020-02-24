@@ -4,12 +4,13 @@
  * \author Robert Gustke
  */
 
-#include <string>
 #include "pch.h"
-#include "SpartyGnome.h"
-#include "Message.h"
+#include <string>
 #include <Windows.h>
 #include <mmsystem.h>
+#include "SpartyGnome.h"
+#include "Message.h"
+
 
 using namespace Gdiplus;
 using namespace std;

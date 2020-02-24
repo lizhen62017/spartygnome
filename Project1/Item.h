@@ -11,12 +11,12 @@
 
 #include <memory>
 #include <string>
+#include <Windows.h>
+#include <mmsystem.h>
 
 #include "XmlNode.h"
 #include "Declaration.h"
 #include "ItemVisitor.h"
-#include <Windows.h>
-#include <mmsystem.h>
 
 
 class CLevel;

@@ -8,8 +8,8 @@
 
 #pragma once
 
-#include "GameSystem.h"
 #include <string>
+#include "GameSystem.h"
 
 /// Scoreboard class
 class CScoreboard

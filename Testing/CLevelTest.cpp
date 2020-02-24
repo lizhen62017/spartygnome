@@ -1,6 +1,12 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 
+#include <regex>
+#include <string>
+#include <fstream>
+#include <streambuf>
+#include <memory>
+
 #include "Level.h"
 #include "Background.h"
 #include "Platform.h"
@@ -11,12 +17,6 @@
 #include "Door.h"
 #include "Wall.h"
 #include "GameSystem.h"
-
-#include <regex>
-#include <string>
-#include <fstream>
-#include <streambuf>
-#include <memory>
 
 using namespace std;
 using namespace Gdiplus;

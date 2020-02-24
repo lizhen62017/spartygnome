@@ -9,6 +9,7 @@
 #pragma once
 
 #include <memory>
+
 #include "Item.h"
 #include "Declaration.h"
 

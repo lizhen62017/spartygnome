@@ -5,13 +5,13 @@
  */
 
 #include "pch.h"
+#include <memory>
 #include "TuitionUp.h"
 #include "Item.h"
 #include "Level.h"
 #include "GameSystem.h"
 #include "Scoreboard.h"
 #include "MovingMessage.h"
-#include <memory>
 
 using namespace std;
 

@@ -1,9 +1,11 @@
 #include "pch.h"
 #include "CppUnitTest.h"
+#include <memory>
+
 #include "GameSystem.h"
 #include "Item.h"
 #include "Message.h"
-#include <memory>
+
 
 using namespace std;
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
