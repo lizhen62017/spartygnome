@@ -12,6 +12,9 @@
 using namespace std;
 using namespace Gdiplus;
 
+/// The number to shift the money by so that the numbers do not change location
+const double ShiftNumber = 67;
+
 /**
 * Constructor
 * \param game The game this score is a part of
@@ -58,11 +61,17 @@ void CScoreboard::Draw(Gdiplus::Graphics* graphics, float width)
 		}
 	}
 
+	if (mDollars >= mMoneyShiftLimit)
+	{
+		mMoneyShift = mMoneyShift + ShiftNumber;
+		mMoneyShiftLimit = mMoneyShiftLimit * 10;
+	}
+
 	FontFamily fontFamily(L"Arial");
 	Gdiplus::Font font(&fontFamily, 70, FontStyleBold);
 	SolidBrush blue(Color(0, 255, 255));
 	graphics->DrawString(timePrint.c_str(), -1, &font, PointF(90, 25), &blue);
-	graphics->DrawString(dollarsPrint.c_str(), -1, &font, PointF(width-450, 25), &blue);
+	graphics->DrawString(dollarsPrint.c_str(), -1, &font, PointF(width-mMoneyShift, 25), &blue);
 
 }
 
@@ -70,7 +79,7 @@ void CScoreboard::Draw(Gdiplus::Graphics* graphics, float width)
 /// \param dollarAmount number of dollars to add to mDollars
 void CScoreboard::AddDollars(double dollarAmount) 
 { 
-	mDollars += dollarAmount; 
+	mDollars += dollarAmount;
 }
 
 
@@ -94,6 +103,8 @@ void CScoreboard::Reset()
 	mTime = 0;
 	mDollars = 0;
 	mTimeElapsed = 0.0;
+	mMoneyShift = 200;
+	mMoneyShiftLimit = 10;
 }
 
 

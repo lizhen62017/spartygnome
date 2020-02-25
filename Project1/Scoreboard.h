@@ -57,5 +57,11 @@ private:
 
 	/// The time elapsed since the last second
 	double mTimeElapsed = 0.0;
+
+    /// shift to move the money to print it correctly
+	double mMoneyShift = 230;
+
+	/// limit to increase the shift
+	double mMoneyShiftLimit = 100;
 };
 

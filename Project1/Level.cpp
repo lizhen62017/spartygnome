@@ -35,6 +35,9 @@ const double Epsilon = 0.01;
 /// For manually pushing things to mItems
 const double initCoord = 500;
 
+/// Number to shift the text by so it is centered on screen.
+const double TextShift = 575;
+
 /**
  * Level Constructor
  * \param filename The name of the file the level is loaded from
@@ -351,10 +354,9 @@ void CLevel::Install()
 
 	std::wstring printString = L"Level " + std::to_wstring(mGame->GetLevel()) + L" Begin";
 
-	item = make_shared<CMessage>(this, printString, 150, L"red", 2.0);
-	item->SetLocation((mGame->GetVirtualWidth() / 2.0) - 700, 100);
+	item = make_shared<CMessage>(this, printString, 100, L"red", 2.0);
+	item->SetLocation((mGame->GetVirtualWidth() / 2.0) - TextShift, 150);
 	mGame->Add(item);
-
 
 	// set gnome location
 	mGame->GetGnome()->SetLocX(mStartX);
