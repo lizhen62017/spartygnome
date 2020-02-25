@@ -27,8 +27,11 @@ CKey::CKey(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
  */
 void CKey::Collided()
 {
+	if (!mHit)
+	{
+		GetLevel()->GetGame()->GetGnome()->Key(true);
+	}
 	mHit = true;
-	// GetLevel()->GetGame()->GetGnome()->Wings(true);
 }
 
 

@@ -195,6 +195,7 @@ void CGameSystem::Reset()
 {
     mScoreboard->Reset();
 	mGnome->Wings(false);
+	mGnome->Key(false);
 }
 
 

@@ -52,9 +52,14 @@ boolean CDoor::CollideGnome(CSpartyGnome* gnome)
 */
 void CDoor::Collided()
 {
-    if (CollideGnome(GetLevel()->GetGame()->GetGnome()))
+	auto Gnome = GetLevel()->GetGame()->GetGnome();
+
+    if (CollideGnome(Gnome))
     {
-        GetLevel()->GetGame()->SetLevelUp(true);
+		if (Gnome->GetKey())
+		{
+			GetLevel()->GetGame()->SetLevelUp(true);
+		}
     }
 }
 

@@ -44,6 +44,9 @@ private:
 	/// Boolean if gnome has wings
 	boolean mWings = false;
 
+	/// Boolean if gnome has the key
+	bool mKey = false;
+
 	/// Boolean if gnome has used double jump
 	boolean mDoubleJump = false;
 
@@ -188,5 +191,17 @@ public:
 	* \param wings If gnome is gaining or losing wings
 	*/
 	void Wings(boolean wings) { mWings = wings; }
+
+	/**
+	* Updates the mKey variable
+	* \param key If gnome can go to the next level
+	*/
+	void Key(bool key) { mKey = key; }
+
+	/**
+	* Gets the key boolean
+	* \returns mKey if the gnome has it or not
+	*/
+	bool GetKey() { return mKey; }
 };
 
