@@ -9,6 +9,7 @@
 
 #include<string>
 #include "Door.h"
+#include "MovingMessage.h"
 
 using namespace Gdiplus;
 using namespace std;
@@ -60,7 +61,42 @@ void CDoor::Collided()
 		{
 			GetLevel()->GetGame()->SetLevelUp(true);
 		}
+		else
+		{
+			if (!mDoorMessage)
+			{ 
+				shared_ptr<CItem> item;
+				item = make_shared<CMovingMessage>(GetLevel(), L"Forgot the Key!", 10, L"blue", 0.3);
+				item->SetLocation(GetX() - 190, GetY());
+				GetLevel()->GetGame()->Add(item);
+				mDoorMessage = true;
+			}
+		}
     }
+}
+
+
+/**
+ * The function for adding another door message
+ * Handle updates for animation
+ * \param elapsed The time since the last update
+ * \returns false 
+ */
+bool CDoor::Update(double elapsed)
+{
+
+	if (mDoorMessage)
+	{
+		mTimeElapsed += elapsed;
+
+		if (mTimeElapsed >= 5.0)
+		{
+			mDoorMessage = false;
+			mTimeElapsed = 0;
+		}
+	}
+
+	return false;
 }
 
 

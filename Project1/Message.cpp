@@ -55,9 +55,9 @@ void CMessage::Draw(Gdiplus::Graphics* graphics, float scrollX)
 		SolidBrush green(Color(0, 255, 0));
 		graphics->DrawString(mText.c_str(), -1, &font, PointF(xCoordinate, yCoordinate), &green);
 	}
-	else
+	else if (mColor == L"blue")
 	{
-		SolidBrush blue(Color(0, 255, 255));
+		SolidBrush blue(Color(0, 0, 255));
 		graphics->DrawString(mText.c_str(), -1, &font, PointF(xCoordinate, yCoordinate), &blue);
 	}
 
