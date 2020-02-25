@@ -46,6 +46,8 @@ const double Epsilon = 0.01;
 /// Maximum vertical speed
 const double MaxVY = 1500;
 
+/// Number to shift the text by so it is centered on screen.
+const double TextShift = 575;
 
 /**
  * Constructor for spartyGnome
@@ -198,8 +200,8 @@ void CSpartyGnome::Death(boolean villain)
 		{
 			shared_ptr<CItem> item;
             PlaySound(TEXT("data/sounds/pacman_death.wav"), NULL, SND_ASYNC);
-			item = make_shared<CMessage>(mGameSystem->GetCurrentLevel(), L"You Lose!", 150, L"red", 2.0);
-			item->SetLocation(GetX() - (700*(1 - ((mGameSystem->GetCurrentLevel()->GetOffset() + 200) / 705.8333335))), 100);
+			item = make_shared<CMessage>(mGameSystem->GetCurrentLevel(), L"You Lose!", 100, L"red", 2.0);
+			item->SetLocation(GetX()-TextShift, 100);
 			mGameSystem->Add(item);
             SetVelX(0);
             
