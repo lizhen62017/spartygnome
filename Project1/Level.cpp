@@ -23,6 +23,7 @@
 #include "Message.h"
 #include "GameSystem.h"
 #include "Fragile.h"
+#include "Key.h"
 
 
 using namespace std;
@@ -290,6 +291,12 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
     {
         item = make_shared<CWings>(this, declaration);
     }
+
+	// If it is the key
+	else if (type == L"key")
+	{
+		item = make_shared<CKey>(this, declaration);
+	}
     
 
     if (item != nullptr)
