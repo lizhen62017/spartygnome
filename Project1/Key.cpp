@@ -5,11 +5,14 @@
  */
 
 #include "pch.h"
+#include <memory>
 #include "Key.h"
 #include "Level.h"
 #include "GameSystem.h"
 #include "SpartyGnome.h"
+#include "MovingMessage.h"
 
+using namespace std;
 
  /**
   * Constructor for the key when loaded from level file
@@ -30,6 +33,13 @@ void CKey::Collided()
 	if (!mHit)
 	{
 		GetLevel()->GetGame()->GetGnome()->Key(true);
+
+		PlaySound(TEXT("data/sounds/tuitionUp.wav"), NULL, SND_ASYNC);
+
+		shared_ptr<CItem> item;
+		item = make_shared<CMovingMessage>(GetLevel(), L"Key Obtained!", 10, L"green", 0.3);
+		item->SetLocation(GetX() - 190, GetY());
+		GetLevel()->GetGame()->Add(item);
 	}
 	mHit = true;
 }
@@ -46,7 +56,7 @@ bool CKey::Update(double elapsed)
 		{
 			return true;
 		}
-		double newY = GetY() + mVelocity * elapsed;
+		double newY = GetY() - mVelocity * elapsed;
 		SetLocation(GetX(), newY);
 	}
 

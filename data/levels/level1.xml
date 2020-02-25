@@ -78,7 +78,7 @@
     <platform id="i004" x="4416" y="784" width="192" height="32"/>
     <platform id="i005" x="4528" y="432" width="224" height="32"/>
     <wall id="i006" x="4432" y="352" width="32" height="128"/>
-    <key id="i014" x="4530" y="380"/>
+    <key id="i014" x="4530" y="350"/>
     <money id="i008" x="4480" y="528"/>
     <money id="i008" x="4480" y="176"/>
     <money id="i008" x="4576" y="528"/>
