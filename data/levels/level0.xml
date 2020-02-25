@@ -3,19 +3,13 @@
   <declarations>
     <background id="i001" image="backgroundCity.png"/>
     <platform id="i005" left-image="concreteLeft.png" mid-image="concreteMiddle.png" right-image="concreteRight.png"/>
-    <money id="i008" image="money100.png" value="100"/>
-    <key id="i009" image="key.png"/>
-    <tuition-up id="i010" image="stanley.png"/>
   </declarations>
   <items>
     <background id="i001" x="512" y="512"/>
-    <money id="i008" x="464" y="500"/>
     <platform id="i005" x="400" y="976" width="32" height="32"/>
     <platform id="i005" x="416" y="912" width="64" height="32"/>
     <platform id="i005" x="432" y="848" width="96" height="32"/>
     <platform id="i005" x="448" y="784" width="128" height="32"/>
     <platform id="i005" x="464" y="720" width="160" height="32"/>
-    <tuition-up id="i010" x="700" y="500"/>
-    <key id="i009" x="1000" y="512"/>
   </items>
 </level>
