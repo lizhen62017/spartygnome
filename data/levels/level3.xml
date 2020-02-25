@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<level width="1024" height="1024" start-y="300" start-x="2669">
+<level width="1024" height="1024" start-y="800" start-x="300">
   <declarations>
     <platform id="i001" left-image="platformIndustrial_059.png" mid-image="platformIndustrial_060.png" right-image="platformIndustrial_061.png"/>
     <platform id="i004" left-image="snowLeft.png" mid-image="snowMid.png" right-image="snowRight.png"/>
