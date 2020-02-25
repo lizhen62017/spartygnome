@@ -83,15 +83,15 @@ namespace Testing
 
 		TEST_METHOD(TestCItemCollision)
 		{
-			std::wstring path = L"data/levels/level0.xml";
+			std::wstring path = L"data/levels/level1.xml";
 
 			CGameSystem game;
 
 			CSpartyGnome gnome(&game);
 
-			CLevel level0(&game, path);
+			CLevel level1(&game, path);
 
-			CItemMock item(&level0, level0.GetDeclaration(L"i008")); //add a money on the same location as gnome
+			CItemMock item(&level1, level1.GetDeclaration(L"i008")); //add a money on the same location as gnome
 
 			// Test SetLocation, GetX, and GetY
 			item.SetLocation(512,512);
