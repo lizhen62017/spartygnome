@@ -163,7 +163,7 @@ void CGameSystem::Update(double elapsed)
 		mGnome->SetIsControllable(false);
 		shared_ptr<CItem> item;
 		item = make_shared<CMessage>(mCurrentLevel, L"Level " + to_wstring(level) + L" Clear!", 100, L"red", 2.0);
-		item->SetLocation(mGnome->GetX() - TextShift, 150);
+		item->SetLocation(mGnome->GetX() - 700, 150);
 		Add(item);
 		/// The solution above is very shitty because 
 		/// I did not quite get why there is a ScoreBoard::Door() function... 

@@ -362,7 +362,7 @@ void CLevel::Install()
 	std::wstring printString = L"Level " + std::to_wstring(mGame->GetLevel()) + L" Begin";
 
 	item = make_shared<CMessage>(this, printString, 100, L"red", 2.0);
-	item->SetLocation((mGame->GetVirtualWidth() / 2.0) - TextShift, 150);
+    item->SetLocation((mGame->GetVirtualWidth() / 2.0) - 500, 150);
 	mGame->Add(item);
 
 	// set gnome location
