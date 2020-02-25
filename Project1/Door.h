@@ -49,5 +49,14 @@ public:
     boolean CollideGnome(CSpartyGnome* gnome);
 
     void Collided() override;
+
+	virtual bool Update(double elapsed) override;
+
+private:
+	/// boolean to prevent too many messsages 
+	bool mDoorMessage = false;
+
+	/// The time elapsed since the last update
+	double mTimeElapsed = 0.0;
 };
 
