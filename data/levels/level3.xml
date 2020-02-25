@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<level width="1024" height="1024" start-y="800" start-x="300">
+<level width="1024" height="1024" start-y="300" start-x="2669">
   <declarations>
     <platform id="i001" left-image="platformIndustrial_059.png" mid-image="platformIndustrial_060.png" right-image="platformIndustrial_061.png"/>
     <platform id="i004" left-image="snowLeft.png" mid-image="snowMid.png" right-image="snowRight.png"/>
@@ -14,12 +14,14 @@
     <background id="i020" image="backgroundCity.png"/>
     <background id="i021" image="billboard-RedBull.png"/>
     <background id="i022" image="billboard-FireMoney.png"/>
+    <background id="i023" image="billboard-Gnome.png"/>
 
     <background id="i999" image="backgroundInside.png"/>
 
     <wings id="i030" image="redbull.png"/>
     <door id="i031" image="door.png"/>
     <tuition-up id="i032" image="stanley.png"/>
+    <key id="i033" image="key.png"/>
 
     <money id="i040" image="diamond.png" value="10000"/>
     <money id="i041" image="moneyFire.png" value="-100"/>
@@ -86,6 +88,8 @@
     <money id="i043" x="3922" y="30"/>
     <money id="i043" x="4097" y="30"/>
     <money id="i043" x="4272" y="30"/>
+    <key id="i033" x="3250" y="80"/>
+    
 
     <background id="i021" x="4656" y="724"/>
     <platform id="i001" x="4353" y="374" width="192" height="32"/>
@@ -155,6 +159,7 @@
     <money id="i043" x="10144" y="630"/>
  
     <background id="i020" x="10752" y="512"/>
+    <background id="i023" x ="10600" y="350"/>
     <platform id="i001" x="10752" y="512" width="800" height="32"/>
     <door id="i031" x="11000" y="396"/>
 
