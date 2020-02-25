@@ -13,8 +13,7 @@ using namespace std;
 using namespace Gdiplus;
 
 /// The number to shift the money by so that the numbers do not change location
-const double ShiftNumber = 67;
-
+const Gdiplus::REAL ShiftNumber = 67;
 /**
 * Constructor
 * \param game The game this score is a part of
@@ -61,7 +60,7 @@ void CScoreboard::Draw(Gdiplus::Graphics* graphics, float width)
 		}
 	}
 
-	if (mDollars >= mMoneyShiftLimit)
+	if (abs(mDollars) >= mMoneyShiftLimit)
 	{
 		mMoneyShift = mMoneyShift + ShiftNumber;
 		mMoneyShiftLimit = mMoneyShiftLimit * 10;

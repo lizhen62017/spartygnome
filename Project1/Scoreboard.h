@@ -59,7 +59,7 @@ private:
 	double mTimeElapsed = 0.0;
 
     /// shift to move the money to print it correctly
-	double mMoneyShift = 230;
+	Gdiplus::REAL mMoneyShift = 230;
 
 	/// limit to increase the shift
 	double mMoneyShiftLimit = 100;
