@@ -2,7 +2,7 @@
  * \file Vector.h
  *
  * \author Charles Owen
- *
+ * \modifier Zhen Li
  * Simple 2D vector class
  */
 
@@ -53,12 +53,6 @@ public:
 	/// Set the Y component of the vector
 	/// \param y Y value
 	void SetY(double y) { mY = y; }
-
-	double Length() const;
-
-	double Distance(const CVector & other) const;
-
-	CVector & Normalize();
 
 private:
 	/// X component of vector

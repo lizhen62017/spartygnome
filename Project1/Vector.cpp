@@ -1,7 +1,9 @@
 /**
  * \file Vector.cpp
  *
+ * All the functions needed for CVector class
  * \author Charles Owen
+ * \modifier Zhen Li
  */
 
 #include "pch.h"
@@ -109,40 +111,6 @@ CVector &CVector::operator/=(double d)
 }
 
 
-/**
-* Compute the length of a vector assuming a Euclidian norm
-*
-* \code
-CVector a(3, 7);
-double len = a.Length();   // len = 7.6158
-* \endcode
-* \returns Vector length
-*/
-double CVector::Length() const
-{
-	return sqrt(mX * mX + mY * mY);
-}
-
-
-
-/**
- * Compute distance from a vector to another vector
- *
- * \code
- CVector a(1, 2);
- CVector b(5, 3);
- double distance = a.Distance(b);  // distance = 4.1231
- * \endcode
- * \param other Other vector to test against
- * \returns Distance between vectors
- */
-double CVector::Distance(const CVector &other) const
-{
-	double dx = other.mX - mX;
-	double dy = other.mY - mY;
-	return sqrt(dx * dx + dy * dy);
-}
-
 
 /**
  * Operator + Compute the sum of two vectors
@@ -197,21 +165,4 @@ CVector operator-(const CVector &a, const CVector &b)
 CVector operator/(const CVector &a, double d)
 {
 	return CVector(a.X() / d, a.Y() / d);
-}
-
-/**
- * Normalize this vector to a length of 1.
- *
- * \code
- CVector a(12.2, 1.7);
- a.Normalize();   // a is now (0.9904, 0.1380)
- * \endcode
- * \return *this
- */
-CVector &CVector::Normalize()
-{
-	double l = Length();
-	mX /= l;
-	mY /= l;
-	return *this;
 }
