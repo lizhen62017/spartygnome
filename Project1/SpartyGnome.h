@@ -139,7 +139,7 @@ public:
 	boolean GetIsControllable() { return isControllable; }
 
 	/// Function for handling if the gnome is controllable
-	/// \param temp A bool for switching controllable
+	/// \param control A bool for switching controllable
 	void SetIsControllable(boolean control) { isControllable = control; }
 	
 	void FallingColide(double y, double height);
