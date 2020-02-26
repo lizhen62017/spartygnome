@@ -14,21 +14,6 @@ using namespace std;
 
 const Gdiplus::REAL Epsilon = 1; ///< remove the white lines between objects made of multiple pictures.
 
-/**
- * Constructor
- 
-CItem::CItem(CLevel* level, const std::wstring& filename) :
-	mLevel(level)
-{
-	mItemImage = shared_ptr<Bitmap>(Bitmap::FromFile(filename.c_str())); ///FIXME some items have multiple images at the same time (platform)
-	if (mItemImage->GetLastStatus() != Ok)
-	{
-		wstring msg(L"Failed to open ");
-		msg += filename;
-		AfxMessageBox(msg.c_str());
-	}
-}*/
-
 
 /**
  * Constructor constructing item from Level Xml file

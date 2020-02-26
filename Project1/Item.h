@@ -11,7 +11,6 @@
 
 #include <memory>
 #include <string>
-#include <Windows.h>
 #include <mmsystem.h>
 
 #include "XmlNode.h"
@@ -75,14 +74,8 @@ public:
 	/// \returns item height
 	virtual double GetHeight() { return GetImage()->GetHeight(); };
 
-	/** Define if item is collidable
-	* \return value The value of whether or not it's collidable
-	*/
-	//virtual boolean IsCollidable() = 0;
-
 	virtual void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node);
 
-	//CItem(CLevel* level, const std::wstring& filename);
 
 	CItem(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
