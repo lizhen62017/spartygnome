@@ -3,7 +3,6 @@
  *
  * \author Jeremy Cowelchuk
  */
-#pragma comment(lib, "winmm.lib") 
 #include "pch.h"
 #include "Wings.h"
 #include "Level.h"
@@ -28,6 +27,7 @@ void CWings::Collided()
 {
 	PlaySound(TEXT("data/sounds/drink.wav"), NULL, SND_ASYNC);
 	mHit = true;
+	// Tells SpartyGnome he has wings
 	GetLevel()->GetGame()->GetGnome()->Wings(true);
 }
 

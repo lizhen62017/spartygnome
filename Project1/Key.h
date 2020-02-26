@@ -3,12 +3,11 @@
  *
  * \author Torre Rocco
  *
- * 
+ * Class the describes the key object, which is needed to open doors
  */
 
 #pragma once
 #include "Item.h"
-
 
 /**
  * Class that handles the key item, needed to pass level

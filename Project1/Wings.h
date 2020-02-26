@@ -3,14 +3,14 @@
  *
  * \author Jeremy Cowelchuk
  *
- * 
+ * Class the describes wings
  */
 
 
 #pragma once
 #include "Item.h"
 /**
- * Class for handling the team item, a wings item that allows double jumps
+ * Class for handling the team item, wings item that allows double jumps
  */
 class CWings :
 	public CItem
