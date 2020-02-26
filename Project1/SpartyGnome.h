@@ -22,12 +22,14 @@ private:
 
 	/// Check to see if gnome has already jumped
 	boolean misJumping = false;
+
 	/// Image for gnome
 	std::unique_ptr<Gdiplus::Bitmap> mImage;
 
-	/// speed vectors, contains all the getters and setters
+	/// Vector for gnome's velocity
 	CVector mV = CVector(0, 0);
-	/// position vectors contains all the getters and setters
+
+	/// Vector for gnome's position
 	CVector mP = CVector(850, 550);
 
 	/// The supported image states
@@ -35,11 +37,6 @@ private:
 
 	/// The current image state
 	ImageState mImageState = ImageState::Base;
-
-	/* The level this gnome is contained in
-	CLevel Temp = CLevel(L"data/levels/level0.xml");
-	CLevel Temp1 = CLevel(L"data/levels/level1.xml"); ///< The level the gnome starts on
-	CLevel* mLevel = &Temp1; ///< The level spartygnome is currently on???  */
 
 	/// Boolean if gnome has wings
 	boolean mWings = false;
@@ -50,16 +47,16 @@ private:
 	/// Boolean if gnome has used double jump
 	boolean mDoubleJump = false;
 
-	/// The game this item is contained in
+	/// The game the gnome is contained in
 	CGameSystem* mGameSystem;
 
-	/// Trace if gnome is really falling or falling after killed by villan
+	/// Trace if gnome is really falling or falling after being killed by villan
 	boolean mIsAfterDeath = false;
 
-	/// Your ability to control gnome
+	/// Ability to control gnome
 	boolean isControllable = false;
 
-	/// status of spartygnome
+	/// Status of spartygnome
 	boolean mIsAlive = true;
 
 	/// Total time
@@ -71,6 +68,9 @@ private:
 public:
 	/// Default constructor (deleted)
 	CSpartyGnome() = delete;
+
+	///copy constructor (disabled)
+	CSpartyGnome(const CSpartyGnome&) = delete;
 
 	CSpartyGnome(CGameSystem* game);
 
@@ -108,53 +108,39 @@ public:
 	* \return y velocity */
 	double GetVelY() { return mV.Y(); }
 
-	/// Get the width of the item
+	/// Get the width of the gnome
 	/// \returns item width
 	int GetWidth() const { return mImage->GetWidth(); }
 
-	/// Get the height of the item
+	/// Get the height of the gnome
 	/// \returns item height
 	int GetHeight() const { return mImage->GetHeight(); }
 
 	void Update(double elapsed);
 
 	/**  Sets gnome's status
-	* \param status whether he is alive/dead */
+	* \param status whether he is alive or dead */
 	void Alive(bool status) { mIsAlive = status; mIsAfterDeath = false; };
 
 	/**
-	* Getter to playingarea
-	* \returns the mAquarium private member
-	*/
-	// CLevel* GetLevel() { return mLevel; };
-
-	/**
-	* Getter to playingarea
-	* \returns the mGameSystem private member
+	* Getter to the game the gnome is apart of
+	* \returns The game th egnome is apart of
 	*/
 	CGameSystem* GetGame() { return mGameSystem; };
 
-	/**
-	* Function for handling the death of SpartyGnome
-	*/
 	void Death(boolean villain);
 
-	/**
-	* Function for processing a jump
-	*/
 	void Jump();
 
 	/**
 	* Get your ability to control gnome
-	* \returns status
+	* \returns The gnomes control status
 	*/
 	boolean GetIsControllable() { return isControllable; }
 
 	/// Function for handling if the gnome is controllable
 	/// \param temp A bool for switching controllable
-	void SetIsControllable(boolean temp) { isControllable = temp; }
-
-	void ChangeLevel(CLevel* level);
+	void SetIsControllable(boolean control) { isControllable = control; }
 	
 	void FallingColide(double y, double height);
 
@@ -175,8 +161,8 @@ public:
 	void SetImage(const std::wstring& file);
 
 	/**
-	* A function for setting how long the time has elapsed for spartygnome
-	* \param temp The time being added to how long has been elasped
+	* A function for setting how much the time has elapsed for spartygnome
+	* \param temp The time that has elapsed
 	*/
 	void SetTimeElapsed(double temp) { mTimeElapsed = temp; }
 

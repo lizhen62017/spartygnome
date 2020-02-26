@@ -34,7 +34,7 @@ const wstring ImageSadWing = L"data/images/gnome-sad-wing.png"; ///< Sad gnome i
 /// Gravity in virtual pixels per second per second
 const double Gravity = 1000.0;
 
-/// Vertial character speed in pixels per second
+/// Vertial character speed in virtual pixels per second
 const double JumpSpeed = -800;
 
 /// Horizontal character speed in pixels per second
@@ -43,7 +43,7 @@ const double HorizontalSpeed = 500.00;
 /// Small value to ensure we do not stay in collision
 const double Epsilon = 0.01;
 
-/// Maximum vertical speed
+/// Maximum vertical speed, capped to prevent tunneling
 const double MaxVY = 1500;
 
 /// Number to shift the text by so it is centered on screen.
@@ -83,7 +83,7 @@ void CSpartyGnome::Draw(Gdiplus::Graphics* graphics, float scrollX)
 
 /**
 * Updates SpartyGnome's location
-* \param elapsed elapsed time since last update
+* \param elapsed Elapsed time since last update
 */
 void CSpartyGnome::Update(double elapsed)
 {
@@ -92,7 +92,6 @@ void CSpartyGnome::Update(double elapsed)
     {
         isControllable = true;
     }
-    // Gravity
     // Compute a new velocity with gravity added in.
     CVector newV(mV.X(), mV.Y() + Gravity * elapsed);
 
@@ -109,7 +108,7 @@ void CSpartyGnome::Update(double elapsed)
     mV = newV;
     mP = newP;
     
-    if (!mIsAfterDeath)
+    if (!mIsAfterDeath) //< check if the gnome is dead
     {
         for (auto collided : GetGame()->CollisionTest(this))
         {
@@ -117,7 +116,7 @@ void CSpartyGnome::Update(double elapsed)
         }
     }
 
-    //Check if gnome died
+    //Check if gnome died in this update
     Death(false);
 
     //Set proper image state for animation
@@ -190,10 +189,6 @@ void CSpartyGnome::Death(boolean villain)
             mIsAfterDeath = true; //Avoid further collision
             SetVelY(500); //Let it fall
         }
-        //Message to check if working, leave commented
-        //AfxMessageBox(L"SpartyGnome has died");
-
-		// A pointer for the message we are loading
 
 		// only run once -> when he dies
 		if (mIsAlive)
@@ -205,15 +200,14 @@ void CSpartyGnome::Death(boolean villain)
 			mGameSystem->Add(item);
             SetVelX(0);
             
+            // Set attributes to reflect death
             mImageState = ImageState::Sad;
-
 			mGameSystem->SetRespawn(true);
 			mIsAlive = false;
             mWings = false;
 			
 		}
 
-     //   isAfterDeath = false;
         isControllable = false;
         mTimeElapsed = 0.0;
     }
@@ -224,14 +218,14 @@ void CSpartyGnome::Death(boolean villain)
 */
 void CSpartyGnome::Jump()
 {
-    if (!misJumping && mV.Y() <= 0.5 && mV.Y() >= -0.5)
+    if (!misJumping && mV.Y() <= 0.5 && mV.Y() >= -0.5) //< Can the gnome jump
     {
         PlaySound(TEXT("data/sounds/jump.wav"), NULL, SND_ASYNC);
         SetVelY(JumpSpeed);
         misJumping = true;
     }
     // Support for double jumping if gnome has wings
-    else if (mWings && !mDoubleJump && mV.Y() > 20)
+    else if (mWings && !mDoubleJump && mV.Y() > 20) //< Can the gnome double jump
     {
         PlaySound(TEXT("data/sounds/double_jump.wav"), NULL, SND_ASYNC);
         SetVelY(JumpSpeed);
@@ -239,17 +233,6 @@ void CSpartyGnome::Jump()
     }
     if (mImageState == ImageState::Sad) { mImageState = ImageState::Base; }
 }
-
-
-/**
- * A class for changing which level spartygnome currently is in
- * \param level the level being changed to
- */
-void CSpartyGnome::ChangeLevel(CLevel* level)
-{
-    // mLevel = level;
-}
-
 
 /**
  * Function to handle collision with top of wall or platform
@@ -307,7 +290,7 @@ void CSpartyGnome::RightColide(double x, double width)
 
 
 /**
- * 
+ * Function to determine which collide function to call when gnome collides with terrain
  * \param x X coord of object collided with
  * \param y Y coord of object collided with
  * \param width Width of object collided with
@@ -370,7 +353,7 @@ void CSpartyGnome::MoveLeft()
 }
 
 /**
- * Function for when a move arrow is released
+ * Function for when left or right arrow is released
  */
 void CSpartyGnome::Stop()
 {
@@ -382,8 +365,8 @@ void CSpartyGnome::Stop()
 }
 
 /**
- *  Set the image file to draw
- * \param file The base filename. Blank files are allowed
+ *  Set the image file of the gnome to draw
+ * \param file The image filename
  */
 void CSpartyGnome::SetImage(const std::wstring& file)
 {

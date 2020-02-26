@@ -3,7 +3,7 @@
  *
  * \author Jeremy Cowelchuk
  *
- * Class the describes wings
+ * Class that describes wings
  */
 
 
