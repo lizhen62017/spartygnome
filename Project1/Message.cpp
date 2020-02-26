@@ -28,12 +28,6 @@ CMessage::CMessage(CLevel* level, std::wstring text, double textSize, std::wstri
 	mDelayTime = delayTime;
 }
 
-
-boolean CMessage::IsCollidable()
-{
-	return false;
-}
-
 void CMessage::Draw(Gdiplus::Graphics* graphics, float scrollX)
 {
 

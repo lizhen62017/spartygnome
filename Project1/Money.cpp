@@ -6,7 +6,6 @@
 
 #include "pch.h"
 #include "Money.h"
-#include "Item.h"
 #include "Level.h"
 #include "MoneyEvaluator.h"
 #include "Scoreboard.h"
@@ -21,7 +20,7 @@ using namespace std;
   * \param declaration The Declaration used to instantiate this item
   */
 CMoney::CMoney(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
-    CItemPickup(level, declaration)
+    CItem(level, declaration)
 {
     CMoneyEvaluator visitor;
     declaration->Accept(&visitor);

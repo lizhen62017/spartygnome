@@ -8,12 +8,12 @@
 
 
 #pragma once
-#include "ItemPickup.h"
+#include "Item.h"
 /**
  * Class for handling the team item, a wings item that allows double jumps
  */
 class CWings :
-	public CItemPickup
+	public CItem
 {
 public:
     /// default constructor (disabled)

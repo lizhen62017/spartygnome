@@ -7,13 +7,13 @@
  */
 
 #pragma once
-#include "ItemPickup.h"
+#include "Item.h"
 
 
 /**
  * Class that handles the key item, needed to pass level
  */
-class CKey : public CItemPickup
+class CKey : public CItem
 {
 public:
 	/// default constructor (disabled)

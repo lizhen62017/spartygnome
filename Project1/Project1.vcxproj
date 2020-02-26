@@ -194,7 +194,6 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameSystem.h" />
     <ClInclude Include="Item.h" />
-    <ClInclude Include="ItemPickup.h" />
     <ClInclude Include="Key.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="MainFrm.h" />
@@ -229,7 +228,6 @@
     <ClCompile Include="Declaration.cpp" />
     <ClCompile Include="GameSystem.cpp" />
     <ClCompile Include="Item.cpp" />
-    <ClCompile Include="ItemPickup.cpp" />
     <ClCompile Include="Key.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="MainFrm.cpp" />

@@ -35,8 +35,6 @@ public:
     * \return width of terrain */
     double GetWidth() override { return mWidth; }
 
-    boolean IsCollidable() override;
-
     void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node) override;
 
     void Collided() override;

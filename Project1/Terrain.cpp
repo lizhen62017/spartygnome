@@ -45,16 +45,6 @@ void CTerrain::XmlLoad(const std::shared_ptr<xmlnode::CXmlNode> & node)
 
 
 /**
- * Function for determining if a given item has collision physics
- * \return true Terrain has collision physics 
- */
-boolean CTerrain::IsCollidable()
-{
-    return true;
-}
-
-
-/**
  * Determines gnomes reaction when colliding with terrain
  */
 void CTerrain::Collided()

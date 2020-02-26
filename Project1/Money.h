@@ -7,7 +7,7 @@
  */
 
 #pragma once
-#include "ItemPickup.h"
+#include "Item.h"
 
 class CItem;
 
@@ -15,7 +15,7 @@ class CItem;
  * Class for money items in a given level
  */
 class CMoney :
-	public CItemPickup
+	public CItem
 {
 public:
     /// default constructor (disabled)

@@ -47,10 +47,6 @@ public:
     /// \returns item height
     virtual double GetHeight() override { return GetImage()->GetHeight(); };
 
-   /** Define if beackground is collidable
-    */
-    boolean IsCollidable() override;
-
     /** Defines what happens if collision occurs
      */
     void Collided() override {}

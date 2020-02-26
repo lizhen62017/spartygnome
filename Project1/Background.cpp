@@ -43,14 +43,3 @@ void CBackground::Draw(Gdiplus::Graphics* graphics,double scrollX)
     graphics->DrawImage(mImage, wid/2-1 + scrollX, 0, wid, hit);
     graphics->DrawImage(mImage, 1.5 * wid - 2 + scrollX, 0, wid, hit);*/
 }
-
-
-/**
-* function for determining if the gnome can collide with it.
-* \return false It's not collidable.
-*/
-boolean CBackground::IsCollidable()
-{
-    return false;
-}
-

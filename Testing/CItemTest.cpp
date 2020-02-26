@@ -46,11 +46,6 @@ namespace Testing
 		/// \returns item height
 		virtual double GetHeight() override { return 0; } //FIXME Virtual Item
 
-		/** Define if item is collidable
-		* \param collidable the situation
-		*/
-		virtual boolean IsCollidable() override { return true; }; //FIXME Virtual Item
-
 		/// Handles results of a collision with an item
 		virtual void Collided() override {};
 };

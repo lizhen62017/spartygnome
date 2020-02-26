@@ -37,12 +37,6 @@ public:
 	/// \returns item height
 	virtual double GetHeight() { return 0; };
 
-	/**
-	* Function for determining if an object has collision physics
-	* \return False Pickup items do not have collision physics as expected.
-	*/
-	boolean IsCollidable() override;
-
 	/// Draw this item
 	/// \param graphics Graphics device to draw on
 	/// \param scrollX the distance the gnome has scrolled
