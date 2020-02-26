@@ -62,10 +62,9 @@ void CMoney::Collided()
 
 /**
  * The function for updating the money
- * Handle updates for animation
+ * Handles updates for animation
  * \param elapsed The time since the last update
- * \returns false if the item becomes marked for deletion,
- * true if not
+ * \returns false if the item becomes marked for deletion, true if not
  */
 bool CMoney::Update(double elapsed)
 {

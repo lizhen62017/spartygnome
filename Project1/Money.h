@@ -3,7 +3,7 @@
  *
  * \author Jeremy Cowelchuk
  *
- * 
+ * Class for a money object
  */
 
 #pragma once
