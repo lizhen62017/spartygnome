@@ -196,7 +196,7 @@ void CSpartyGnome::Death(boolean villain)
 			shared_ptr<CItem> item;
             PlaySound(TEXT("data/sounds/pacman_death.wav"), NULL, SND_ASYNC);
 			item = make_shared<CMessage>(mGameSystem->GetCurrentLevel(), L"You Lose!", 100, L"red", 2.0);
-            item->SetLocation(GetX() - 500, 150);
+            item->SetLocation(GetX() - (360 - mGameSystem->GetCurrentLevel()->GetOffset()), 150);
 			mGameSystem->Add(item);
             SetVelX(0);
             

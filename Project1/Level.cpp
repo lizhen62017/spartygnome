@@ -357,17 +357,17 @@ void CLevel::Install()
 	}
 
 
-	shared_ptr<CItem> item;
-
-	std::wstring printString = L"Level " + std::to_wstring(mGame->GetLevel()) + L" Begin";
-
-	item = make_shared<CMessage>(this, printString, 100, L"red", 2.0);
-    item->SetLocation((mGame->GetVirtualWidth() / 2.0) - 500, 150);
-	mGame->Add(item);
-
 	// set gnome location
 	mGame->GetGnome()->SetLocX(mStartX);
 	mGame->GetGnome()->SetLocY(mStartY);
 	mGame->GetGnome()->SetVelX(0);
 	mGame->GetGnome()->SetVelY(0);
+
+	shared_ptr<CItem> item;
+
+	std::wstring printString = L"Level " + std::to_wstring(mGame->GetLevel()) + L" Begin";
+
+	item = make_shared<CMessage>(this, printString, 100, L"red", 2.0);
+    item->SetLocation(mGame->GetGnome()->GetX() - (480 - GetOffset()), 150);
+	mGame->Add(item);
 }
