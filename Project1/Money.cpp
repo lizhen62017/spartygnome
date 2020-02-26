@@ -55,7 +55,7 @@ void CMoney::Collided()
         auto scoreboard = GetLevel()->GetGame()->GetScoreboard();
         scoreboard->AddDollars(mValue);
 
-		item->SetLocation(GetX() - (245 - (GetLevel()->GetOffset() + 200)), GetY());
+		item->SetLocation(GetX() - (45 - GetLevel()->GetOffset()), GetY());
 		GetLevel()->GetGame()->Add(item);
     }
     mHit = true;
