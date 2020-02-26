@@ -6,7 +6,6 @@
 
 
 #include "pch.h"
-
 #include<string>
 #include "Door.h"
 #include "MovingMessage.h"
@@ -49,13 +48,13 @@ boolean CDoor::CollideGnome(CSpartyGnome* gnome)
 }
 
 /**
-* Function for switching levels when the gnome collides with a door
+* Function to handle gnome collision with door
 */
 void CDoor::Collided()
 {
 	auto Gnome = GetLevel()->GetGame()->GetGnome();
 
-    if (CollideGnome(Gnome))
+    if (CollideGnome(Gnome)) // Checks if gnome meets special door collision
     {
 		if (Gnome->GetKey())
 		{

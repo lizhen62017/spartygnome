@@ -3,7 +3,7 @@
  *
  * \author Robert Gustke
  *
- * Class for door items
+ * Class that describes door items
  */
 
 #pragma once
