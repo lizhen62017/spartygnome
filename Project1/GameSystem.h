@@ -8,13 +8,9 @@
 
 #pragma once
 
-#include "Background.h"
 #include "Level.h"
-#include <string>
 
 class CScoreboard;
-class CSpartyGnome;
-class CItem;
 
 /**
  * CGameSystem Class
@@ -29,8 +25,7 @@ public:
 	/// Destructor
 	~CGameSystem();
 
-	
-	/// Draws
+	/// Draws the entire game and handles scaling and offset
 	void Draw(Gdiplus::Graphics* graphics, int width, int height);
 
     /// Gets the gnome object
@@ -53,17 +48,20 @@ public:
 	/// Multiplies all of the money items in the game
 	void MultiplyMoney();
 
+	//// visitor for each item
 	void Accept(CItemVisitor* visitor);
 
+	/// resets the game to the start of the level
     void Reset();
 
+	/// Clears
 	void Clear();
 
     /// Changes the level to the desired level
     /// \param level The level being changed to
     void ChangeLevel(int level);
 
-
+	/// Adds a given item to the level
 	void Add(std::shared_ptr<CItem> item);
 
 	std::vector<std::shared_ptr<CItem>> CollisionTest(CSpartyGnome* gnome);

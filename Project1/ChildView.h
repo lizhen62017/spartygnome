@@ -9,8 +9,9 @@
  * the menu bar, and the status bar
  */
 
-#include "GameSystem.h"
 #pragma once
+
+#include "GameSystem.h"
 
 
 /**

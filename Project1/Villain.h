@@ -7,9 +7,8 @@
  */
 
 #pragma once
+
 #include "Item.h"
-#include "Level.h"
-#include "Declaration.h"
 
 const double Velocity = 240; ///< Constant speed for the villains
 

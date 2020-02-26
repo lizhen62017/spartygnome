@@ -2,7 +2,6 @@
 #include "GameSystem.h"
 #include "Scoreboard.h"
 #include "SpartyGnome.h"
-#include "Item.h"
 #include "Message.h"
 #include "MoneyMultiplier.h"
 
@@ -16,8 +15,6 @@ const int BackgroundSize = 1024;
 /// Maximum amount of time to allow for elapsed, tuned to have 0.019 works the best
 const double MaxElapsed = 0.019; 
 
-/// Shift the text to be centered
-const double TextShift = 700;
 
 /**
 * Constructor
@@ -27,6 +24,8 @@ CGameSystem::CGameSystem()
 	// initialize game scoreboard
 	mScoreboard = new CScoreboard(this);
     mGnome = new CSpartyGnome(this);
+
+	//Load all the levels and get the start locations and set them up correctly
 
 	mLevel0 = new CLevel(this, L"data/levels/level0.xml");
 	mLevel0->SetStartX(500);
@@ -75,15 +74,12 @@ void CGameSystem::Draw(Gdiplus::Graphics* graphics,int width, int height)
     mScale = float(height) / float(BackgroundSize);
     graphics->ScaleTransform(mScale, mScale);
 
-    // Determine the virtual width
+    // Determine the virtual width and the offset
     auto virtualWidth = (float)width / mScale;
-
 	mWidth = virtualWidth;
-
     auto xOffset = (float)-mGnome->GetX() + virtualWidth / 2.0f;
 
-    // all drawing needs to be below here to allow for virtual pixels
-
+    // Draw the items needed
     for (auto item : mItems)
     {
         item->Draw(graphics, xOffset);
@@ -92,8 +88,6 @@ void CGameSystem::Draw(Gdiplus::Graphics* graphics,int width, int height)
     mGnome->Draw(graphics, xOffset);
 
 	mScoreboard->Draw(graphics, virtualWidth);
-
-
 }
 
 
@@ -136,6 +130,7 @@ void CGameSystem::Update(double elapsed)
 		}
 	}
 
+	// Delete any items flagged for removal
 	RemoveItem(removeItem);
 
 	// if respawn is set, wait two seconds
@@ -227,7 +222,6 @@ void CGameSystem::ChangeLevel(int level)
         mCurrentLevel = mLevel3;
         break;
     }
-    //mGnome->ChangeLevel(mCurrentLevel);
 	mCurrentLevel->Install();
 	Reset();
 	mGnome->SetIsControllable(false);

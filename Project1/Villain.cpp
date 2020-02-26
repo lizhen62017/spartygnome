@@ -6,12 +6,7 @@
 
 #include "pch.h"
 #include "Villain.h"
-#include "Level.h"
-#include "GameSystem.h"
 #include "SpartyGnome.h"
-
-/// The maximum allowed distance a villain is allowed to move
-const double MaxTravelDistance = 300;
 
 /** 
 * The declaration constructor for the Villain class
@@ -44,17 +39,20 @@ bool CVillain::Update(double elapsed)
 
     this->SetLocation(this->GetX(), newY);
 
-    
+    // check to see if the villain has gone beyond it's allowed pacing distance
     if ((newY < mMinY && mVelocityY > 0) || (newY > mMaxY && mVelocityY < 0))
     {
         ReverseDirection();
     }
 
+    //return false to prevent deletion
     return false;
 }
 
+
 void CVillain::XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node)
 {
+    //get the maximum distance it's allowed to move
     mMaxY = node->GetAttributeDoubleValue(L"y", 0);
     mMinY =  mMaxY- 300;
 

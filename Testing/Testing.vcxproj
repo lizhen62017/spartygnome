@@ -109,7 +109,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>pch;XmlNode;SpartyGnome;Level;Declaration;MoneyDeclaration;Background;ItemVisitor;Money;ItemPickup;TuitionUp;Door;Villain;Wings;DeclarationVisitor;MoneyEvaluator;Fragile;Vector;Item;Terrain;Platform;Wall;GameSystem;Scoreboard;Message;winmm.lib;MovingMessage;MoneyMultiplier;Key</AdditionalDependencies>
+      <AdditionalDependencies>pch;XmlNode;SpartyGnome;Level;Declaration;MoneyDeclaration;Background;ItemVisitor;Money;TuitionUp;Door;Villain;Wings;DeclarationVisitor;MoneyEvaluator;Fragile;Vector;Item;Terrain;Platform;Wall;GameSystem;Scoreboard;Message;winmm.lib;MovingMessage;MoneyMultiplier;Key</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -147,7 +147,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>pch;XmlNode;SpartyGnome;Level;Declaration;MoneyDeclaration;Background;ItemVisitor;Money;ItemPickup;TuitionUp;Door;Villain;Wings;DeclarationVisitor;MoneyEvaluator;Fragile;</AdditionalDependencies>
+      <AdditionalDependencies>pch;XmlNode;SpartyGnome;Level;Declaration;MoneyDeclaration;Background;ItemVisitor;Money;TuitionUp;Door;Villain;Wings;DeclarationVisitor;MoneyEvaluator;Fragile;</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

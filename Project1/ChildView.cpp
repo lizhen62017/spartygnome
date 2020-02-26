@@ -68,9 +68,9 @@ void CChildView::OnPaint()
 	CPaintDC paintDC(this);     // device context for painting
 	CDoubleBufferDC dc(&paintDC); // device context for painting
 	Graphics graphics(dc.m_hDC);
-	graphics.Clear(Color(0, 0, 0));
+	graphics.Clear(Color(0, 0, 0)); //paint the background black
 
-
+	//get the size of the window for virtual scaling
 	CRect rect;
 	GetClientRect(&rect);
 
@@ -99,6 +99,7 @@ void CChildView::OnPaint()
 	double elapsed = double(diff) / mTimeFreq;
 	mLastTime = time.QuadPart;
 
+	// update the game such that it works as expected
 	mGameSystem.Update(elapsed);
 	mGameSystem.Draw(&graphics, rect.Width(), rect.Height());
 

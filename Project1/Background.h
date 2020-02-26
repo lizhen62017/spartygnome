@@ -29,12 +29,6 @@ public:
 
     CBackground(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
-    /// Drawing the background
-    /// \param graphics The graphics needed to draw
-    /// \param scrollX The distance needed to scroll the background
-	void Draw(Gdiplus::Graphics* graphics, double scrollX);
-	/**double GetImageHeight() {return mImage->GetHeight(); };*/
-
     /** Accept a visitor
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitBackground(this); }
@@ -42,8 +36,5 @@ public:
     /** Defines what happens if collision occurs
      */
     void Collided() override {}
-
-/**private:
-	Gdiplus::Bitmap* mImage;*/
 };
 
