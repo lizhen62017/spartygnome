@@ -36,11 +36,6 @@ public:
     /// \returns item height
     virtual double GetHeight() override { return GetImage()->GetHeight()-20; };
 
-    /** Define if item is collidable
-    * \return value The value of whether or not it's collidable
-    */
-    virtual boolean IsCollidable() override { return false; };
-
     /** Accept a visitor
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitVillain(this); };

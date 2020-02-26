@@ -20,7 +20,7 @@ using namespace std;
   * \param declaration The Declaration used to instantiate this item
   */
 CKey::CKey(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
-	CItemPickup(level, declaration)
+	CItem(level, declaration)
 {
 }
 

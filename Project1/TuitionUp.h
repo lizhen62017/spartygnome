@@ -7,7 +7,7 @@
  */
 
 #pragma once
-#include "ItemPickup.h"
+#include "Item.h"
 
 class CItem;
 
@@ -15,7 +15,7 @@ class CItem;
  * Class for handling tuition up pickups
  */
 class CTuitionUp :
-	public CItemPickup
+	public CItem
 {
 public:
     /// default constructor (disabled)

@@ -16,7 +16,7 @@
   * \param declaration The Declaration used to instantiate this item
   */
 CWings::CWings(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
-    CItemPickup(level, declaration)
+    CItem(level, declaration)
 {
 }
 

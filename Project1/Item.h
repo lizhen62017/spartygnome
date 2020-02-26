@@ -78,7 +78,7 @@ public:
 	/** Define if item is collidable
 	* \return value The value of whether or not it's collidable
 	*/
-	virtual boolean IsCollidable() = 0;
+	//virtual boolean IsCollidable() = 0;
 
 	virtual void XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node);
 

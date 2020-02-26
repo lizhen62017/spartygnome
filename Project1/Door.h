@@ -41,11 +41,6 @@ public:
     /// \returns item height
     virtual double GetHeight() override { return GetImage()->GetHeight(); };
 
-    /** Define if item is collidable
-    * \return value The value of whether or not it's collidable
-    */
-    virtual boolean IsCollidable() { return false; } //FIXME
-
     boolean CollideGnome(CSpartyGnome* gnome);
 
     void Collided() override;
