@@ -5,21 +5,10 @@
  */
 
 #include "pch.h"
-#include <string>
 #include "Terrain.h"
-#include "Level.h"
-#include "GameSystem.h"
-#include "SpartyGnome.h"
 
 using namespace Gdiplus;
 using namespace std;
-
-/**
- * Constructor
- 
-CTerrain::CTerrain(CLevel* level, const std::wstring& filename) : CItem(level, filename)
-{
-}*/
 
 /**
  * Constructor

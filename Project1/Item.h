@@ -19,7 +19,6 @@
 
 
 class CLevel;
-class CGameSystem;
 
 /**
  * Base class for any item in our game.

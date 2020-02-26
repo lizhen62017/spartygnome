@@ -10,6 +10,7 @@
 #include "Item.h"
 #include "Level.h"
 #include "Declaration.h"
+#include "SpartyGnome.h"
 
 /**
  * Abstract Base class representing terrain (walls and platforms) 
