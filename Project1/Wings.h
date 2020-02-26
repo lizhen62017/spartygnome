@@ -35,14 +35,6 @@ public:
     /// \return boolean if it was hit
     virtual bool Update(double elapsed) override;
 
-    /// Get the width of the item
-    /// \returns item width
-    virtual double GetWidth() override { return GetImage()->GetWidth(); };
-
-    /// Get the height of the item
-    /// \returns item height
-    virtual double GetHeight() override { return GetImage()->GetHeight(); };
-
 private:
     double mVelocity = -750; ///< the speed wings moves after being hit
     bool mHit = false; ///< determines when the wings has been hit by spartygnome

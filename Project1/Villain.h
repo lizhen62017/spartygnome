@@ -28,14 +28,6 @@ public:
 
     CVillain(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
 
-    /// Get the width of the item
-    /// \returns item width
-    virtual double GetWidth() override { return GetImage()->GetWidth(); };
-
-    /// Get the height of the item
-    /// \returns item height
-    virtual double GetHeight() override { return GetImage()->GetHeight()-20; };
-
     /** Accept a visitor
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitVillain(this); };

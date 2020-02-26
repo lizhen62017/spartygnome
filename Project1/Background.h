@@ -39,14 +39,6 @@ public:
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitBackground(this); }
 
-    /// Get the width of the item
-    /// \returns item width
-    virtual double GetWidth() override { return GetImage()->GetWidth(); };
-
-    /// Get the height of the item
-    /// \returns item height
-    virtual double GetHeight() override { return GetImage()->GetHeight(); };
-
     /** Defines what happens if collision occurs
      */
     void Collided() override {}
