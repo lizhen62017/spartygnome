@@ -66,7 +66,7 @@ void CDoor::Collided()
 			{ 
 				shared_ptr<CItem> item;
 				item = make_shared<CMovingMessage>(GetLevel(), L"Forgot the Key!", 10, L"blue", 0.3);
-				item->SetLocation(GetX() - 190, GetY());
+				item->SetLocation(GetX() - (45 - GetLevel()->GetOffset()), GetY());
 				GetLevel()->GetGame()->Add(item);
 				mDoorMessage = true;
 			}

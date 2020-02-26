@@ -37,7 +37,7 @@ void CTuitionUp::Collided()
 
 		shared_ptr<CItem> item;
 		item = make_shared<CMovingMessage>(GetLevel(), L"Tuition Increase!", 10, L"green", 0.3);
-		item->SetLocation(GetX() - 190, GetY());
+		item->SetLocation(GetX() - (45 - GetLevel()->GetOffset()), GetY());
 		game->Add(item);
 	}
 	mHit = true;

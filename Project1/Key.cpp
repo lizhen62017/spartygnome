@@ -38,7 +38,7 @@ void CKey::Collided()
 
 		shared_ptr<CItem> item;
 		item = make_shared<CMovingMessage>(GetLevel(), L"Key Obtained!", 10, L"green", 0.3);
-		item->SetLocation(GetX() - 190, GetY());
+		item->SetLocation(GetX() - (45 - GetLevel()->GetOffset()), GetY());
 		GetLevel()->GetGame()->Add(item);
 	}
 	mHit = true;
