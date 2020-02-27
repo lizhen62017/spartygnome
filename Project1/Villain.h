@@ -49,7 +49,7 @@ public:
 
 private:
     double mVelocityY = Velocity; ///< The speed at which the villain moves
-    double mMaxY = 0; ///< The minimum travel height of a villain
-    double mMinY = 0; ///< The maximum travel height of a villain
+    double mMaxY = 0; ///< The lowest travel height of a villain
+    double mMinY = 0; ///< The highest travel height of a villain
 };
 
