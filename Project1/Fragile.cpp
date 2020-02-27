@@ -5,7 +5,6 @@
  */
 
 #include "pch.h"
-#include <string>
 #include "Fragile.h"
 
 using namespace std;

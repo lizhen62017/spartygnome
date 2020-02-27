@@ -5,7 +5,6 @@
  */
 
 #include "pch.h"
-#include <string>
 #include "Wall.h"
 
 using namespace std;
