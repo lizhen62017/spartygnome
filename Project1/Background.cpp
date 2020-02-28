@@ -11,7 +11,7 @@
 using namespace Gdiplus;
 
 /**
- * Constructor for a Background when loaded from level file
+ * Constructor for a Background when loaded from level file using a declaration
  * \param level The level this background is a part of
  * \param declaration The Declaration used to instantiate this item 
  */

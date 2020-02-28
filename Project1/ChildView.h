@@ -41,10 +41,9 @@ public:
 
 // Member Variables	
 private:
-	CGameSystem mGameSystem; ///< The GameSystem class
+	CGameSystem mGameSystem;    ///< The GameSystem class
 
-	/// True until the first time we draw
-	bool mFirstDraw = true;
+	bool mFirstDraw = true;     ///< True until the first time we draw
 
 	long long mLastTime = 0;    ///< Last time we read the timer
 	double mTimeFreq = 0;       ///< Rate the timer updates

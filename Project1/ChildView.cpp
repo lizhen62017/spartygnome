@@ -74,7 +74,7 @@ void CChildView::OnPaint()
 	CRect rect;
 	GetClientRect(&rect);
 
-	if (mFirstDraw)
+	if (mFirstDraw) //Draw the window for the first time
 	{
 		mFirstDraw = false;
 		SetTimer(1, FrameDuration, nullptr);
