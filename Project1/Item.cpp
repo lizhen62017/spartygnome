@@ -64,5 +64,6 @@ void CItem::XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node)
 {
     mX = node->GetAttributeDoubleValue(L"x", 0);
     mY = node->GetAttributeDoubleValue(L"y", 0);
+    mID = node->GetAttributeValue(L"id", L"");
 }
 
