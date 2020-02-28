@@ -5,26 +5,25 @@
  */
 
 #include "pch.h"
-#include "Item.h"
 #include "Level.h"
-#include "MoneyDeclaration.h"
+#include "GameSystem.h"
 #include "SpartyGnome.h"
+#include "DeclarationVisitor.h"
+#include "MoneyDeclaration.h"
+#include "Item.h"
 #include "Background.h"
 #include "Platform.h"
+#include "Fragile.h"
 #include "Wall.h"
-#include "ItemVisitor.h"
-#include "DeclarationVisitor.h"
-#include "MoneyEvaluator.h"
 #include "Door.h"
 #include "Money.h"
 #include "TuitionUp.h"
-#include "Villain.h"
 #include "Wings.h"
-#include "Message.h"
-#include "GameSystem.h"
-#include "Fragile.h"
 #include "Key.h"
-
+#include "Villain.h"
+#include "ItemVisitor.h"
+#include "MoneyEvaluator.h"
+#include "Message.h"
 
 using namespace std;
 using namespace xmlnode;

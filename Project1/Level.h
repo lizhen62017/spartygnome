@@ -14,12 +14,11 @@
 #include <map>
 
 #include "XmlNode.h"
-#include "Declaration.h"
 
 class CSpartyGnome; // Add this to support Gnome's collision
 class CItem;
 class CDeclaration;
-class CMoneyDeclaration;//CHECK THIS
+class CMoneyDeclaration;
 class CItemVisitor;
 class CGameSystem;
 
@@ -53,17 +52,9 @@ public:
      * \return level start position x value */
     double GetStartX() { return mStartX; }
 
-	/**  Setter for level start position x value
-	* \param locX Level start position x value */
-	void SetStartX(double locX) { mStartX = locX; }
-
     /**  Getter for level start position y value
      * \return level start position y value */
     double GetStartY() { return mStartY; }
-
-	/**  Setter for level start position y value
-	* \param locY start position y value */
-	void SetStartY(double locY) { mStartY = locY; }
 
     /**  Getter for game system level is a part of
      * \return the game system */
@@ -76,8 +67,6 @@ public:
     /**  Getter for level offset
     * \return level offset */
     double GetOffset() { return mGnomeOffset; }
-  
-   // void Draw(Gdiplus::Graphics* graphics, int scrollX);
 
     void Accept(CItemVisitor* visitor);
 
@@ -91,7 +80,7 @@ private:
     /// Level width in virtual pixels
     double mWidth;
 
-    /// Level hieght in virtual pixels
+    /// Level height in virtual pixels
     double mHeight;
 
     /// Initial starting point for SpartyGnome on X-axis

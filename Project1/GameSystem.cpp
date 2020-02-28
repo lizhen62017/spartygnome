@@ -28,12 +28,8 @@ CGameSystem::CGameSystem()
 	//Load all the levels and get the start locations and set them up correctly
 
 	mLevel0 = new CLevel(this, L"data/levels/level0.xml");
-	mLevel0->SetStartX(500);
-	mLevel0->SetStartY(500);
 	mLevel0->SetOffset(237.090027); 
 	mLevel1 = new CLevel(this, L"data/levels/level1.xml");
-	mLevel1->SetStartX(850);
-	mLevel1->SetStartY(550);
 	mLevel1->SetOffset(-146.909973);
 	mLevel2 = new CLevel(this, L"data/levels/level2.xml");
 	mLevel2->SetOffset(-82.9099731);
