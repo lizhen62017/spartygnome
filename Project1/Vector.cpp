@@ -3,6 +3,7 @@
  *
  * All the functions needed for CVector class
  * \author Charles Owen
+ * \author Zhen Li
  */
 
 #include "pch.h"

@@ -14,7 +14,7 @@
 using namespace Gdiplus;
 using namespace std;
 
-/// constant for scale of the window.  All background objects are 1024 pixels, so
+///constant for scale of the window.  All background objects are 1024 pixels, so
 /// that is going to be what it is scaled to at all times.
 const int BackgroundSize = 1024;
 
