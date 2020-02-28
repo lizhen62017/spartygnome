@@ -15,7 +15,7 @@
 
 #include "XmlNode.h"
 
-class CSpartyGnome; // Add this to support Gnome's collision
+class CSpartyGnome;
 class CItem;
 class CDeclaration;
 class CMoneyDeclaration;

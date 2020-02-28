@@ -193,7 +193,7 @@ void CLevel::XmlDeclaration(const std::shared_ptr<xmlnode::CXmlNode>& node)
         // Money has value attribute
         if (type == L"money") 
         {
-            // Make the declaration
+            // Make the money declaration
             auto declaration = make_shared<CMoneyDeclaration>();
             declaration->SetType(type);
             double value = node->GetAttributeDoubleValue(L"value", 0);
@@ -297,7 +297,7 @@ void CLevel::XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node)
 		item = make_shared<CKey>(this, declaration);
 	}
     
-
+    // Load the item
     if (item != nullptr)
     {
         item->XmlLoad(node);
@@ -323,7 +323,7 @@ shared_ptr<Bitmap> CLevel::ImageLoad(wstring filename)
     if (image->GetLastStatus() != Ok)
     {
         wstring message = L"Failed to open" + path;
-        AfxMessageBox(message.c_str()); //////FIX THIS LATER
+        AfxMessageBox(message.c_str());
     }
     return image;
 }
@@ -364,6 +364,7 @@ void CLevel::Install()
 
 	shared_ptr<CItem> item;
 
+    // Makes the "Level X Begin" message
 	std::wstring printString = L"Level " + std::to_wstring(mGame->GetLevel()) + L" Begin";
 
 	item = make_shared<CMessage>(this, printString, 100, L"red", 2.0);
