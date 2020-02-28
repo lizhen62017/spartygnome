@@ -15,12 +15,13 @@
 
 #include "XmlNode.h"
 
+class CGameSystem;
 class CSpartyGnome;
-class CItem;
 class CDeclaration;
 class CMoneyDeclaration;
+class CItem;
 class CItemVisitor;
-class CGameSystem;
+
 
 /**
  * Class representing a level in the game

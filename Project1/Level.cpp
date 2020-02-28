@@ -144,7 +144,6 @@ void CLevel::Load(const std::wstring& filename)
 }
 
 
-
 /**
 * Handle a declaration node.
 * \param node Pointer to XML node we are handling
