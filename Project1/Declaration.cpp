@@ -31,14 +31,6 @@ CDeclaration::~CDeclaration()
  */
 shared_ptr<Gdiplus::Bitmap> CDeclaration::GetImage(int index) 
 {
-    try 
-    {
         shared_ptr<Gdiplus::Bitmap> image = mImages[index];
         return image;
-    }
-    catch (const out_of_range)
-    {
-        wstring message = L"Tried to access image a not in declaration";
-        AfxMessageBox(message.c_str());
-    }
 }
