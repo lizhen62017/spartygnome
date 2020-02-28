@@ -10,7 +10,7 @@
 using namespace Gdiplus;
 using namespace std;
 
-// Stretch image a bit so no gap between them.
+/// Stretches the image a bit so there is no gap between images.
 const Gdiplus::REAL Epsilon = 1;
 
 
