@@ -3,7 +3,7 @@
  *
  * \author Torre Rocco
  *
- * 
+ * Takes care of all message objects put in to the game
  */
 
 #pragma once

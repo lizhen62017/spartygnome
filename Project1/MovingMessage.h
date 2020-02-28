@@ -3,7 +3,7 @@
  *
  * \author Torre Rocco
  *
- * 
+ * Takes care of all moving message objects put in to the game
  */
 
 
@@ -33,10 +33,10 @@ public:
 private:
 	double mVelocity = 750; ///< The velocity the message moves at
 
-	double mSizeTimer = 0.0; ///< The time since last size addition
+	double mSizeTimer = 0.0; ///< The time since creation
 
-	double mStartSize; ///< The time since last size addition
+	double mStartSize; ///< The size the text starts at
 
-	double mMaxSize = 25; ///< The time since last size addition
+	double mMaxSize = 25; ///< The greatest size the message can get to
 };
 

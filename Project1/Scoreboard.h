@@ -3,7 +3,7 @@
  *
  * \author Torre Rocco
  *
- * Handles all scores diplayed fo the game
+ * Handles all scores diplayed for the game
  */
 
 #pragma once
@@ -11,7 +11,9 @@
 #include <string>
 #include "GameSystem.h"
 
-/// Scoreboard class
+/**
+ * Scoreboard class for game display
+ */
 class CScoreboard
 {
 public:
@@ -40,7 +42,6 @@ public:
 
 	/// Update the scoreboard
 	/// \param elapsed The time elapsed from previous update
-	/// \return bool A boolean to determine if it's deleted
 	void Update(double elapsed);
 
 	void Reset();

@@ -14,6 +14,7 @@ using namespace Gdiplus;
 
 /// The number to shift the money by so that the numbers do not change location
 const Gdiplus::REAL ShiftNumber = 67;
+
 /**
 * Constructor
 * \param game The game this score is a part of

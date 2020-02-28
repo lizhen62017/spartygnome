@@ -24,7 +24,7 @@ CMovingMessage::CMovingMessage(CLevel* level, std::wstring text, double textSize
 	mStartSize = textSize;
 }
 
-// still need to refine this function
+
 bool CMovingMessage::Update(double elapsed)
 {
 	mSizeTimer += elapsed;
