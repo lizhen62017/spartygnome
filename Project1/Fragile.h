@@ -38,13 +38,13 @@ public:
      * \param visitor The visitor we accept */
     virtual void Accept(CItemVisitor* visitor) override { visitor->VisitFragile(this); }
 
-    /**Getter for terrain height
-      * \return height of terrain
+    /**Getter for fragile platform height
+      * \return height of fragile platform
       */
     double GetHeight() override { return 32; }
 
-    /** Getter for terrain width
-    * \return width of terrain */
+    /** Getter for fragile platform width
+    * \return width of fragile platform */
     double GetWidth() override { return 160; }
 
     void Collided() override;

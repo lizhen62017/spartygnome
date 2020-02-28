@@ -3,7 +3,6 @@
  *
  * \author Charles Owen
  * \author Zhen Li
-
  * Simple 2D vector class
  */
 

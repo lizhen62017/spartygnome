@@ -11,8 +11,8 @@ using namespace std;
 using namespace Gdiplus;
 
 /**
- * Constructor for a platform when loaded from level file
- * \param level The level this platform is a part of
+ * Constructor for a fragile platform when loaded from level file
+ * \param level The level this fragile platform is a part of
  * \param declaration The Declaration used to instantiate this item
  */
 CFragile::CFragile(CLevel* level, const std::shared_ptr<CDeclaration> declaration) :
@@ -31,7 +31,7 @@ void CFragile::Draw(Gdiplus::Graphics* graphics, float scrollX)
 }
 
 /**
-* The function for handling money collisions
+* The function for handling collision
 */
 void CFragile::Collided()
 {
