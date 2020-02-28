@@ -75,10 +75,6 @@ shared_ptr<CDeclaration> CLevel::GetDeclaration(std::wstring id)
  */
 void CLevel::Clear()
 {
-    mWidth = 0;
-    mHeight = 0;
-    mStartX = 0;
-    mStartY = 0;
     mItems.clear();
 }
 
@@ -127,11 +123,7 @@ void CLevel::Load(const std::wstring& filename)
 
             if (node->GetType() == NODE_ELEMENT && node->GetName() == L"items")
             {
-                // Traverse items
-                for (auto item : node->GetChildren())
-                {
-                    XmlItem(item);
-                }
+                LoadItems(node);
             }
         }
 
@@ -141,6 +133,23 @@ void CLevel::Load(const std::wstring& filename)
         AfxMessageBox(ex.Message().c_str());
     }
 
+}
+
+
+/**
+ * Loads the item instantiations for the level
+ * \param node A shard pointer to an item Xml node containing all of the item
+ * instantiation information for the level.
+ */
+void CLevel::LoadItems(const std::shared_ptr<xmlnode::CXmlNode>& node)
+{
+    if (node->GetType() == NODE_ELEMENT && node->GetName() == L"items")
+    {
+        for (auto item : node->GetChildren())
+        {
+            XmlItem(item);
+        }
+    }
 }
 
 
@@ -343,11 +352,34 @@ void CLevel::Accept(CItemVisitor* visitor)
  */
 void CLevel::Install()
 {
-	// reset level
+	// clear game system items
 	mGame->Clear();
     
-    Clear();
-    Load(mFilename);
+    // We surround with a try/catch to handle errors
+    try
+    {
+        // Open the document to read
+        shared_ptr<CXmlNode> root = CXmlNode::OpenDocument(mFilename);
+
+        // Once we know it is open, clear the existing level items
+        Clear();
+
+        // Traverse the children of the root
+        // node of the XML document in memory!!!!
+        for (auto node : root->GetChildren())
+        {
+            // Reloads the item instantiations
+            if (node->GetType() == NODE_ELEMENT && node->GetName() == L"items")
+            {
+                LoadItems(node);
+            }
+        }
+    }
+
+    catch (CXmlNode::Exception ex)
+    {
+        AfxMessageBox(ex.Message().c_str());
+    }
 
 	for (auto item : mItems)
 	{

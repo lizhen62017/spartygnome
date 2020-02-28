@@ -108,6 +108,8 @@ private:
 
     void XmlItem(const std::shared_ptr<xmlnode::CXmlNode>& node);
 
+    void LoadItems(const std::shared_ptr<xmlnode::CXmlNode>& node);
+
     std::shared_ptr<Gdiplus::Bitmap> ImageLoad(std::wstring filename);
 
 };
