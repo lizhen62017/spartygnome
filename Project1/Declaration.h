@@ -31,8 +31,8 @@ public:
 
     std::shared_ptr<Gdiplus::Bitmap> GetImage(int index);
 
-    /** Gets declaration's type
-     * \return Wstring of Declarations type*/
+    /** Gets declaration item's type
+     * \return Wstring of declaration item's type*/
     std::wstring GetType() { return mType; }
 
     /** Accept a visitor
@@ -40,10 +40,10 @@ public:
     virtual void Accept(CDeclarationVisitor* visitor) {};
 
 private:
-	/// Images for declaration
+	/// Vector of images the declaration remembers
 	std::vector<std::shared_ptr<Gdiplus::Bitmap>> mImages;
 
-    /// The type of item
+    /// The type of item the declaration is for
     std::wstring mType = L"";
 };
 
