@@ -2,7 +2,8 @@
  * \file Vector.h
  *
  * \author Charles Owen
- * \modifier Zhen Li
+ * \author Zhen Li
+
  * Simple 2D vector class
  */
 

@@ -3,7 +3,7 @@
  *
  * All the functions needed for CVector class
  * \author Charles Owen
- * \modifier Zhen Li
+ * \author Zhen Li
  */
 
 #include "pch.h"
