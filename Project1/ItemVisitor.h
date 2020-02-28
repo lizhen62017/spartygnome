@@ -76,7 +76,5 @@ public:
 	/** Visit a CKey object
 	* \param key the key we are visiting */
 	virtual void VisitKey(CKey* key) {}
-
-    //ADD MORE DOWN HERE
 };
 

@@ -6,7 +6,6 @@
 
 #include "pch.h"
 #include "MoneyEvaluator.h"
-
 #include "MoneyDeclaration.h"
 
 
