@@ -36,10 +36,9 @@ bool CVillain::Update(double elapsed)
 {
     double newY = this->GetY() - mVelocityY * elapsed;
 
-
     this->SetLocation(this->GetX(), newY);
 
-    // check to see if the villain has gone beyond it's allowed pacing distance
+    // reverse direction if the villain has gone beyond it's allowed pacing distance
     if ((newY < mMinY && mVelocityY > 0) || (newY > mMaxY && mVelocityY < 0))
     {
         ReverseDirection();
@@ -52,7 +51,7 @@ bool CVillain::Update(double elapsed)
 
 void CVillain::XmlLoad(const std::shared_ptr<xmlnode::CXmlNode>& node)
 {
-    //get the maximum distance it's allowed to move
+    //get the maximum distancethe villain is allowed to move
     mMaxY = node->GetAttributeDoubleValue(L"y", 0);
     mMinY =  mMaxY- 300;
 

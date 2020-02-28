@@ -1,3 +1,9 @@
+/**
+ * \file GameSystem.cpp
+ *
+ * \author
+ */
+
 #include "pch.h"
 #include "GameSystem.h"
 #include "Scoreboard.h"
@@ -156,9 +162,7 @@ void CGameSystem::Update(double elapsed)
 		item = make_shared<CMessage>(mCurrentLevel, L"Level " + to_wstring(level) + L" Clear!", 100, L"red", 2.0);
 		item->SetLocation(mGnome->GetX() - (480 - mCurrentLevel->GetOffset()), 150);
 		Add(item);
-		/// The solution above is very shitty because 
-		/// I did not quite get why there is a ScoreBoard::Door() function... 
-		/// I should use that but do not know how
+
 		if (mTimeElapsed >= 2.0)
 		{
 			if (level < 3)
@@ -198,8 +202,6 @@ void CGameSystem::Clear()
 	mItems.clear();
 }
 
-
-//maybe put the gnome level switching here?
 
 void CGameSystem::ChangeLevel(int level)
 {
@@ -251,7 +253,7 @@ std::vector<std::shared_ptr<CItem>> CGameSystem::CollisionTest(CSpartyGnome* gno
 		auto itemTop = mItems[i]->GetY() - mItems[i]->GetHeight() / 2;
 		auto itemBottom = mItems[i]->GetY() + mItems[i]->GetHeight() / 2;
 
-		// For us
+		// For gnome
 		auto ourLeft = gnome->GetX() - gnome->GetWidth() / 2;
 		auto ourRight = gnome->GetX() + gnome->GetWidth() / 2;
 		auto ourTop = gnome->GetY() - gnome->GetHeight() / 2;

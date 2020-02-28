@@ -117,7 +117,6 @@ private:
     /// The current and active level
     CLevel* mCurrentLevel;
 
-
 	/// All of the items currently in gamesystem
 	std::vector<std::shared_ptr<CItem>> mItems;
 

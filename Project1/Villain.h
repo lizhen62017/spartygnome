@@ -3,7 +3,8 @@
  *
  * \author Jeremy Cowelchuk
  *
- * 
+ * Class implementing villain item that causes SpartyGnome
+ * to restart the level if he collides with the villains.
  */
 
 #pragma once
@@ -38,7 +39,7 @@ public:
     /* Updates the villain to enable movement*/
     bool Update(double elapsed) override;
 
-    /// Reverse the direction of the gnome
+    /// Reverse the direction of the villain's motion
     void ReverseDirection() { mVelocityY = -mVelocityY; };
 
     /**
