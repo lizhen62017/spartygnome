@@ -21,10 +21,10 @@ class CBackground
 	: public CItem
 {
 public:
-    // Default constructor (disabled)
+    /// Default constructor (disabled)
 	CBackground() = delete;
 
-    // Copy constructor (disabled)
+    /// Copy constructor (disabled)
     CBackground(const CBackground&) = delete;
 
     CBackground(CLevel* level, const std::shared_ptr<CDeclaration> declaration);
