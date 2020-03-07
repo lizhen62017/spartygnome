@@ -22,6 +22,7 @@ const wstring ImageLeft2 = L"data/images/gnome-walk-left-2.png"; ///< Second mov
 const wstring ImageRight1 = L"data/images/gnome-walk-right-1.png"; ///< First moving right image
 const wstring ImageRight2 = L"data/images/gnome-walk-right-2.png"; ///< Second moving right image
 const wstring ImageSad = L"data/images/gnome-sad.png"; ///< Sad gnome image
+const wstring ImageClimb = L"data/images/gnome-climb.png"; ///< Climbing gnome image
 
 /// The five wing images for SpartyGnome animation
 const wstring ImageBaseWing = L"data/images/gnome-wing.png"; ///< Base image with wings
@@ -30,6 +31,7 @@ const wstring ImageLeft2Wing = L"data/images/gnome-walk-left-2-wing.png"; ///< S
 const wstring ImageRight1Wing = L"data/images/gnome-walk-right-1-wing.png"; ///< First moving right image with wings
 const wstring ImageRight2Wing = L"data/images/gnome-walk-right-2-wing.png"; ///< Second moving right image with wings
 const wstring ImageSadWing = L"data/images/gnome-sad-wing.png"; ///< Sad gnome image with wings
+const wstring ImageClimbWing = L"data/images/gnome-climb-wing.png"; ///< Climbing gnome image with wings
 
 /// Gravity in virtual pixels per second per second
 const double Gravity = 1000.0;
@@ -92,11 +94,50 @@ void CSpartyGnome::Update(double elapsed)
     {
         isControllable = true;
     }
+
+    // Stupid way to detect ladder and start climbing
+    if ((GetGame()->GetLevel() == 3 && mP.X() > 3926 && mP.X() < 3939 && mP.Y() > 99 && mP.Y() < 663) ||
+        (GetGame()->GetLevel() == 3 && mP.X() > 3166 && mP.X() < 3179 && mP.Y() > 0 && mP.Y() < 381))
+    {
+        if (!isClimbing)
+        {
+            SetVelX(0);
+            SetVelY(0);
+        }
+        isClimbing = true;
+        mImageState = ImageState::Climb;
+        mImageTime = 0.0;
+    }
+    else
+    {
+        if (isClimbing)
+        {
+            if (GetVelX() < -0.5)
+            {
+                mImageState = ImageState::Left1;
+                mImageTime = 0.0;
+            }
+            else if (GetVelX() > 0.5)
+            {
+                mImageState = ImageState::Right1;
+                mImageTime = 0.0;
+            }
+        }
+        isClimbing = false;
+    }
+
     // Compute a new velocity with gravity added in.
     CVector newV(mV.X(), mV.Y() + Gravity * elapsed);
 
+    // Disable gravity while climbing a ladder
+    if (isClimbing)
+    {
+        newV = mV; 
+    }
+
     // Update position
     CVector newP = mP + newV * elapsed;
+
 
     mP.SetY(newP.Y());
 
@@ -107,7 +148,7 @@ void CSpartyGnome::Update(double elapsed)
 
     mV = newV;
     mP = newP;
-    
+
     if (!mIsAfterDeath) //< check if the gnome is dead
     {
         for (auto collided : GetGame()->CollisionTest(this))
@@ -173,6 +214,12 @@ void CSpartyGnome::Update(double elapsed)
         if (mWings) { SetImage(ImageSadWing); }
         else { SetImage(ImageSad); }
     }
+
+    else if (mImageState == ImageState::Climb)
+    {
+        if (mWings) { SetImage(ImageClimbWing); }
+        else { SetImage(ImageClimb); }
+    }
 }
 
 /**
@@ -218,20 +265,23 @@ void CSpartyGnome::Death(boolean villain)
 */
 void CSpartyGnome::Jump()
 {
-    if (!misJumping && mV.Y() <= 0.5 && mV.Y() >= -0.5) //< Can the gnome jump
+    if (!isClimbing)
     {
-        PlaySound(TEXT("data/sounds/jump.wav"), NULL, SND_ASYNC);
-        SetVelY(JumpSpeed);
-        misJumping = true;
+        if (!misJumping && mV.Y() <= 0.5 && mV.Y() >= -0.5) //< Can the gnome jump
+        {
+            PlaySound(TEXT("data/sounds/jump.wav"), NULL, SND_ASYNC);
+            SetVelY(JumpSpeed);
+            misJumping = true;
+        }
+        // Support for double jumping if gnome has wings
+        else if (mWings && !mDoubleJump && mV.Y() > 20) //< Can the gnome double jump
+        {
+            PlaySound(TEXT("data/sounds/double_jump.wav"), NULL, SND_ASYNC);
+            SetVelY(JumpSpeed);
+            mDoubleJump = true;
+        }
+        if (mImageState == ImageState::Sad) { mImageState = ImageState::Base; }
     }
-    // Support for double jumping if gnome has wings
-    else if (mWings && !mDoubleJump && mV.Y() > 20) //< Can the gnome double jump
-    {
-        PlaySound(TEXT("data/sounds/double_jump.wav"), NULL, SND_ASYNC);
-        SetVelY(JumpSpeed);
-        mDoubleJump = true;
-    }
-    if (mImageState == ImageState::Sad) { mImageState = ImageState::Base; }
 }
 
 /**
@@ -349,6 +399,28 @@ void CSpartyGnome::MoveLeft()
     {
         mImageState = ImageState::Left1;
         mImageTime = 0.0;
+    }
+}
+
+/**
+ * Function for when up arrow is pressed
+ */
+void CSpartyGnome::ClimbUp()
+{
+    if (isClimbing)
+    {
+        SetVelY(-500);
+    }
+}
+
+/**
+ * Function for when down arrow is pressed
+ */
+void CSpartyGnome::ClimbDown()
+{
+    if (isClimbing)
+    {
+        SetVelY(500);
     }
 }
 

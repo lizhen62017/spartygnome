@@ -33,7 +33,7 @@ private:
 	CVector mP = CVector(850, 550);
 
 	/// The supported image states
-	enum class ImageState { Base, Left1, Left2, Right1, Right2, Sad};
+	enum class ImageState { Base, Left1, Left2, Right1, Right2, Sad, Climb};
 
 	/// The current image state
 	ImageState mImageState = ImageState::Base;
@@ -64,6 +64,9 @@ private:
 
 	/// Time spent in a partcilar image, used for SpartyGnome animation
 	double mImageTime = 0.0;
+
+	/// Identify whether gnome is climbing 
+	boolean isClimbing = false; 
 
 public:
 	/// Default constructor (deleted)
@@ -156,6 +159,10 @@ public:
 
 	void MoveLeft();
 
+	void ClimbUp();
+
+	void ClimbDown();
+
 	void Stop();
 	
 	void SetImage(const std::wstring& file);
@@ -189,5 +196,12 @@ public:
 	* \returns mKey if the gnome has it or not
 	*/
 	bool GetKey() { return mKey; }
+
+	/**
+	* Gets the isClimbing condition for ChildView so 
+	* lifting UP/DOWN key won't do anything when not on ladder
+	* \returns isClimbing return if Gnome is on ladder or not
+	*/
+	bool GetIsClimbing() { return isClimbing; }
 };
 

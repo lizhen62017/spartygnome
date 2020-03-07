@@ -69,6 +69,7 @@
 
     <platform id="i001" x="3472" y="381" width="800" height="32"/>
     <platform id="i001" x="3584" y="663" width="1024" height="32"/>
+    <platform id="i001" x="3244" y="0" width="288" height="32"/>
     <wall id="i002" x="3088" y="980" width="32" height="128"/>
     <wall id="i002" x="4081" y="980" width="32" height="128"/>
     <wall id="i002" x="3088" y="-128" width="32" height="992"/>

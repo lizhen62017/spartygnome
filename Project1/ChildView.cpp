@@ -149,6 +149,14 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			mGameSystem.GetGnome()->MoveLeft();
 			break;
 
+		case VK_UP:
+			mGameSystem.GetGnome()->ClimbUp();
+			break;
+
+		case VK_DOWN:
+			mGameSystem.GetGnome()->ClimbDown();
+			break;
+
 		case VK_SPACE:
 			mGameSystem.GetGnome()->Jump();
 			break;
@@ -171,6 +179,13 @@ void CChildView::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	case VK_LEFT:
 		mGameSystem.GetGnome()->Stop();
 		break;
+	case VK_UP:
+	case VK_DOWN:
+		if (mGameSystem.GetGnome()->GetIsClimbing())
+		{
+			mGameSystem.GetGnome()->SetVelY(0);
+			break;
+		}
 	}
 }
 
